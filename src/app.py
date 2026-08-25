@@ -39,3 +39,16 @@ if st.button("Explore position"):
 
             st.subheader("Variant consequences")
             st.write(get_consequence_summary(position))
+            
+st.subheader("CFTR Domain Conservation")
+
+domain_conservation = {
+    "NBD1": 0.820016,
+    "NBD2": 0.790831,
+    "Other": 0.692784,
+    "R domain": 0.640287,
+    "TMD1": 0.767632,
+    "TMD2": 0.729488,
+}
+
+st.bar_chart(domain_conservation)
