@@ -1,4 +1,4 @@
-from .data_loader import load_data
+from data_loader import load_data
 
 def get_position(position):
     FinalPosition, CFTR_variants = load_data()
