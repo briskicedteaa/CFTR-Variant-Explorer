@@ -7,4 +7,4 @@ def load_data():
     position_df = pd.read_csv(DATA_DIR / "FinalPosition.csv")
     variants_df = pd.read_csv(DATA_DIR / "CFTR_variants.csv")
     
-    return FinalPosition, CFTR_variants
+    return position_df, variants_df
