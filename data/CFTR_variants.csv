@@ -1,0 +1,3665 @@
+Position,WildType,MutatedType,Consequence,Region
+1,M,,initiator codon variant,N-terminal
+1,M,I,missense,N-terminal
+1,M,K,missense,N-terminal
+1,M,R,missense,N-terminal
+1,M,T,missense,N-terminal
+1,M,V,missense,N-terminal
+2,Q,,frameshift,N-terminal
+2,Q,*,stop gained,N-terminal
+2,Q,P,missense,N-terminal
+3,R,,frameshift,N-terminal
+3,R,M,missense,N-terminal
+3,R,W,missense,N-terminal
+4,S,*,stop gained,N-terminal
+4,S,A,missense,N-terminal
+4,S,L,missense,N-terminal
+4,S,P,missense,N-terminal
+5,P,L,missense,N-terminal
+5,P,R,missense,N-terminal
+5,P,S,missense,N-terminal
+6,L,,frameshift,N-terminal
+6,L,R,missense,N-terminal
+6,L,V,missense,N-terminal
+7,E,*,stop gained,N-terminal
+7,E,Q,missense,N-terminal
+8,K,R,missense,N-terminal
+9,A,,frameshift,N-terminal
+9,A,T,missense,N-terminal
+9,A,V,missense,N-terminal
+10,S,N,missense,N-terminal
+10,S,R,missense,N-terminal
+10,S,T,missense,N-terminal
+11,V,A,missense,N-terminal
+11,V,I,missense,N-terminal
+11,V,L,missense,N-terminal
+12,V,A,missense,N-terminal
+13,S,A,missense,N-terminal
+13,S,C,missense,N-terminal
+13,S,F,missense,N-terminal
+13,S,Y,missense,N-terminal
+14,K,,frameshift,N-terminal
+14,K,,frameshift,N-terminal
+14,K,*,stop gained,N-terminal
+14,K,E,missense,N-terminal
+14,K,I,missense,N-terminal
+14,K,Q,missense,N-terminal
+14,K,R,missense,N-terminal
+15,L,,frameshift,N-terminal
+15,L,F,missense,N-terminal
+15,L,H,missense,N-terminal
+15,L,P,missense,N-terminal
+15,L,V,missense,N-terminal
+17,F,,frameshift,N-terminal
+17,F,,frameshift,N-terminal
+17,F,=,-,N-terminal
+17,F,L,missense,N-terminal
+17,F,L,missense,N-terminal
+17,F,Q,frameshift,N-terminal
+17,F,V,missense,N-terminal
+18,S,,frameshift,N-terminal
+18,S,G,missense,N-terminal
+18,S,I,missense,N-terminal
+19,W,,frameshift,N-terminal
+19,W,*,stop gained,N-terminal
+19,W,*,stop gained,N-terminal
+19,W,C,missense,N-terminal
+19,W,L,frameshift,N-terminal
+20,T,A,missense,N-terminal
+20,T,S,missense,N-terminal
+20,T,S,missense,N-terminal
+21,R,I,missense,N-terminal
+22,P,R,missense,N-terminal
+23,IL,*,stop gained,N-terminal
+23,I,T,missense,N-terminal
+23,I,V,missense,N-terminal
+24,L,*,stop gained,N-terminal
+24,L,F,missense,N-terminal
+24,L,V,missense,N-terminal
+25,R,K,missense,N-terminal
+26,K,E,missense,N-terminal
+26,K,I,missense,N-terminal
+26,K,N,missense,N-terminal
+27,G,,frameshift,N-terminal
+27,G,*,stop gained,N-terminal
+27,G,E,missense,N-terminal
+27,G,R,missense,N-terminal
+27,G,V,missense,N-terminal
+28,Y,H,missense,N-terminal
+29,R,G,missense,N-terminal
+29,R,T,missense,N-terminal
+30,Q,*,stop gained,N-terminal
+30,Q,P,missense,N-terminal
+31,R,,frameshift,N-terminal
+31,R,C,missense,N-terminal
+31,R,H,missense,N-terminal
+31,R,L,missense,N-terminal
+31,R,S,missense,N-terminal
+32,L,M,missense,N-terminal
+32,L,P,missense,N-terminal
+33,E,*,stop gained,N-terminal
+33,E,Q,missense,N-terminal
+34,LSDIYQ,,inframe deletion,N-terminal
+35,S,L,missense,N-terminal
+36,D,,frameshift,N-terminal
+36,D,A,missense,N-terminal
+37,I,L,missense,N-terminal
+37,I,M,missense,N-terminal
+37,I,T,missense,N-terminal
+37,I,V,missense,N-terminal
+38,Y,,frameshift,N-terminal
+38,Y,*,stop gained,N-terminal
+38,Y,C,missense,N-terminal
+38,Y,H,missense,N-terminal
+38,Y,N,missense,N-terminal
+39,Q,*,stop gained,N-terminal
+39,Q,H,missense,N-terminal
+39,Q,P,missense,N-terminal
+41,P,L,missense,N-terminal
+41,P,R,missense,N-terminal
+42,S,F,missense,N-terminal
+43,V,A,missense,N-terminal
+43,V,I,missense,N-terminal
+43,V,L,missense,N-terminal
+44,D,G,missense,N-terminal
+44,D,V,missense,N-terminal
+45,S,C,missense,N-terminal
+46,A,D,missense,N-terminal
+46,A,T,missense,N-terminal
+46,A,V,missense,N-terminal
+47,D,Y,missense,N-terminal
+48,N,,frameshift,N-terminal
+48,N,H,missense,N-terminal
+48,N,K,missense,N-terminal
+49,L,P,missense,N-terminal
+50,S,,frameshift,N-terminal
+50,S,A,missense,N-terminal
+50,S,P,missense,N-terminal
+50,S,Y,missense,N-terminal
+51,E,K,missense,N-terminal
+52,K,,frameshift,N-terminal
+52,K,*,stop gained,N-terminal
+52,K,I,missense,N-terminal
+53,L,,frameshift,N-terminal
+54,E,A,missense,N-terminal
+54,E,G,missense,N-terminal
+55,R,G,missense,N-terminal
+55,R,I,missense,N-terminal
+55,R,K,missense,N-terminal
+55,R,N,frameshift,N-terminal
+56,E,,frameshift,N-terminal
+56,E,*,stop gained,N-terminal
+56,E,D,missense,N-terminal
+56,E,G,missense,N-terminal
+56,E,K,missense,N-terminal
+57,W,*,stop gained,N-terminal
+57,W,*,stop gained,N-terminal
+57,W,G,missense,N-terminal
+57,W,R,missense,N-terminal
+58,D,,frameshift,N-terminal
+58,D,G,missense,N-terminal
+58,D,H,missense,N-terminal
+58,D,N,missense,N-terminal
+58,D,V,missense,N-terminal
+59,R,,frameshift,N-terminal
+59,R,S,missense,N-terminal
+59,R,T,missense,N-terminal
+60,E,,frameshift,N-terminal
+60,E,*,stop gained,N-terminal
+60,E,D,missense,N-terminal
+60,E,K,missense,N-terminal
+60,E,Q,missense,N-terminal
+60,E,V,missense,N-terminal
+61,L,M,missense,N-terminal
+61,L,R,missense,N-terminal
+62,A,P,missense,N-terminal
+62,A,S,missense,N-terminal
+62,A,T,missense,N-terminal
+64,K,E,missense,N-terminal
+65,K,R,missense,N-terminal
+66,N,D,missense,N-terminal
+67,P,,frameshift,N-terminal
+67,P,L,missense,N-terminal
+68,K,E,missense,N-terminal
+68,K,N,missense,N-terminal
+68,K,Q,missense,N-terminal
+69,L,I,missense,N-terminal
+69,L,R,missense,N-terminal
+69,L,V,missense,N-terminal
+70,I,V,missense,N-terminal
+71,N,S,missense,N-terminal
+72,A,D,missense,N-terminal
+72,A,G,missense,N-terminal
+72,A,T,missense,N-terminal
+72,A,V,missense,N-terminal
+73,L,,frameshift,N-terminal
+73,L,F,missense,N-terminal
+74,R,P,missense,N-terminal
+74,R,Q,missense,N-terminal
+74,R,W,missense,N-terminal
+75,R,*,stop gained,N-terminal
+75,R,L,missense,N-terminal
+75,R,Q,missense,N-terminal
+76,C,F,missense,N-terminal
+76,C,R,missense,N-terminal
+76,C,S,missense,N-terminal
+76,C,W,missense,N-terminal
+78,F,,frameshift,N-terminal
+78,F,L,missense,N-terminal
+78,F,S,missense,N-terminal
+78,F,Y,missense,N-terminal
+79,W,,frameshift,N-terminal
+79,W,,frameshift,N-terminal
+79,W,*,stop gained,N-terminal
+79,W,R,missense,N-terminal
+80,R,T,missense,N-terminal
+81,F,,frameshift,N-terminal
+81,F,L,missense,N-terminal
+81,F,L,missense,N-terminal
+81,F,Y,missense,N-terminal
+82,M,I,missense,N-terminal
+82,M,K,missense,N-terminal
+82,M,L,missense,N-terminal
+82,M,V,missense,N-terminal
+83,F,L,missense,N-terminal
+84,Y,C,missense,N-terminal
+84,Y,F,missense,N-terminal
+84,Y,H,missense,N-terminal
+85,G,*,stop gained,N-terminal
+85,G,E,missense,N-terminal
+85,G,R,missense,N-terminal
+85,G,V,missense,N-terminal
+85,G,,inframe deletion,N-terminal
+86,I,N,missense,N-terminal
+86,I,V,missense,N-terminal
+87,F,I,missense,N-terminal
+87,F,L,missense,N-terminal
+87,F,S,missense,N-terminal
+88,L,,frameshift,N-terminal
+88,L,,frameshift,N-terminal
+88,L,*,stop gained,N-terminal
+88,L,F,missense,N-terminal
+88,L,S,missense,N-terminal
+89,Y,C,missense,N-terminal
+90,L,*,stop gained,N-terminal
+90,L,S,missense,N-terminal
+90,L,V,missense,N-terminal
+91,G,=,-,N-terminal
+91,G,R,missense,N-terminal
+92,E,,frameshift,N-terminal
+92,E,*,stop gained,N-terminal
+92,E,D,missense,N-terminal
+92,E,K,missense,N-terminal
+92,E,V,missense,N-terminal
+93,V,D,missense,N-terminal
+94,T,A,missense,N-terminal
+94,T,I,missense,N-terminal
+94,T,P,missense,N-terminal
+95,K,*,stop gained,N-terminal
+95,K,R,missense,N-terminal
+96,A,E,missense,N-terminal
+97,V,A,missense,N-terminal
+97,V,L,missense,N-terminal
+97,VQP,,inframe deletion,N-terminal
+98,Q,*,stop gained,N-terminal
+98,Q,P,missense,N-terminal
+98,Q,R,missense,N-terminal
+99,P,A,missense,N-terminal
+99,P,L,missense,N-terminal
+99,P,R,missense,N-terminal
+100,L,F,missense,N-terminal
+100,L,H,missense,N-terminal
+100,L,R,missense,N-terminal
+100,L,V,missense,N-terminal
+101,L,,frameshift,N-terminal
+101,L,*,stop gained,N-terminal
+101,L,S,missense,N-terminal
+102,L,,frameshift,N-terminal
+102,L,P,missense,N-terminal
+102,L,R,missense,N-terminal
+102,L,V,missense,N-terminal
+103,G,,frameshift,N-terminal
+103,G,*,stop gained,N-terminal
+103,G,E,missense,N-terminal
+103,G,R,missense,N-terminal
+104,R,,frameshift,N-terminal
+104,R,G,missense,N-terminal
+104,R,K,missense,N-terminal
+104,R,T,missense,N-terminal
+105,I,,frameshift,N-terminal
+105,I,L,missense,N-terminal
+105,I,N,missense,N-terminal
+105,I,V,missense,N-terminal
+106,IA,*,stop gained,N-terminal
+106,I,T,missense,N-terminal
+106,I,V,missense,N-terminal
+107,A,G,missense,N-terminal
+107,A,P,missense,N-terminal
+108,SY,*,stop gained,N-terminal
+108,S,F,missense,N-terminal
+108,S,P,missense,N-terminal
+108,S,Y,missense,N-terminal
+109,Y,,frameshift,N-terminal
+109,Y,*,stop gained,N-terminal
+109,Y,C,missense,N-terminal
+109,Y,D,missense,N-terminal
+109,Y,H,missense,N-terminal
+109,Y,N,missense,N-terminal
+110,D,,frameshift,N-terminal
+110,D,E,missense,N-terminal
+110,D,H,missense,N-terminal
+110,D,N,missense,N-terminal
+110,D,V,missense,N-terminal
+110,D,Y,missense,N-terminal
+111,P,,frameshift,N-terminal
+111,P,A,missense,N-terminal
+111,P,L,missense,N-terminal
+111,P,R,missense,N-terminal
+111,P,S,missense,N-terminal
+111,P,T,missense,N-terminal
+112,D,G,missense,N-terminal
+112,D,N,missense,N-terminal
+113,N,D,missense,N-terminal
+113,N,I,missense,N-terminal
+113,N,S,missense,N-terminal
+114,K,*,stop gained,N-terminal
+114,K,E,missense,N-terminal
+114,K,N,missense,N-terminal
+114,K,R,missense,N-terminal
+114,K,,inframe deletion,N-terminal
+115,E,V,missense,N-terminal
+116,E,,inframe deletion,N-terminal
+116,E,A,missense,N-terminal
+116,E,G,missense,N-terminal
+116,E,K,missense,N-terminal
+116,E,Q,missense,N-terminal
+117,R,C,missense,N-terminal
+117,R,G,missense,N-terminal
+117,R,H,missense,N-terminal
+117,R,L,missense,N-terminal
+117,R,P,missense,N-terminal
+117,R,S,missense,N-terminal
+118,S,C,missense,N-terminal
+118,S,F,missense,N-terminal
+118,S,Y,missense,N-terminal
+119,I,,frameshift,N-terminal
+119,I,N,missense,N-terminal
+119,I,S,missense,N-terminal
+119,I,V,missense,N-terminal
+120,A,P,missense,N-terminal
+120,A,S,missense,N-terminal
+120,A,T,missense,N-terminal
+120,A,V,missense,N-terminal
+121,I,F,missense,N-terminal
+121,I,V,missense,N-terminal
+122,Y,*,stop gained,N-terminal
+122,Y,C,missense,N-terminal
+122,Y,H,missense,N-terminal
+122,Y,N,missense,N-terminal
+124,G,D,missense,N-terminal
+124,G,R,missense,N-terminal
+125,I,M,missense,N-terminal
+125,I,T,missense,N-terminal
+126,G,A,missense,N-terminal
+126,G,D,missense,N-terminal
+126,G,S,missense,N-terminal
+126,G,V,missense,N-terminal
+127,L,*,stop gained,N-terminal
+127,L,F,missense,N-terminal
+127,L,LL,insertion,N-terminal
+128,C,*,stop gained,N-terminal
+129,L,H,missense,N-terminal
+129,L,P,missense,N-terminal
+129,L,R,missense,N-terminal
+130,L,,frameshift,N-terminal
+130,L,F,missense,N-terminal
+130,L,I,missense,N-terminal
+130,L,P,missense,N-terminal
+130,L,V,missense,N-terminal
+131,F,,frameshift,N-terminal
+131,F,L,missense,N-terminal
+132,I,,frameshift,N-terminal
+132,I,,frameshift,N-terminal
+132,I,T,missense,N-terminal
+132,I,V,missense,N-terminal
+134,R,G,missense,N-terminal
+134,R,K,missense,N-terminal
+135,T,A,missense,N-terminal
+135,T,S,missense,N-terminal
+136,L,,frameshift,N-terminal
+136,L,P,missense,N-terminal
+136,L,R,missense,N-terminal
+137,L,,frameshift,N-terminal
+137,L,,frameshift,N-terminal
+137,L,,frameshift,N-terminal
+137,L,F,missense,N-terminal
+137,LL,H,insertion,N-terminal
+137,L,H,missense,N-terminal
+137,L,P,missense,N-terminal
+137,L,R,missense,N-terminal
+138,L,LL,insertion,N-terminal
+138,L,P,missense,N-terminal
+139,H,L,missense,N-terminal
+139,H,P,missense,N-terminal
+139,H,R,missense,N-terminal
+139,H,Y,missense,N-terminal
+140,P,A,missense,N-terminal
+140,P,L,missense,N-terminal
+140,P,Q,missense,N-terminal
+140,P,R,missense,N-terminal
+140,P,S,missense,N-terminal
+141,A,D,missense,N-terminal
+141,A,T,missense,N-terminal
+142,I,,frameshift,N-terminal
+142,I,S,missense,N-terminal
+142,I,V,missense,N-terminal
+143,F,,frameshift,N-terminal
+143,F,S,missense,N-terminal
+143,F,V,missense,N-terminal
+145,L,,frameshift,N-terminal
+145,L,F,missense,N-terminal
+145,L,H,missense,N-terminal
+145,L,V,missense,N-terminal
+146,H,R,missense,N-terminal
+146,H,Y,missense,N-terminal
+147,H,N,missense,N-terminal
+147,H,P,missense,N-terminal
+147,H,Q,missense,N-terminal
+147,H,,inframe deletion,N-terminal
+148,I,,frameshift,N-terminal
+148,I,,frameshift,N-terminal
+148,I,N,missense,N-terminal
+148,I,S,missense,N-terminal
+148,I,T,missense,N-terminal
+148,I,V,missense,N-terminal
+149,G,*,stop gained,N-terminal
+149,G,E,missense,N-terminal
+149,G,R,missense,N-terminal
+149,G,V,missense,N-terminal
+150,M,I,missense,N-terminal
+150,M,K,missense,N-terminal
+150,M,R,missense,N-terminal
+151,Q,*,stop gained,N-terminal
+151,Q,H,missense,N-terminal
+151,Q,K,missense,N-terminal
+151,Q,P,missense,N-terminal
+151,Q,R,missense,N-terminal
+152,M,I,missense,N-terminal
+152,M,L,missense,N-terminal
+152,M,R,missense,N-terminal
+152,M,T,missense,N-terminal
+152,M,V,missense,N-terminal
+153,R,K,missense,N-terminal
+154,I,T,missense,N-terminal
+155,AMFSLI,,inframe deletion,N-terminal
+155,A,G,missense,N-terminal
+155,A,P,missense,N-terminal
+155,A,S,missense,N-terminal
+156,MF,*,stop gained,N-terminal
+156,M,V,missense,N-terminal
+158,S,C,missense,N-terminal
+158,S,G,missense,N-terminal
+158,S,N,missense,N-terminal
+158,S,R,missense,N-terminal
+158,S,T,missense,N-terminal
+159,L,*,stop gained,N-terminal
+159,L,S,missense,N-terminal
+160,I,T,missense,N-terminal
+160,I,V,missense,N-terminal
+161,Y,,frameshift,N-terminal
+161,Y,C,missense,N-terminal
+161,Y,D,missense,N-terminal
+161,Y,N,missense,N-terminal
+161,Y,R,frameshift,N-terminal
+161,Y,S,missense,N-terminal
+162,K,,frameshift,N-terminal
+162,K,*,stop gained,N-terminal
+162,K,E,missense,N-terminal
+163,K,,frameshift,N-terminal
+163,K,E,missense,N-terminal
+163,K,M,missense,N-terminal
+163,K,T,missense,N-terminal
+164,TL,*,stop gained,N-terminal
+164,T,A,missense,N-terminal
+164,T,I,missense,N-terminal
+164,T,P,missense,N-terminal
+165,L,F,missense,N-terminal
+165,L,S,missense,N-terminal
+166,K,E,missense,N-terminal
+166,K,N,frameshift,N-terminal
+166,K,N,missense,N-terminal
+167,L,R,missense,N-terminal
+168,S,,frameshift,N-terminal
+168,S,*,stop gained,N-terminal
+168,S,L,missense,N-terminal
+169,S,,frameshift,N-terminal
+169,S,G,missense,N-terminal
+169,S,N,missense,N-terminal
+169,S,R,missense,N-terminal
+170,R,C,missense,N-terminal
+170,R,H,missense,N-terminal
+170,R,S,missense,N-terminal
+171,V,F,missense,N-terminal
+171,V,I,missense,N-terminal
+172,L,I,missense,N-terminal
+173,D,V,missense,N-terminal
+174,K,,frameshift,N-terminal
+174,K,R,missense,N-terminal
+175,I,,frameshift,N-terminal
+175,I,V,missense,N-terminal
+176,S,I,missense,N-terminal
+176,S,N,missense,N-terminal
+176,S,R,missense,N-terminal
+176,S,T,missense,N-terminal
+177,I,,frameshift,N-terminal
+177,I,F,missense,N-terminal
+177,I,M,missense,N-terminal
+177,I,T,missense,N-terminal
+177,I,V,missense,N-terminal
+178,G,,frameshift,N-terminal
+178,G,E,missense,N-terminal
+178,G,R,missense,N-terminal
+179,Q,*,stop gained,N-terminal
+179,Q,C,frameshift,N-terminal
+179,Q,H,missense,N-terminal
+179,Q,K,missense,N-terminal
+180,L,F,missense,N-terminal
+180,L,P,missense,N-terminal
+180,L,V,missense,N-terminal
+181,V,F,missense,N-terminal
+181,V,I,missense,N-terminal
+182,S,,frameshift,N-terminal
+182,S,G,missense,N-terminal
+182,S,R,missense,N-terminal
+183,L,,frameshift,N-terminal
+183,L,F,missense,N-terminal
+183,L,H,missense,N-terminal
+183,L,I,missense,N-terminal
+184,L,,frameshift,N-terminal
+184,L,,frameshift,N-terminal
+184,L,F,missense,N-terminal
+184,L,R,missense,N-terminal
+185,S,C,missense,N-terminal
+185,S,Y,missense,N-terminal
+186,N,,frameshift,N-terminal
+186,N,K,missense,N-terminal
+187,N,,frameshift,N-terminal
+187,N,H,missense,N-terminal
+187,N,K,missense,N-terminal
+187,N,S,missense,N-terminal
+187,N,Y,missense,N-terminal
+188,L,M,missense,N-terminal
+188,L,P,missense,N-terminal
+189,N,K,missense,N-terminal
+189,N,S,missense,N-terminal
+191,F,V,missense,N-terminal
+192,D,G,missense,N-terminal
+192,D,H,missense,N-terminal
+192,D,N,missense,N-terminal
+192,D,V,missense,N-terminal
+192,D,Y,missense,N-terminal
+192,D,del,inframe deletion,N-terminal
+193,E,*,stop gained,N-terminal
+193,E,G,missense,N-terminal
+193,E,K,missense,N-terminal
+193,E,K,frameshift,N-terminal
+194,G,*,stop gained,N-terminal
+194,G,E,missense,N-terminal
+194,G,R,missense,N-terminal
+194,G,V,missense,N-terminal
+195,L,P,missense,N-terminal
+196,A,,frameshift,N-terminal
+196,A,G,missense,N-terminal
+196,A,P,missense,N-terminal
+196,A,T,missense,N-terminal
+196,A,V,missense,N-terminal
+198,A,P,missense,N-terminal
+198,A,S,missense,N-terminal
+198,A,T,missense,N-terminal
+198,A,V,missense,N-terminal
+199,H,Q,missense,N-terminal
+199,H,R,missense,N-terminal
+199,H,Y,missense,N-terminal
+200,F,I,missense,N-terminal
+200,F,L,missense,N-terminal
+200,F,L,missense,N-terminal
+200,F,S,missense,N-terminal
+200,F,V,missense,N-terminal
+201,V,,frameshift,N-terminal
+201,V,M,missense,N-terminal
+202,W,*,stop gained,N-terminal
+202,W,*,stop gained,N-terminal
+203,I,M,missense,N-terminal
+204,A,P,missense,N-terminal
+204,A,S,missense,N-terminal
+204,A,T,missense,N-terminal
+205,P,L,missense,N-terminal
+205,P,R,missense,N-terminal
+205,P,S,missense,N-terminal
+205,P,T,missense,N-terminal
+206,L,*,stop gained,N-terminal
+206,L,F,missense,N-terminal
+206,L,W,missense,N-terminal
+207,Q,*,stop gained,N-terminal
+207,Q,A,frameshift,N-terminal
+207,Q,H,missense,N-terminal
+207,Q,K,missense,N-terminal
+208,V,A,missense,N-terminal
+208,V,M,missense,N-terminal
+209,A,S,missense,N-terminal
+209,A,T,missense,N-terminal
+209,A,V,missense,N-terminal
+210,L,F,missense,N-terminal
+210,L,I,missense,N-terminal
+212,M,T,missense,N-terminal
+212,M,V,missense,N-terminal
+213,G,E,missense,N-terminal
+214,L,I,missense,N-terminal
+214,L,V,missense,N-terminal
+215,I,,frameshift,N-terminal
+216,W,*,stop gained,N-terminal
+216,W,C,missense,N-terminal
+216,W,R,missense,N-terminal
+216,W,S,missense,N-terminal
+217,E,D,missense,N-terminal
+217,E,G,missense,N-terminal
+217,E,K,missense,N-terminal
+217,E,Q,missense,N-terminal
+218,L,*,stop gained,N-terminal
+218,L,V,missense,N-terminal
+220,Q,,frameshift,N-terminal
+220,Q,*,stop gained,N-terminal
+220,Q,P,missense,N-terminal
+220,Q,R,missense,N-terminal
+220,QASAFCGLGFLIVLALFQAGLGRMMMKYRDQRAGKISERLVITSEMIENIQSVKAYCWEEAMEKMIENLRQTELKLTRKAAYVRYFNSSAFFFSGFFVVFLSVLPYALIKGIILRKIFTTISFCIVLRMAVTRQFPWAVQTWYDSLGAINKIQDFLQKQEYKTLEYNLTTTEVVMENVTAFWEEGFGELFEKAKQNNNNRKTSNGDDSLFFSNFSLLGTPVLKDINFKIERGQLLAVAGSTGAGKTSLLMVIMGELEPSEGKIKHSGRISFCSQFSWIMPGTIKENIIFGVSYDEYRYRSVIKACQLEEDISKFAEKDNIVLGEGGITLSGGQRARISLARAVYKDADLYLLDSPFGYLDVLTEKEIFESCVCKLMANKTRILVTSKMEHLKKADKILILHEGSSYFYGTFSELQNLQPDFSSKLMGCDSFDQFSAERRNSILTETLHRFSLEGDAPVSWTETKKQSFKQTGEFGEKRKNSILNPINSIRKFSIVQKTPLQMNGIEEDSDEPLERRLSLVPDSEQGEAILPRISVISTGPTLQARRRQSVLNLMTHSVNQGQNIHRKTTASTRKVSLAPQANLTELDIYSRRLSQETGLEISEEINEEDLKECFFDDMESIPAVTTWNTYLRYITVHKSLIFVLIWCLVIFLAEVAASLVVLWLLGNTPLQDKGNSTHSRNNSYAVIITSTSSYYVFYIYVGVADTLLAMGFFRGLPLVHTLITVSKILHHKMLHSVLQAPMSTLNTLKAGGILNRFSKDIAILDDLLPLTIFDFIQLLLIVIGAIAVVAVLQPYIFVATVPVIVAFIMLRAYFLQTSQQLKQLESEGRSPIFTHLVTSLKGLWTLRAFGRQPYFETLFHKALNLHTANWFLYLSTLRWFQMRIEMIFVIFFIAVTFISILTTGEGEGRVGIILTLAMNIMSTLQWAVNSSIDVDSLMRSVSRVFKFIDMPTEGKPTKSTKPYKNGQLSKVMIIENSHVKKDDIWPSGGQMTVKDLTAKYTEGGNAILENISFSISPGQRVGLLGRTGSGKSTLLSAFLRLLNTEGEIQIDGVSWDSITLQQWRKAFGVIPQKVFIFSGTFRKNLDPYEQWSDQEIWKVADEVGLRSVIEQFPGKLDFVLVDGGCVLSHGHKQLMCLARSVLSKAKILLLDEPSAHLDPVTYQIIRRTLKQAFADCTVILCEHRIEAMLECQQFLVIEENKVRQYDSIQKLLNERSLFRQAISPSDRVKLFPHRNSSKCKSKPQIAALKEETEEEVQDTRL,del,inframe deletion,N-terminal
+221,A,,frameshift,N-terminal
+221,A,E,missense,N-terminal
+221,A,G,missense,N-terminal
+221,A,P,missense,N-terminal
+221,A,V,missense,N-terminal
+222,S,C,missense,N-terminal
+223,A,S,missense,N-terminal
+223,A,V,missense,N-terminal
+224,F,,frameshift,N-terminal
+224,F,C,missense,N-terminal
+224,F,L,missense,N-terminal
+224,F,L,missense,N-terminal
+224,F,S,missense,N-terminal
+224,F,V,missense,N-terminal
+225,C,*,stop gained,N-terminal
+225,C,R,missense,N-terminal
+225,C,Y,missense,N-terminal
+226,G,E,missense,N-terminal
+226,G,R,missense,N-terminal
+226,G,V,missense,N-terminal
+227,L,R,missense,N-terminal
+227,LG,R,-,N-terminal
+228,G,C,missense,N-terminal
+228,G,D,missense,N-terminal
+228,G,S,missense,N-terminal
+229,F,Y,missense,N-terminal
+230,L,V,missense,N-terminal
+231,I,R,missense,N-terminal
+232,V,D,missense,N-terminal
+233,L,F,missense,N-terminal
+233,L,H,missense,N-terminal
+233,L,V,missense,N-terminal
+234,A,D,missense,N-terminal
+234,A,S,missense,N-terminal
+234,A,V,missense,N-terminal
+235,L,H,missense,N-terminal
+235,L,P,missense,N-terminal
+235,L,V,missense,N-terminal
+236,F,S,missense,N-terminal
+236,F,Y,missense,N-terminal
+237,Q,,frameshift,N-terminal
+237,Q,*,stop gained,N-terminal
+237,Q,E,missense,N-terminal
+237,Q,H,missense,N-terminal
+237,Q,P,missense,N-terminal
+237,Q,R,missense,N-terminal
+238,A,P,missense,N-terminal
+238,A,S,missense,N-terminal
+238,A,V,missense,N-terminal
+239,GL,*,frameshift,N-terminal
+239,GL,*,frameshift,N-terminal
+239,G,E,missense,N-terminal
+239,G,R,missense,N-terminal
+239,G,V,missense,N-terminal
+240,L,R,missense,N-terminal
+240,L,V,missense,N-terminal
+241,G,E,missense,N-terminal
+241,G,R,missense,N-terminal
+241,G,W,missense,N-terminal
+242,R,K,missense,N-terminal
+243,M,I,missense,N-terminal
+243,M,T,missense,N-terminal
+243,M,V,missense,N-terminal
+244,M,I,missense,N-terminal
+244,M,K,missense,N-terminal
+244,M,T,missense,N-terminal
+244,M,V,missense,N-terminal
+245,M,T,missense,N-terminal
+246,K,Q,missense,N-terminal
+247,Y,*,stop gained,N-terminal
+248,R,,frameshift,N-terminal
+248,R,*,stop gained,N-terminal
+248,R,G,missense,N-terminal
+248,R,K,missense,N-terminal
+248,R,T,missense,N-terminal
+249,D,Y,missense,N-terminal
+250,Q,*,stop gained,N-terminal
+250,Q,R,missense,N-terminal
+251,R,*,stop gained,N-terminal
+252,A,,frameshift,N-terminal
+252,A,P,missense,N-terminal
+252,A,S,missense,N-terminal
+252,A,T,missense,N-terminal
+252,A,V,missense,N-terminal
+253,G,E,missense,N-terminal
+253,G,R,missense,N-terminal
+254,K,,frameshift,N-terminal
+255,I,,frameshift,N-terminal
+255,I,M,missense,N-terminal
+255,I,N,missense,N-terminal
+255,I,V,missense,N-terminal
+256,S,G,missense,N-terminal
+256,S,N,missense,N-terminal
+257,E,*,stop gained,N-terminal
+257,E,A,missense,N-terminal
+257,E,G,missense,N-terminal
+258,R,,frameshift,N-terminal
+258,R,D,frameshift,N-terminal
+258,R,G,missense,N-terminal
+258,R,I,missense,N-terminal
+258,R,K,missense,N-terminal
+258,R,S,missense,N-terminal
+259,LV,*,frameshift,N-terminal
+259,L,F,missense,N-terminal
+259,L,S,stop gained,N-terminal
+259,L,V,missense,N-terminal
+260,V,A,missense,N-terminal
+260,V,G,missense,N-terminal
+260,V,M,missense,N-terminal
+261,I,T,missense,N-terminal
+262,T,N,missense,N-terminal
+265,M,R,missense,N-terminal
+266,I,V,missense,N-terminal
+268,N,,frameshift,N-terminal
+269,I,,frameshift,N-terminal
+269,I,T,missense,N-terminal
+270,Q,,frameshift,N-terminal
+270,Q,*,stop gained,N-terminal
+271,S,,frameshift,N-terminal
+271,S,F,missense,N-terminal
+271,S,Y,missense,N-terminal
+272,V,A,missense,N-terminal
+273,K,*,stop gained,N-terminal
+273,K,M,missense,N-terminal
+273,KAY,N,-,N-terminal
+273,K,Q,missense,N-terminal
+273,K,T,missense,N-terminal
+274,A,T,missense,N-terminal
+274,A,V,missense,N-terminal
+275,Y,*,stop gained,N-terminal
+276,C,*,stop gained,N-terminal
+276,C,F,missense,N-terminal
+276,C,Y,missense,N-terminal
+277,W,*,stop gained,N-terminal
+277,W,*,stop gained,N-terminal
+277,W,R,missense,N-terminal
+277,W,S,missense,N-terminal
+278,E,K,missense,N-terminal
+279,E,*,stop gained,N-terminal
+279,E,D,missense,N-terminal
+279,E,K,missense,N-terminal
+279,E,,inframe deletion,N-terminal
+280,A,E,missense,N-terminal
+280,A,G,missense,N-terminal
+280,A,S,missense,N-terminal
+280,A,T,missense,N-terminal
+280,A,V,missense,N-terminal
+281,M,T,missense,N-terminal
+281,M,V,missense,N-terminal
+282,E,*,stop gained,N-terminal
+282,E,D,missense,N-terminal
+283,K,,frameshift,N-terminal
+283,KM,*,stop gained,N-terminal
+283,K,R,missense,N-terminal
+284,M,,frameshift,N-terminal
+284,M,I,missense,N-terminal
+284,M,T,missense,N-terminal
+284,M,V,missense,N-terminal
+285,I,F,missense,N-terminal
+285,I,T,missense,N-terminal
+287,N,,frameshift,N-terminal
+287,N,,frameshift,N-terminal
+287,N,K,missense,N-terminal
+287,N,S,missense,N-terminal
+287,N,Y,missense,N-terminal
+288,L,*,stop gained,N-terminal
+289,R,,frameshift,N-terminal
+289,R,*,stop gained,N-terminal
+289,R,G,missense,N-terminal
+290,Q,*,stop gained,N-terminal
+290,Q,E,missense,N-terminal
+290,Q,L,missense,N-terminal
+290,Q,R,missense,N-terminal
+291,T,A,missense,N-terminal
+291,T,I,missense,N-terminal
+291,T,R,missense,N-terminal
+292,E,,frameshift,N-terminal
+292,E,*,stop gained,N-terminal
+292,E,G,missense,N-terminal
+292,E,K,missense,N-terminal
+293,L,M,missense,N-terminal
+293,L,P,missense,N-terminal
+293,L,R,missense,N-terminal
+294,K,,frameshift,N-terminal
+297,R,,frameshift,N-terminal
+297,R,G,missense,N-terminal
+297,R,Q,missense,N-terminal
+297,R,W,missense,N-terminal
+298,K,*,stop gained,N-terminal
+298,K,T,missense,N-terminal
+299,A,E,missense,N-terminal
+299,A,T,missense,N-terminal
+299,A,V,missense,N-terminal
+300,A,D,missense,N-terminal
+300,A,G,missense,N-terminal
+301,Y,*,stop gained,N-terminal
+301,Y,C,missense,N-terminal
+301,Y,H,missense,N-terminal
+302,V,A,missense,N-terminal
+302,V,E,missense,N-terminal
+304,Y,*,stop gained,N-terminal
+304,Y,S,missense,N-terminal
+305,F,,frameshift,N-terminal
+305,F,C,missense,N-terminal
+305,F,L,missense,N-terminal
+305,F,V,missense,N-terminal
+306,N,K,missense,N-terminal
+306,N,S,missense,N-terminal
+307,S,I,missense,N-terminal
+307,S,N,missense,N-terminal
+308,S,,frameshift,N-terminal
+308,S,L,missense,N-terminal
+309,A,D,missense,N-terminal
+309,A,G,missense,N-terminal
+309,A,T,missense,N-terminal
+309,A,V,missense,N-terminal
+310,F,L,missense,N-terminal
+311,F,,frameshift,N-terminal
+311,F,C,missense,N-terminal
+311,F,L,missense,N-terminal
+311,F,L,missense,N-terminal
+311,F,S,missense,N-terminal
+311,F,V,missense,N-terminal
+311,F,del,inframe deletion,N-terminal
+312,F,,inframe deletion,N-terminal
+314,G,A,missense,N-terminal
+314,G,E,missense,N-terminal
+314,G,R,missense,N-terminal
+314,G,V,missense,N-terminal
+314,G,W,missense,N-terminal
+315,F,C,missense,N-terminal
+315,F,L,missense,N-terminal
+315,F,S,missense,N-terminal
+316,F,,frameshift,N-terminal
+316,F,C,missense,N-terminal
+316,F,L,missense,N-terminal
+316,F,S,missense,N-terminal
+316,F,Y,missense,N-terminal
+317,V,A,missense,N-terminal
+317,V,C,frameshift,N-terminal
+317,V,E,missense,N-terminal
+317,V,G,missense,N-terminal
+317,V,L,missense,N-terminal
+317,V,M,missense,N-terminal
+320,L,,frameshift,N-terminal
+320,L,*,stop gained,N-terminal
+320,L,F,missense,N-terminal
+320,L,V,missense,N-terminal
+321,S,,frameshift,N-terminal
+321,S,,frameshift,N-terminal
+321,S,C,missense,N-terminal
+321,S,P,missense,N-terminal
+322,V,M,missense,N-terminal
+324,P,A,missense,N-terminal
+324,P,L,missense,N-terminal
+324,P,S,missense,N-terminal
+325,Y,,frameshift,N-terminal
+325,Y,C,missense,N-terminal
+326,A,G,missense,N-terminal
+326,A,S,missense,N-terminal
+326,A,V,missense,N-terminal
+327,L,,frameshift,N-terminal
+327,L,I,missense,N-terminal
+327,L,P,missense,N-terminal
+327,L,R,missense,N-terminal
+327,L,V,missense,N-terminal
+328,I,M,missense,N-terminal
+330,G,,frameshift,N-terminal
+330,G,*,stop gained,N-terminal
+330,G,E,missense,N-terminal
+331,I,F,missense,N-terminal
+331,I,N,missense,N-terminal
+331,I,N,frameshift,N-terminal
+333,L,F,missense,N-terminal
+334,R,L,missense,N-terminal
+334,R,Q,missense,N-terminal
+334,R,W,missense,N-terminal
+335,K,E,missense,N-terminal
+336,I,,frameshift,N-terminal
+336,I,K,missense,N-terminal
+336,I,T,missense,N-terminal
+337,F,L,missense,N-terminal
+337,F,L,missense,N-terminal
+337,F,V,missense,N-terminal
+337,FTTI,,insertion,N-terminal
+338,T,,frameshift,N-terminal
+338,T,A,missense,N-terminal
+338,T,I,missense,N-terminal
+338,T,N,missense,N-terminal
+339,T,N,missense,N-terminal
+339,T,S,missense,N-terminal
+340,I,M,missense,N-terminal
+340,I,N,missense,N-terminal
+340,I,V,missense,N-terminal
+341,S,P,missense,N-terminal
+342,F,,frameshift,N-terminal
+342,FC,*,stop gained,N-terminal
+343,C,F,missense,N-terminal
+343,C,R,missense,N-terminal
+344,I,V,missense,N-terminal
+345,V,F,missense,N-terminal
+346,L,P,missense,N-terminal
+347,R,C,missense,N-terminal
+347,R,H,missense,N-terminal
+347,R,L,missense,N-terminal
+347,R,P,missense,N-terminal
+347,R,S,missense,N-terminal
+348,M,K,missense,N-terminal
+348,M,T,missense,N-terminal
+348,M,V,missense,N-terminal
+349,A,P,missense,N-terminal
+349,A,T,missense,N-terminal
+349,A,V,missense,N-terminal
+351,T,A,missense,N-terminal
+351,T,I,missense,N-terminal
+351,T,S,missense,N-terminal
+352,R,Q,missense,N-terminal
+352,R,W,missense,N-terminal
+353,Q,*,stop gained,N-terminal
+353,Q,H,missense,N-terminal
+353,Q,R,missense,N-terminal
+354,F,L,missense,N-terminal
+355,P,L,missense,N-terminal
+355,P,S,missense,N-terminal
+356,W,*,stop gained,N-terminal
+356,WA,,inframe deletion,N-terminal
+356,W,*,stop gained,N-terminal
+356,WAV,I,-,N-terminal
+356,W,R,missense,N-terminal
+356,W,S,missense,N-terminal
+357,A,,frameshift,N-terminal
+357,A,V,missense,N-terminal
+358,V,A,missense,N-terminal
+358,V,I,missense,N-terminal
+359,Q,K,missense,N-terminal
+359,QT,KK,missense,N-terminal
+359,Q,R,missense,N-terminal
+360,T,,frameshift,N-terminal
+360,T,I,missense,N-terminal
+360,T,K,missense,N-terminal
+360,T,R,missense,N-terminal
+361,W,,frameshift,N-terminal
+361,W,,frameshift,N-terminal
+361,W,,frameshift,N-terminal
+361,W,C,missense,N-terminal
+361,W,R,missense,N-terminal
+362,Y,*,stop gained,N-terminal
+362,Y,C,missense,N-terminal
+362,Y,D,missense,N-terminal
+362,Y,H,missense,N-terminal
+362,Y,S,missense,N-terminal
+364,S,,frameshift,N-terminal
+364,S,C,missense,N-terminal
+364,S,P,missense,N-terminal
+365,L,,frameshift,N-terminal
+365,L,P,missense,N-terminal
+366,G,,frameshift,N-terminal
+367,A,T,missense,N-terminal
+369,N,K,missense,N-terminal
+369,N,S,missense,N-terminal
+369,N,Y,missense,N-terminal
+369,NK,,insertion,N-terminal
+370,K,E,missense,N-terminal
+370,K,KNK,insertion,N-terminal
+371,I,M,missense,N-terminal
+371,I,T,missense,N-terminal
+371,I,V,missense,N-terminal
+372,Q,,frameshift,N-terminal
+372,Q,*,stop gained,N-terminal
+372,Q,H,missense,N-terminal
+372,Q,L,missense,N-terminal
+372,Q,R,missense,N-terminal
+373,D,E,missense,N-terminal
+373,D,N,missense,N-terminal
+373,D,V,missense,N-terminal
+373,D,Y,missense,N-terminal
+375,L,*,stop gained,N-terminal
+375,L,F,missense,N-terminal
+376,Q,*,stop gained,N-terminal
+376,Q,K,missense,N-terminal
+378,Q,,frameshift,N-terminal
+378,Q,*,stop gained,N-terminal
+378,Q,P,frameshift,N-terminal
+378,Q,R,missense,N-terminal
+379,E,*,stop gained,N-terminal
+379,E,D,missense,N-terminal
+379,E,G,missense,N-terminal
+379,E,K,missense,N-terminal
+380,Y,*,stop gained,N-terminal
+380,Y,C,missense,N-terminal
+380,Y,N,missense,N-terminal
+381,K,*,stop gained,N-terminal
+382,T,P,missense,N-terminal
+383,L,F,missense,N-terminal
+383,L,S,missense,N-terminal
+384,E,,frameshift,N-terminal
+384,E,*,stop gained,N-terminal
+384,E,D,missense,N-terminal
+384,E,K,missense,N-terminal
+384,E,Q,missense,N-terminal
+385,Y,*,stop gained,N-terminal
+385,Y,C,missense,N-terminal
+385,Y,H,missense,N-terminal
+385,Y,N,missense,N-terminal
+386,N,,frameshift,N-terminal
+386,N,K,missense,N-terminal
+386,N,Y,missense,N-terminal
+387,L,F,missense,N-terminal
+387,L,N,frameshift,N-terminal
+387,L,S,missense,N-terminal
+388,T,,frameshift,N-terminal
+388,T,K,missense,N-terminal
+388,T,M,missense,N-terminal
+389,T,A,missense,N-terminal
+389,T,I,missense,N-terminal
+389,T,S,missense,N-terminal
+390,T,A,missense,N-terminal
+390,T,I,missense,N-terminal
+391,E,*,stop gained,N-terminal
+392,VV,*,stop gained,N-terminal
+392,V,A,missense,N-terminal
+392,V,G,missense,N-terminal
+393,V,G,missense,N-terminal
+393,V,L,missense,N-terminal
+393,V,M,missense,N-terminal
+394,M,R,missense,N-terminal
+394,M,T,missense,N-terminal
+395,E,K,missense,N-terminal
+396,NV,*,stop gained,N-terminal
+396,N,D,missense,N-terminal
+396,N,T,missense,N-terminal
+396,N,Y,missense,N-terminal
+397,V,A,missense,N-terminal
+397,V,I,missense,N-terminal
+397,V,L,missense,N-terminal
+398,T,I,missense,N-terminal
+398,T,K,missense,N-terminal
+398,T,N,frameshift,N-terminal
+399,A,D,missense,N-terminal
+399,A,G,missense,N-terminal
+399,A,T,missense,N-terminal
+399,A,V,missense,N-terminal
+400,F,,frameshift,N-terminal
+400,F,S,missense,N-terminal
+401,W,*,stop gained,N-terminal
+401,W,*,stop gained,N-terminal
+401,W,C,missense,N-terminal
+401,W,L,missense,N-terminal
+401,W,R,missense,N-terminal
+402,E,D,missense,N-terminal
+403,E,D,missense,N-terminal
+403,E,K,missense,N-terminal
+404,G,A,missense,N-terminal
+404,G,E,missense,N-terminal
+404,G,R,missense,N-terminal
+404,G,V,missense,N-terminal
+406,G,E,missense,N-terminal
+407,E,*,stop gained,N-terminal
+407,E,D,frameshift,N-terminal
+407,E,K,missense,N-terminal
+407,E,V,missense,N-terminal
+409,F,,frameshift,N-terminal
+409,F,I,missense,N-terminal
+409,F,L,missense,N-terminal
+409,F,R,frameshift,N-terminal
+411,K,E,missense,N-terminal
+411,K,R,missense,N-terminal
+412,A,,frameshift,N-terminal
+412,A,,frameshift,N-terminal
+412,A,,frameshift,N-terminal
+412,A,S,missense,N-terminal
+412,A,V,missense,N-terminal
+414,Q,,frameshift,N-terminal
+414,Q,*,stop gained,N-terminal
+414,QN,*,stop gained,N-terminal
+414,Q,K,missense,N-terminal
+414,Q,P,missense,N-terminal
+415,N,,frameshift,N-terminal
+415,N,D,missense,N-terminal
+416,N,D,missense,N-terminal
+416,N,S,missense,N-terminal
+417,N,*,stop gained,N-terminal
+417,N,K,missense,N-terminal
+418,N,,inframe deletion,N-terminal
+418,N,S,missense,N-terminal
+419,R,G,missense,N-terminal
+419,R,I,missense,N-terminal
+420,K,E,missense,N-terminal
+421,T,,frameshift,N-terminal
+422,S,F,missense,N-terminal
+422,S,T,missense,N-terminal
+422,S,Y,missense,N-terminal
+423,N,K,missense,N-terminal
+423,N,S,missense,N-terminal
+424,G,D,missense,N-terminal
+424,G,S,missense,N-terminal
+426,D,E,missense,N-terminal
+426,D,G,missense,N-terminal
+426,D,Y,missense,N-terminal
+427,S,R,missense,N-terminal
+428,L,H,missense,N-terminal
+428,L,I,missense,N-terminal
+428,L,V,missense,N-terminal
+429,F,L,missense,N-terminal
+430,F,,frameshift,N-terminal
+431,S,G,missense,N-terminal
+431,S,N,missense,N-terminal
+431,S,R,missense,N-terminal
+432,N,S,missense,N-terminal
+433,F,L,missense,N-terminal
+434,S,,frameshift,N-terminal
+434,S,*,stop gained,N-terminal
+434,S,L,missense,N-terminal
+434,S,P,missense,N-terminal
+435,L,F,missense,N-terminal
+435,L,P,missense,N-terminal
+435,L,V,missense,N-terminal
+436,L,P,missense,N-terminal
+436,L,V,missense,N-terminal
+437,G,C,missense,N-terminal
+437,G,D,missense,N-terminal
+438,T,,frameshift,N-terminal
+438,T,A,missense,N-terminal
+439,P,A,missense,N-terminal
+439,P,S,missense,N-terminal
+439,P,T,missense,N-terminal
+440,V,,frameshift,N-terminal
+440,V,A,missense,N-terminal
+440,V,L,missense,N-terminal
+441,L,P,missense,N-terminal
+441,L,V,missense,N-terminal
+442,K,*,stop gained,N-terminal
+443,D,,frameshift,N-terminal
+443,DI,*,stop gained,N-terminal
+443,D,E,missense,N-terminal
+443,D,V,missense,N-terminal
+443,D,Y,missense,N-terminal
+444,I,,frameshift,N-terminal
+444,I,M,missense,N-terminal
+444,I,S,missense,N-terminal
+444,I,T,missense,N-terminal
+444,I,V,missense,N-terminal
+445,N,,frameshift,N-terminal
+445,N,,frameshift,N-terminal
+447,K,,frameshift,N-terminal
+447,K,R,missense,N-terminal
+448,I,,frameshift,N-terminal
+448,I,L,missense,N-terminal
+448,I,R,missense,N-terminal
+448,I,T,missense,N-terminal
+448,I,V,missense,N-terminal
+449,E,A,missense,N-terminal
+449,E,D,missense,N-terminal
+449,E,G,missense,N-terminal
+449,E,Q,missense,N-terminal
+450,R,,frameshift,N-terminal
+450,R,G,missense,N-terminal
+450,R,I,missense,N-terminal
+451,G,*,stop gained,N-terminal
+451,G,R,missense,N-terminal
+451,G,V,missense,N-terminal
+452,Q,P,missense,N-terminal
+452,Q,R,missense,N-terminal
+453,L,S,missense,N-terminal
+454,L,,inframe deletion,N-terminal
+454,L,,inframe deletion,N-terminal
+455,A,E,missense,N-terminal
+455,A,S,missense,N-terminal
+455,A,V,missense,N-terminal
+456,V,,frameshift,N-terminal
+456,V,A,missense,N-terminal
+456,V,F,missense,N-terminal
+456,V,L,missense,N-terminal
+457,A,,frameshift,N-terminal
+457,A,P,missense,N-terminal
+457,A,S,missense,N-terminal
+457,A,T,missense,N-terminal
+457,A,V,missense,N-terminal
+458,G,,frameshift,N-terminal
+458,G,E,missense,N-terminal
+458,G,V,missense,N-terminal
+459,S,F,missense,N-terminal
+459,S,T,missense,N-terminal
+459,STG,,inframe deletion,N-terminal
+460,T,A,missense,N-terminal
+462,A,G,missense,N-terminal
+462,A,S,missense,N-terminal
+462,A,T,missense,N-terminal
+462,A,V,missense,N-terminal
+463,G,D,missense,N-terminal
+463,G,S,missense,N-terminal
+464,K,*,stop gained,N-terminal
+464,K,E,missense,N-terminal
+464,K,N,missense,N-terminal
+464,K,Q,missense,N-terminal
+464,K,T,missense,N-terminal
+465,T,I,missense,N-terminal
+465,T,N,missense,N-terminal
+466,S,*,missense,N-terminal
+466,S,L,missense,N-terminal
+467,L,F,missense,N-terminal
+467,L,P,missense,N-terminal
+468,L,P,missense,N-terminal
+469,M,I,missense,N-terminal
+469,M,L,missense,N-terminal
+469,M,V,missense,N-terminal
+470,V,,frameshift,N-terminal
+470,V,E,missense,N-terminal
+470,V,M,missense,N-terminal
+470,M,V,-,N-terminal
+471,I,F,missense,N-terminal
+471,I,V,missense,N-terminal
+472,M,,frameshift,N-terminal
+472,M,V,missense,N-terminal
+473,G,,frameshift,N-terminal
+473,G,R,missense,N-terminal
+474,E,*,missense,N-terminal
+474,E,G,missense,N-terminal
+474,E,K,missense,N-terminal
+474,E,Q,missense,N-terminal
+475,L,,frameshift,N-terminal
+475,L,V,missense,N-terminal
+477,P,A,missense,N-terminal
+477,P,H,missense,N-terminal
+477,P,L,missense,N-terminal
+477,P,S,missense,N-terminal
+477,P,T,missense,N-terminal
+478,S,L,missense,N-terminal
+479,E,*,missense,N-terminal
+479,E,A,missense,N-terminal
+479,E,D,missense,N-terminal
+479,E,G,missense,N-terminal
+480,G,C,missense,N-terminal
+480,G,D,missense,N-terminal
+480,G,S,missense,N-terminal
+480,G,V,missense,N-terminal
+481,K,E,missense,N-terminal
+482,I,V,missense,N-terminal
+483,K,*,stop gained,N-terminal
+483,K,*,stop gained,N-terminal
+484,H,R,missense,N-terminal
+484,H,Y,missense,N-terminal
+485,S,C,missense,N-terminal
+485,S,G,missense,N-terminal
+485,S,N,missense,N-terminal
+485,S,T,missense,N-terminal
+487,R,I,missense,N-terminal
+487,R,K,missense,N-terminal
+489,S,,frameshift,N-terminal
+489,S,*,stop gained,N-terminal
+489,S,L,missense,N-terminal
+490,F,,frameshift,N-terminal
+490,F,,frameshift,N-terminal
+490,F,C,missense,N-terminal
+490,F,L,missense,N-terminal
+491,C,,frameshift,N-terminal
+491,C,,frameshift,N-terminal
+491,C,F,missense,N-terminal
+491,C,R,missense,N-terminal
+491,C,S,missense,N-terminal
+492,S,F,missense,N-terminal
+493,Q,,frameshift,N-terminal
+493,Q,*,stop gained,N-terminal
+493,Q,H,missense,N-terminal
+493,Q,L,missense,N-terminal
+493,Q,P,missense,N-terminal
+493,Q,R,missense,N-terminal
+494,F,V,missense,Middle
+495,S,,frameshift,Middle
+495,S,A,missense,Middle
+495,S,C,missense,Middle
+495,S,F,missense,Middle
+495,S,Y,missense,Middle
+496,W,,frameshift,Middle
+496,W,*,stop gained,Middle
+496,W,*,stop gained,Middle
+496,W,C,missense,Middle
+496,W,R,missense,Middle
+497,I,S,missense,Middle
+498,M,I,missense,Middle
+498,M,T,missense,Middle
+498,M,V,missense,Middle
+498,MPGTI,,inframe deletion,Middle
+499,P,A,missense,Middle
+499,P,L,missense,Middle
+499,P,S,missense,Middle
+499,P,T,missense,Middle
+500,G,D,missense,Middle
+500,G,S,missense,Middle
+501,T,A,missense,Middle
+501,T,I,missense,Middle
+501,T,S,missense,Middle
+502,I,N,missense,Middle
+502,I,S,missense,Middle
+502,I,T,missense,Middle
+502,I,V,missense,Middle
+503,K,E,missense,Middle
+503,K,R,missense,Middle
+504,E,*,stop gained,Middle
+504,E,Q,missense,Middle
+505,N,D,missense,Middle
+506,I,L,missense,Middle
+506,I,M,missense,Middle
+506,I,N,missense,Middle
+506,I,S,missense,Middle
+506,I,T,missense,Middle
+506,I,V,missense,Middle
+507,I,,inframe deletion,Middle
+507,I,F,missense,Middle
+507,I,V,missense,Middle
+508,F,,inframe deletion,Middle
+508,F,,inframe deletion,Middle
+508,F,C,missense,Middle
+508,F,I,missense,Middle
+508,F,L,missense,Middle
+508,F,S,missense,Middle
+508,F,V,missense,Middle
+508,F,Y,missense,Middle
+509,G,R,missense,Middle
+509,G,V,missense,Middle
+510,V,F,missense,Middle
+510,V,I,missense,Middle
+511,S,,frameshift,Middle
+511,S,F,missense,Middle
+512,Y,C,missense,Middle
+512,Y,N,missense,Middle
+513,D,G,missense,Middle
+513,D,Y,missense,Middle
+514,E,*,stop gained,Middle
+514,E,A,missense,Middle
+514,E,D,missense,Middle
+514,E,G,missense,Middle
+515,Y,,frameshift,Middle
+515,YR,*,stop gained,Middle
+515,Y,*,stop gained,Middle
+515,Y,C,missense,Middle
+515,Y,D,missense,Middle
+515,Y,H,missense,Middle
+516,R,,frameshift,Middle
+516,R,,frameshift,Middle
+516,R,G,missense,Middle
+516,R,I,missense,Middle
+517,Y,*,stop gained,Middle
+517,Y,C,missense,Middle
+517,Y,S,missense,Middle
+518,R,G,missense,Middle
+519,S,G,missense,Middle
+519,S,N,missense,Middle
+519,S,R,missense,Middle
+520,V,D,missense,Middle
+520,V,F,missense,Middle
+520,V,I,missense,Middle
+521,I,F,missense,Middle
+521,I,L,missense,Middle
+521,I,M,missense,Middle
+521,I,V,missense,Middle
+522,K,E,missense,Middle
+523,A,T,missense,Middle
+524,C,*,stop gained,Middle
+524,C,R,missense,Middle
+524,C,Y,missense,Middle
+525,Q,,frameshift,Middle
+525,Q,*,stop gained,Middle
+526,L,P,missense,Middle
+527,E,*,stop gained,Middle
+527,E,G,missense,Middle
+527,E,Q,missense,Middle
+528,E,A,missense,Middle
+528,E,D,missense,Middle
+528,E,G,missense,Middle
+528,E,K,missense,Middle
+529,D,G,missense,Middle
+529,D,H,missense,Middle
+529,D,N,missense,Middle
+530,IS,*,stop gained,Middle
+530,I,F,missense,Middle
+530,I,L,missense,Middle
+530,I,M,missense,Middle
+530,I,N,missense,Middle
+530,I,V,missense,Middle
+531,S,C,missense,Middle
+532,K,*,stop gained,Middle
+532,K,E,missense,Middle
+532,K,N,missense,Middle
+532,K,R,missense,Middle
+533,F,I,missense,Middle
+533,F,L,missense,Middle
+534,A,E,missense,Middle
+534,A,S,missense,Middle
+534,A,V,missense,Middle
+535,E,D,missense,Middle
+535,E,K,missense,Middle
+536,K,*,stop gained,Middle
+536,K,E,missense,Middle
+537,D,,frameshift,Middle
+537,D,E,missense,Middle
+537,D,G,missense,Middle
+538,N,K,missense,Middle
+538,N,S,missense,Middle
+538,N,,inframe deletion,Middle
+538,NI,*,stop gained,Middle
+538,N,H,missense,Middle
+538,N,Y,missense,Middle
+539,IV,*,frameshift,Middle
+539,I,T,missense,Middle
+539,I,V,missense,Middle
+540,V,*,stop gained,Middle
+540,V,A,missense,Middle
+540,V,F,missense,Middle
+540,V,I,missense,Middle
+541,L,I,missense,Middle
+541,L,P,missense,Middle
+542,G,,frameshift,Middle
+542,G,*,stop gained,Middle
+542,G,E,missense,Middle
+542,G,R,missense,Middle
+542,GEGGITLSGGQRARISLARAVYKDADLYLLDSPFGYLDVLTEKEIFESCVCKLMANKTRILVTSKMEHLKKADKILILHEGSSYFYGTFSELQNLQPDFSSKLMGCDSFDQFSAERRNSILTETLHRFSLEGDAPVSWTETKKQSFKQTGEFGEKRKNSILNPINSIRKFSIVQKTPLQMNGIEEDSDEPLERRLSLVPDSEQGEAILPRISVISTGPTLQARRRQSVLNLMTHSVNQGQNIHRKTTASTRKVSLAPQANLTELDIYSRRLSQETGLEISEEINEEDLKECFFDDMESIPAVTTWNTYLRYITVHKSLIFVLIWCLVIFLAEVAASLVVLWLLGNTPLQDKGNSTHSRNNSYAVIITSTSSYYVFYIYVGVADTLLAMGFFRGLPLVHTLITVSKILHHKMLHSVLQAPMSTLNTLKAGGILNRFSKDIAILDDLLPLTIFDFIQLLLIVIGAIAVVAVLQPYIFVATVPVIVAFIMLRAYFLQTSQQLKQLESEGRSPIFTHLVTSLKGLWTLRAFGRQPYFETLFHKALNLHTANWFLYLSTLRWFQMRIEMIFVIFFIAVTFISILTTGEGEGRVGIILTLAMNIMSTLQWAVNSSIDVDSLMRSVSRVFKFIDMPTEGKPTKSTKPYKNGQLSKVMIIENSHVKKDDIWPSGGQMTVKDLTAKYTEGGNAILENISFSISPGQRVGLLGRTGSGKSTLLSAFLRLLNTEGEIQIDGVSWDSITLQQWRKAFGVIPQKVFIFSGTFRKNLDPYEQWSDQEIWKVADEVGLRSVIEQFPGKLDFVLVDGGCVLSHGHKQLMCLARSVLSKAKILLLDEPSAHLDPVTYQIIRRTLKQAFADCTVILCEHRIEAMLECQQFLVIEENKVRQYDSIQKLLNERSLFRQAISPSDRVKLFPHRNSSKCKSKPQIAALKEETEEEVQDTRL,del,inframe deletion,Middle
+543,E,G,missense,Middle
+543,E,Q,missense,Middle
+544,G,S,missense,Middle
+544,G,V,missense,Middle
+545,G,E,missense,Middle
+545,G,R,missense,Middle
+545,G,V,missense,Middle
+546,I,F,missense,Middle
+546,I,L,missense,Middle
+546,I,S,missense,Middle
+547,T,A,missense,Middle
+547,T,I,missense,Middle
+547,T,R,missense,Middle
+548,L,,frameshift,Middle
+548,L,P,missense,Middle
+548,L,P,missense,Middle
+549,S,I,missense,Middle
+549,S,N,missense,Middle
+549,S,R,missense,Middle
+549,S,R,missense,Middle
+550,G,*,stop gained,Middle
+550,G,E,missense,Middle
+550,G,R,missense,Middle
+551,G,,frameshift,Middle
+551,G,,frameshift,Middle
+551,G,D,missense,Middle
+551,G,S,missense,Middle
+551,G,V,missense,Middle
+552,Q,,frameshift,Middle
+552,Q,*,stop gained,Middle
+552,Q,K,missense,Middle
+552,Q,P,missense,Middle
+553,R,*,stop gained,Middle
+553,R,G,missense,Middle
+553,R,P,missense,Middle
+553,R,Q,missense,Middle
+554,A,,frameshift,Middle
+554,A,E,missense,Middle
+554,A,G,missense,Middle
+555,R,*,stop gained,Middle
+555,R,G,missense,Middle
+556,I,L,missense,Middle
+556,I,V,missense,Middle
+557,S,,frameshift,Middle
+557,S,F,missense,Middle
+557,S,T,missense,Middle
+557,S,Y,missense,Middle
+558,L,,frameshift,Middle
+558,L,*,stop gained,Middle
+558,L,S,missense,Middle
+559,A,,frameshift,Middle
+559,A,E,missense,Middle
+559,A,P,missense,Middle
+559,A,S,missense,Middle
+559,A,T,missense,Middle
+559,A,V,missense,Middle
+560,R,G,missense,Middle
+560,R,K,missense,Middle
+560,R,S,missense,Middle
+560,R,T,missense,Middle
+561,A,E,missense,Middle
+561,A,S,missense,Middle
+561,A,T,missense,Middle
+561,A,V,missense,Middle
+562,V,A,missense,Middle
+562,V,I,missense,Middle
+562,V,L,missense,Middle
+563,Y,*,stop gained,Middle
+563,Y,C,missense,Middle
+563,Y,D,missense,Middle
+563,Y,H,missense,Middle
+563,Y,N,missense,Middle
+564,K,E,missense,Middle
+564,K,R,missense,Middle
+565,D,,frameshift,Middle
+565,D,G,missense,Middle
+565,D,H,missense,Middle
+565,D,N,missense,Middle
+565,D,Y,missense,Middle
+566,A,D,missense,Middle
+566,A,T,missense,Middle
+567,D,A,missense,Middle
+567,D,N,missense,Middle
+568,L,,frameshift,Middle
+568,L,*,stop gained,Middle
+568,L,F,missense,Middle
+569,Y,*,stop gained,Middle
+569,Y,C,missense,Middle
+569,Y,D,missense,Middle
+569,Y,H,missense,Middle
+570,L,,frameshift,Middle
+570,L,*,stop gained,Middle
+570,L,S,missense,Middle
+571,L,S,missense,Middle
+572,D,,frameshift,Middle
+572,D,E,missense,Middle
+572,D,G,missense,Middle
+572,D,N,missense,Middle
+573,S,C,missense,Middle
+573,S,F,missense,Middle
+574,P,A,missense,Middle
+574,P,H,missense,Middle
+574,P,R,missense,Middle
+574,P,S,missense,Middle
+575,F,I,missense,Middle
+575,F,Y,missense,Middle
+576,G,*,stop gained,Middle
+576,G,A,missense,Middle
+576,G,R,missense,Middle
+576,G,V,missense,Middle
+577,Y,*,stop gained,Middle
+577,Y,C,missense,Middle
+577,Y,F,missense,Middle
+578,L,,frameshift,Middle
+578,L,P,missense,Middle
+578,L,V,missense,Middle
+579,D,A,missense,Middle
+579,D,C,frameshift,Middle
+579,D,G,missense,Middle
+579,D,H,missense,Middle
+579,D,N,missense,Middle
+579,D,Y,missense,Middle
+580,V,,frameshift,Middle
+580,V,I,missense,Middle
+581,L,,frameshift,Middle
+581,L,F,missense,Middle
+582,T,I,missense,Middle
+582,T,R,missense,Middle
+582,T,S,missense,Middle
+583,E,G,missense,Middle
+583,E,K,missense,Middle
+584,K,E,missense,Middle
+585,E,*,stop gained,Middle
+585,E,K,missense,Middle
+586,I,T,missense,Middle
+586,I,V,missense,Middle
+587,F,I,missense,Middle
+587,F,S,missense,Middle
+587,F,V,missense,Middle
+588,E,*,stop gained,Middle
+588,E,A,missense,Middle
+588,E,G,missense,Middle
+588,E,K,missense,Middle
+588,E,V,missense,Middle
+589,S,I,missense,Middle
+589,S,N,missense,Middle
+589,S,R,missense,Middle
+589,S,T,missense,Middle
+590,C,S,missense,Middle
+590,C,Y,missense,Middle
+591,V,I,missense,Middle
+592,C,Y,missense,Middle
+593,K,,frameshift,Middle
+594,L,P,missense,Middle
+594,L,Q,missense,Middle
+595,MA,*,stop gained,Middle
+595,M,I,missense,Middle
+595,M,L,missense,Middle
+595,M,V,missense,Middle
+596,A,D,missense,Middle
+597,N,D,missense,Middle
+597,N,K,missense,Middle
+597,N,T,missense,Middle
+597,N,Y,missense,Middle
+598,K,,frameshift,Middle
+598,K,*,stop gained,Middle
+598,K,E,missense,Middle
+599,T,S,missense,Middle
+600,R,G,missense,Middle
+601,I,,frameshift,Middle
+601,I,F,missense,Middle
+601,I,L,missense,Middle
+601,I,T,missense,Middle
+601,I,V,missense,Middle
+602,L,F,missense,Middle
+603,V,,frameshift,Middle
+603,V,A,missense,Middle
+603,V,F,missense,Middle
+603,V,I,missense,Middle
+604,T,,frameshift,Middle
+604,T,I,missense,Middle
+604,T,P,missense,Middle
+604,T,S,missense,Middle
+605,S,F,missense,Middle
+605,S,P,missense,Middle
+606,K,E,missense,Middle
+606,K,RSSENVP*,stop gained,Middle
+607,M,I,missense,Middle
+607,MEHLKKADKILILHEGSSYFYGTFSELQ,,inframe deletion,Middle
+607,M,T,missense,Middle
+608,E,G,missense,Middle
+608,E,N,frameshift,Middle
+609,H,L,missense,Middle
+609,H,R,missense,Middle
+609,H,Y,missense,Middle
+610,L,F,missense,Middle
+610,L,I,missense,Middle
+610,L,S,missense,Middle
+611,K,*,stop gained,Middle
+611,K,N,missense,Middle
+613,A,T,missense,Middle
+614,D,E,missense,Middle
+614,D,G,missense,Middle
+614,D,N,missense,Middle
+614,D,Y,missense,Middle
+615,K,R,missense,Middle
+616,I,M,missense,Middle
+616,I,T,missense,Middle
+616,I,V,missense,Middle
+617,L,,inframe deletion,Middle
+617,L,F,missense,Middle
+618,I,T,missense,Middle
+618,I,V,missense,Middle
+619,L,S,missense,Middle
+620,H,L,missense,Middle
+620,H,P,missense,Middle
+620,H,Q,missense,Middle
+620,H,R,missense,Middle
+620,H,Y,missense,Middle
+621,E,*,stop gained,Middle
+621,E,G,missense,Middle
+621,E,K,missense,Middle
+622,G,D,missense,Middle
+623,S,,frameshift,Middle
+623,S,,frameshift,Middle
+624,S,,frameshift,Middle
+624,S,C,missense,Middle
+624,S,R,missense,Middle
+625,Y,N,missense,Middle
+625,Y,S,missense,Middle
+626,F,L,missense,Middle
+627,Y,C,missense,Middle
+628,G,A,missense,Middle
+628,G,R,missense,Middle
+629,T,,frameshift,Middle
+629,T,A,missense,Middle
+629,T,I,missense,Middle
+630,F,L,missense,Middle
+631,S,,frameshift,Middle
+631,S,P,missense,Middle
+632,E,,frameshift,Middle
+633,L,I,missense,Middle
+633,L,P,missense,Middle
+633,L,V,missense,Middle
+634,Q,*,stop gained,Middle
+634,Q,H,missense,Middle
+635,N,,frameshift,Middle
+635,N,K,missense,Middle
+635,N,T,missense,Middle
+636,L,P,missense,Middle
+637,Q,,frameshift,Middle
+637,Q,*,stop gained,Middle
+637,Q,K,missense,Middle
+637,Q,R,missense,Middle
+638,P,L,missense,Middle
+638,P,S,missense,Middle
+639,DF,*,stop gained,Middle
+639,D,H,missense,Middle
+639,D,Y,missense,Middle
+640,F,C,missense,Middle
+640,F,L,missense,Middle
+641,S,,frameshift,Middle
+641,S,,frameshift,Middle
+641,S,G,missense,Middle
+641,S,R,missense,Middle
+642,S,,frameshift,Middle
+642,S,P,missense,Middle
+643,K,E,missense,Middle
+643,K,N,missense,Middle
+643,K,Q,missense,Middle
+643,K,R,missense,Middle
+644,L,H,missense,Middle
+644,L,P,missense,Middle
+644,L,V,missense,Middle
+645,M,I,missense,Middle
+645,M,K,missense,Middle
+645,M,T,missense,Middle
+645,M,V,missense,Middle
+646,G,*,stop gained,Middle
+646,G,D,frameshift,Middle
+646,G,R,missense,Middle
+647,C,*,stop gained,Middle
+647,C,S,missense,Middle
+648,D,,frameshift,Middle
+648,D,G,missense,Middle
+648,D,N,missense,Middle
+648,D,V,missense,Middle
+649,S,Y,missense,Middle
+650,F,,frameshift,Middle
+650,F,L,missense,Middle
+650,F,S,missense,Middle
+651,D,H,missense,Middle
+651,D,N,missense,Middle
+652,Q,E,missense,Middle
+652,Q,K,missense,Middle
+652,Q,P,missense,Middle
+653,F,V,missense,Middle
+654,S,C,missense,Middle
+654,S,G,missense,Middle
+654,S,R,missense,Middle
+655,A,T,missense,Middle
+655,A,V,missense,Middle
+656,E,*,stop gained,Middle
+656,E,G,missense,Middle
+656,E,Q,missense,Middle
+657,R,,frameshift,Middle
+657,R,*,stop gained,Middle
+657,R,K,missense,Middle
+658,R,,frameshift,Middle
+658,R,,frameshift,Middle
+658,R,K,missense,Middle
+659,N,,frameshift,Middle
+660,S,*,stop gained,Middle
+661,I,,frameshift,Middle
+661,I,M,missense,Middle
+661,I,T,missense,Middle
+661,I,V,missense,Middle
+663,T,,frameshift,Middle
+663,T,S,missense,Middle
+664,E,*,stop gained,Middle
+664,E,D,missense,Middle
+664,E,Q,missense,Middle
+665,T,N,missense,Middle
+665,T,S,missense,Middle
+666,L,*,stop gained,Middle
+666,L,F,missense,Middle
+667,H,R,missense,Middle
+667,H,Y,missense,Middle
+668,R,C,missense,Middle
+668,R,H,missense,Middle
+668,R,L,missense,Middle
+668,R,S,missense,Middle
+669,F,L,missense,Middle
+670,SL,*,stop gained,Middle
+670,S,L,missense,Middle
+671,L,*,stop gained,Middle
+672,E,,inframe deletion,Middle
+672,E,K,missense,Middle
+673,G,*,stop gained,Middle
+673,G,R,missense,Middle
+674,D,E,missense,Middle
+674,D,G,missense,Middle
+674,D,V,missense,Middle
+674,D,Y,missense,Middle
+675,A,R,frameshift,Middle
+675,A,V,missense,Middle
+676,P,A,missense,Middle
+676,P,H,missense,Middle
+676,P,S,missense,Middle
+678,S,F,missense,Middle
+679,W,*,stop gained,Middle
+679,W,R,missense,Middle
+681,E,D,missense,Middle
+681,E,V,missense,Middle
+682,T,,frameshift,Middle
+682,T,,frameshift,Middle
+682,T,K,missense,Middle
+683,K,,frameshift,Middle
+683,K,R,missense,Middle
+684,K,,frameshift,Middle
+684,K,,frameshift,Middle
+684,K,N,missense,Middle
+684,K,R,missense,Middle
+684,K,T,missense,Middle
+685,Q,,frameshift,Middle
+685,Q,,frameshift,Middle
+685,Q,,frameshift,Middle
+685,Q,*,stop gained,Middle
+685,Q,P,missense,Middle
+686,S,T,missense,Middle
+686,S,Y,missense,Middle
+687,F,L,missense,Middle
+688,K,,frameshift,Middle
+688,K,F*,stop gained,Middle
+688,K,Q,missense,Middle
+689,Q,*,stop gained,Middle
+689,Q,P,missense,Middle
+690,T,A,missense,Middle
+691,G,E,missense,Middle
+691,G,R,missense,Middle
+691,G,V,missense,Middle
+692,E,*,stop gained,Middle
+692,E,D,missense,Middle
+692,E,G,missense,Middle
+692,E,Q,missense,Middle
+692,E,V,missense,Middle
+693,F,L,missense,Middle
+693,F,L,missense,Middle
+693,F,S,missense,Middle
+695,E,,frameshift,Middle
+695,E,G,missense,Middle
+695,E,K,missense,Middle
+696,K,R,missense,Middle
+697,R,,frameshift,Middle
+697,R,G,frameshift,Middle
+698,K,N,missense,Middle
+699,N,I,missense,Middle
+699,N,K,missense,Middle
+700,S,P,missense,Middle
+700,S,Y,missense,Middle
+702,L,I,missense,Middle
+703,N,D,missense,Middle
+703,N,I,missense,Middle
+703,N,T,missense,Middle
+704,P,L,missense,Middle
+704,P,R,missense,Middle
+704,P,T,missense,Middle
+705,I,V,missense,Middle
+706,N,I,missense,Middle
+706,N,K,missense,Middle
+707,S,C,missense,Middle
+707,S,Y,missense,Middle
+708,I,T,missense,Middle
+709,R,*,stop gained,Middle
+709,R,G,missense,Middle
+709,R,Q,missense,Middle
+710,K,*,stop gained,Middle
+710,K,N,missense,Middle
+710,K,R,missense,Middle
+710,KFSIVQKTPLQMNGIEEDSDEPLERRLSLVPDSEQGEAILPRISVISTGPTLQARRRQSVLNLMTHSVNQGQNIHRKTTASTRKVSLAPQANLTELDIYSRRLSQETGLEISEEINEEDLKECFFDDMESIPAVTTWNTYLRYITVHKSLIFVLIWCLVIFLAEVAASLVVLWLLGNTPLQDKGNSTHSRNNSYAVIITSTSSYYVFYIYVGVADTLLAMGFFRGLPLVHTLITVSKILHHKMLHSVLQAPMSTLNTLKAGGILNRFSKDIAILDDLLPLTIFDFIQLLLIVIGAIAVVAVLQPYIFVATVPVIVAFIMLRAYFLQTSQQLKQLESEGRSPIFTHLVTSLKGLWTLRAFGRQPYFETLFHKALNLHTANWFLYLSTLRWFQMRIEMIFVIFFIAVTFISILTTGEGEGRVGIILTLAMNIMSTLQWAVNSSIDVDSLMRSVSRVFKFIDMPTEGKPTKSTKPYKNGQLSKVMIIENSHVKKDDIWPSGGQMTVKDLTAKYTEGGNAILENISFSISPGQRVGLLGRTGSGKSTLLSAFLRLLNTEGEIQIDGVSWDSITLQQWRKAFGVIPQKVFIFSGTFRKNLDPYEQWSDQEIWKVADEVGLRSVIEQFPGKLDFVLVDGGCVLSHGHKQLMCLARSVLSKAKILLLDEPSAHLDPVTYQIIRRTLKQAFADCTVILCEHRIEAMLECQQFLVIEENKVRQYDSIQKLLNERSLFRQAISPSDRVKLFPHRNSSKCKSKPQIAALKEETEEEVQDTRL,del,inframe deletion,Middle
+711,F,L,missense,Middle
+711,F,V,missense,Middle
+712,S,F,missense,Middle
+713,I,V,missense,Middle
+714,V,L,missense,Middle
+714,V,M,missense,Middle
+715,Q,*,stop gained,Middle
+715,Q,E,missense,Middle
+715,Q,H,missense,Middle
+716,K,*,stop gained,Middle
+716,K,*,stop gained,Middle
+716,K,ISIVQ,-,Middle
+716,K,N,missense,Middle
+717,T,I,missense,Middle
+717,T,N,missense,Middle
+718,P,R,missense,Middle
+718,P,S,missense,Middle
+719,L,*,stop gained,Middle
+720,QM,*,stop gained,Middle
+720,Q,*,stop gained,Middle
+720,Q,R,missense,Middle
+721,M,I,missense,Middle
+721,M,R,missense,Middle
+722,N,K,missense,Middle
+722,N,T,missense,Middle
+723,G,V,missense,Middle
+724,I,L,missense,Middle
+724,I,M,missense,Middle
+724,I,T,missense,Middle
+724,I,V,missense,Middle
+725,E,G,missense,Middle
+725,E,K,missense,Middle
+726,E,,frameshift,Middle
+727,D,A,missense,Middle
+727,D,N,missense,Middle
+727,D,Y,missense,Middle
+728,S,F,missense,Middle
+729,D,,frameshift,Middle
+729,D,A,missense,Middle
+729,D,G,missense,Middle
+729,D,H,missense,Middle
+730,E,*,stop gained,Middle
+730,E,A,missense,Middle
+730,E,K,missense,Middle
+731,P,L,missense,Middle
+731,P,R,missense,Middle
+731,P,S,missense,Middle
+732,L,*,stop gained,Middle
+732,L,V,missense,Middle
+734,R,G,missense,Middle
+735,R,,frameshift,Middle
+735,R,K,missense,Middle
+735,R,S,missense,Middle
+737,S,F,missense,Middle
+737,S,P,missense,Middle
+737,S,T,missense,Middle
+738,L,*,stop gained,Middle
+738,L,F,missense,Middle
+738,L,V,missense,Middle
+739,V,,frameshift,Middle
+739,V,I,missense,Middle
+740,P,L,missense,Middle
+740,P,Q,missense,Middle
+741,D,N,missense,Middle
+742,S,F,missense,Middle
+743,E,K,missense,Middle
+744,Q,L,missense,Middle
+744,Q,P,missense,Middle
+744,Q,R,missense,Middle
+745,G,*,stop gained,Middle
+745,G,E,missense,Middle
+746,E,D,missense,Middle
+747,A,E,missense,Middle
+747,A,V,missense,Middle
+748,I,,frameshift,Middle
+748,I,,frameshift,Middle
+749,L,M,missense,Middle
+750,P,,frameshift,Middle
+750,P,L,missense,Middle
+750,P,T,missense,Middle
+751,R,C,missense,Middle
+751,R,H,missense,Middle
+751,R,L,missense,Middle
+751,R,P,missense,Middle
+752,I,F,missense,Middle
+752,I,L,missense,Middle
+752,I,S,missense,Middle
+752,I,T,missense,Middle
+753,S,G,missense,Middle
+753,S,N,missense,Middle
+753,S,R,missense,Middle
+754,V,,frameshift,Middle
+754,V,L,missense,Middle
+754,V,M,missense,Middle
+755,I,F,missense,Middle
+755,I,M,missense,Middle
+756,S,C,missense,Middle
+756,S,I,missense,Middle
+756,S,N,missense,Middle
+757,T,A,missense,Middle
+757,T,I,missense,Middle
+757,T,S,missense,Middle
+759,P,T,missense,Middle
+760,T,,frameshift,Middle
+760,T,A,missense,Middle
+760,T,M,missense,Middle
+760,T,R,missense,Middle
+760,T,S,missense,Middle
+761,L,I,missense,Middle
+761,L,P,missense,Middle
+762,Q,,frameshift,Middle
+762,Q,*,stop gained,Middle
+762,Q,H,missense,Middle
+763,A,G,missense,Middle
+763,A,S,missense,Middle
+763,A,T,missense,Middle
+764,R,,frameshift,Middle
+764,R,*,stop gained,Middle
+764,R,Q,missense,Middle
+765,R,G,missense,Middle
+765,R,K,missense,Middle
+765,R,S,missense,Middle
+766,R,K,missense,Middle
+766,R,M,missense,Middle
+766,R,T,missense,Middle
+767,Q,,frameshift,Middle
+767,Q,*,stop gained,Middle
+767,Q,H,missense,Middle
+768,S,F,missense,Middle
+769,V,I,missense,Middle
+771,N,S,missense,Middle
+774,T,R,missense,Middle
+775,H,,frameshift,Middle
+775,H,R,missense,Middle
+775,H,Y,missense,Middle
+776,S,*,stop gained,Middle
+776,S,L,missense,Middle
+779,Q,,frameshift,Middle
+779,Q,*,stop gained,Middle
+779,Q,K,missense,Middle
+780,G,,frameshift,Middle
+781,Q,*,stop gained,Middle
+781,Q,E,missense,Middle
+781,Q,H,missense,Middle
+781,Q,R,missense,Middle
+782,N,K,missense,Middle
+782,N,T,missense,Middle
+783,I,S,missense,Middle
+783,I,V,missense,Middle
+784,H,D,missense,Middle
+785,R,*,stop gained,Middle
+785,R,G,missense,Middle
+785,R,L,missense,Middle
+785,R,P,missense,Middle
+785,R,Q,missense,Middle
+786,K,N,missense,Middle
+787,T,K,missense,Middle
+788,T,I,missense,Middle
+788,T,K,missense,Middle
+789,A,S,missense,Middle
+789,A,T,missense,Middle
+791,TR,,inframe deletion,Middle
+791,T,I,missense,Middle
+792,R,,frameshift,Middle
+792,R,*,stop gained,Middle
+792,R,G,missense,Middle
+792,RK,Q,-,Middle
+792,RK,Q,-,Middle
+792,R,Q,missense,Middle
+793,K,N,missense,Middle
+794,V,A,frameshift,Middle
+794,V,C,frameshift,Middle
+794,V,E,missense,Middle
+794,V,L,missense,Middle
+794,V,M,missense,Middle
+795,S,,frameshift,Middle
+795,S,L,missense,Middle
+796,L,P,missense,Middle
+796,L,Q,missense,Middle
+797,A,G,missense,Middle
+797,A,S,missense,Middle
+797,A,T,missense,Middle
+798,P,H,missense,Middle
+798,P,L,missense,Middle
+798,P,R,missense,Middle
+798,P,S,missense,Middle
+799,Q,,frameshift,Middle
+799,Q,*,stop gained,Middle
+799,Q,K,missense,Middle
+799,Q,R,missense,Middle
+800,A,E,missense,Middle
+800,A,G,missense,Middle
+800,A,S,missense,Middle
+800,A,V,missense,Middle
+801,N,I,missense,Middle
+801,N,K,missense,Middle
+801,N,S,missense,Middle
+801,N,Y,missense,Middle
+802,L,F,missense,Middle
+802,L,V,missense,Middle
+803,T,S,missense,Middle
+804,E,*,stop gained,Middle
+804,E,D,missense,Middle
+804,E,K,missense,Middle
+804,E,V,missense,Middle
+806,D,E,missense,Middle
+806,D,G,missense,Middle
+806,D,H,missense,Middle
+807,I,M,missense,Middle
+807,I,T,missense,Middle
+807,I,V,missense,Middle
+808,Y,F,missense,Middle
+809,S,,frameshift,Middle
+809,S,*,stop gained,Middle
+809,S,L,missense,Middle
+810,R,,frameshift,Middle
+810,R,*,stop gained,Middle
+810,R,G,missense,Middle
+810,R,S,missense,Middle
+811,R,,inframe deletion,Middle
+811,R,K,missense,Middle
+811,R,S,missense,Middle
+812,L,,frameshift,Middle
+812,L,I,missense,Middle
+813,S,,frameshift,Middle
+813,S,P,missense,Middle
+813,S,Y,missense,Middle
+814,Q,*,stop gained,Middle
+814,Q,P,missense,Middle
+815,E,,frameshift,Middle
+815,E,*,stop gained,Middle
+816,T,P,missense,Middle
+817,G,,frameshift,Middle
+817,G,V,missense,Middle
+818,L,,frameshift,Middle
+818,L,V,missense,Middle
+819,E,*,stop gained,Middle
+820,I,L,missense,Middle
+820,I,V,missense,Middle
+821,S,,frameshift,Middle
+821,S,N,missense,Middle
+821,S,R,missense,Middle
+822,E,*,stop gained,Middle
+822,E,K,missense,Middle
+823,E,*,stop gained,Middle
+823,E,D,missense,Middle
+823,E,K,missense,Middle
+824,I,M,missense,Middle
+824,I,V,missense,Middle
+825,N,,frameshift,Middle
+825,N,S,missense,Middle
+826,E,*,stop gained,Middle
+826,E,D,missense,Middle
+826,E,K,missense,Middle
+827,E,,frameshift,Middle
+827,E,*,stop gained,Middle
+827,E,,inframe deletion,Middle
+828,D,,frameshift,Middle
+828,D,E,missense,Middle
+828,D,G,missense,Middle
+828,D,N,missense,Middle
+829,L,*,stop gained,Middle
+830,K,*,stop gained,Middle
+830,K,=,-,Middle
+830,K,R,missense,Middle
+831,E,,frameshift,Middle
+831,E,*,stop gained,Middle
+831,E,D,missense,Middle
+831,E,G,missense,Middle
+831,E,Q,missense,Middle
+832,C,*,stop gained,Middle
+832,C,G,missense,Middle
+832,C,S,missense,Middle
+832,C,Y,missense,Middle
+833,F,L,missense,Middle
+834,F,,frameshift,Middle
+834,F,L,missense,Middle
+834,F,L,frameshift,Middle
+835,D,*,stop gained,Middle
+835,D,N,missense,Middle
+835,D,V,missense,Middle
+835,D,Y,missense,Middle
+836,D,,frameshift,Middle
+836,D,Y,missense,Middle
+837,M,I,missense,Middle
+837,M,T,missense,Middle
+838,E,K,missense,Middle
+839,S,G,missense,Middle
+839,S,R,missense,Middle
+840,I,T,missense,Middle
+841,P,A,missense,Middle
+841,P,L,missense,Middle
+841,P,R,missense,Middle
+841,P,S,missense,Middle
+841,P,T,missense,Middle
+843,V,E,missense,Middle
+844,T,I,missense,Middle
+845,T,P,missense,Middle
+846,W,*,stop gained,Middle
+846,W,*,stop gained,Middle
+846,WNTYLRYITVHKSLIFVLIWCLVIFLAEVAASLVVLWLLGNTPLQDKGNSTHSRNNSYAVIITSTSSYYVFYIYVGVADTLLAMGFFRGLPLVHTLITVSKILHHKMLHSVLQAPMSTLNTLKAGGILNRFSKDIAILDDLLPLTIFDFIQLLLIVIGAIAVVAVLQPYIFVATVPVIVAFIMLRAYFLQTSQQLKQLESEGRSPIFTHLVTSLKGLWTLRAFGRQPYFETLFHKALNLHTANWFLYLSTLRWFQMRIEMIFVIFFIAVTFISILTTGEGEGRVGIILTLAMNIMSTLQWAVNSSIDVDSLMRSVSRVFKFIDMPTEGKPTKSTKPYKNGQLSKVMIIENSHVKKDDIWPSGGQMTVKDLTAKYTEGGNAILENISFSISPGQRVGLLGRTGSGKSTLLSAFLRLLNTEGEIQIDGVSWDSITLQQWRKAFGVIPQKVFIFSGTFRKNLDPYEQWSDQEIWKVADEVGLRSVIEQFPGKLDFVLVDGGCVLSHGHKQLMCLARSVLSKAKILLLDEPSAHLDPVTYQIIRRTLKQAFADCTVILCEHRIEAMLECQQFLVIEENKVRQYDSIQKLLNERSLFRQAISPSDRVKLFPHRNSSKCKSKPQIAALKEETEEEVQDTRL,del,inframe deletion,Middle
+847,N,D,missense,Middle
+847,N,S,missense,Middle
+848,T,R,missense,Middle
+849,Y,*,stop gained,Middle
+849,Y,C,missense,Middle
+849,Y,H,missense,Middle
+849,Y,N,missense,Middle
+850,L,H,missense,Middle
+850,L,R,missense,Middle
+851,R,*,stop gained,Middle
+851,R,L,missense,Middle
+851,R,Q,missense,Middle
+852,Y,,frameshift,Middle
+852,Y,,frameshift,Middle
+852,Y,*,stop gained,Middle
+853,I,F,missense,Middle
+853,I,T,missense,Middle
+853,I,V,missense,Middle
+854,T,,frameshift,Middle
+854,T,A,missense,Middle
+854,T,I,missense,Middle
+854,T,M,missense,Middle
+855,V,I,missense,Middle
+855,V,I,missense,Middle
+856,HK,L,insertion,Middle
+857,K,N,missense,Middle
+857,K,R,missense,Middle
+857,K,R,frameshift,Middle
+858,S,,frameshift,Middle
+858,S,E,frameshift,Middle
+858,S,N,missense,Middle
+859,L,F,missense,Middle
+860,I,L,missense,Middle
+860,I,T,missense,Middle
+860,I,V,missense,Middle
+861,F,,frameshift,Middle
+861,F,S,missense,Middle
+862,V,L,missense,Middle
+862,V,M,missense,Middle
+864,I,,frameshift,Middle
+864,I,,frameshift,Middle
+866,C,R,missense,Middle
+866,C,W,missense,Middle
+866,C,Y,missense,Middle
+867,L,*,stop gained,Middle
+868,V,,frameshift,Middle
+868,V,A,missense,Middle
+868,V,I,missense,Middle
+869,I,,frameshift,Middle
+869,I,N,frameshift,Middle
+869,I,S,missense,Middle
+869,I,V,missense,Middle
+871,L,,frameshift,Middle
+872,A,E,missense,Middle
+872,A,T,missense,Middle
+872,A,V,missense,Middle
+873,E,*,stop gained,Middle
+873,E,K,missense,Middle
+873,E,Q,missense,Middle
+873,E,V,missense,Middle
+874,V,A,missense,Middle
+874,V,L,missense,Middle
+874,V,M,missense,Middle
+875,A,T,missense,Middle
+875,A,V,missense,Middle
+876,A,P,missense,Middle
+876,A,S,missense,Middle
+876,A,T,missense,Middle
+876,A,V,missense,Middle
+877,S,A,missense,Middle
+878,L,F,missense,Middle
+878,L,S,missense,Middle
+879,V,A,missense,Middle
+879,V,D,missense,Middle
+879,V,I,missense,Middle
+879,V,L,missense,Middle
+880,V,A,frameshift,Middle
+881,L,,frameshift,Middle
+881,L,P,missense,Middle
+882,W,,frameshift,Middle
+882,W,*,stop gained,Middle
+882,W,*,stop gained,Middle
+883,L,F,missense,Middle
+884,L,H,missense,Middle
+884,L,R,missense,Middle
+885,G,E,missense,Middle
+885,G,V,missense,Middle
+887,T,N,missense,Middle
+887,T,P,missense,Middle
+888,P,H,missense,Middle
+888,P,S,missense,Middle
+889,L,F,missense,Middle
+889,L,V,missense,Middle
+890,Q,*,stop gained,Middle
+890,Q,R,missense,Middle
+890,QDKGNSTHSRNNSYAVIITSTSSYYVFYIYVGVADTLLAMGFFRGLPLVHTLITVSKILHHKMLHSVLQAPMSTLNTLKAGGILNRFSKDIAILDDLLPLTIFDFIQLLLIVIGAIAVVAVLQPYIFVATVPVIVAFIMLRAYFLQTSQQLKQLESEGRSPIFTHLVTSLKGLWTLRAFGRQPYFETLFHKALNLHTANWFLYLSTLRWFQMRIEMIFVIFFIAVTFISILTTGEGEGRVGIILTLAMNIMSTLQWAVNSSIDVDSLMRSVSRVFKFIDMPTEGKPTKSTKPYKNGQLSKVMIIENSHVKKDDIWPSGGQMTVKDLTAKYTEGGNAILENISFSISPGQRVGLLGRTGSGKSTLLSAFLRLLNTEGEIQIDGVSWDSITLQQWRKAFGVIPQKVFIFSGTFRKNLDPYEQWSDQEIWKVADEVGLRSVIEQFPGKLDFVLVDGGCVLSHGHKQLMCLARSVLSKAKILLLDEPSAHLDPVTYQIIRRTLKQAFADCTVILCEHRIEAMLECQQFLVIEENKVRQYDSIQKLLNERSLFRQAISPSDRVKLFPHRNSSKCKSKPQIAALKEETEEEVQDTRL,del,inframe deletion,Middle
+891,D,E,missense,Middle
+891,D,G,missense,Middle
+891,D,N,missense,Middle
+893,G,R,missense,Middle
+894,N,K,missense,Middle
+894,N,S,missense,Middle
+894,N,T,missense,Middle
+895,S,G,missense,Middle
+895,S,N,missense,Middle
+895,S,T,missense,Middle
+896,T,I,missense,Middle
+896,TH,MSTMS,-,Middle
+897,H,Y,missense,Middle
+898,S,G,missense,Middle
+898,S,R,missense,Middle
+899,R,G,missense,Middle
+899,R,T,missense,Middle
+900,N,D,missense,Middle
+900,N,K,missense,Middle
+901,N,I,missense,Middle
+901,N,T,missense,Middle
+902,S,,frameshift,Middle
+902,S,R,missense,Middle
+902,S,T,missense,Middle
+903,Y,C,missense,Middle
+903,Y,H,missense,Middle
+904,A,V,missense,Middle
+905,V,L,missense,Middle
+906,I,N,missense,Middle
+907,I,N,missense,Middle
+907,I,S,missense,Middle
+907,I,V,missense,Middle
+908,T,N,missense,Middle
+908,T,S,missense,Middle
+909,S,G,missense,Middle
+909,S,I,missense,Middle
+910,T,S,missense,Middle
+911,S,G,missense,Middle
+911,S,N,missense,Middle
+911,S,R,missense,Middle
+911,S,T,missense,Middle
+912,S,*,stop gained,Middle
+912,S,L,missense,Middle
+912,S,T,missense,Middle
+913,Y,*,stop gained,Middle
+913,Y,*,stop gained,Middle
+913,Y,C,missense,Middle
+914,Y,*,stop gained,Middle
+915,V,,frameshift,Middle
+915,V,L,missense,Middle
+916,F,Y,missense,Middle
+917,Y,C,missense,Middle
+917,Y,D,missense,Middle
+918,I,F,missense,Middle
+918,I,L,missense,Middle
+918,I,M,missense,Middle
+918,I,N,missense,Middle
+918,I,V,missense,Middle
+919,Y,,frameshift,Middle
+919,Y,*,stop gained,Middle
+919,Y,C,missense,Middle
+919,Y,N,missense,Middle
+920,V,G,missense,Middle
+920,V,L,missense,Middle
+920,V,M,missense,Middle
+921,G,E,missense,Middle
+921,G,R,missense,Middle
+921,G,V,missense,Middle
+922,V,,frameshift,Middle
+922,V,G,missense,Middle
+922,V,I,missense,Middle
+922,V,L,missense,Middle
+923,A,D,missense,Middle
+924,D,E,missense,Middle
+924,D,G,missense,Middle
+924,D,H,missense,Middle
+924,D,N,missense,Middle
+925,T,A,missense,Middle
+925,T,I,missense,Middle
+925,T,N,missense,Middle
+925,T,S,missense,Middle
+926,L,,frameshift,Middle
+926,L,F,missense,Middle
+926,L,S,missense,Middle
+927,L,H,missense,Middle
+927,L,P,missense,Middle
+928,A,D,missense,Middle
+929,M,I,missense,Middle
+932,F,L,missense,Middle
+933,R,G,missense,Middle
+933,R,S,missense,Middle
+934,G,S,missense,Middle
+934,G,V,missense,Middle
+936,P,L,missense,Middle
+936,P,R,missense,Middle
+936,P,S,missense,Middle
+936,P,T,missense,Middle
+937,L,P,missense,Middle
+937,L,V,missense,Middle
+938,V,,frameshift,Middle
+938,V,,frameshift,Middle
+938,V,G,missense,Middle
+938,V,L,missense,Middle
+938,V,M,missense,Middle
+939,H,D,missense,Middle
+939,H,L,missense,Middle
+939,H,Q,missense,Middle
+939,H,R,missense,Middle
+940,T,,frameshift,Middle
+940,T,,frameshift,Middle
+940,T,I,missense,Middle
+940,T,N,frameshift,Middle
+940,T,N,frameshift,Middle
+941,L,,frameshift,Middle
+941,L,P,missense,Middle
+942,I,,frameshift,Middle
+942,I,,frameshift,Middle
+942,I,V,missense,Middle
+943,T,,frameshift,Middle
+943,T,S,frameshift,Middle
+944,V,A,missense,Middle
+944,V,G,missense,Middle
+944,V,L,missense,Middle
+945,S,L,missense,Middle
+946,K,*,stop gained,Middle
+946,K,E,missense,Middle
+946,K,I,missense,Middle
+946,K,Q,missense,Middle
+947,I,S,missense,Middle
+947,I,T,missense,Middle
+948,L,F,missense,Middle
+948,L,S,missense,Middle
+949,H,L,missense,Middle
+949,H,R,missense,Middle
+949,H,Y,missense,Middle
+950,H,,frameshift,Middle
+950,H,R,missense,Middle
+950,H,Y,missense,Middle
+951,K,E,missense,Middle
+951,K,T,missense,Middle
+952,M,,frameshift,Middle
+952,M,I,missense,Middle
+952,M,R,missense,Middle
+952,M,T,missense,Middle
+952,M,V,missense,Middle
+953,L,,frameshift,Middle
+953,LHSVLQAPMSTLN,FQD,-,Middle
+954,H,P,missense,Middle
+954,H,R,missense,Middle
+954,H,Y,missense,Middle
+955,S,A,missense,Middle
+955,S,F,missense,Middle
+956,V,L,missense,Middle
+957,L,F,missense,Middle
+958,Q,*,stop gained,Middle
+959,A,,frameshift,Middle
+959,A,T,missense,Middle
+959,A,V,missense,Middle
+960,P,,frameshift,Middle
+960,P,L,missense,Middle
+960,P,S,missense,Middle
+961,M,I,missense,Middle
+961,M,T,missense,Middle
+961,M,V,missense,Middle
+962,S,*,stop gained,Middle
+962,S,P,missense,Middle
+963,T,A,missense,Middle
+963,T,I,missense,Middle
+963,T,N,missense,Middle
+964,L,,frameshift,Middle
+964,L,F,missense,Middle
+965,N,K,missense,Middle
+965,N,S,missense,Middle
+966,T,,frameshift,Middle
+966,T,M,missense,Middle
+966,T,P,missense,Middle
+967,L,F,missense,Middle
+967,L,S,missense,Middle
+968,K,N,missense,Middle
+969,A,G,missense,Middle
+969,A,V,missense,Middle
+970,G,D,missense,Middle
+970,G,R,missense,Middle
+970,G,S,missense,Middle
+970,G,V,missense,Middle
+971,G,E,missense,Middle
+972,I,,frameshift,Middle
+972,I,V,missense,Middle
+973,L,F,missense,Middle
+973,L,F,missense,Middle
+973,L,H,missense,Middle
+973,L,I,missense,Middle
+973,L,P,missense,Middle
+975,R,,frameshift,Middle
+976,F,L,missense,Middle
+976,F,S,missense,Middle
+977,S,A,missense,Middle
+977,S,C,missense,Middle
+977,S,F,missense,Middle
+977,S,P,missense,Middle
+978,K,*,stop gained,Middle
+978,K,R,missense,Middle
+979,D,A,missense,Middle
+979,D,G,missense,Middle
+979,D,N,missense,Middle
+979,D,V,missense,Middle
+979,D,Y,missense,Middle
+980,I,K,missense,Middle
+980,I,T,missense,Middle
+980,I,V,missense,Middle
+981,A,E,missense,Middle
+981,A,T,missense,Middle
+982,I,M,missense,Middle
+982,I,V,missense,Middle
+983,L,,frameshift,Middle
+983,L,F,missense,Middle
+984,D,G,missense,Middle
+984,D,H,missense,Middle
+984,D,N,missense,Middle
+984,D,V,missense,Middle
+985,D,E,missense,Middle
+985,D,H,missense,Middle
+985,D,N,missense,Middle
+985,D,Y,missense,Middle
+986,L,,frameshift,Middle
+986,L,P,missense,Middle
+987,L,C,frameshift,C-terminal
+987,L,P,missense,C-terminal
+987,L,V,missense,C-terminal
+988,P,,frameshift,C-terminal
+988,P,L,missense,C-terminal
+989,L,F,missense,C-terminal
+990,T,,frameshift,C-terminal
+990,T,A,missense,C-terminal
+990,T,N,missense,C-terminal
+990,T,S,missense,C-terminal
+991,I,M,missense,C-terminal
+991,I,V,missense,C-terminal
+992,F,L,missense,C-terminal
+992,F,L,missense,C-terminal
+992,F,S,missense,C-terminal
+992,F,V,missense,C-terminal
+993,D,G,missense,C-terminal
+993,D,Y,missense,C-terminal
+994,F,C,missense,C-terminal
+994,F,L,missense,C-terminal
+995,I,L,missense,C-terminal
+995,I,N,missense,C-terminal
+996,Q,,frameshift,C-terminal
+997,L,F,missense,C-terminal
+998,L,,frameshift,C-terminal
+998,L,,frameshift,C-terminal
+998,L,F,missense,C-terminal
+998,L,I,missense,C-terminal
+999,LI,*,frameshift,C-terminal
+1000,I,,frameshift,C-terminal
+1000,I,,frameshift,C-terminal
+1001,V,,frameshift,C-terminal
+1001,V,L,missense,C-terminal
+1001,V,M,missense,C-terminal
+1001,VIGAI,,inframe deletion,C-terminal
+1002,I,F,missense,C-terminal
+1002,I,T,missense,C-terminal
+1003,G,*,stop gained,C-terminal
+1003,G,E,missense,C-terminal
+1003,G,R,missense,C-terminal
+1004,A,,frameshift,C-terminal
+1004,A,G,missense,C-terminal
+1004,AIA,,inframe deletion,C-terminal
+1005,I,R,missense,C-terminal
+1005,I,T,missense,C-terminal
+1005,I,V,missense,C-terminal
+1006,A,,frameshift,C-terminal
+1006,A,E,missense,C-terminal
+1006,A,T,missense,C-terminal
+1008,V,D,missense,C-terminal
+1008,VAV,,inframe deletion,C-terminal
+1008,V,,frameshift,C-terminal
+1008,V,,frameshift,C-terminal
+1009,A,S,missense,C-terminal
+1009,A,T,missense,C-terminal
+1009,A,V,missense,C-terminal
+1011,L,*,stop gained,C-terminal
+1012,Q,K,missense,C-terminal
+1012,Q,R,missense,C-terminal
+1013,P,H,missense,C-terminal
+1013,P,L,missense,C-terminal
+1013,P,R,missense,C-terminal
+1013,P,S,missense,C-terminal
+1014,Y,,frameshift,C-terminal
+1014,Y,C,missense,C-terminal
+1014,Y,H,missense,C-terminal
+1014,Y,,inframe deletion,C-terminal
+1015,I,V,missense,C-terminal
+1016,F,S,missense,C-terminal
+1016,F,V,missense,C-terminal
+1017,V,I,missense,C-terminal
+1018,A,T,missense,C-terminal
+1019,T,A,missense,C-terminal
+1019,T,I,missense,C-terminal
+1020,V,E,missense,C-terminal
+1021,P,L,missense,C-terminal
+1021,P,S,missense,C-terminal
+1021,P,T,missense,C-terminal
+1022,V,L,missense,C-terminal
+1022,V,M,missense,C-terminal
+1022,VIVAFIMLRAYFLQTSQQ,,inframe deletion,C-terminal
+1022,V,A,missense,C-terminal
+1022,V,G,missense,C-terminal
+1023,I,,frameshift,C-terminal
+1023,I,M,missense,C-terminal
+1023,I,V,missense,C-terminal
+1023,IV,,inframe deletion,C-terminal
+1023,I,R,missense,C-terminal
+1023,I,T,missense,C-terminal
+1023,IV,del,inframe deletion,C-terminal
+1024,V,E,missense,C-terminal
+1024,V,M,missense,C-terminal
+1025,A,S,missense,C-terminal
+1025,A,T,missense,C-terminal
+1025,A,V,missense,C-terminal
+1026,F,,frameshift,C-terminal
+1026,F,V,missense,C-terminal
+1027,I,F,missense,C-terminal
+1027,I,T,missense,C-terminal
+1028,M,I,missense,C-terminal
+1028,M,R,missense,C-terminal
+1028,M,V,missense,C-terminal
+1029,L,M,missense,C-terminal
+1031,A,G,missense,C-terminal
+1031,A,T,missense,C-terminal
+1031,A,V,missense,C-terminal
+1032,Y,C,missense,C-terminal
+1032,Y,N,missense,C-terminal
+1033,F,L,missense,C-terminal
+1033,F,S,missense,C-terminal
+1034,L,F,missense,C-terminal
+1034,L,P,missense,C-terminal
+1034,L,R,missense,C-terminal
+1035,Q,*,stop gained,C-terminal
+1036,T,A,missense,C-terminal
+1036,T,I,missense,C-terminal
+1036,T,N,missense,C-terminal
+1037,S,*,stop gained,C-terminal
+1038,Q,R,missense,C-terminal
+1039,Q,QQ,insertion,C-terminal
+1039,Q,R,missense,C-terminal
+1040,L,F,missense,C-terminal
+1040,L,P,missense,C-terminal
+1041,K,Q,missense,C-terminal
+1041,K,R,missense,C-terminal
+1042,Q,*,stop gained,C-terminal
+1042,Q,R,missense,C-terminal
+1043,L,Q,missense,C-terminal
+1044,E,*,stop gained,C-terminal
+1044,E,D,missense,C-terminal
+1044,E,G,missense,C-terminal
+1044,E,Q,missense,C-terminal
+1045,S,F,missense,C-terminal
+1045,S,Y,missense,C-terminal
+1046,E,*,stop gained,C-terminal
+1047,G,C,missense,C-terminal
+1047,G,D,missense,C-terminal
+1047,G,R,missense,C-terminal
+1047,G,S,missense,C-terminal
+1047,G,V,missense,C-terminal
+1049,S,N,missense,C-terminal
+1049,S,R,missense,C-terminal
+1050,P,A,missense,C-terminal
+1050,P,T,missense,C-terminal
+1051,I,F,missense,C-terminal
+1051,I,L,missense,C-terminal
+1051,I,V,missense,C-terminal
+1052,F,L,missense,C-terminal
+1052,F,S,missense,C-terminal
+1052,F,V,missense,C-terminal
+1053,T,I,missense,C-terminal
+1053,T,S,missense,C-terminal
+1053,T,S,missense,C-terminal
+1054,H,,frameshift,C-terminal
+1054,H,D,missense,C-terminal
+1054,H,L,missense,C-terminal
+1054,H,Q,missense,C-terminal
+1054,H,R,missense,C-terminal
+1054,H,Y,missense,C-terminal
+1055,L,P,missense,C-terminal
+1056,V,A,missense,C-terminal
+1056,V,F,missense,C-terminal
+1056,V,I,missense,C-terminal
+1057,T,,frameshift,C-terminal
+1057,T,A,missense,C-terminal
+1059,L,*,stop gained,C-terminal
+1059,L,I,missense,C-terminal
+1060,K,E,missense,C-terminal
+1060,K,N,missense,C-terminal
+1060,K,T,missense,C-terminal
+1061,G,D,frameshift,C-terminal
+1061,G,R,missense,C-terminal
+1061,G,V,missense,C-terminal
+1062,L,,frameshift,C-terminal
+1062,L,P,missense,C-terminal
+1063,W,,frameshift,C-terminal
+1063,W,*,stop gained,C-terminal
+1063,W,*,stop gained,C-terminal
+1063,WTLRAFGRQPYFETLFHKALNLHTANWFLYLSTLRWFQMRIEMIFVIFFIAVTFISILTTGEGEGRVGIILTLAMNIMSTLQWAVNSSIDVDSLMRSVSRVFKFIDMPTEGKPTKSTKPYKNGQLSKVMIIENSHVKKDDIWPSGGQMTVKDLTAKYTEGGNAILENISFSISPGQRVGLLGRTGSGKSTLLSAFLRLLNTEGEIQIDGVSWDSITLQQWRKAFGVIPQKVFIFSGTFRKNLDPYEQWSDQEIWKVADEVGLRSVIEQFPGKLDFVLVDGGCVLSHGHKQLMCLARSVLSKAKILLLDEPSAHLDPVTYQIIRRTLKQAFADCTVILCEHRIEAMLECQQFLVIEENKVRQYDSIQKLLNERSLFRQAISPSDRVKLFPHRNSSKCKSKPQIAALKEETEEEVQDTRL,del,inframe deletion,C-terminal
+1064,T,A,missense,C-terminal
+1065,L,,frameshift,C-terminal
+1065,L,C,frameshift,C-terminal
+1065,L,F,missense,C-terminal
+1065,L,P,missense,C-terminal
+1065,L,R,missense,C-terminal
+1066,R,C,missense,C-terminal
+1066,R,H,missense,C-terminal
+1066,R,L,missense,C-terminal
+1066,R,S,missense,C-terminal
+1067,A,D,missense,C-terminal
+1067,A,G,missense,C-terminal
+1067,A,P,missense,C-terminal
+1067,A,T,missense,C-terminal
+1067,A,V,missense,C-terminal
+1068,F,L,missense,C-terminal
+1068,F,V,missense,C-terminal
+1069,G,*,stop gained,C-terminal
+1069,G,R,missense,C-terminal
+1070,R,P,missense,C-terminal
+1070,R,Q,missense,C-terminal
+1070,R,W,missense,C-terminal
+1071,Q,*,stop gained,C-terminal
+1071,Q,P,missense,C-terminal
+1071,Q,R,missense,C-terminal
+1072,P,H,missense,C-terminal
+1072,P,L,missense,C-terminal
+1072,P,S,missense,C-terminal
+1073,Y,,frameshift,C-terminal
+1074,F,L,missense,C-terminal
+1074,F,L,missense,C-terminal
+1076,T,A,missense,C-terminal
+1076,T,N,missense,C-terminal
+1076,T,P,missense,C-terminal
+1077,L,,frameshift,C-terminal
+1077,L,P,missense,C-terminal
+1077,L,V,missense,C-terminal
+1078,F,,frameshift,C-terminal
+1079,H,P,missense,C-terminal
+1079,H,R,missense,C-terminal
+1079,H,Y,missense,C-terminal
+1080,K,E,missense,C-terminal
+1080,K,Q,missense,C-terminal
+1080,K,R,missense,C-terminal
+1081,A,G,missense,C-terminal
+1081,A,P,missense,C-terminal
+1081,A,V,missense,C-terminal
+1083,N,D,missense,C-terminal
+1083,N,K,missense,C-terminal
+1084,L,V,missense,C-terminal
+1085,H,P,missense,C-terminal
+1085,H,R,missense,C-terminal
+1086,T,A,missense,C-terminal
+1086,T,I,missense,C-terminal
+1086,T,S,missense,C-terminal
+1087,A,P,missense,C-terminal
+1087,A,S,missense,C-terminal
+1087,A,V,missense,C-terminal
+1088,N,,frameshift,C-terminal
+1088,N,D,missense,C-terminal
+1088,N,S,missense,C-terminal
+1089,W,,frameshift,C-terminal
+1089,W,*,stop gained,C-terminal
+1089,W,*,stop gained,C-terminal
+1089,W,C,missense,C-terminal
+1089,W,L,missense,C-terminal
+1090,F,L,missense,C-terminal
+1091,L,F,missense,C-terminal
+1092,Y,*,stop gained,C-terminal
+1092,Y,C,missense,C-terminal
+1092,Y,H,missense,C-terminal
+1092,YLSTLRWFQMRIEMIFVIFFIAVTFISILTTGEGEGRVGIILTLAMNIMSTLQWAVNSSIDVDSLMRSVSRVFKFIDMPTEGKPTKSTKPYKNGQLSKVMIIENSHVKKDDIWPSGGQMTVKDLTAKYTEGGNAILENISFSISPGQRVGLLGRTGSGKSTLLSAFLRLLNTEGEIQIDGVSWDSITLQQWRKAFGVIPQKVFIFSGTFRKNLDPYEQWSDQEIWKVADEVGLRSVIEQFPGKLDFVLVDGGCVLSHGHKQLMCLARSVLSKAKILLLDEPSAHLDPVTYQIIRRTLKQAFADCTVILCEHRIEAMLECQQFLVIEENKVRQYDSIQKLLNERSLFRQAISPSDRVKLFPHRNSSKCKSKPQIAALKEETEEEVQDTRL,del,inframe deletion,C-terminal
+1093,L,P,missense,C-terminal
+1093,L,V,missense,C-terminal
+1094,S,*,stop gained,C-terminal
+1094,S,P,missense,C-terminal
+1096,L,,frameshift,C-terminal
+1096,L,R,missense,C-terminal
+1097,R,C,missense,C-terminal
+1097,R,H,missense,C-terminal
+1097,R,P,missense,C-terminal
+1098,W,,frameshift,C-terminal
+1098,W,*,stop gained,C-terminal
+1098,W,*,stop gained,C-terminal
+1098,W,C,missense,C-terminal
+1098,W,G,missense,C-terminal
+1098,W,L,missense,C-terminal
+1098,W,R,missense,C-terminal
+1098,W,S,missense,C-terminal
+1099,F,L,missense,C-terminal
+1100,QM,*,stop gained,C-terminal
+1100,Q,P,missense,C-terminal
+1101,M,I,missense,C-terminal
+1101,MR,IG,missense,C-terminal
+1101,M,K,missense,C-terminal
+1101,M,R,missense,C-terminal
+1102,R,*,stop gained,C-terminal
+1102,R,K,missense,C-terminal
+1102,R,S,missense,C-terminal
+1103,I,M,missense,C-terminal
+1103,I,R,missense,C-terminal
+1103,I,T,missense,C-terminal
+1104,E,*,stop gained,C-terminal
+1105,M,,frameshift,C-terminal
+1105,M,I,missense,C-terminal
+1105,MI,QIT*,stop gained,C-terminal
+1105,M,R,missense,C-terminal
+1106,I,T,missense,C-terminal
+1107,F,C,missense,C-terminal
+1107,F,L,missense,C-terminal
+1108,V,,frameshift,C-terminal
+1108,V,,frameshift,C-terminal
+1108,V,I,missense,C-terminal
+1108,V,L,missense,C-terminal
+1109,I,,frameshift,C-terminal
+1109,I,T,missense,C-terminal
+1109,I,V,missense,C-terminal
+1110,F,C,missense,C-terminal
+1110,F,L,missense,C-terminal
+1111,F,,frameshift,C-terminal
+1111,F,L,missense,C-terminal
+1111,F,,inframe deletion,C-terminal
+1112,I,S,missense,C-terminal
+1112,I,V,missense,C-terminal
+1113,A,V,missense,C-terminal
+1114,V,I,missense,C-terminal
+1114,V,L,missense,C-terminal
+1115,T,,frameshift,C-terminal
+1115,T,A,missense,C-terminal
+1115,T,N,missense,C-terminal
+1115,T,S,missense,C-terminal
+1116,F,L,missense,C-terminal
+1116,F,S,missense,C-terminal
+1117,I,L,missense,C-terminal
+1117,I,T,missense,C-terminal
+1117,I,V,missense,C-terminal
+1118,S,,frameshift,C-terminal
+1118,S,C,missense,C-terminal
+1118,S,F,missense,C-terminal
+1118,S,P,missense,C-terminal
+1119,I,F,missense,C-terminal
+1119,I,T,missense,C-terminal
+1119,I,V,missense,C-terminal
+1120,L,F,missense,C-terminal
+1120,L,N,frameshift,C-terminal
+1121,T,K,missense,C-terminal
+1122,T,,inframe deletion,C-terminal
+1122,T,A,missense,C-terminal
+1123,G,*,stop gained,C-terminal
+1123,G,R,missense,C-terminal
+1123,G,V,missense,C-terminal
+1124,E,K,missense,C-terminal
+1124,E,,inframe deletion,C-terminal
+1125,G,A,missense,C-terminal
+1125,G,E,missense,C-terminal
+1127,G,A,missense,C-terminal
+1127,G,E,missense,C-terminal
+1128,R,*,stop gained,C-terminal
+1128,R,G,missense,C-terminal
+1128,R,K,missense,C-terminal
+1129,V,A,missense,C-terminal
+1129,V,I,missense,C-terminal
+1129,V,L,missense,C-terminal
+1130,G,,frameshift,C-terminal
+1130,G,A,missense,C-terminal
+1130,G,D,missense,C-terminal
+1130,G,R,missense,C-terminal
+1130,G,S,missense,C-terminal
+1130,G,V,missense,C-terminal
+1131,I,T,missense,C-terminal
+1131,I,V,missense,C-terminal
+1133,L,,frameshift,C-terminal
+1134,T,,frameshift,C-terminal
+1134,T,,frameshift,C-terminal
+1134,T,N,missense,C-terminal
+1135,L,*,stop gained,C-terminal
+1136,A,,frameshift,C-terminal
+1136,A,T,missense,C-terminal
+1136,A,V,missense,C-terminal
+1137,M,,frameshift,C-terminal
+1137,M,I,missense,C-terminal
+1137,M,R,missense,C-terminal
+1137,M,T,missense,C-terminal
+1137,M,V,missense,C-terminal
+1138,N,H,missense,C-terminal
+1138,N,S,missense,C-terminal
+1139,I,V,missense,C-terminal
+1140,M,I,missense,C-terminal
+1140,M,L,missense,C-terminal
+1140,M,V,missense,C-terminal
+1140,M,,inframe deletion,C-terminal
+1140,M,K,missense,C-terminal
+1141,S,N,missense,C-terminal
+1141,S,R,missense,C-terminal
+1141,S,R,missense,C-terminal
+1142,T,,frameshift,C-terminal
+1142,T,I,missense,C-terminal
+1143,L,*,stop gained,C-terminal
+1143,L,F,missense,C-terminal
+1143,L,S,missense,C-terminal
+1144,Q,*,stop gained,C-terminal
+1144,Q,H,missense,C-terminal
+1145,W,*,stop gained,C-terminal
+1145,W,*,stop gained,C-terminal
+1145,W,R,missense,C-terminal
+1145,W,S,missense,C-terminal
+1146,A,D,missense,C-terminal
+1146,A,T,missense,C-terminal
+1146,A,V,missense,C-terminal
+1147,V,E,missense,C-terminal
+1147,V,I,missense,C-terminal
+1148,N,K,missense,C-terminal
+1148,N,S,missense,C-terminal
+1149,S,,frameshift,C-terminal
+1149,S,C,missense,C-terminal
+1149,S,P,missense,C-terminal
+1150,S,R,missense,C-terminal
+1150,S,T,missense,C-terminal
+1151,I,K,missense,C-terminal
+1151,I,L,missense,C-terminal
+1151,I,V,missense,C-terminal
+1152,D,E,missense,C-terminal
+1152,D,H,missense,C-terminal
+1153,V,E,missense,C-terminal
+1153,V,L,missense,C-terminal
+1153,V,M,missense,C-terminal
+1154,D,E,missense,C-terminal
+1154,D,G,missense,C-terminal
+1154,D,N,missense,C-terminal
+1154,D,V,missense,C-terminal
+1154,D,Y,missense,C-terminal
+1155,S,R,missense,C-terminal
+1156,L,F,missense,C-terminal
+1156,L,W,missense,C-terminal
+1157,M,I,missense,C-terminal
+1157,M,L,missense,C-terminal
+1158,R,*,stop gained,C-terminal
+1158,R,L,missense,C-terminal
+1158,R,P,missense,C-terminal
+1158,R,Q,missense,C-terminal
+1159,S,F,missense,C-terminal
+1159,S,P,missense,C-terminal
+1161,S,G,missense,C-terminal
+1161,S,I,missense,C-terminal
+1161,S,R,missense,C-terminal
+1162,R,*,stop gained,C-terminal
+1162,R,L,missense,C-terminal
+1162,R,P,missense,C-terminal
+1162,R,Q,missense,C-terminal
+1162,RVFKFIDMPTEGKPTKSTKPYKNGQLSKVMIIENSHVKKDDIWPSGGQMTVKDLTAKYTEGGNAILENISFSISPGQRVGLLGRTGSGKSTLLSAFLRLLNTEGEIQIDGVSWDSITLQQWRKAFGVIPQKVFIFSGTFRKNLDPYEQWSDQEIWKVADEVGLRSVIEQFPGKLDFVLVDGGCVLSHGHKQLMCLARSVLSKAKILLLDEPSAHLDPVTYQIIRRTLKQAFADCTVILCEHRIEAMLECQQFLVIEENKVRQYDSIQKLLNERSLFRQAISPSDRVKLFPHRNSSKCKSKPQIAALKEETEEEVQDTRL,del,inframe deletion,C-terminal
+1163,V,,frameshift,C-terminal
+1163,V,G,missense,C-terminal
+1163,V,I,missense,C-terminal
+1164,F,,frameshift,C-terminal
+1164,F,L,missense,C-terminal
+1165,K,,frameshift,C-terminal
+1165,K,*,stop gained,C-terminal
+1165,K,C,frameshift,C-terminal
+1165,K,R,missense,C-terminal
+1165,K,T,missense,C-terminal
+1166,F,C,missense,C-terminal
+1166,F,L,missense,C-terminal
+1166,F,L,missense,C-terminal
+1167,I,N,missense,C-terminal
+1167,I,V,missense,C-terminal
+1168,D,G,missense,C-terminal
+1169,M,R,missense,C-terminal
+1169,M,V,missense,C-terminal
+1170,P,L,missense,C-terminal
+1170,P,R,missense,C-terminal
+1170,P,S,missense,C-terminal
+1171,T,A,missense,C-terminal
+1172,E,K,missense,C-terminal
+1172,E,Q,missense,C-terminal
+1173,G,C,missense,C-terminal
+1173,G,D,missense,C-terminal
+1173,G,R,missense,C-terminal
+1173,G,S,missense,C-terminal
+1174,K,T,missense,C-terminal
+1175,P,L,missense,C-terminal
+1175,P,S,missense,C-terminal
+1176,T,N,frameshift,C-terminal
+1176,T,S,missense,C-terminal
+1177,K,,frameshift,C-terminal
+1177,K,,frameshift,C-terminal
+1177,K,*,stop gained,C-terminal
+1177,K,E,missense,C-terminal
+1177,K,R,missense,C-terminal
+1177,K,T,missense,C-terminal
+1178,S,*,stop gained,C-terminal
+1178,S,T,missense,C-terminal
+1179,T,,frameshift,C-terminal
+1179,T,,frameshift,C-terminal
+1180,K,,frameshift,C-terminal
+1180,K,,frameshift,C-terminal
+1181,PY,*,stop gained,C-terminal
+1181,P,Q,missense,C-terminal
+1182,Y,*,stop gained,C-terminal
+1182,Y,H,missense,C-terminal
+1183,K,*,stop gained,C-terminal
+1183,K,E,missense,C-terminal
+1183,K,N,missense,C-terminal
+1184,N,I,missense,C-terminal
+1184,N,K,missense,C-terminal
+1185,G,D,missense,C-terminal
+1186,Q,*,stop gained,C-terminal
+1186,Q,H,missense,C-terminal
+1187,L,F,missense,C-terminal
+1187,L,I,missense,C-terminal
+1187,L,V,missense,C-terminal
+1188,SKVMIIENSHVKKDD,,inframe deletion,C-terminal
+1188,S,*,stop gained,C-terminal
+1188,S,L,missense,C-terminal
+1188,S,P,missense,C-terminal
+1190,V,,frameshift,C-terminal
+1190,V,,frameshift,C-terminal
+1190,V,I,missense,C-terminal
+1190,V,L,missense,C-terminal
+1191,M,I,missense,C-terminal
+1191,M,N,frameshift,C-terminal
+1191,M,T,missense,C-terminal
+1191,M,V,missense,C-terminal
+1192,I,F,missense,C-terminal
+1193,I,T,missense,C-terminal
+1193,I,V,missense,C-terminal
+1195,N,K,missense,C-terminal
+1195,N,S,missense,C-terminal
+1195,N,T,missense,C-terminal
+1196,S,*,stop gained,C-terminal
+1196,S,P,missense,C-terminal
+1196,SH,QKVMIIENS,insertion,C-terminal
+1197,HV,*,stop gained,C-terminal
+1197,H,L,missense,C-terminal
+1197,H,R,missense,C-terminal
+1198,V,A,missense,C-terminal
+1198,V,L,missense,C-terminal
+1198,V,M,missense,C-terminal
+1199,K,Q,missense,C-terminal
+1199,K,R,missense,C-terminal
+1200,K,,frameshift,C-terminal
+1200,K,,frameshift,C-terminal
+1200,K,E,missense,C-terminal
+1200,K,N,missense,C-terminal
+1200,K,Q,missense,C-terminal
+1201,D,,frameshift,C-terminal
+1201,D,,frameshift,C-terminal
+1201,D,E,missense,C-terminal
+1201,D,Y,missense,C-terminal
+1202,D,,frameshift,C-terminal
+1202,D,G,missense,C-terminal
+1202,D,Y,missense,C-terminal
+1203,I,F,missense,C-terminal
+1203,I,V,missense,C-terminal
+1204,W,*,stop gained,C-terminal
+1204,W,*,stop gained,C-terminal
+1204,W,C,missense,C-terminal
+1204,W,L,missense,C-terminal
+1204,WPSGGQMTVKDLTAKYTEGGNAILENISFSISPGQRVGLLGRTGSGKSTLLSAFLRLLNTEGEIQIDGVSWDSITLQQWRKAFGVIPQKVFIFSGTFRKNLDPYEQWSDQEIWKVADEVGLRSVIEQFPGKLDFVLVDGGCVLSHGHKQLMCLARSVLSKAKILLLDEPSAHLDPVTYQIIRRTLKQAFADCTVILCEHRIEAMLECQQFLVIEENKVRQYDSIQKLLNERSLFRQAISPSDRVKLFPHRNSSKCKSKPQIAALKEETEEEVQDTRL,del,inframe deletion,C-terminal
+1205,P,H,missense,C-terminal
+1205,P,R,missense,C-terminal
+1206,S,*,stop gained,C-terminal
+1206,S,A,missense,C-terminal
+1208,G,,frameshift,C-terminal
+1208,G,,frameshift,C-terminal
+1208,G,,frameshift,C-terminal
+1208,G,A,missense,C-terminal
+1208,G,D,missense,C-terminal
+1209,Q,,frameshift,C-terminal
+1209,Q,K,missense,C-terminal
+1210,M,K,missense,C-terminal
+1210,M,L,missense,C-terminal
+1210,M,V,missense,C-terminal
+1212,V,A,missense,C-terminal
+1212,V,F,missense,C-terminal
+1212,V,I,missense,C-terminal
+1212,V,L,missense,C-terminal
+1213,K,E,missense,C-terminal
+1213,K,N,missense,C-terminal
+1213,K,Q,missense,C-terminal
+1214,D,,frameshift,C-terminal
+1214,D,E,missense,C-terminal
+1214,D,G,missense,C-terminal
+1214,D,N,missense,C-terminal
+1214,D,V,missense,C-terminal
+1216,T,A,missense,C-terminal
+1217,A,G,missense,C-terminal
+1217,A,V,missense,C-terminal
+1219,Y,H,missense,C-terminal
+1220,T,,frameshift,C-terminal
+1220,T,I,missense,C-terminal
+1221,E,R,frameshift,C-terminal
+1222,G,C,missense,C-terminal
+1222,G,D,missense,C-terminal
+1223,G,E,missense,C-terminal
+1223,G,R,missense,C-terminal
+1224,N,K,missense,C-terminal
+1225,A,C,frameshift,C-terminal
+1225,A,V,missense,C-terminal
+1226,I,T,missense,C-terminal
+1226,I,V,missense,C-terminal
+1227,L,S,missense,C-terminal
+1228,E,*,stop gained,C-terminal
+1228,E,G,missense,C-terminal
+1228,E,K,missense,C-terminal
+1228,E,Q,missense,C-terminal
+1229,N,K,missense,C-terminal
+1230,I,T,missense,C-terminal
+1230,I,V,missense,C-terminal
+1231,S,,frameshift,C-terminal
+1231,S,P,missense,C-terminal
+1231,S,Y,missense,C-terminal
+1233,S,N,frameshift,C-terminal
+1233,S,P,missense,C-terminal
+1234,I,V,missense,C-terminal
+1235,S,I,missense,C-terminal
+1235,S,R,missense,C-terminal
+1236,P,A,missense,C-terminal
+1237,G,D,missense,C-terminal
+1237,G,S,missense,C-terminal
+1237,G,V,missense,C-terminal
+1238,Q,*,stop gained,C-terminal
+1238,Q,K,missense,C-terminal
+1238,Q,R,missense,C-terminal
+1239,R,G,missense,C-terminal
+1239,R,S,missense,C-terminal
+1240,V,=,missense,C-terminal
+1240,V,G,missense,C-terminal
+1240,V,L,missense,C-terminal
+1241,G,A,missense,C-terminal
+1241,G,D,missense,C-terminal
+1241,G,S,missense,C-terminal
+1242,L,,frameshift,C-terminal
+1242,L,F,missense,C-terminal
+1242,L,H,missense,C-terminal
+1243,L,*,stop gained,C-terminal
+1243,L,V,missense,C-terminal
+1243,L,W,missense,C-terminal
+1244,G,E,missense,C-terminal
+1244,G,R,missense,C-terminal
+1244,G,V,missense,C-terminal
+1245,R,S,missense,C-terminal
+1246,T,,frameshift,C-terminal
+1246,T,I,missense,C-terminal
+1246,T,S,missense,C-terminal
+1247,G,*,stop gained,C-terminal
+1247,G,A,missense,C-terminal
+1247,G,E,missense,C-terminal
+1247,G,R,missense,C-terminal
+1247,G,V,missense,C-terminal
+1248,S,*,stop gained,C-terminal
+1248,S,L,missense,C-terminal
+1248,S,P,missense,C-terminal
+1249,G,,frameshift,C-terminal
+1249,G,,frameshift,C-terminal
+1249,G,E,missense,C-terminal
+1249,G,R,missense,C-terminal
+1250,K,,frameshift,C-terminal
+1250,K,,frameshift,C-terminal
+1250,K,KK,insertion,C-terminal
+1251,S,N,missense,C-terminal
+1251,S,R,missense,C-terminal
+1251,S,T,missense,C-terminal
+1252,T,I,missense,C-terminal
+1252,T,P,missense,C-terminal
+1253,L,F,missense,C-terminal
+1253,L,S,missense,C-terminal
+1254,L,*,stop gained,C-terminal
+1254,L,F,missense,C-terminal
+1255,S,*,stop gained,C-terminal
+1255,S,L,missense,C-terminal
+1255,S,P,missense,C-terminal
+1255,S,T,missense,C-terminal
+1256,A,G,missense,C-terminal
+1256,A,V,missense,C-terminal
+1257,F,L,missense,C-terminal
+1257,F,L,missense,C-terminal
+1257,F,Y,missense,C-terminal
+1258,L,,frameshift,C-terminal
+1258,L,,frameshift,C-terminal
+1258,L,*,frameshift,C-terminal
+1259,R,I,missense,C-terminal
+1259,R,K,missense,C-terminal
+1259,R,T,missense,C-terminal
+1260,L,P,missense,C-terminal
+1260,L,V,missense,C-terminal
+1261,L,,frameshift,C-terminal
+1261,L,R,missense,C-terminal
+1261,L,R,frameshift,C-terminal
+1261,L,,inframe deletion,C-terminal
+1263,T,,frameshift,C-terminal
+1263,T,A,missense,C-terminal
+1263,T,I,missense,C-terminal
+1264,E,G,missense,C-terminal
+1265,G,,frameshift,C-terminal
+1265,G,*,stop gained,C-terminal
+1265,G,E,missense,C-terminal
+1265,G,R,missense,C-terminal
+1265,G,V,missense,C-terminal
+1266,E,,frameshift,C-terminal
+1266,E,*,stop gained,C-terminal
+1266,E,G,missense,C-terminal
+1267,I,N,missense,C-terminal
+1268,Q,E,missense,C-terminal
+1268,Q,H,missense,C-terminal
+1268,Q,R,missense,C-terminal
+1269,I,M,missense,C-terminal
+1269,I,N,missense,C-terminal
+1270,D,,frameshift,C-terminal
+1270,D,G,missense,C-terminal
+1270,D,N,missense,C-terminal
+1270,D,V,missense,C-terminal
+1270,D,Y,missense,C-terminal
+1271,G,S,missense,C-terminal
+1272,V,E,missense,C-terminal
+1272,V,G,missense,C-terminal
+1272,V,M,missense,C-terminal
+1273,S,,frameshift,C-terminal
+1273,S,Y,missense,C-terminal
+1274,W,*,stop gained,C-terminal
+1275,D,G,missense,C-terminal
+1275,D,N,missense,C-terminal
+1276,SI,*,stop gained,C-terminal
+1277,I,T,missense,C-terminal
+1277,I,V,missense,C-terminal
+1279,L,*,stop gained,C-terminal
+1279,L,F,missense,C-terminal
+1279,L,S,missense,C-terminal
+1279,L,W,missense,C-terminal
+1280,Q,*,stop gained,C-terminal
+1281,Q,*,stop gained,C-terminal
+1281,Q,E,missense,C-terminal
+1281,Q,P,missense,C-terminal
+1281,Q,R,missense,C-terminal
+1282,W,*,stop gained,C-terminal
+1282,W,*,stop gained,C-terminal
+1282,W,C,missense,C-terminal
+1282,W,G,missense,C-terminal
+1282,W,R,missense,C-terminal
+1282,WRKAFGVIPQKVFIFSGTFRKNLDPYEQWSDQEIWKVADEVGLRSVIEQFPGKLDFVLVDGGCVLSHGHKQLMCLARSVLSKAKILLLDEPSAHLDPVTYQIIRRTLKQAFADCTVILCEHRIEAMLECQQFLVIEENKVRQYDSIQKLLNERSLFRQAISPSDRVKLFPHRNSSKCKSKPQIAALKEETEEEVQDTRL,del,inframe deletion,C-terminal
+1283,R,K,missense,C-terminal
+1283,R,M,missense,C-terminal
+1283,R,S,missense,C-terminal
+1283,R,T,missense,C-terminal
+1284,K,R,missense,C-terminal
+1285,A,,frameshift,C-terminal
+1285,A,D,missense,C-terminal
+1285,A,G,missense,C-terminal
+1285,A,S,missense,C-terminal
+1285,A,T,missense,C-terminal
+1285,A,V,missense,C-terminal
+1286,F,,frameshift,C-terminal
+1286,F,C,missense,C-terminal
+1286,F,L,missense,C-terminal
+1286,F,S,missense,C-terminal
+1287,G,*,stop gained,C-terminal
+1287,G,R,missense,C-terminal
+1288,V,A,missense,C-terminal
+1288,V,M,missense,C-terminal
+1289,I,K,missense,C-terminal
+1289,I,V,missense,C-terminal
+1290,P,A,missense,C-terminal
+1290,P,L,missense,C-terminal
+1290,P,S,missense,C-terminal
+1290,P,T,missense,C-terminal
+1291,Q,*,stop gained,C-terminal
+1291,Q,H,missense,C-terminal
+1291,Q,R,missense,C-terminal
+1293,V,I,missense,C-terminal
+1293,V,L,missense,C-terminal
+1295,I,,frameshift,C-terminal
+1295,I,,frameshift,C-terminal
+1295,I,,frameshift,C-terminal
+1295,I,N,frameshift,C-terminal
+1295,I,S,missense,C-terminal
+1295,I,T,missense,C-terminal
+1295,I,V,missense,C-terminal
+1296,F,S,missense,C-terminal
+1297,S,,frameshift,C-terminal
+1297,S,F,missense,C-terminal
+1297,S,L,frameshift,C-terminal
+1298,G,,frameshift,C-terminal
+1298,G,A,missense,C-terminal
+1298,G,R,missense,C-terminal
+1298,G,V,missense,C-terminal
+1299,T,A,missense,C-terminal
+1299,T,I,missense,C-terminal
+1300,F,L,missense,C-terminal
+1301,R,*,stop gained,C-terminal
+1302,K,*,stop gained,C-terminal
+1302,K,E,missense,C-terminal
+1302,K,N,missense,C-terminal
+1303,N,,frameshift,C-terminal
+1303,N,H,missense,C-terminal
+1303,N,I,missense,C-terminal
+1303,N,K,missense,C-terminal
+1303,N,T,missense,C-terminal
+1303,N,Y,missense,C-terminal
+1304,L,F,missense,C-terminal
+1304,L,V,missense,C-terminal
+1305,D,E,missense,C-terminal
+1306,P,H,missense,C-terminal
+1306,P,L,missense,C-terminal
+1306,P,S,missense,C-terminal
+1307,Y,*,stop gained,C-terminal
+1307,Y,C,missense,C-terminal
+1307,Y,N,missense,C-terminal
+1308,E,*,stop gained,C-terminal
+1309,Q,*,stop gained,C-terminal
+1309,Q,E,missense,C-terminal
+1309,Q,H,missense,C-terminal
+1310,W,*,stop gained,C-terminal
+1310,W,*,stop gained,C-terminal
+1310,W,G,missense,C-terminal
+1311,S,,frameshift,C-terminal
+1311,S,N,missense,C-terminal
+1311,S,R,missense,C-terminal
+1312,D,G,missense,C-terminal
+1312,D,H,missense,C-terminal
+1312,D,N,missense,C-terminal
+1312,D,Y,missense,C-terminal
+1313,Q,*,stop gained,C-terminal
+1313,Q,K,missense,C-terminal
+1313,Q,P,missense,C-terminal
+1314,E,A,missense,C-terminal
+1315,I,,frameshift,C-terminal
+1315,I,L,missense,C-terminal
+1315,I,M,missense,C-terminal
+1316,W,*,stop gained,C-terminal
+1316,W,R,missense,C-terminal
+1317,K,*,stop gained,C-terminal
+1317,K,T,missense,C-terminal
+1318,V,A,missense,C-terminal
+1318,V,G,missense,C-terminal
+1318,V,I,missense,C-terminal
+1319,A,E,missense,C-terminal
+1320,D,,frameshift,C-terminal
+1320,D,H,missense,C-terminal
+1320,D,N,missense,C-terminal
+1321,E,K,missense,C-terminal
+1322,V,A,missense,C-terminal
+1322,V,D,missense,C-terminal
+1322,V,F,missense,C-terminal
+1322,V,I,missense,C-terminal
+1324,L,F,missense,C-terminal
+1324,L,P,missense,C-terminal
+1325,R,,frameshift,C-terminal
+1325,R,G,missense,C-terminal
+1325,R,S,missense,C-terminal
+1326,S,,frameshift,C-terminal
+1327,V,A,missense,C-terminal
+1327,V,G,missense,C-terminal
+1327,V,L,missense,C-terminal
+1328,I,,frameshift,C-terminal
+1328,I,M,missense,C-terminal
+1328,I,T,missense,C-terminal
+1328,I,V,missense,C-terminal
+1329,E,Q,missense,C-terminal
+1330,Q,,frameshift,C-terminal
+1330,Q,*,stop gained,C-terminal
+1330,Q,E,missense,C-terminal
+1330,Q,R,missense,C-terminal
+1331,F,I,missense,C-terminal
+1331,F,L,missense,C-terminal
+1332,P,S,missense,C-terminal
+1333,G,R,missense,C-terminal
+1333,G,W,missense,C-terminal
+1334,K,,frameshift,C-terminal
+1335,L,F,missense,C-terminal
+1335,L,H,missense,C-terminal
+1335,L,P,missense,C-terminal
+1336,D,,frameshift,C-terminal
+1336,D,A,missense,C-terminal
+1336,D,N,missense,C-terminal
+1337,F,I,missense,C-terminal
+1337,F,V,missense,C-terminal
+1337,F,Y,missense,C-terminal
+1339,L,F,missense,C-terminal
+1339,L,P,missense,C-terminal
+1340,V,E,missense,C-terminal
+1340,V,G,missense,C-terminal
+1340,V,L,missense,C-terminal
+1341,D,,frameshift,C-terminal
+1341,D,G,missense,C-terminal
+1342,G,E,missense,C-terminal
+1342,G,R,missense,C-terminal
+1342,G,V,missense,C-terminal
+1343,G,,frameshift,C-terminal
+1343,G,A,missense,C-terminal
+1343,G,D,missense,C-terminal
+1343,G,S,missense,C-terminal
+1343,G,V,missense,C-terminal
+1344,C,,frameshift,C-terminal
+1344,C,*,stop gained,C-terminal
+1344,C,G,missense,C-terminal
+1344,C,S,missense,C-terminal
+1345,V,A,missense,C-terminal
+1345,V,I,missense,C-terminal
+1346,L,,frameshift,C-terminal
+1346,L,,frameshift,C-terminal
+1346,L,P,missense,C-terminal
+1346,L,Q,missense,C-terminal
+1347,S,,frameshift,C-terminal
+1347,S,,frameshift,C-terminal
+1347,S,N,missense,C-terminal
+1348,H,,frameshift,C-terminal
+1348,H,N,missense,C-terminal
+1349,G,,frameshift,C-terminal
+1349,G,D,missense,C-terminal
+1349,G,S,missense,C-terminal
+1350,H,Y,missense,C-terminal
+1351,K,,frameshift,C-terminal
+1351,K,*,stop gained,C-terminal
+1351,K,E,missense,C-terminal
+1351,K,N,missense,C-terminal
+1351,K,R,missense,C-terminal
+1352,Q,*,stop gained,C-terminal
+1352,QL,*,stop gained,C-terminal
+1352,Q,E,missense,C-terminal
+1352,Q,E,missense,C-terminal
+1352,Q,H,missense,C-terminal
+1353,L,F,missense,C-terminal
+1354,M,I,missense,C-terminal
+1354,M,R,missense,C-terminal
+1354,M,T,missense,C-terminal
+1355,C,F,missense,C-terminal
+1355,C,G,missense,C-terminal
+1356,L,S,missense,C-terminal
+1357,A,T,missense,C-terminal
+1358,R,,frameshift,C-terminal
+1358,R,,frameshift,C-terminal
+1358,R,G,missense,C-terminal
+1358,R,T,missense,C-terminal
+1359,S,C,missense,C-terminal
+1359,S,Y,missense,C-terminal
+1360,V,,frameshift,C-terminal
+1360,V,,frameshift,C-terminal
+1360,V,,frameshift,C-terminal
+1360,V,D,missense,C-terminal
+1360,V,I,missense,C-terminal
+1361,L,F,missense,C-terminal
+1361,L,V,missense,C-terminal
+1362,S,N,missense,C-terminal
+1362,S,T,missense,C-terminal
+1363,K,*,stop gained,C-terminal
+1363,K,Q,missense,C-terminal
+1363,K,R,missense,C-terminal
+1364,A,V,missense,C-terminal
+1365,K,E,missense,C-terminal
+1365,K,N,missense,C-terminal
+1366,I,F,missense,C-terminal
+1366,I,M,missense,C-terminal
+1366,I,N,missense,C-terminal
+1366,I,T,missense,C-terminal
+1366,I,V,missense,C-terminal
+1367,L,S,missense,C-terminal
+1368,L,CLM,-,C-terminal
+1368,L,P,missense,C-terminal
+1369,L,F,missense,C-terminal
+1369,L,V,missense,C-terminal
+1370,D,E,missense,C-terminal
+1370,D,G,missense,C-terminal
+1370,D,H,missense,C-terminal
+1371,E,*,stop gained,C-terminal
+1371,EP,E,insertion,C-terminal
+1372,P,L,missense,C-terminal
+1372,P,S,missense,C-terminal
+1372,P,T,missense,C-terminal
+1373,S,I,missense,C-terminal
+1374,A,G,missense,C-terminal
+1374,A,V,missense,C-terminal
+1375,H,N,missense,C-terminal
+1375,H,P,missense,C-terminal
+1375,H,R,missense,C-terminal
+1375,H,Y,missense,C-terminal
+1376,L,,frameshift,C-terminal
+1376,L,V,missense,C-terminal
+1377,D,H,missense,C-terminal
+1377,D,N,missense,C-terminal
+1378,P,L,missense,C-terminal
+1379,V,I,missense,C-terminal
+1379,V,L,missense,C-terminal
+1380,T,,frameshift,C-terminal
+1380,T,A,missense,C-terminal
+1380,T,I,missense,C-terminal
+1381,Y,*,stop gained,C-terminal
+1381,Y,C,missense,C-terminal
+1381,Y,F,missense,C-terminal
+1381,Y,H,missense,C-terminal
+1381,Y,S,missense,C-terminal
+1382,Q,*,stop gained,C-terminal
+1382,Q,H,missense,C-terminal
+1382,Q,K,missense,C-terminal
+1383,I,,frameshift,C-terminal
+1383,I,L,missense,C-terminal
+1383,I,V,missense,C-terminal
+1384,I,T,missense,C-terminal
+1385,R,G,missense,C-terminal
+1386,R,G,missense,C-terminal
+1386,R,I,missense,C-terminal
+1387,T,A,missense,C-terminal
+1388,L,P,missense,C-terminal
+1388,L,Q,missense,C-terminal
+1388,L,V,missense,C-terminal
+1389,K,E,missense,C-terminal
+1390,Q,*,stop gained,C-terminal
+1392,F,I,frameshift,C-terminal
+1392,F,L,missense,C-terminal
+1393,A,G,missense,C-terminal
+1394,D,G,missense,C-terminal
+1394,D,H,missense,C-terminal
+1394,D,Y,missense,C-terminal
+1395,C,F,missense,C-terminal
+1395,C,R,missense,C-terminal
+1396,T,I,missense,C-terminal
+1396,T,P,missense,C-terminal
+1396,T,R,missense,C-terminal
+1397,V,A,missense,C-terminal
+1397,V,E,missense,C-terminal
+1398,I,S,missense,C-terminal
+1399,LC,*,frameshift,C-terminal
+1399,L,I,missense,C-terminal
+1399,L,V,missense,C-terminal
+1400,C,,frameshift,C-terminal
+1400,CE,*,stop gained,C-terminal
+1400,C,*,stop gained,C-terminal
+1400,C,R,missense,C-terminal
+1400,C,S,missense,C-terminal
+1401,E,*,stop gained,C-terminal
+1401,E,A,missense,C-terminal
+1401,E,G,missense,C-terminal
+1401,E,K,missense,C-terminal
+1402,H,R,missense,C-terminal
+1403,R,G,missense,C-terminal
+1403,R,K,missense,C-terminal
+1403,R,S,missense,C-terminal
+1403,R,W,missense,C-terminal
+1404,I,M,missense,C-terminal
+1404,I,V,missense,C-terminal
+1406,A,E,missense,C-terminal
+1406,A,V,missense,C-terminal
+1407,M,T,missense,C-terminal
+1407,M,V,missense,C-terminal
+1408,L,P,missense,C-terminal
+1409,E,*,stop gained,C-terminal
+1409,E,K,missense,C-terminal
+1410,C,*,stop gained,C-terminal
+1410,C,S,missense,C-terminal
+1410,C,W,missense,C-terminal
+1411,Q,*,stop gained,C-terminal
+1411,Q,P,missense,C-terminal
+1412,Q,*,stop gained,C-terminal
+1412,Q,R,missense,C-terminal
+1413,F,C,missense,C-terminal
+1413,F,L,missense,C-terminal
+1413,F,V,missense,C-terminal
+1413,F,Y,missense,C-terminal
+1414,L,S,missense,C-terminal
+1415,V,D,missense,C-terminal
+1415,V,G,missense,C-terminal
+1416,I,T,missense,C-terminal
+1417,E,D,missense,C-terminal
+1418,E,,frameshift,C-terminal
+1418,E,,frameshift,C-terminal
+1418,E,*,stop gained,C-terminal
+1418,E,D,missense,C-terminal
+1418,E,G,missense,C-terminal
+1419,N,I,missense,C-terminal
+1419,N,K,missense,C-terminal
+1419,N,T,missense,C-terminal
+1420,K,E,missense,C-terminal
+1421,V,A,frameshift,C-terminal
+1421,V,E,missense,C-terminal
+1421,V,L,missense,C-terminal
+1421,V,M,missense,C-terminal
+1422,R,G,missense,C-terminal
+1422,R,P,missense,C-terminal
+1422,R,Q,missense,C-terminal
+1422,R,W,missense,C-terminal
+1423,Q,R,missense,C-terminal
+1424,Y,*,stop gained,C-terminal
+1424,Y,H,missense,C-terminal
+1425,D,N,missense,C-terminal
+1425,D,V,missense,C-terminal
+1425,D,Y,missense,C-terminal
+1426,S,F,missense,C-terminal
+1426,S,P,missense,C-terminal
+1426,S,Y,missense,C-terminal
+1427,I,T,missense,C-terminal
+1428,Q,H,missense,C-terminal
+1428,Q,R,missense,C-terminal
+1430,L,Q,missense,C-terminal
+1431,LNE,,inframe deletion,C-terminal
+1431,L,R,missense,C-terminal
+1432,N,K,missense,C-terminal
+1433,E,*,stop gained,C-terminal
+1433,E,D,missense,C-terminal
+1433,E,G,missense,C-terminal
+1433,E,K,missense,C-terminal
+1433,E,Q,missense,C-terminal
+1435,S,,frameshift,C-terminal
+1435,S,,frameshift,C-terminal
+1435,S,N,missense,C-terminal
+1435,S,R,missense,C-terminal
+1436,L,,frameshift,C-terminal
+1436,L,F,missense,C-terminal
+1437,F,L,missense,C-terminal
+1438,R,,frameshift,C-terminal
+1438,R,P,missense,C-terminal
+1438,R,Q,missense,C-terminal
+1438,R,W,missense,C-terminal
+1439,Q,*,stop gained,C-terminal
+1440,A,G,missense,C-terminal
+1440,A,T,missense,C-terminal
+1441,I,M,missense,C-terminal
+1441,I,T,missense,C-terminal
+1441,I,V,missense,C-terminal
+1442,S,,frameshift,C-terminal
+1442,S,G,missense,C-terminal
+1442,S,N,missense,C-terminal
+1442,S,R,missense,C-terminal
+1442,S,T,missense,C-terminal
+1443,P,A,missense,C-terminal
+1443,P,L,missense,C-terminal
+1443,P,R,missense,C-terminal
+1443,P,S,missense,C-terminal
+1444,S,,frameshift,C-terminal
+1444,S,F,missense,C-terminal
+1445,D,N,missense,C-terminal
+1446,RV,*,stop gained,C-terminal
+1446,R,G,missense,C-terminal
+1446,R,K,missense,C-terminal
+1447,V,,frameshift,C-terminal
+1447,V,E,missense,C-terminal
+1447,V,M,missense,C-terminal
+1448,K,N,missense,C-terminal
+1449,L,P,missense,C-terminal
+1450,F,I,missense,C-terminal
+1450,F,V,missense,C-terminal
+1451,P,S,missense,C-terminal
+1452,H,Y,missense,C-terminal
+1453,R,G,missense,C-terminal
+1453,R,P,missense,C-terminal
+1453,R,Q,missense,C-terminal
+1453,R,W,missense,C-terminal
+1455,S,*,stop gained,C-terminal
+1455,S,A,missense,C-terminal
+1456,S,C,missense,C-terminal
+1456,S,I,missense,C-terminal
+1456,S,N,missense,C-terminal
+1456,S,R,missense,C-terminal
+1456,S,R,missense,C-terminal
+1457,K,M,missense,C-terminal
+1457,K,N,missense,C-terminal
+1458,C,Y,missense,C-terminal
+1460,S,F,missense,C-terminal
+1460,S,Y,missense,C-terminal
+1461,K,E,missense,C-terminal
+1461,K,N,missense,C-terminal
+1462,P,S,missense,C-terminal
+1463,Q,,frameshift,C-terminal
+1463,Q,*,stop gained,C-terminal
+1464,I,,frameshift,C-terminal
+1464,I,,frameshift,C-terminal
+1464,I,T,missense,C-terminal
+1465,A,G,missense,C-terminal
+1466,A,S,missense,C-terminal
+1467,L,,frameshift,C-terminal
+1467,LKEETEEEVQDTRL,,stop lost,C-terminal
+1468,K,E,missense,C-terminal
+1470,E,*,stop gained,C-terminal
+1470,E,V,missense,C-terminal
+1471,T,I,missense,C-terminal
+1472,E,V,missense,C-terminal
+1473,E,*,stop gained,C-terminal
+1473,E,K,missense,C-terminal
+1473,EEVQDTRL,del,inframe deletion,C-terminal
+1474,E,K,missense,C-terminal
+1474,E,V,missense,C-terminal
+1475,V,A,missense,C-terminal
+1475,V,L,missense,C-terminal
+1475,V,M,missense,C-terminal
+1476,Q,*,stop gained,C-terminal
+1476,Q,H,missense,C-terminal
+1476,Q,R,missense,C-terminal
+1477,D,V,missense,C-terminal
+1478,T,I,missense,C-terminal
+1478,T,K,missense,C-terminal
+1478,T,R,missense,C-terminal
+1479,R,K,missense,C-terminal
+1480,L,P,missense,C-terminal
+1481,*,Q,stop lost,
+1481,*,Y,stop lost,
