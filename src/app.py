@@ -60,13 +60,12 @@ if st.button("Explore position"):
 
             consequence_summary = get_consequence_summary(position)
             if consequence_summary:
-                if consequence_summary:
-    consequence_chart_data = (
-        pd.Series(consequence_summary)
-        .rename_axis("Consequence")
-        .reset_index(name="Count")
+                consequence_chart_data = (
+                pd.Series(consequence_summary)
+                .rename_axis("Consequence")
+                .reset_index(name="Count")
     )
-
+    
     consequence_chart = (
         alt.Chart(consequence_chart_data)
         .mark_bar(
