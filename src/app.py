@@ -60,7 +60,31 @@ if st.button("Explore position"):
 
             consequence_summary = get_consequence_summary(position)
             if consequence_summary:
-                st.bar_chart(consequence_summary)
+                if consequence_summary:
+    consequence_chart_data = (
+        pd.Series(consequence_summary)
+        .rename_axis("Consequence")
+        .reset_index(name="Count")
+    )
+
+    consequence_chart = (
+        alt.Chart(consequence_chart_data)
+        .mark_bar(
+            color="#F6B6C8",
+            cornerRadiusTopLeft=6,
+            cornerRadiusTopRight=6
+        )
+        .encode(
+            x=alt.X("Consequence:N", title=None),
+            y=alt.Y("Count:Q", title="Variant count"),
+            tooltip=[
+                alt.Tooltip("Consequence:N", title="Consequence"),
+                alt.Tooltip("Count:Q", title="Variants")
+            ]
+        )
+    )
+
+    st.altair_chart(consequence_chart, use_container_width=True)
             
 st.subheader("CFTR Domain Conservation")
 
