@@ -1,5 +1,21 @@
 import streamlit as st
+import pandas as pd
+import altair as alt
 from data_loader import load_data
+
+st.markdown("""
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&family=Quicksand:wght@400;500;600;700&display=swap');
+
+html, body, [class*="css"] {
+    font-family: 'Quicksand', sans-serif;
+}
+
+h1, h2, h3 {
+    font-family: 'Fredoka', sans-serif !important;
+}
+</style>
+""", unsafe_allow_html=True)
 
 from variant_explorer import (
     get_position_summary,
@@ -42,10 +58,9 @@ if st.button("Explore position"):
 
             st.subheader("Variant consequences")
 
-consequence_summary = get_consequence_summary(position)
-
-if consequence_summary:
-    st.bar_chart(consequence_summary)
+            consequence_summary = get_consequence_summary(position)
+            if consequence_summary:
+                st.bar_chart(consequence_summary)
             
 st.subheader("CFTR Domain Conservation")
 
