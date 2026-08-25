@@ -38,7 +38,11 @@ if st.button("Explore position"):
             st.dataframe(variants)
 
             st.subheader("Variant consequences")
-            st.write(get_consequence_summary(position))
+
+consequence_summary = get_consequence_summary(position)
+
+if consequence_summary:
+    st.bar_chart(consequence_summary)
             
 st.subheader("CFTR Domain Conservation")
 
