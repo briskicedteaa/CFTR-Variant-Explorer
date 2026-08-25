@@ -1,4 +1,5 @@
 import streamlit as st
+from data_loader import load_data
 
 from variant_explorer import (
     get_position_summary,
@@ -56,3 +57,9 @@ domain_conservation = {
 }
 
 st.bar_chart(domain_conservation)
+
+st.subheader("Variant Distribution by Protein Region")
+
+region_counts = variants_df["Region"].value_counts()
+
+st.bar_chart(region_counts)
