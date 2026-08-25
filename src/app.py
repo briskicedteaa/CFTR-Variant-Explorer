@@ -227,42 +227,29 @@ st.markdown("""
 
 st.markdown("""
 <div class="info-bubble">
-    <h3>Understanding Variant Consequences</h3>
-    <p>
-       A variant consequence describes what a genetic change does to the 
-       CFTR sequence or protein. The consequence type alone does not determine 
-       whether a variant is harmful. Its effect depends on the specific change, 
-       where it occurs, and how much functional CFTR remains.
-   </p>
-</div>
-""", unsafe_allow_html=True)
 
+<h3>Understanding Variant Consequences</h3>
+<p>
+A variant consequence describes what a genetic change does to the 
+CFTR sequence or protein. The consequence type alone does not determine 
+whether a variant is harmful. Its effect depends on the specific change, 
+where it occurs, and how much functional CFTR remains.
+</p>
 
-st.markdown("""
-<div class="info-bubble">
-    <p>
-       Missense variants replace one amino acid with another. Depending on the 
-       location and properties of the substituted amino acid, this can have little 
-       effect or can interfere with CFTR folding, stability, trafficking, or channel 
-       activity.
-   </p>
-</div>
-""", unsafe_allow_html=True)
+<p>
+Missense variants replace one amino acid with another. Depending on the 
+location and properties of the substituted amino acid, this can have little 
+effect or can interfere with CFTR folding, stability, trafficking, or channel 
+activity.
+</p>
 
-st.markdown("""
-<div class="info-bubble">
-    <p>
-        Frameshift variants result from insertions or deletions that change the 
-        reading frame. They can alter the downstream protein sequence and may 
-        introduce a premature stop signal, often resulting in substantially reduced 
-        CFTR function.
-    </p>
-</div>
-""", unsafe_allow_html=True)
-
-st.markdown("""
-<div class="info-bubble">
-
+<p>
+Frameshift variants result from insertions or deletions that change the 
+reading frame. They can alter the downstream protein sequence and may 
+introduce a premature stop signal, often resulting in substantially reduced 
+CFTR function.
+</p>
+    
 <p>
 Inframe deletions remove one or more amino acids without shifting the
 reading frame. Their effects depend strongly on which amino acids and
@@ -286,7 +273,11 @@ Splice-site variants can interfere with the normal processing of CFTR RNA.
 This may result in abnormal transcripts and reduced production of correctly
 functioning CFTR protein.
 </p>
+</div>
+""", unsafe_allow_html=True)
 
+st.markdown("""
+<div class="info-bubble">
 <h3>From Variant to Clinical Effect</h3>
 
 <p>
