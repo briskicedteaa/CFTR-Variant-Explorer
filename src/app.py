@@ -65,3 +65,12 @@ st.subheader("Variant Distribution by Protein Region")
 region_counts = variants_df["Region"].value_counts()
 
 st.bar_chart(region_counts)
+
+st.subheader("What the data suggests")
+
+st.write(
+    "CFTR domains differ in their average conservation. "
+    "NBD1 is the most conserved domain in this dataset, while the R domain "
+    "has the lowest average conservation. Variant distribution also differs "
+    "across the N-terminal, Middle, and C-terminal regions."
+)
