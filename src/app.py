@@ -14,8 +14,6 @@ html, body, [class*="css"] {
 h1, h2, h3 {
     font-family: 'Fredoka', sans-serif !important;
 }
-</style>
-""", unsafe_allow_html=True)
 
 .info-bubble {
     background: #fff4fa;
@@ -30,6 +28,8 @@ h1, h2, h3 {
     color: #c85a91;
     margin-top: 0;
 }
+</style>
+""", unsafe_allow_html=True)
 
 from variant_explorer import (
     get_position_summary,
