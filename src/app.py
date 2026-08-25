@@ -133,7 +133,7 @@ region_chart_data = (
 region_chart = (
     alt.Chart(region_chart_data)
     .mark_bar(
-        color="##ffc4e7",
+        color="#ffc4e7",
         cornerRadiusTopLeft=6,
         cornerRadiusTopRight=6
     )
