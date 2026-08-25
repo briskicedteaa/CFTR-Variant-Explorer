@@ -24,6 +24,9 @@ def get_position_summary(position):
     position_info = position_df[
         position_df["Human_Position"] == position
     ].copy()
+    
+    if position_info.empty:
+      return None, None
 
     variants = variants_df[
         variants_df["Position"] == position
