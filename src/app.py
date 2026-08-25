@@ -6,6 +6,8 @@ from variant_explorer import (
     get_consequence_summary
 )
 
+position_df, variants_df = load_data()
+
 st.title("CFTR Variant Explorer")
 st.write(
     "Explore CFTR variant locations, consequences, conservation, "
