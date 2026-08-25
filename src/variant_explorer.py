@@ -17,3 +17,16 @@ def get_variants_at_position(position):
     ].copy()
 
     return result
+
+def get_position_summary(position):
+    position_df, variants_df = load_data()
+
+    position_info = position_df[
+        position_df["Human_Position"] == position
+    ].copy()
+
+    variants = variants_df[
+        variants_df["Position"] == position
+    ].copy()
+
+    return position_info, variants
