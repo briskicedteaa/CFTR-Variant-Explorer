@@ -33,3 +33,15 @@ def get_position_summary(position):
     ].copy()
 
     return position_info, variants
+
+def get_consequence_summary(position):
+    position_df, variants_df = load_data()
+
+    variants = variants_df[
+        variants_df["Position"] == position
+    ].copy()
+
+    if variants.empty:
+        return {}
+
+    return variants["Consequence"].value_counts().to_dict()
