@@ -59,6 +59,7 @@ if st.button("Explore position"):
             st.subheader("Variant consequences")
 
             consequence_summary = get_consequence_summary(position)
+            
             if consequence_summary:
                 consequence_chart_data = (
                 pd.Series(consequence_summary)
@@ -83,7 +84,10 @@ if st.button("Explore position"):
         )
     )
 
-    st.altair_chart(consequence_chart, use_container_width=True)
+    st.altair_chart(
+        consequence_chart, 
+        use_container_width=True
+    )
             
 st.subheader("CFTR Domain Conservation")
 
