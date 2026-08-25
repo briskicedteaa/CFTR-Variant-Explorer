@@ -1,6 +1,6 @@
 import streamlit as st
 
-from src.variant_explorer import (
+from variant_explorer import (
     get_position_summary,
     get_consequence_summary
 )
