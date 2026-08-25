@@ -30,6 +30,14 @@ st.write(
     "and protein-region characteristics."
 )
 
+st.subheader("Research Question")
+
+st.write(
+    "Where do CFTR variants occur across the protein, what types of variants "
+    "occur at those positions, and what characteristics of the affected protein "
+    "regions might help explain their different effects on CFTR function?"
+)
+
 position = st.number_input(
     "Enter a CFTR amino-acid position",
     min_value=1,
@@ -156,9 +164,34 @@ st.altair_chart(region_chart, use_container_width=True)
 
 st.subheader("What the data suggests")
 
+st.subheader("What the data suggests")
+
 st.write(
     "CFTR domains differ in their average conservation. "
     "NBD1 is the most conserved domain in this dataset, while the R domain "
     "has the lowest average conservation. Variant distribution also differs "
     "across the N-terminal, Middle, and C-terminal regions."
+)
+
+st.subheader("Why This Matters")
+
+st.write(
+    "CFTR is an ion channel that helps regulate the movement of chloride and "
+    "bicarbonate across epithelial cell membranes. Variants that alter CFTR "
+    "structure or function can interfere with this process and, when sufficiently "
+    "disruptive, contribute to the abnormal mucus and other organ effects "
+    "associated with cystic fibrosis."
+)
+
+st.write(
+    "By examining where variants occur, what types of changes they represent, "
+    "and how conserved the affected regions are, this project helps investigate "
+    "why variants in different parts of CFTR may have different functional "
+    "consequences. These patterns can also help identify regions of the protein "
+    "that may be particularly important for CFTR function."
+)
+
+st.write(
+    "Importantly, this analysis identifies patterns and possible relationships "
+    "rather than proving that a particular variant causes a specific clinical outcome."
 )
