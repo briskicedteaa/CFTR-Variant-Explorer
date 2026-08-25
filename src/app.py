@@ -28,6 +28,10 @@ h1, h2, h3 {
     color: #c85a91;
     margin-top: 0;
 }
+
+.info-bubble p {
+    color: #4a3a42;
+}
 </style>
 """, unsafe_allow_html=True)
 
