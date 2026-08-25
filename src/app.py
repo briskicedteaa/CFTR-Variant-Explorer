@@ -73,7 +73,29 @@ domain_conservation = {
     "TMD2": 0.729488,
 }
 
-st.bar_chart(domain_conservation)
+domain_chart_data = pd.DataFrame(
+    list(domain_conservation.items()),
+    columns=["Domain", "Conservation"]
+)
+
+domain_chart = (
+    alt.Chart(domain_chart_data)
+    .mark_bar(
+        color="#F6B6C8",
+        cornerRadiusTopLeft=6,
+        cornerRadiusTopRight=6
+    )
+    .encode(
+        x=alt.X("Domain:N", title=None),
+        y=alt.Y("Conservation:Q", title="Average conservation"),
+        tooltip=[
+            alt.Tooltip("Domain:N", title="Domain"),
+            alt.Tooltip("Conservation:Q", title="Conservation", format=".3f")
+        ]
+    )
+)
+
+st.altair_chart(domain_chart, use_container_width=True)
 
 st.subheader("Variant Distribution by Protein Region")
 
