@@ -24,8 +24,12 @@ if st.button("Explore position"):
         st.error("That position was not found in the CFTR dataset.")
     else:
         st.subheader(f"CFTR Position {position}")
-
-        st.dataframe(position_info)
+        
+        info = position_info.iloc[0]
+        col1, col2, col3 = st.columns(3)
+        col1.metric("Domain", info["CFTR_Domain"])
+        col2.metric("Conservation", f"{info['Conservation']:.3f}")
+        col3.metric("Variant count", int(info["Variant_Count"]))
 
         if variants.empty:
             st.info("No recorded variants were found at this position.")
