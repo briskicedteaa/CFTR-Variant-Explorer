@@ -81,7 +81,7 @@ domain_chart_data = pd.DataFrame(
 domain_chart = (
     alt.Chart(domain_chart_data)
     .mark_bar(
-        color="#F6B6C8",
+        color="#ffc4e7",
         cornerRadiusTopLeft=6,
         cornerRadiusTopRight=6
     )
