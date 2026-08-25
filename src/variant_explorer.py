@@ -4,7 +4,7 @@ def get_position(position):
     FinalPosition, CFTR_variants = load_data()
   
     result = FinalPosition[
-        FinalPosition["Human_Position"] == position
+        FinalPosition["Position"] == position
     ].copy()
 
     return result
@@ -13,7 +13,7 @@ def get_variants_at_position(position):
     position_df, variants_df = load_data()
 
     result = variants_df[
-        variants_df["Human_Position"] == position
+        variants_df["Position"] == position
     ].copy()
 
     return result
