@@ -162,9 +162,7 @@ region_chart = (
 
 st.altair_chart(region_chart, use_container_width=True)
 
-st.subheader("What the data suggests")
-
-st.subheader("What the data suggests")
+st.subheader("What The Data Suggests")
 
 st.write(
     "CFTR domains differ in their average conservation. "
@@ -194,4 +192,76 @@ st.write(
 st.write(
     "Importantly, this analysis identifies patterns and possible relationships "
     "rather than proving that a particular variant causes a specific clinical outcome."
+)
+
+st.subheader("Understanding Variant Consequences")
+
+st.write(
+    "A variant consequence describes what a genetic change does to the "
+    "CFTR sequence or protein. The consequence type alone does not determine "
+    "whether a variant is harmful. Its effect depends on the specific change, "
+    "where it occurs, and how much functional CFTR remains."
+)
+
+st.write(
+    "Missense variants replace one amino acid with another. Depending on the "
+    "location and properties of the substituted amino acid, this can have little "
+    "effect or can interfere with CFTR folding, stability, trafficking, or channel "
+    "activity."
+)
+
+st.write(
+    "Frameshift variants result from insertions or deletions that change the "
+    "reading frame. They can alter the downstream protein sequence and may "
+    "introduce a premature stop signal, often resulting in substantially reduced "
+    "CFTR function."
+)
+
+st.write(
+    "Inframe deletions remove one or more amino acids without shifting the "
+    "reading frame. Their effects depend strongly on which amino acids and "
+    "structural regions are removed."
+)
+
+st.write(
+    "Synonymous, sometimes called silent, variants do not change the encoded "
+    "amino acid. They are often less disruptive to the protein sequence, but "
+    "some can still affect RNA processing or splicing."
+)
+
+st.write(
+    "Nonsense or stop-gained variants introduce a premature stop signal. "
+    "This can produce a shortened protein or cause the cell to destroy the "
+    "altered RNA before a functional protein is produced."
+)
+
+st.write(
+    "Splice-site variants can interfere with the normal processing of CFTR RNA. "
+    "This may result in abnormal transcripts and reduced production of correctly "
+    "functioning CFTR protein."
+)
+
+st.subheader("From Variant to Clinical Effect")
+
+st.write(
+    "When a CFTR variant substantially reduces CFTR function, the effects can "
+    "extend beyond the protein itself. CFTR helps regulate chloride and bicarbonate "
+    "transport across epithelial tissues. Reduced CFTR activity can disrupt the "
+    "movement of ions and water, contributing to abnormal secretions in several "
+    "organs."
+)
+
+st.write(
+    "In the lungs, impaired CFTR function can contribute to thick, difficult-to-clear "
+    "mucus, airway inflammation, recurrent respiratory infections, and progressive "
+    "loss of lung function. In the digestive system, CFTR dysfunction can affect "
+    "the pancreas and intestines, contributing to problems with digestion and "
+    "nutrient absorption."
+)
+
+st.write(
+    "These clinical effects are not determined by consequence type alone. "
+    "Different variants can leave different amounts of CFTR function, so variants "
+    "with the same general consequence category can have different biological "
+    "and clinical effects."
 )
