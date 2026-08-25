@@ -101,7 +101,30 @@ st.subheader("Variant Distribution by Protein Region")
 
 region_counts = variants_df["Region"].value_counts()
 
-st.bar_chart(region_counts)
+region_chart_data = (
+    region_counts
+    .rename_axis("Region")
+    .reset_index(name="Variant_Count")
+)
+
+region_chart = (
+    alt.Chart(region_chart_data)
+    .mark_bar(
+        color="#F6B6C8",
+        cornerRadiusTopLeft=6,
+        cornerRadiusTopRight=6
+    )
+    .encode(
+        x=alt.X("Region:N", title=None),
+        y=alt.Y("Variant_Count:Q", title="Variant count"),
+        tooltip=[
+            alt.Tooltip("Region:N", title="Region"),
+            alt.Tooltip("Variant_Count:Q", title="Variants")
+        ]
+    )
+)
+
+st.altair_chart(region_chart, use_container_width=True)
 
 st.subheader("What the data suggests")
 
