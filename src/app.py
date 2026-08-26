@@ -64,7 +64,7 @@ st.markdown(
 )
 
 st.markdown(
-    "<p style='text-align: center; font-size: 1.2rem;'>"
+    "<p style='text-align: center; font-family: Fredoka, sans-serif; font-size: 1.2rem;'>"
     "Explore CFTR variant locations, consequences, conservation, "
     "and protein-region characteristics."
     "</p>",
@@ -72,8 +72,10 @@ st.markdown(
 )
 
 st.markdown(
-    "<p style='text-align: center; font-size: 1.2rem;'>"
-    '<strong>WARNING:</strong> The Explorer will display results only for amino acid positions with recorded variants in this dataset. Click “Explore Position” to search.'
+    "<p style='text-align: center; font-family: Fredoka, sans-serif; font-size: 1.2rem;'>"
+    "<strong>WARNING:</strong> The Explorer will display results only for "
+    "amino acid positions with recorded variants in this dataset. "
+    "Click “Explore Position” to search."
     "</p>",
     unsafe_allow_html=True
 )
