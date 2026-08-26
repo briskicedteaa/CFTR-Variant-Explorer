@@ -85,7 +85,7 @@ st.write(
 position = st.number_input(
     "Enter a CFTR amino-acid position",
     min_value=1,
-    max_value=1480,
+    max_value=1481,
     step=1
 )
 
