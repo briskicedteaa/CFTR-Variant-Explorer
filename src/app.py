@@ -80,7 +80,7 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-GIF_PATH = Path(__file__).resolve().parent.parent / "images" / "CABEF7BF-027D-4BFF-95B4-BBD51A8C5588.gif"
+GIF_PATH = Path(__file__).resolve().parent.parent / "images" / "8D83949E-9C79-479B-BD57-BA4F6ED95A0A.gif"
 
 col1, col2, col3 = st.columns([1, 3, 1])
 
