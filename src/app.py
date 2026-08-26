@@ -68,7 +68,7 @@ st.image(
 
 st.subheader("Research Question")
 
-IMG1_PATH = Path(__file__).resolve().parent.parent / "images" / "0AA16720-722B-4A3E-BAF1-5AC3BAB265A0.gif"
+IMG1_PATH = Path(__file__).resolve().parent.parent / "images" / "images/762E5BF5-2C2A-47D2-B6D5-CE4384BD2CE5.gif"
 
 st.image(
     str(IMG1_PATH),
