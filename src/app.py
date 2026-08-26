@@ -90,11 +90,11 @@ position = st.number_input(
 )
 
 if position == 1481: 
-st.caption(
-    "CFTR contains 1,480 amino acids. However, some stop-loss variants in this "
-    "dataset are recorded at position 1481 because they alter the normal stop "
-    "signal, allowing translation to extend beyond the usual protein endpoint."
-)
+    st.caption(
+        "CFTR contains 1,480 amino acids. However, some stop-loss variants in this "
+        "dataset are recorded at position 1481 because they alter the normal stop "
+        "signal, allowing translation to extend beyond the usual protein endpoint."
+    )
 
 with st.expander("View positions with recorded variants"):
             st.write(sorted(valid_positions))
