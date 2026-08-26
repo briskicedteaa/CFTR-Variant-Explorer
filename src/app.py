@@ -4,6 +4,11 @@ import altair as alt
 from data_loader import load_data
 from pathlib import Path
 
+st.set_page_config(
+    page_title="CFTR Variant Explorer",
+    layout="wide"
+)
+
 st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&family=Quicksand:wght@400;500;600;700&display=swap');
