@@ -52,7 +52,7 @@ st.write(
 )
 
 st.markdown(
-'**WARNING:** Explorer will only display results unless a valid amino acid position is entered before "Explore Position" is then clicked.'
+'**WARNING:** The Explorer will display results only for amino acid positions with recorded variants in this dataset. Click “Explore Position” to search.'
 )
 
 GIF_PATH = Path(__file__).resolve().parent.parent / "images" / "6264FB72-B5A5-44A2-9019-0DF79F16DB01.gif"
