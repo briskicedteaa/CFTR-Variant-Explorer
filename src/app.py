@@ -151,6 +151,8 @@ if st.button("Explore position"):
 with st.expander("View positions with recorded variants"):
     st.write(sorted(valid_positions))
 
+st.title("Results")
+
 st.subheader("CFTR Domain Conservation")
 
 domain_conservation = {
