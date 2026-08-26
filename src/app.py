@@ -48,7 +48,7 @@ max_position = int(position_df["Position"].max())
 
 st.caption(
     f"Positions represented in this dataset: {min_position}–{max_position}",
-    "Explorer WILL NOT display results unless a valid amino acid position is entered before "Explore Position" is then clicked."
+    'Explorer WILL NOT display results unless a valid amino acid position is entered before "Explore Position" is then clicked.'
 )
 
 st.title("CFTR Variant Explorer")
