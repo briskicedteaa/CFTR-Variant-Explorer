@@ -99,6 +99,8 @@ with st.expander("View positions with recorded variants"):
 
 if st.button("Explore position"): 
     position_info, variants = get_position_summary(position)
+    
+    st.title("Results")
 
     if position_info is None:
         st.error("That position was not found in the CFTR dataset.")
@@ -150,9 +152,6 @@ if st.button("Explore position"):
                     consequence_chart, 
                     use_container_width=True
                 )
-
-
-st.title("Results")
 
 st.subheader("CFTR Domain Conservation")
 
