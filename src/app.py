@@ -87,7 +87,7 @@ with col2:
     )
 
 st.markdown(
-    "<h3 style='text-align: center;'>Research Question</h3>",
+    "<h1 style='text-align: center;'>Research Question</h1>",
     unsafe_allow_html=True
 )
 
