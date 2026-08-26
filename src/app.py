@@ -77,11 +77,6 @@ st.write(
     "regions might help explain their different effects on CFTR function?"
 )
 
-position = st.number_input(
-    "Enter a CFTR amino-acid position",
-    min_value=1,
-    step=1
-)
 
 position = st.number_input(
     "Enter a CFTR amino-acid position",
