@@ -48,6 +48,13 @@ st.write(
     "and protein-region characteristics."
 )
 
+GIF_PATH = Path(__file__).resolve().parent.parent / "images" / "6264FB72-B5A5-44A2-9019-0DF79F16DB01.gif"
+
+st.image(
+    str(GIF_PATH),
+    use_container_width=True
+)
+
 st.subheader("Research Question")
 
 st.write(
