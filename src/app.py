@@ -54,7 +54,10 @@ position_df, variants_df = load_data()
 
 valid_positions = set(variants_df["Position"].dropna().astype(int))
 
-st.title("CFTR Variant Explorer")
+st.markdown(
+    "<h3 style='text-align: center;'>CFTR Variant Explorer</h3>",
+    unsafe_allow_html=True
+)
 st.write(
     "Explore CFTR variant locations, consequences, conservation, "
     "and protein-region characteristics."
