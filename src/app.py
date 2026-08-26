@@ -43,8 +43,8 @@ from variant_explorer import (
 
 position_df, variants_df = load_data()
 
-min_position = int(position_df["Position"].min())
-max_position = int(position_df["Position"].max())
+min_position = int(position_df["Human_Position"].min())
+max_position = int(position_df["Human_Position"].max())
 
 st.caption(
     f"Positions represented in this dataset: {min_position}–{max_position}",
