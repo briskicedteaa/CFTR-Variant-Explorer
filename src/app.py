@@ -31,6 +31,10 @@ h1, h2, h3 {
 }
 
 .info-bubble p {
+    font-weight: 700;
+}
+
+.info-bubble p {
     color: #4a3a42;
 }
 </style>
@@ -244,7 +248,7 @@ that may be particularly important for CFTR function.
 
 <p>
 Importantly, this analysis identifies patterns and possible relationships
-rather than proving that a particular variant causes a specific clinical outcome.**
+rather than proving that a particular variant causes a specific clinical outcome.
  </p>
 </div>
 """, unsafe_allow_html=True)
@@ -254,7 +258,7 @@ st.markdown("""
 
 <h3>Understanding Variant Consequences</h3>
 <p>
-**A variant consequence describes what a genetic change does to the
+A variant consequence describes what a genetic change does to the
 CFTR sequence or protein. The consequence type alone does not determine
 whether a variant is harmful. Its effect depends on the specific change,
 where it occurs, and how much functional CFTR remains.
@@ -295,7 +299,7 @@ altered RNA before a functional protein is produced.
 <p>
 Splice-site variants can interfere with the normal processing of CFTR RNA.
 This may result in abnormal transcripts and reduced production of correctly
-functioning CFTR protein.**
+functioning CFTR protein.
 </p>
 </div>
 """, unsafe_allow_html=True)
@@ -324,7 +328,7 @@ nutrient absorption.
 These clinical effects are not determined by consequence type alone.
 Different variants can leave different amounts of CFTR function, so variants
 with the same general consequence category can have different biological
-and clinical effects.**
+and clinical effects.
 </p>
 
 </div>
