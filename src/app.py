@@ -281,7 +281,7 @@ st.markdown("""
 
 DON_PATH = Path(__file__).resolve().parent.parent / "images" / "77C31030-2369-452B-B746-B1636E691D0B.gif"
 
-col1, col2, col3 = st.columns([1, 3, 1])
+col1, col2, col3 = st.columns([1, 2, 1])
 
 with col2:
     st.image(
@@ -317,7 +317,7 @@ rather than proving that a particular variant causes a specific clinical outcome
 
 DON_PATH = Path(__file__).resolve().parent.parent / "images" / "77C31030-2369-452B-B746-B1636E691D0B.gif"
 
-col1, col2, col3 = st.columns([1, 3, 1])
+col1, col2, col3 = st.columns([1, 2, 1])
 
 with col2:
     st.image(
@@ -393,7 +393,7 @@ functioning CFTR protein.
 
 DON_PATH = Path(__file__).resolve().parent.parent / "images" / "77C31030-2369-452B-B746-B1636E691D0B.gif"
 
-col1, col2, col3 = st.columns([1, 3, 1])
+col1, col2, col3 = st.columns([1, 2, 1])
 
 with col2:
     st.image(
