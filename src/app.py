@@ -64,7 +64,7 @@ st.markdown(
 )
 
 st.markdown(
-    "<p style='text-align: center; font-family: Fredoka, sans-serif; font-size: 1.2rem;'>"
+    "<p style='text-align: center; font-family: Fredoka, sans-serif; font-weight: 500;'>"
     "Explore CFTR variant locations, consequences, conservation, "
     "and protein-region characteristics."
     "</p>",
