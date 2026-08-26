@@ -219,7 +219,7 @@ st.altair_chart(region_chart, use_container_width=True)
 
 st.markdown("""
 <div class="info-bubble">
-    <h3>What The Data Suggests<h3>
+    <h3>What The Data Suggests (Overall)<h3>
     <p>
         CFTR domains differ in their average conservation. 
         NBD1 is the most conserved domain in this dataset, while the R domain 
