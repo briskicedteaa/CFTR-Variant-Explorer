@@ -90,8 +90,9 @@ position = st.number_input(
 )
 
 st.caption(
-    "CFTR contains 1,480 amino acids. "
-    "Enter a position with a recorded variant in this dataset."
+    "CFTR contains 1,480 amino acids. However, some stop-loss variants in this "
+    "dataset are recorded at position 1481 because they alter the normal stop "
+    "signal, allowing translation to extend beyond the usual protein endpoint."
 )
 
 with st.expander("View positions with recorded variants"):
@@ -102,16 +103,20 @@ if st.button("Explore position"):
     
     st.title("Results")
 
-    if position_info is None:
+    if position_info is None and position not in valid_positions:
         st.error("That position was not found in the CFTR dataset.")
-    else:
-        st.subheader(f"CFTR Position {position}")
-        
-        info = position_info.iloc[0]
-        col1, col2, col3 = st.columns(3)
-        col1.metric("Domain", info["CFTR_Domain"])
-        col2.metric("Conservation", f"{info['Conservation']:.3f}")
-        col3.metric("Variant count", int(info["Variant_Count"]))
+    
+    elif position_info is None and position == 1481:
+    st.subheader("CFTR Position 1481")
+
+    st.info(
+        "CFTR contains 1,480 amino acids. Position 1481 appears in this "
+        "dataset because stop-loss variants alter the normal stop signal, "
+        "allowing translation to continue beyond the usual protein endpoint."
+    )
+
+    st.subheader("Variants at this position")
+    st.dataframe(variants)
 
         if variants.empty:
             st.info("No recorded variants were found at this position.")
@@ -310,6 +315,21 @@ some can still affect RNA processing or splicing.
 Nonsense or stop-gained variants introduce a premature stop signal.
 This can produce a shortened protein or cause the cell to destroy the
 altered RNA before a functional protein is produced.
+</p>
+
+<p>
+Stop-loss variants alter the normal stop signal at the end of the CFTR
+coding sequence. Instead of stopping at the usual endpoint, protein
+production can continue beyond the normal 1,480-amino-acid sequence,
+producing an altered protein with additional amino acids at its end.
+</p>
+
+<p>
+This type of variant is represented in this dataset at position 1481.
+These variants are recorded as stop-loss changes, meaning that the normal
+CFTR stop signal has been altered. Position 1481 therefore does not mean
+that normal CFTR is 1,481 amino acids long; rather, it reflects a variant
+that can extend translation beyond the usual protein endpoint.
 </p>
 
 <p>
