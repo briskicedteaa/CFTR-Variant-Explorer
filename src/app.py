@@ -109,8 +109,10 @@ if st.button("Explore position"):
             "allowing translation to continue beyond the usual protein endpoint."
         )
 
+        stop_loss_variants = variants_df[variants_df["Position"] == 1481]
+
         st.subheader("Variants at this position")
-        st.dataframe(variants)
+        st.dataframe(stop_loss_variants)
 
     if variants is None or variants.empty:
             st.info("No recorded variants were found at this position.")
