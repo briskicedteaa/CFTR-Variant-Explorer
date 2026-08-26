@@ -94,6 +94,9 @@ st.caption(
     "Enter a position with a recorded variant in this dataset."
 )
 
+with st.expander("View positions with recorded variants"):
+            st.write(sorted(valid_positions))
+
 if st.button("Explore position"): 
     position_info, variants = get_position_summary(position)
 
@@ -114,9 +117,6 @@ if st.button("Explore position"):
             st.subheader("Variants at this position")
             st.dataframe(variants)
             
-        with st.expander("View positions with recorded variants"):
-            st.write(sorted(valid_positions))
-
             st.subheader("Variant consequences")
 
             consequence_summary = get_consequence_summary(position)
