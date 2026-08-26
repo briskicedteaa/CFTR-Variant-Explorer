@@ -43,6 +43,14 @@ from variant_explorer import (
 
 position_df, variants_df = load_data()
 
+min_position = int(position_df["Position"].min())
+max_position = int(position_df["Position"].max())
+
+st.caption(
+    f"Positions represented in this dataset: {min_position}–{max_position}"
+    "Explorer WILL NOT display results unless a valid amino acid position is entered before "Explore Position" is then clicked."
+)
+
 st.title("CFTR Variant Explorer")
 st.write(
     "Explore CFTR variant locations, consequences, conservation, "
@@ -75,6 +83,10 @@ position = st.number_input(
     "Enter a CFTR amino-acid position",
     min_value=1,
     step=1
+)
+
+st.caption(
+    f"Dataset positions represented: {min_position}–{max_position}"
 )
 
 if st.button("Explore position"):
