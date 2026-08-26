@@ -105,9 +105,10 @@ if st.button("Explore position"):
 
     if position_info is None and position not in valid_positions:
         st.error("That position was not found in the CFTR dataset.")
-    
+        
     elif position_info is None and position == 1481:
-    st.subheader("CFTR Position 1481")
+        
+        st.subheader("CFTR Position 1481")
 
     st.info(
         "CFTR contains 1,480 amino acids. Position 1481 appears in this "
