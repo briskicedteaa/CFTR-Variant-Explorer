@@ -89,6 +89,7 @@ position = st.number_input(
     step=1
 )
 
+if position == 1481: 
 st.caption(
     "CFTR contains 1,480 amino acids. However, some stop-loss variants in this "
     "dataset are recorded at position 1481 because they alter the normal stop "
