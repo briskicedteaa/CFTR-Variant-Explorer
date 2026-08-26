@@ -58,10 +58,10 @@ st.image(
 
 st.subheader("Research Question")
 
-GIF1_PATH = Path(__file__).resolve().parent.parent / "images" / "72ECAFE7-8903-4F37-BAAB-3946BDCD83DC.gif"
+IMG1_PATH = Path(__file__).resolve().parent.parent / "images" / images/ "Untitled15_20260825233616.png"
 
 st.image(
-    str(GIF1_PATH),
+    str(IMG1_PATH),
     use_container_width=True
 )
 
