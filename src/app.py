@@ -64,7 +64,7 @@ st.markdown(
 )
 
 st.markdown(
-    "<p style='text-align: center; font-family: Fredoka, sans-serif; font-weight: 500;'>"
+    "<p style='text-align: center; font-family: Fredoka, sans-serif; font-size: 1.2rem; font-weight: 500;'>"
     "Explore CFTR variant locations, consequences, conservation, "
     "and protein-region characteristics."
     "</p>",
@@ -72,7 +72,7 @@ st.markdown(
 )
 
 st.markdown(
-    "<p style='text-align: center; font-family: Fredoka, sans-serif; font-size: 1.2rem;'>"
+    "<p style='text-align: center; font-family: Fredoka, sans-serif; font-size: 1.2rem; font-weight: 500;'>"
     "<strong>WARNING:</strong> The Explorer will display results only for "
     "amino acid positions with recorded variants in this dataset. "
     "Click “Explore Position” to search."
@@ -106,7 +106,7 @@ with col2:
     )
 
 st.markdown(
-    "<p style='font-family: Fredoka, sans-serif;'>"
+    "<p style='font-family: Fredoka, sans-serif; font-size: 1.2rem; font-weight: 500;''>"
     "Where do CFTR variants occur across the protein, what types of variants "
     "occur at those positions, and what characteristics of the affected protein "
     "regions might help explain their different effects on CFTR function?"
