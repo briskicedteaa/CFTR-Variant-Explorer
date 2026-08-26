@@ -101,16 +101,16 @@ if st.button("Explore position"):
         st.error("That position was not found in the CFTR dataset.")
         
     elif position_info is None and position == 1481:
-    st.subheader("CFTR Position 1481")
+        st.subheader("CFTR Position 1481")
 
-    st.info(
-        "CFTR contains 1,480 amino acids. Position 1481 appears in this "
-        "dataset because stop-loss variants alter the normal stop signal, "
-        "allowing translation to continue beyond the usual protein endpoint."
-    )
+        st.info(
+            "CFTR contains 1,480 amino acids. Position 1481 appears in this "
+            "dataset because stop-loss variants alter the normal stop signal, "
+            "allowing translation to continue beyond the usual protein endpoint."
+        )
 
-    st.subheader("Variants at this position")
-    st.dataframe(variants)
+        st.subheader("Variants at this position")
+        st.dataframe(variants)
 
     if variants.empty:
             st.info("No recorded variants were found at this position.")
