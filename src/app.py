@@ -95,7 +95,7 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-IMG1_PATH = Path(__file__).resolve().parent.parent / "images" / "B07F52FD-0104-4A8D-BD55-7B8E1BA7E386.gif"
+IMG1_PATH = Path(__file__).resolve().parent.parent / "images" / "9B606013-2222-4788-82B1-0E9256D8C7F0.gif"
 
 col1, col2, col3 = st.columns([1, 3, 1])
 
