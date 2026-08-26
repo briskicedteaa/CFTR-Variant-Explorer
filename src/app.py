@@ -103,7 +103,7 @@ with col2:
         use_container_width=True
     )
 
-st.write(
+st.markdown(
     "Where do CFTR variants occur across the protein, what types of variants "
     "occur at those positions, and what characteristics of the affected protein "
     "regions might help explain their different effects on CFTR function?"
