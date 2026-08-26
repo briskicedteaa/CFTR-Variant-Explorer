@@ -189,16 +189,20 @@ if position in valid_positions and position != 1481:
             color="#ffc4e7",
             cornerRadiusTopLeft=6,
             cornerRadiusTopRight=6
+        )
+        .encode(
+            x=alt.X("Domain:N", title=None),
+            y=alt.Y("Conservation:Q", title="Average conservation"),
+            tooltip=[
+                alt.Tooltip("Domain:N", title="Domain"),
+                alt.Tooltip(
+                    "Conservation:Q",
+                    title="Conservation",
+                    format=".3f"
+                )
+            ]
+        )
     )
-    .encode(
-        x=alt.X("Domain:N", title=None),
-        y=alt.Y("Conservation:Q", title="Average conservation"),
-        tooltip=[
-            alt.Tooltip("Domain:N", title="Domain"),
-            alt.Tooltip("Conservation:Q", title="Conservation", format=".3f")
-        ]
-    )
-)
 
     st.altair_chart(domain_chart, use_container_width=True)
 
@@ -218,18 +222,18 @@ if position in valid_positions and position != 1481:
             color="#ffc4e7",
             cornerRadiusTopLeft=6,
             cornerRadiusTopRight=6
+        )
+        .encode(
+            x=alt.X("Region:N", title=None),
+            y=alt.Y("Variant_Count:Q", title="Variant count"),
+            tooltip=[
+                alt.Tooltip("Region:N", title="Region"),
+                alt.Tooltip("Variant_Count:Q", title="Variants")
+            ]
+        )
     )
-    .encode(
-        x=alt.X("Region:N", title=None),
-        y=alt.Y("Variant_Count:Q", title="Variant count"),
-        tooltip=[
-            alt.Tooltip("Region:N", title="Region"),
-            alt.Tooltip("Variant_Count:Q", title="Variants")
-        ]
-    )
-)
 
-st.altair_chart(region_chart, use_container_width=True)
+    st.altair_chart(region_chart, use_container_width=True)
 
 st.markdown("""
 <div class="info-bubble">
