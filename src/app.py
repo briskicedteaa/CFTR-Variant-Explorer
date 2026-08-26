@@ -111,8 +111,7 @@ if st.button("Explore position"):
 
         stop_loss_variants = variants_df[variants_df["Position"] == 1481]
 
-        st.subheader("Variants at this position")
-        st.dataframe(stop_loss_variants)
+        variants = variants_df[variants_df["Position"] == 1481]
 
     if variants is None or variants.empty:
             st.info("No recorded variants were found at this position.")
