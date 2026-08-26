@@ -106,11 +106,13 @@ with col2:
     )
 
 st.markdown(
+    "<p style='font-family: Fredoka, sans-serif;'>"
     "Where do CFTR variants occur across the protein, what types of variants "
     "occur at those positions, and what characteristics of the affected protein "
     "regions might help explain their different effects on CFTR function?"
+    "</p>",
+    unsafe_allow_html=True
 )
-
 
 position = st.number_input(
     "Enter a CFTR amino-acid position",
