@@ -112,7 +112,7 @@ if st.button("Explore position"):
         st.subheader("Variants at this position")
         st.dataframe(variants)
 
-    if variants.empty:
+    if variants is None or variants.empty:
             st.info("No recorded variants were found at this position.")
     else:
             st.subheader("Variants at this position")
