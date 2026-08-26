@@ -71,7 +71,7 @@ st.markdown(
 
 st.markdown(
     "<p style='text-align: center; font-size: 1.2rem;'>"
-    '**WARNING:** The Explorer will display results only for amino acid positions with recorded variants in this dataset. Click “Explore Position” to search.'
+    '<strong>WARNING:</strong> The Explorer will display results only for amino acid positions with recorded variants in this dataset. Click “Explore Position” to search.'
     "</p>",
     unsafe_allow_html=True
 )
