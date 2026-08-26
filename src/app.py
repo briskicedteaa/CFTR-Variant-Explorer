@@ -109,9 +109,16 @@ if st.button("Explore position"):
             "allowing translation to continue beyond the usual protein endpoint."
         )
 
-        stop_loss_variants = variants_df[variants_df["Position"] == 1481]
-
         variants = variants_df[variants_df["Position"] == 1481]
+        
+    else:
+        st.subheader(f"CFTR Position {position}")
+
+        info = position_info.iloc[0]
+        col1, col2, col3 = st.columns(3)
+        col1.metric("Domain", info["CFTR_Domain"])
+        col2.metric("Conservation", f"{info['Conservation']:.3f}")
+        col3.metric("Variant count", int(info["Variant_Count"]))
 
     if variants is None or variants.empty:
             st.info("No recorded variants were found at this position.")
