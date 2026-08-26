@@ -91,6 +91,7 @@ st.caption(
 )
 
 if st.button("Explore position"): 
+    position_info, variants = get_position_summary(position)
 
     if position_info is None:
         st.error("That position was not found in the CFTR dataset.")
