@@ -70,7 +70,10 @@ st.markdown(
 )
 
 st.markdown(
-'**WARNING:** The Explorer will display results only for amino acid positions with recorded variants in this dataset. Click “Explore Position” to search.'
+    "<p style='text-align: center; font-size: 1.2rem;'>"
+    '**WARNING:** The Explorer will display results only for amino acid positions with recorded variants in this dataset. Click “Explore Position” to search.'
+    "</p>",
+    unsafe_allow_html=True
 )
 
 GIF_PATH = Path(__file__).resolve().parent.parent / "images" / "6264FB72-B5A5-44A2-9019-0DF79F16DB01.gif"
