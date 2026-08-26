@@ -46,16 +46,21 @@ position_df, variants_df = load_data()
 min_position = int(position_df["Human_Position"].min())
 max_position = int(position_df["Human_Position"].max())
 
-st.caption(
-    f"Valid positions represented in this dataset: {min_position}–{max_position}"
-    'WARNING: Explorer will only display results unless a valid amino acid position is entered before "Explore Position" is then clicked.'
-)
 
 st.title("CFTR Variant Explorer")
 st.write(
     "Explore CFTR variant locations, consequences, conservation, "
     "and protein-region characteristics."
 )
+
+st.write(
+    f"Valid positions represented in this dataset: {min_position}–{max_position}"
+)
+
+st.write(
+'WARNING: Explorer will only display results unless a valid amino acid position is entered before "Explore Position" is then clicked.'
+)
+
 
 GIF_PATH = Path(__file__).resolve().parent.parent / "images" / "6264FB72-B5A5-44A2-9019-0DF79F16DB01.gif"
 
