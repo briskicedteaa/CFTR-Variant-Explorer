@@ -113,6 +113,9 @@ if st.button("Explore position"):
         else:
             st.subheader("Variants at this position")
             st.dataframe(variants)
+            
+        with st.expander("View positions with recorded variants"):
+            st.write(sorted(valid_positions))
 
             st.subheader("Variant consequences")
 
@@ -148,8 +151,6 @@ if st.button("Explore position"):
                     use_container_width=True
                 )
 
-with st.expander("View positions with recorded variants"):
-    st.write(sorted(valid_positions))
 
 st.title("Results")
 
