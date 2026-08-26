@@ -111,6 +111,11 @@ if st.button("Explore position"):
 
         variants = variants_df[variants_df["Position"] == 1481]
         
+        col1, col2, col3 = st.columns(3)
+        col1.metric("Domain", "NaN")
+        col2.metric("Conservation", "NaN")
+        col3.metric("Variant count", len(variants))
+        
     elif position_info is not None: 
         st.subheader(f"CFTR Position {position}")
 
