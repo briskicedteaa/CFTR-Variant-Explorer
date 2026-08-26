@@ -90,12 +90,6 @@ st.caption(
     "Enter a position with a recorded variant in this dataset."
 )
 
-
-st.caption(
-    "CFTR contains 1,480 amino acids. "
-    "Only positions with recorded variants in this dataset will return variant results."
-)
-
 if st.button("Explore position"): 
     if position not in valid_positions:
         st.warning("No recorded variants are available for this position in the dataset.")
