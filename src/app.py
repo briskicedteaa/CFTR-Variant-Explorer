@@ -165,28 +165,30 @@ if st.button("Explore position"):
                     use_container_width=True
                 )
 
-st.subheader("CFTR Domain Conservation")
 
-domain_conservation = {
-    "NBD1": 0.820016,
-    "NBD2": 0.790831,
-    "Other": 0.692784,
-    "R domain": 0.640287,
-    "TMD1": 0.767632,
-    "TMD2": 0.729488,
-}
+if position in valid_positions and position != 1481:
+    st.subheader("CFTR Domain Conservation")
 
-domain_chart_data = pd.DataFrame(
-    list(domain_conservation.items()),
-    columns=["Domain", "Conservation"]
-)
+    domain_conservation = {
+        "NBD1": 0.820016,
+        "NBD2": 0.790831,
+        "Other": 0.692784,
+        "R domain": 0.640287,
+        "TMD1": 0.767632,
+        "TMD2": 0.729488,
+    }
 
-domain_chart = (
-    alt.Chart(domain_chart_data)
-    .mark_bar(
-        color="#ffc4e7",
-        cornerRadiusTopLeft=6,
-        cornerRadiusTopRight=6
+    domain_chart_data = pd.DataFrame(
+        list(domain_conservation.items()),
+        columns=["Domain", "Conservation"]
+    )
+
+    domain_chart = (
+        alt.Chart(domain_chart_data)
+        .mark_bar(
+            color="#ffc4e7",
+            cornerRadiusTopLeft=6,
+            cornerRadiusTopRight=6
     )
     .encode(
         x=alt.X("Domain:N", title=None),
