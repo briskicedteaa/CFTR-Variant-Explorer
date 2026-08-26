@@ -68,7 +68,7 @@ GIF_PATH = Path(__file__).resolve().parent.parent / "images" / "6264FB72-B5A5-44
 
 st.image(
     str(GIF_PATH),
-    use_container_width=True
+    width=500
 )
 
 st.subheader("Research Question")
@@ -77,7 +77,7 @@ IMG1_PATH = Path(__file__).resolve().parent.parent / "images" / "762E5BF5-2C2A-4
 
 st.image(
     str(IMG1_PATH),
-    use_container_width=True
+    width=500
 )
 
 st.write(
@@ -256,7 +256,7 @@ DON_PATH = Path(__file__).resolve().parent.parent / "images" / "77C31030-2369-45
 
 st.image(
     str(DON_PATH),
-    use_container_width=True
+    width=500
 )
 
 st.markdown("""
@@ -289,7 +289,7 @@ DON_PATH = Path(__file__).resolve().parent.parent / "images" / "77C31030-2369-45
 
 st.image(
     str(DON_PATH),
-    use_container_width=True
+    width=500
 )
 
 st.markdown("""
@@ -362,7 +362,7 @@ DON_PATH = Path(__file__).resolve().parent.parent / "images" / "77C31030-2369-45
 
 st.image(
     str(DON_PATH),
-    use_container_width=True
+    width=500
 )
 
 st.markdown("""
