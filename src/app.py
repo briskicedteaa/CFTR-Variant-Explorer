@@ -227,6 +227,13 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
+DON_PATH = Path(__file__).resolve().parent.parent / "images" / "77C31030-2369-452B-B746-B1636E691D0B.gif"
+
+st.image(
+    str(DON_PATH),
+    use_container_width=True
+)
+
 st.markdown("""
 <div class="info-bubble">
 
