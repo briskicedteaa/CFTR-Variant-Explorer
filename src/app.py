@@ -116,7 +116,7 @@ if st.button("Explore position"):
         col2.metric("Conservation", "NaN")
         col3.metric("Variant count", len(variants))
         
-    elif position_info is not None: 
+    elif position_info is not None and position in valid_positions:
         st.subheader(f"CFTR Position {position}")
 
         info = position_info.iloc[0]
