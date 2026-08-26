@@ -90,8 +90,6 @@ st.caption(
     "Enter a position with a recorded variant in this dataset."
 )
 
-with st.expander("View positions with recorded variants"):
-    st.write(sorted(valid_positions))
 
 st.caption(
     "CFTR contains 1,480 amino acids. "
@@ -154,7 +152,10 @@ if st.button("Explore position"):
                     consequence_chart, 
                     use_container_width=True
                 )
-            
+
+with st.expander("View positions with recorded variants"):
+    st.write(sorted(valid_positions))
+
 st.subheader("CFTR Domain Conservation")
 
 domain_conservation = {
