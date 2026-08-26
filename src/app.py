@@ -55,7 +55,6 @@ st.markdown(
 '**WARNING:** Explorer will only display results unless a valid amino acid position is entered before "Explore Position" is then clicked.'
 )
 
-
 GIF_PATH = Path(__file__).resolve().parent.parent / "images" / "6264FB72-B5A5-44A2-9019-0DF79F16DB01.gif"
 
 st.image(
@@ -102,10 +101,6 @@ with st.expander("View positions with recorded variants"):
 st.caption(
     "CFTR contains 1,480 amino acids. "
     "Only positions with recorded variants in this dataset will return variant results."
-)
-
-st.caption(
-    f"Dataset positions represented: {min_position}–{max_position}"
 )
 
 if st.button("Explore position"): 
