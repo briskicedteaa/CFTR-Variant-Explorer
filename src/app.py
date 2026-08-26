@@ -43,9 +43,7 @@ from variant_explorer import (
 
 position_df, variants_df = load_data()
 
-min_position = int(variants_df["Position"].min())
-max_position = int(variants_df["Position"].max())
-
+valid_positions = set(variants_df["Position"].dropna().astype(int))
 
 st.title("CFTR Variant Explorer")
 st.write(
@@ -53,12 +51,8 @@ st.write(
     "and protein-region characteristics."
 )
 
-st.write(
-    f"Valid positions represented in this dataset: {min_position}–{max_position}"
-)
-
-st.write(
-'WARNING: Explorer will only display results unless a valid amino acid position is entered before "Explore Position" is then clicked.'
+st.markdown(
+'**WARNING:** Explorer will only display results unless a valid amino acid position is entered before "Explore Position" is then clicked.'
 )
 
 
@@ -90,12 +84,35 @@ position = st.number_input(
     step=1
 )
 
+position = st.number_input(
+    "Enter a CFTR amino-acid position",
+    min_value=1,
+    max_value=1480,
+    step=1
+)
+
+st.caption(
+    "CFTR contains 1,480 amino acids. "
+    "Enter a position with a recorded variant in this dataset."
+)
+
+with st.expander("View positions with recorded variants"):
+    st.write(sorted(valid_positions))
+
+st.caption(
+    "CFTR contains 1,480 amino acids. "
+    "Only positions with recorded variants in this dataset will return variant results."
+)
+
 st.caption(
     f"Dataset positions represented: {min_position}–{max_position}"
 )
 
-if st.button("Explore position"):
-    position_info, variants = get_position_summary(position)
+if st.button("Explore position"): 
+    if position not in valid_positions:
+        st.warning("No recorded variants are available for this position in the dataset.")
+    else:
+        position_info, variants = get_position_summary(position)
 
     if position_info is None:
         st.error("That position was not found in the CFTR dataset.")
