@@ -66,19 +66,25 @@ st.markdown(
 
 GIF_PATH = Path(__file__).resolve().parent.parent / "images" / "6264FB72-B5A5-44A2-9019-0DF79F16DB01.gif"
 
-st.image(
-    str(GIF_PATH),
-    width=500
-)
+col1, col2, col3 = st.columns([1, 2, 1])
+
+with col2:
+    st.image(
+        str(GIF_PATH),
+        use_container_width=True
+    )
 
 st.subheader("Research Question")
 
 IMG1_PATH = Path(__file__).resolve().parent.parent / "images" / "762E5BF5-2C2A-47D2-B6D5-CE4384BD2CE5.gif"
 
-st.image(
-    str(IMG1_PATH),
-    width=500
-)
+col1, col2, col3 = st.columns([1, 2, 1])
+
+with col2:
+    st.image(
+        str(IMG1_PATH),
+        use_container_width=True
+    )
 
 st.write(
     "Where do CFTR variants occur across the protein, what types of variants "
