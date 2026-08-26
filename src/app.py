@@ -111,7 +111,7 @@ if st.button("Explore position"):
 
         variants = variants_df[variants_df["Position"] == 1481]
         
-    else:
+    else position_info is not None: 
         st.subheader(f"CFTR Position {position}")
 
         info = position_info.iloc[0]
