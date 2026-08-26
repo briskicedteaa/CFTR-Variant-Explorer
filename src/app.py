@@ -91,10 +91,6 @@ st.caption(
 )
 
 if st.button("Explore position"): 
-    if position not in valid_positions:
-        st.warning("No recorded variants are available for this position in the dataset.")
-    else:
-        position_info, variants = get_position_summary(position)
 
     if position_info is None:
         st.error("That position was not found in the CFTR dataset.")
