@@ -74,7 +74,10 @@ with col2:
         use_container_width=True
     )
 
-st.subheader("Research Question")
+st.markdown(
+    "<h3 style='text-align: center;'>Research Question</h3>",
+    unsafe_allow_html=True
+)
 
 IMG1_PATH = Path(__file__).resolve().parent.parent / "images" / "762E5BF5-2C2A-47D2-B6D5-CE4384BD2CE5.gif"
 
