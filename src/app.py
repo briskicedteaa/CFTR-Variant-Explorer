@@ -326,24 +326,22 @@ if st.button("Explore position"):
                 consequence_chart,
                 use_container_width=True
             )
-    
-    
+
 if position in valid_positions:
+
     st.markdown("""
-    <div class="info-bubble">
-        <h3>What The Data Suggests (Overall)</h3>
-        <p>
-            CFTR domains differ in their average conservation.
-            NBD1 is the most conserved domain in this dataset, while the R domain
-            has the lowest average conservation. Variant distribution also differs
-            across the N-terminal, Middle, and C-terminal regions.
-        </p>
-        
-        <p>
-            Bloo Blah
-        </p>
-    </div>
-    """, unsafe_allow_html=True)
+<div class="info-bubble">
+<h3>What The Data Suggests (Overall)</h3>
+
+<p>
+CFTR domains differ in their average conservation.
+NBD1 is the most conserved domain in this dataset, while the R domain
+has the lowest average conservation. Variant distribution also differs
+across the N-terminal, Middle, and C-terminal regions.
+</p>
+</div>
+""", unsafe_allow_html=True)
+
 
     DON_PATH = Path(__file__).resolve().parent.parent / "images" / "77C31030-2369-452B-B746-B1636E691D0B.gif"
 
@@ -356,109 +354,150 @@ if position in valid_positions:
         )
 
 
-    st.markdown(
-        """
-    <div class="info-bubble">
-            <h3>Understanding Variant Consequences</h3>
-            <p>
-                A variant consequence describes what a genetic change does to the
-                CFTR sequence or protein. The consequence type alone does not determine
-                whether a variant is harmful. Its effect depends on the specific change,
-                where it occurs, and how much functional CFTR remains.
-            </p>
+    st.markdown("""
+<div class="info-bubble">
+<h3>Why This Matters</h3>
 
-            <p>
-                Missense variants replace one amino acid with another. Depending on the
-                location and properties of the substituted amino acid, this can have little
-                effect or can interfere with CFTR folding, stability, trafficking, or channel
-                activity.
-            </p>
+<p>
+CFTR helps regulate chloride and bicarbonate transport across
+epithelial tissues. Changes that substantially reduce CFTR function
+can affect several organs and contribute to the manifestations
+associated with cystic fibrosis.
+</p>
 
-            <p>
-                Frameshift variants result from insertions or deletions that change the
-                reading frame. They can alter the downstream protein sequence and may
-                introduce a premature stop signal, often resulting in substantially reduced
-                CFTR function.
-            </p>
+<p>
+By examining where variants occur, what types of changes they represent,
+and how conserved the affected regions are, this project helps investigate
+why variants in different parts of CFTR may have different functional
+consequences. These patterns can also help identify regions of the protein
+that may be particularly important for CFTR function.
+</p>
 
-            <p>
-                Inframe deletions remove one or more amino acids without shifting the
-                reading frame. Their effects depend strongly on which amino acids and
-                structural regions are removed.
-            </p>
+<p>
+Importantly, this analysis identifies patterns and possible relationships
+rather than proving that a particular variant causes a specific clinical outcome.
+</p>
 
-            <p>
-                Synonymous, sometimes called silent, variants do not change the encoded
-                amino acid. They are often less disruptive to the protein sequence, but
-                some can still affect RNA processing or splicing.
-            </p>
+</div>
+""", unsafe_allow_html=True)
 
-            <p>
-                Nonsense or stop-gained variants introduce a premature stop signal.
-                This can produce a shortened protein or cause the cell to destroy the
-                altered RNA before a functional protein is produced.
-            </p>
-
-            <p>
-                Stop-loss variants alter the normal stop signal at the end of the CFTR
-                coding sequence. Instead of stopping at the usual endpoint, protein
-                production can continue beyond the normal 1,480-amino-acid sequence,
-                producing an altered protein with additional amino acids at its end.
-            </p>
-
-            <p>
-                This type of variant is represented in this dataset at position 1481.
-                These variants are recorded as stop-loss changes, meaning that the normal
-                CFTR stop signal has been altered. Position 1481 therefore does not mean
-                that normal CFTR is 1,481 amino acids long; rather, it reflects a variant
-                that can extend translation beyond the usual protein endpoint.
-            </p>
-
-            <p>
-                Splice-site variants can interfere with the normal processing of CFTR RNA.
-                This may result in abnormal transcripts and reduced production of correctly
-                functioning CFTR protein.
-            </p>
-        </div>
-        """, 
-            unsafe_allow_html=True
-        )
 
     DON_PATH = Path(__file__).resolve().parent.parent / "images" / "77C31030-2369-452B-B746-B1636E691D0B.gif"
+
     col1, col2, col3 = st.columns([1, 2, 1])
+
     with col2:
         st.image(
             str(DON_PATH),
             use_container_width=True
         )
 
-    st.markdown(
-        """
-    <div class="info-bubble">
-            <h3>From Variant to Clinical Effect</h3>
-            <p>
-                When a CFTR variant substantially reduces CFTR function, the effects can
-                extend beyond the protein itself. CFTR helps regulate chloride and bicarbonate
-                transport across epithelial tissues. Reduced CFTR activity can disrupt the
-                movement of ions and water, contributing to abnormal secretions in several
-                organs.
-            </p>
 
-            <p>
-                In the lungs, impaired CFTR function can contribute to thick, difficult-to-clear
-                mucus, airway inflammation, recurrent respiratory infections, and progressive
-                loss of lung function. In the digestive system, CFTR dysfunction can affect
-                the pancreas and intestines, contributing to problems with digestion and
-                nutrient absorption.
-            </p>
+    st.markdown("""
+<div class="info-bubble">
+<h3>Understanding Variant Consequences</h3>
 
-            <p>
-                These clinical effects are not determined by consequence type alone.
-                Different variants can leave different amounts of CFTR function, so variants
-                with the same general consequence category can have different biological
-                and clinical effects.
-            </p>
-        </div>
-        """, 
-            unsafe_allow_html=True
+<p>
+A variant consequence describes what a genetic change does to the
+CFTR sequence or protein. The consequence type alone does not determine
+whether a variant is harmful. Its effect depends on the specific change,
+where it occurs, and how much functional CFTR remains.
+</p>
+
+<p>
+Missense variants replace one amino acid with another. Depending on the
+location and properties of the substituted amino acid, this can have little
+effect or can interfere with CFTR folding, stability, trafficking, or channel
+activity.
+</p>
+
+<p>
+Frameshift variants result from insertions or deletions that change the
+reading frame. They can alter the downstream protein sequence and may
+introduce a premature stop signal, often resulting in substantially reduced
+CFTR function.
+</p>
+
+<p>
+Inframe deletions remove one or more amino acids without shifting the
+reading frame. Their effects depend strongly on which amino acids and
+structural regions are removed.
+</p>
+
+<p>
+Synonymous, sometimes called silent, variants do not change the encoded
+amino acid. They are often less disruptive to the protein sequence, but
+some can still affect RNA processing or splicing.
+</p>
+
+<p>
+Nonsense or stop-gained variants introduce a premature stop signal.
+This can produce a shortened protein or cause the cell to destroy the
+altered RNA before a functional protein is produced.
+</p>
+
+<p>
+Stop-loss variants alter the normal stop signal at the end of the CFTR
+coding sequence. Instead of stopping at the usual endpoint, protein
+production can continue beyond the normal 1,480-amino-acid sequence,
+producing an altered protein with additional amino acids at its end.
+</p>
+
+<p>
+This type of variant is represented in this dataset at position 1481.
+These variants are recorded as stop-loss changes, meaning that the normal
+CFTR stop signal has been altered. Position 1481 therefore does not mean
+that normal CFTR is 1,481 amino acids long; rather, it reflects a variant
+that can extend translation beyond the usual protein endpoint.
+</p>
+
+<p>
+Splice-site variants can interfere with the normal processing of CFTR RNA.
+This may result in abnormal transcripts and reduced production of correctly
+functioning CFTR protein.
+</p>
+
+</div>
+""", unsafe_allow_html=True)
+
+
+    DON_PATH = Path(__file__).resolve().parent.parent / "images" / "77C31030-2369-452B-B746-B1636E691D0B.gif"
+
+    col1, col2, col3 = st.columns([1, 2, 1])
+
+    with col2:
+        st.image(
+            str(DON_PATH),
+            use_container_width=True
         )
+
+
+    st.markdown("""
+<div class="info-bubble">
+<h3>From Variant to Clinical Effect</h3>
+
+<p>
+When a CFTR variant substantially reduces CFTR function, the effects can
+extend beyond the protein itself. CFTR helps regulate chloride and bicarbonate
+transport across epithelial tissues. Reduced CFTR activity can disrupt the
+movement of ions and water, contributing to abnormal secretions in several
+organs.
+</p>
+
+<p>
+In the lungs, impaired CFTR function can contribute to thick, difficult-to-clear
+mucus, airway inflammation, recurrent respiratory infections, and progressive
+loss of lung function. In the digestive system, CFTR dysfunction can affect
+the pancreas and intestines, contributing to problems with digestion and
+nutrient absorption.
+</p>
+
+<p>
+These clinical effects are not determined by consequence type alone.
+Different variants can leave different amounts of CFTR function, so variants
+with the same general consequence category can have different biological
+and clinical effects.
+</p>
+
+</div>
+""", unsafe_allow_html=True)
