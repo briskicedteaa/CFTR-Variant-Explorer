@@ -75,6 +75,17 @@ def run_structure_prediction(
     num_recycles=3,
 ):
 
+def find_prediction_pdb(output_dir):
+    """Find the highest-ranked predicted PDB structure."""
+    pdb_files = sorted(
+        Path(output_dir).glob("*_unrelaxed_*.pdb")
+    )
+
+    if not pdb_files:
+        return None
+        
+    return pdb_files[0]
+
     """Run ColabFold structure prediction for one protein sequence."""
 
     sequence = validate_protein_sequence(sequence)
@@ -182,13 +193,3 @@ def create_structure_view(pdb_file, color_mode="confidence"):
     view.zoomTo()
     return view
     
-def find_prediction_pdb(output_dir):
-    """Find the highest-ranked predicted PDB structure."""
-    pdb_files = sorted(
-        Path(output_dir).glob("*_unrelaxed_*.pdb")
-    )
-
-    if not pdb_files:
-        return None
-        
-    return pdb_files[0]
