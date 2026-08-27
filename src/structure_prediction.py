@@ -27,7 +27,9 @@ def prepare_colabfold_query(sequence, query_name="CFTR_variant"):
     }
     
 from pathlib import Path
+import os
 from colabfold.batch import get_queries, run, set_model_type
+from colabfold.utils import setup_logging
 
 def run_structure_prediction(
     sequence,
@@ -37,24 +39,43 @@ def run_structure_prediction(
     num_models=5,
     num_recycles=3,
 ):
+
     """Run ColabFold structure prediction for one protein sequence."""
+
     sequence = validate_protein_sequence(sequence)
+
     output_dir = Path("structure_results") / jobname
     output_dir.mkdir(parents=True, exist_ok=True)
-    query_file = output_dir / f"{jobname}.fasta"
 
-    with open(query_file, "w") as f:
-        f.write(f">{jobname}\n")
-        f.write(f"{sequence}\n")
+    queries_path = output_dir / f"{jobname}.csv"
 
-    queries, is_complex = get_queries(str(query_file))
+    with open(queries_path, "w") as f:
+        f.write(f"id,sequence\n{jobname},{sequence}")
 
-    model_type = set_model_type(is_complex, model_type)
+    setup_logging(
+        output_dir / "log.txt"
+    )
+
+    queries, is_complex = get_queries(
+        str(queries_path)
+    )
+
+    model_type = set_model_type(
+
+        is_complex,
+        model_type
+    )
+
+    download_alphafold_params(
+        model_type,
+        Path(".")
+    )
 
     results = run(
         queries=queries,
         result_dir=str(output_dir),
         use_templates=False,
+        custom_template_path=None,
         num_relax=0,
         msa_mode=msa_mode,
         model_type=model_type,
@@ -64,7 +85,11 @@ def run_structure_prediction(
         data_dir=Path("."),
         keep_existing_results=True,
         rank_by="auto",
+        pair_mode="unpaired_paired",
+        stop_at_score=100.0,
+        user_agent="colabfold/google-colab-main",
     )
+
     return results
     
 import glob
