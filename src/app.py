@@ -216,7 +216,81 @@ if st.button("Explore position"):
     else:
             st.subheader("Variants at this position")
             st.dataframe(variants)
-            
+    
+    if position in valid_positions and position != 1481:
+        st.subheader("CFTR Domain Conservation")
+        domain_conservation = {
+            "NBD1": 0.820016,
+            "NBD2": 0.790831,
+            "Other": 0.692784,
+            "R domain": 0.640287,
+            "TMD1": 0.767632,
+            "TMD2": 0.729488,
+        }
+        
+        domain_chart_data = pd.DataFrame(
+            list(domain_conservation.items()),
+            columns=["Domain", "Conservation"]
+        )
+        
+        domain_chart = (
+            alt.Chart(domain_chart_data)
+            .mark_bar(
+                color="#ffc4e7",
+                cornerRadiusTopLeft=6,
+                cornerRadiusTopRight=6
+            )
+            .encode(
+                x=alt.X("Domain:N", title=None),
+                y=alt.Y("Conservation:Q", title="Average conservation"),
+                tooltip=[
+                    alt.Tooltip("Domain:N", title="Domain"),
+                    alt.Tooltip(
+                        "Conservation:Q",
+                        title="Conservation",
+                        format=".3f"
+
+                    )
+
+                ]
+
+            )
+
+        )
+
+        st.altair_chart(domain_chart, use_container_width=True)
+
+        st.subheader("Variant Distribution by Protein Region")
+
+        region_counts = variants_df["Region"].value_counts()
+        
+        region_chart_data = (
+            region_counts
+            .rename_axis("Region")
+            .reset_index(name="Variant_Count")
+        )
+        region_chart = (
+            alt.Chart(region_chart_data)
+            .mark_bar(
+                color="#ffc4e7",
+                cornerRadiusTopLeft=6,
+                cornerRadiusTopRight=6
+            )
+            .encode(
+                x=alt.X("Region:N", title=None),
+                y=alt.Y("Variant_Count:Q", title="Variant count"),
+                tooltip=[
+                    alt.Tooltip("Region:N", title="Region"),
+                    alt.Tooltip("Variant_Count:Q", title="Variants")
+
+                ]
+
+            )
+
+        )
+
+        st.altair_chart(region_chart, use_container_width=True)
+    
             st.subheader("Variant consequences")
 
             consequence_summary = get_consequence_summary(position)
@@ -250,76 +324,6 @@ if st.button("Explore position"):
                     consequence_chart, 
                     use_container_width=True
                 )
-
-
-if position in valid_positions and position != 1481:
-    st.subheader("CFTR Domain Conservation")
-
-    domain_conservation = {
-        "NBD1": 0.820016,
-        "NBD2": 0.790831,
-        "Other": 0.692784,
-        "R domain": 0.640287,
-        "TMD1": 0.767632,
-        "TMD2": 0.729488,
-    }
-
-    domain_chart_data = pd.DataFrame(
-        list(domain_conservation.items()),
-        columns=["Domain", "Conservation"]
-    )
-
-    domain_chart = (
-        alt.Chart(domain_chart_data)
-        .mark_bar(
-            color="#ffc4e7",
-            cornerRadiusTopLeft=6,
-            cornerRadiusTopRight=6
-        )
-        .encode(
-            x=alt.X("Domain:N", title=None),
-            y=alt.Y("Conservation:Q", title="Average conservation"),
-            tooltip=[
-                alt.Tooltip("Domain:N", title="Domain"),
-                alt.Tooltip(
-                    "Conservation:Q",
-                    title="Conservation",
-                    format=".3f"
-                )
-            ]
-        )
-    )
-
-    st.altair_chart(domain_chart, use_container_width=True)
-
-    st.subheader("Variant Distribution by Protein Region")
-
-    region_counts = variants_df["Region"].value_counts()
-
-    region_chart_data = (
-        region_counts
-        .rename_axis("Region")
-        .reset_index(name="Variant_Count")
-    )
-
-    region_chart = (
-        alt.Chart(region_chart_data)
-        .mark_bar(
-            color="#ffc4e7",
-            cornerRadiusTopLeft=6,
-            cornerRadiusTopRight=6
-        )
-        .encode(
-            x=alt.X("Region:N", title=None),
-            y=alt.Y("Variant_Count:Q", title="Variant count"),
-            tooltip=[
-                alt.Tooltip("Region:N", title="Region"),
-                alt.Tooltip("Variant_Count:Q", title="Variants")
-            ]
-        )
-    )
-
-    st.altair_chart(region_chart, use_container_width=True)
 
 st.markdown("""
 <div class="info-bubble">
