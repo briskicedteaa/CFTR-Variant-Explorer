@@ -337,7 +337,9 @@ if position in valid_positions:
             NBD1 is the most conserved domain in this dataset, while the R domain
             has the lowest average conservation. Variant distribution also differs
             across the N-terminal, Middle, and C-terminal regions.
-            
+        </p>
+        
+        <p>
             Bloo Blah
         </p>
     </div>
