@@ -353,40 +353,6 @@ if position in valid_positions:
             use_container_width=True
         )
 
-st.markdown("""
- <div class="info-bubble">
- <h3>Why This Matters</h3>
-<p>
-    CFTR helps regulate chloride and bicarbonate transport across
-    epithelial tissues. Changes that substantially reduce CFTR function
-    can affect several organs and contribute to the manifestations
-    associated with cystic fibrosis.               
-</p>            
-    By examining where variants occur, what types of changes they represent,
-    and how conserved the affected regions are, this project helps investigate
-    why variants in different parts of CFTR may have different functional
-    consequences. These patterns can also help identify regions of the protein
-    that may be particularly important for CFTR function.
-    
-                
-                Importantly, this analysis identifies patterns and possible relationships
-                rather than proving that a particular variant causes a specific clinical outcome.
-            </p>
-        </div>
-        """, 
-            unsafe_allow_html=True
-        )
-
-
-    DON_PATH = Path(__file__).resolve().parent.parent / "images" / "77C31030-2369-452B-B746-B1636E691D0B.gif"
-
-    col1, col2, col3 = st.columns([1, 2, 1])
-
-    with col2:
-        st.image(
-            str(DON_PATH),
-            use_container_width=True
-        )
 
     st.markdown(
         """
