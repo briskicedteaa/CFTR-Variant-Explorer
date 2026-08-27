@@ -119,6 +119,32 @@ st.markdown(
     unsafe_allow_html=True
 )
 
+st.markdown(
+    "<p style='text-align: center; font-family: Fredoka, sans-serif; font-size: 1.2rem; font-weight: 500;'>"
+    "CFTR variants are responsible for the underlying genetic changes associated with "
+    "cystic fibrosis and other CFTR-related conditions, but their effects are not always "
+    "the same. Differences in CFTR function can contribute to major clinical challenges, "
+    "including persistent respiratory symptoms, recurrent lung infections, digestive and "
+    "nutritional complications, and the long-term progression of disease. Because individual "
+    "variants can disrupt CFTR function in different ways, determining how a specific variant "
+    "affects the protein is an important part of understanding its potential clinical significance."
+    "</p>",
+    unsafe_allow_html=True
+)
+
+st.markdown(
+    "<p style='text-align: center; font-family: Fredoka, sans-serif; font-size: 1.2rem; font-weight: 500;'>"
+    "The purpose of this project is to investigate the molecular patterns that may help explain "
+    "differences between CFTR variants and their potential effects on health. By examining where "
+    "variants occur, what types of changes they produce, and what characteristics define the "
+    "affected regions of the CFTR protein, the Explorer provides an interactive way to connect "
+    "genetic variation with protein function and its broader clinical relevance. This approach "
+    "can help make complex CFTR variant data more accessible for exploring why different genetic "
+    "changes may contribute to different outcomes for patients."
+    "</p>",
+    unsafe_allow_html=True
+)
+
 position = st.number_input(
     "Enter a CFTR amino-acid position",
     min_value=1,
