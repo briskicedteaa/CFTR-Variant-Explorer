@@ -136,6 +136,16 @@ st.markdown(
     unsafe_allow_html=True
 )
 
+N_PATH = Path(__file__).resolve().parent.parent / "images" / "IMG_8161.jpeg"
+
+col1, col2, col3 = st.columns([1, 2, 1])
+
+with col2:
+    st.image(
+        str(N_PATH),
+        use_container_width=True
+    )
+
 st.markdown(
     """
     <div class="info-bubble">
