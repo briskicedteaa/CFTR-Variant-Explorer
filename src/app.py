@@ -178,7 +178,9 @@ position = st.number_input(
 with st.expander("View positions with recorded variants"):
             st.write(sorted(valid_positions))
 
-if st.button("Explore position"): 
+if st.button("Explore position"):
+    st.session_state["explored"] = True
+    
     position_info, variants = get_position_summary(position)
 
     st.title("Results")
@@ -324,6 +326,7 @@ if st.button("Explore position"):
                 consequence_chart,
                 use_container_width=True
             )
+    if st.session_state.get("explored", False) and position in valid_positions:
         
         st.markdown(
         """
