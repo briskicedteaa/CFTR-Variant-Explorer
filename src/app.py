@@ -354,6 +354,7 @@ if position in valid_positions:
     st.markdown("""
     <div class="info-bubble">
             <h3>Why This Matters</h3>
+            
             <p>
                 CFTR helps regulate chloride and bicarbonate transport across
                 epithelial tissues. Changes that substantially reduce CFTR function
