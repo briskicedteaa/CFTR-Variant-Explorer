@@ -175,12 +175,20 @@ def create_structure_view(pdb_file, color_mode="confidence"):
                 "color": "spectrum"
             }
         })
-
     else:
         raise ValueError(
             "color_mode must be 'confidence' or 'n_to_c'."
         )
-
     view.zoomTo()
-
     return view
+    
+def find_prediction_pdb(output_dir):
+    """Find the highest-ranked predicted PDB structure."""
+    pdb_files = sorted(
+        Path(output_dir).glob("*_unrelaxed_*.pdb")
+    )
+
+    if not pdb_files:
+        return None
+        
+    return pdb_files[0]
