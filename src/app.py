@@ -359,13 +359,15 @@ if position in valid_positions:
                 epithelial tissues. Changes that substantially reduce CFTR function
                 can affect several organs and contribute to the manifestations
                 associated with cystic fibrosis.
-            
+                <br><br>
+                
                 By examining where variants occur, what types of changes they represent,
                 and how conserved the affected regions are, this project helps investigate
                 why variants in different parts of CFTR may have different functional
                 consequences. These patterns can also help identify regions of the protein
                 that may be particularly important for CFTR function.
-
+                <br><br>
+                
                 Importantly, this analysis identifies patterns and possible relationships
                 rather than proving that a particular variant causes a specific clinical outcome.
             </p>
