@@ -196,12 +196,12 @@ if st.button("Explore position"):
         )
 
         variants = variants_df[variants_df["Position"] == 1481]
-        
+
         col1, col2, col3 = st.columns(3)
         col1.metric("Domain", "NaN")
         col2.metric("Conservation", "NaN")
         col3.metric("Variant count", len(variants))
-        
+
     elif position_info is not None and position in valid_positions:
         st.subheader(f"CFTR Position {position}")
 
@@ -212,13 +212,14 @@ if st.button("Explore position"):
         col3.metric("Variant count", int(info["Variant_Count"]))
 
     if variants is None or variants.empty:
-            st.info("No recorded variants were found at this position.")
+        st.info("No recorded variants were found at this position.")
     else:
-            st.subheader("Variants at this position")
-            st.dataframe(variants)
-    
+        st.subheader("Variants at this position")
+        st.dataframe(variants)
+
     if position in valid_positions and position != 1481:
         st.subheader("CFTR Domain Conservation")
+
         domain_conservation = {
             "NBD1": 0.820016,
             "NBD2": 0.790831,
@@ -227,12 +228,12 @@ if st.button("Explore position"):
             "TMD1": 0.767632,
             "TMD2": 0.729488,
         }
-        
+
         domain_chart_data = pd.DataFrame(
             list(domain_conservation.items()),
             columns=["Domain", "Conservation"]
         )
-        
+
         domain_chart = (
             alt.Chart(domain_chart_data)
             .mark_bar(
@@ -249,13 +250,9 @@ if st.button("Explore position"):
                         "Conservation:Q",
                         title="Conservation",
                         format=".3f"
-
                     )
-
                 ]
-
             )
-
         )
 
         st.altair_chart(domain_chart, use_container_width=True)
@@ -263,12 +260,13 @@ if st.button("Explore position"):
         st.subheader("Variant Distribution by Protein Region")
 
         region_counts = variants_df["Region"].value_counts()
-        
+
         region_chart_data = (
             region_counts
             .rename_axis("Region")
             .reset_index(name="Variant_Count")
         )
+
         region_chart = (
             alt.Chart(region_chart_data)
             .mark_bar(
@@ -282,32 +280,29 @@ if st.button("Explore position"):
                 tooltip=[
                     alt.Tooltip("Region:N", title="Region"),
                     alt.Tooltip("Variant_Count:Q", title="Variants")
-
                 ]
-
             )
-
         )
 
         st.altair_chart(region_chart, use_container_width=True)
-    
-            st.subheader("Variant consequences")
 
-            consequence_summary = get_consequence_summary(position)
-                
-            if consequence_summary:
-                consequence_chart_data = (
+        st.subheader("Variant consequences")
+
+        consequence_summary = get_consequence_summary(position)
+
+        if consequence_summary:
+            consequence_chart_data = (
                 pd.Series(consequence_summary)
                 .rename_axis("Consequence")
                 .reset_index(name="Count")
-                )
-    
-                consequence_chart = (
-                   alt.Chart(consequence_chart_data)
-                   .mark_bar(
-                       color="#ffc4e7",
-                       cornerRadiusTopLeft=6,
-                       cornerRadiusTopRight=6
+            )
+
+            consequence_chart = (
+                alt.Chart(consequence_chart_data)
+                .mark_bar(
+                    color="#ffc4e7",
+                    cornerRadiusTopLeft=6,
+                    cornerRadiusTopRight=6
                 )
                 .encode(
                     x=alt.X("Consequence:N", title=None),
@@ -318,12 +313,11 @@ if st.button("Explore position"):
                     ]
                 )
             )
-    
-        
-                st.altair_chart(
-                    consequence_chart, 
-                    use_container_width=True
-                )
+
+            st.altair_chart(
+                consequence_chart,
+                use_container_width=True
+            )
 
 st.markdown("""
 <div class="info-bubble">
