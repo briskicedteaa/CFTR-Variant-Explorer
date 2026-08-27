@@ -127,6 +127,8 @@ with st.expander("View positions with recorded variants"):
 if st.button("Explore position"): 
     position_info, variants = get_position_summary(position)
     
+    st.title("Purpose")
+    
     st.title("Results")
 
     if position_info is None and position not in valid_positions:
