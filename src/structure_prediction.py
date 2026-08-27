@@ -81,6 +81,39 @@ def find_prediction_pdb(output_dir):
         Path(output_dir).glob("*_unrelaxed_*.pdb")
     )
 
+def display_structure(pdb_path, color_mode="confidence"):
+    """Create a 3Dmol.js viewer for a predicted protein structure."""
+
+    import py3Dmol
+    pdb_text = Path(pdb_path).read_text()
+
+    view = py3Dmol.view(width=800, height=600)
+    view.addModel(pdb_text, "pdb")
+
+    if color_mode == "confidence":
+        view.setStyle({
+            "cartoon": {
+                "colorscheme": {
+                    "prop": "b",
+                    "gradient": "roygb",
+                    "min": 50,
+                    "max": 90
+                }
+            }
+        })
+
+    elif color_mode == "rainbow":
+        view.setStyle({
+            "cartoon": {
+                "color": "spectrum"
+            }
+        })
+
+    view.zoomTo()
+
+    return view
+
+
     if not pdb_files:
         return None
         
