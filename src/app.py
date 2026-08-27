@@ -179,7 +179,7 @@ with st.expander("View positions with recorded variants"):
             st.write(sorted(valid_positions))
 
 if st.button("Explore position"):
-    st.session_state["explored"] = True
+    st.session_state["explored_position"] = position
     
     position_info, variants = get_position_summary(position)
 
@@ -327,7 +327,7 @@ if st.button("Explore position"):
                 use_container_width=True
             )
 
-if position in valid_positions:
+if st.session_state.get("explored_position") in valid_positions:
 
     st.markdown("""
 <div class="info-bubble">
