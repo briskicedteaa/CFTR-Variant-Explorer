@@ -324,7 +324,11 @@ if st.button("Explore position"):
                 consequence_chart,
                 use_container_width=True
             )
-
+        st.markdown(
+            '<div class="info-bubble"><h3>TEST</h3><p>This is a test.</p></div>',
+            unsafe_allow_html=True
+        )
+        
         st.markdown(
         """
         <div class="info-bubble">
