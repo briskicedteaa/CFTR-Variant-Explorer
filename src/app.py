@@ -325,7 +325,8 @@ if st.button("Explore position"):
                 use_container_width=True
             )
 
-        st.markdown("""
+        st.markdown(
+        """
         <div class="info-bubble">
             <h3>What The Data Suggests (Overall)</h3>
             <p>
@@ -347,7 +348,8 @@ if st.button("Explore position"):
                 use_container_width=True
             )
 
-        st.markdown("""
+        st.markdown(
+        """
         <div class="info-bubble">
             <h3>Why This Matters</h3>
 
@@ -383,7 +385,8 @@ if st.button("Explore position"):
                 use_container_width=True
             )
 
-        st.markdown("""
+        st.markdown(
+        """
         <div class="info-bubble">
             <h3>Understanding Variant Consequences</h3>
 
@@ -459,7 +462,8 @@ if st.button("Explore position"):
                 use_container_width=True
             )
 
-        st.markdown("""
+        st.markdown(
+        """
         <div class="info-bubble">
             <h3>From Variant to Clinical Effect</h3>
 
