@@ -136,7 +136,7 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-N_PATH = Path(__file__).resolve().parent.parent / "images" / images/ "Untitled16_20260826211636.png"
+N_PATH = Path(__file__).resolve().parent.parent / "images" / "Untitled16_20260826211636.png"
 
 col1, col2, col3 = st.columns([1, 2, 1])
 
