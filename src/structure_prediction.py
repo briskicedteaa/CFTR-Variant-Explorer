@@ -1,3 +1,10 @@
+from pathlib import Path
+import os
+from colabfold.batch import get_queries, run, set_model_type
+from colabfold.download import download_alphafold_params
+from colabfold.utils import setup_logging
+
+
 def validate_protein_sequence(sequence):
     """Validate and clean a protein sequence."""
     sequence = sequence.strip().upper().replace(" ", "").replace("\n", "")
@@ -25,11 +32,6 @@ def prepare_colabfold_query(sequence, query_name="CFTR_variant"):
         "name": query_name,
         "sequence": sequence,
     }
-    
-from pathlib import Path
-import os
-from colabfold.batch import get_queries, run, set_model_type
-from colabfold.utils import setup_logging
 
 def run_structure_prediction(
     sequence,
