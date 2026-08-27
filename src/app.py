@@ -352,7 +352,7 @@ if position in valid_positions:
         )
 
     st.markdown("""
-        <div class="info-bubble">
+    <div class="info-bubble">
             <h3>Why This Matters</h3>
             <p>
                 CFTR helps regulate chloride and bicarbonate transport across
@@ -374,8 +374,7 @@ if position in valid_positions:
                 rather than proving that a particular variant causes a specific clinical outcome.
             </p>
         </div>
-        """,
-        unsafe_allow_html=True)
+        """, unsafe_allow_html=True)
 
 
     DON_PATH = Path(__file__).resolve().parent.parent / "images" / "77C31030-2369-452B-B746-B1636E691D0B.gif"
@@ -389,7 +388,7 @@ if position in valid_positions:
         )
 
     st.markdown("""
-        <div class="info-bubble">
+    <div class="info-bubble">
             <h3>Understanding Variant Consequences</h3>
             <p>
                 A variant consequence describes what a genetic change does to the
@@ -451,9 +450,7 @@ if position in valid_positions:
                 functioning CFTR protein.
             </p>
         </div>
-        """,
-        unsafe_allow_html=True
-    )
+        """, unsafe_allow_html=True)
 
     DON_PATH = Path(__file__).resolve().parent.parent / "images" / "77C31030-2369-452B-B746-B1636E691D0B.gif"
     col1, col2, col3 = st.columns([1, 2, 1])
@@ -464,7 +461,7 @@ if position in valid_positions:
         )
 
     st.markdown("""
-        <div class="info-bubble">
+    <div class="info-bubble">
             <h3>From Variant to Clinical Effect</h3>
             <p>
                 When a CFTR variant substantially reduces CFTR function, the effects can
@@ -489,6 +486,4 @@ if position in valid_positions:
                 and clinical effects.
             </p>
         </div>
-        """,
-        unsafe_allow_html=True
-    )
+        """, unsafe_allow_html=True)
