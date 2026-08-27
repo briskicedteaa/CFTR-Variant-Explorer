@@ -114,6 +114,11 @@ st.markdown(
     unsafe_allow_html=True
 )
 
+st.markdown(
+    "<h3 style='text-align: center;'>Purpose</h3>",
+    unsafe_allow_html=True
+)
+
 position = st.number_input(
     "Enter a CFTR amino-acid position",
     min_value=1,
