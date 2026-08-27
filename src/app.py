@@ -337,6 +337,8 @@ if position in valid_positions:
             NBD1 is the most conserved domain in this dataset, while the R domain
             has the lowest average conservation. Variant distribution also differs
             across the N-terminal, Middle, and C-terminal regions.
+            
+            Bloo Blah
         </p>
     </div>
     """, unsafe_allow_html=True)
@@ -351,23 +353,21 @@ if position in valid_positions:
             use_container_width=True
         )
 
-    st.markdown(
-        """
-    <div class="info-bubble">
-            <h3>Why This Matters</h3>
-            <p>
-                CFTR helps regulate chloride and bicarbonate transport across
-                epithelial tissues. Changes that substantially reduce CFTR function
-                can affect several organs and contribute to the manifestations
-                associated with cystic fibrosis.
-                <br><br>
-                
-                By examining where variants occur, what types of changes they represent,
-                and how conserved the affected regions are, this project helps investigate
-                why variants in different parts of CFTR may have different functional
-                consequences. These patterns can also help identify regions of the protein
-                that may be particularly important for CFTR function.
-                <br><br>
+st.markdown("""
+ <div class="info-bubble">
+ <h3>Why This Matters</h3>
+<p>
+    CFTR helps regulate chloride and bicarbonate transport across
+    epithelial tissues. Changes that substantially reduce CFTR function
+    can affect several organs and contribute to the manifestations
+    associated with cystic fibrosis.               
+</p>            
+    By examining where variants occur, what types of changes they represent,
+    and how conserved the affected regions are, this project helps investigate
+    why variants in different parts of CFTR may have different functional
+    consequences. These patterns can also help identify regions of the protein
+    that may be particularly important for CFTR function.
+    
                 
                 Importantly, this analysis identifies patterns and possible relationships
                 rather than proving that a particular variant causes a specific clinical outcome.
