@@ -338,7 +338,7 @@ if st.button("Explore position"):
         </div>
         """, unsafe_allow_html=True)
 
-                DON_PATH = Path(__file__).resolve().parent.parent / "images" / "77C31030-2369-452B-B746-B1636E691D0B.gif"
+        DON_PATH = Path(__file__).resolve().parent.parent / "images" / "77C31030-2369-452B-B746-B1636E691D0B.gif"
 
         col1, col2, col3 = st.columns([1, 2, 1])
 
