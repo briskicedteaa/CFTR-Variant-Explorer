@@ -23,6 +23,39 @@ def validate_protein_sequence(sequence):
 
     return sequence
 
+def create_mutated_sequence(human_sequence, position, wild_type, mutated_type):
+    """Create a mutated CFTR protein sequence from a single amino-acid variant."""
+
+    sequence = validate_protein_sequence(human_sequence)
+
+    position = int(position)
+    wild_type = str(wild_type).strip().upper()
+    mutated_type = str(mutated_type).strip().upper()
+
+    if position < 1 or position > len(sequence):
+        raise ValueError(
+            f"Position {position} is outside the CFTR sequence."
+        )
+
+    if sequence[position - 1] != wild_type:
+        raise ValueError(
+            f"Expected {wild_type} at position {position}, "
+            f"but the CFTR sequence contains {sequence[position - 1]}."
+        )
+
+    if len(mutated_type) != 1:
+        raise ValueError(
+            "This function currently supports single-amino-acid substitutions."
+        )
+
+    mutated_sequence = (
+        sequence[:position - 1]
+        + mutated_type
+        + sequence[position:]
+    )
+
+    return mutated_sequence
+
 
 def prepare_colabfold_query(sequence, query_name="CFTR_variant"):
     """Prepare a validated protein sequence for a ColabFold query."""
