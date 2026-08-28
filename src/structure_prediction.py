@@ -3,8 +3,10 @@ import os
 from colabfold.batch import get_queries, run, set_model_type
 from colabfold.download import download_alphafold_params
 from colabfold.utils import setup_logging
-import colabfold
-print("COLABFOLD VERSION:", getattr(colabfold, "__version__", "unknown"))
+import importlib.metadata
+import sys
+print("PYTHON:", sys.version)
+print("COLABFOLD:", importlib.metadata.version("colabfold"))
 
 
 
