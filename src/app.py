@@ -263,52 +263,55 @@ if st.button("Explore position"):
         st.subheader("Variants at this position")
         st.dataframe(variants)
 
-    if variants is not None and not variants.empty:
+        if variants is not None and not variants.empty:
         st.subheader("3D Protein Structure")
 
-        variant_options = variants.apply(
-    lambda row: f"{row['WildType']}{int(row['Position'])}{row['MutatedType']}",
-    axis=1
-)
+        valid_variants = variants[
+            variants["WildType"].notna()
+            & variants["MutatedType"].notna()
+        ].copy()
 
-selected_index = st.selectbox(
-    "Select a variant",
-    range(len(variants)),
-    format_func=lambda i: variant_options.iloc[i]
-)
+        if valid_variants.empty:
+            st.info(
+                "No variants with a defined amino-acid substitution "
+                "are available for structure prediction."
+            )
+        else:
+            variant_options = valid_variants.apply(
+                lambda row: (
+                    f"{row['WildType']}"
+                    f"{int(row['Position'])}"
+                    f"{row['MutatedType']}"
+                ),
+                axis=1
+            )
 
-st.subheader("3D Protein Structure")
+            selected_index = st.selectbox(
+                "Select a variant",
+                range(len(valid_variants)),
+                format_func=lambda i: variant_options.iloc[i]
+            )
 
-variant_options = variants.apply(
-    lambda row: (
-        f"{row['WildType']}"
-        f"{int(row['Position'])}"
-        f"{row['MutatedType']}"
-    ),
-    axis=1
-)
+            selected_variant = valid_variants.iloc[selected_index]
 
-selected_index = st.selectbox(
-    "Select a variant",
-    range(len(variants)),
-    format_func=lambda i: variant_options.iloc[i]
-)
+            mutated_sequence = create_mutated_sequence(
+                human_sequence=human_sequence,
+                position=int(selected_variant["Position"]),
+                wild_type=selected_variant["WildType"],
+                mutated_type=selected_variant["MutatedType"],
+            )
 
-selected_variant = variants.iloc[selected_index]
-
-    if st.button("Predict 3D Structure"):
-            with st.spinner(
-                "Predicting mutated CFTR structure..."
-            ):
-                results = run_structure_prediction(
-                    mutated_sequence,
-                    jobname=(
-                        f"CFTR_position_"
-                        f"{selected_variant['Position']}_"
-                        f"{selected_variant['WildType']}"
-                        f"{selected_variant['MutatedType']}"
-                    ),
-                )
+            if st.button("Predict 3D Structure"):
+                with st.spinner("Predicting mutated CFTR structure..."):
+                    results = run_structure_prediction(
+                        mutated_sequence,
+                        jobname=(
+                            f"CFTR_position_"
+                            f"{selected_variant['Position']}_"
+                            f"{selected_variant['WildType']}"
+                            f"{selected_variant['MutatedType']}"
+                        ),
+                    )
 
                 output_dir = (
                     Path(__file__).resolve().parent.parent
@@ -321,7 +324,6 @@ selected_variant = variants.iloc[selected_index]
                     )
                 )
 
-                    
                 pdb_files = list(output_dir.glob("*.pdb"))
 
                 if pdb_files:
