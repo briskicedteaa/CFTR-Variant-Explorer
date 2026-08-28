@@ -266,9 +266,18 @@ if st.button("Explore position"):
     if variants is not None and not variants.empty:
         st.subheader("3D Protein Structure")
 
-        selected_variant = variants.iloc[0]
+        variant_options = variants.apply(
+    lambda row: f"{row['WildType']}{int(row['Position'])}{row['MutatedType']}",
+    axis=1
+)
 
-        st.write("Selected variant:", selected_variant["WildType"], selected_variant["MutatedType"])
+selected_index = st.selectbox(
+    "Select a variant",
+    range(len(variants)),
+    format_func=lambda i: variant_options.iloc[i]
+)
+
+selected_variant = variants.iloc[selected_index]
 
         if (
             pd.notna(selected_variant["WildType"])
