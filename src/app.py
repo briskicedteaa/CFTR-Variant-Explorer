@@ -268,6 +268,8 @@ if st.button("Explore position"):
 
         selected_variant = variants.iloc[0]
 
+        st.write("Selected variant:", selected_variant["WildType"], selected_variant["MutatedType"])
+
         if (
             pd.notna(selected_variant["WildType"])
             and pd.notna(selected_variant["MutatedType"])
