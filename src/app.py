@@ -408,9 +408,9 @@ if st.button("Explore position"):
             )
 
 
-st.subheader("3D Protein Structure")
-
 if st.session_state.get("explored_position") in valid_positions:
+    st.subheader("3D Protein Structure")
+    
     explored_position = st.session_state["explored_position"]
 
     position_info, variants = get_position_summary(explored_position)
