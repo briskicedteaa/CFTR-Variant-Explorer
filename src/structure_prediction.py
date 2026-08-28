@@ -92,22 +92,22 @@ download_alphafold_params(
     data_dir
 )
 
-    results = run(
-        queries=queries,
-        result_dir=str(output_dir),
-        use_templates=False,
-        custom_template_path=None,
-        num_relax=0,
-        msa_mode="mmseqs2_uniref_env",
-        model_type=model_type,
-        num_models=1,
-        num_recycles=3,
-        is_complex=is_complex,
-        data_dir=data_dir,
-        keep_existing_results=True,
-        rank_by="auto",
-        user_agent="CFTR-Variant-Explorer",
-    )
+results = run(
+    queries=queries,
+    result_dir=str(output_dir),
+    use_templates=False,
+    custom_template_path=None,
+    num_relax=0,
+    msa_mode="mmseqs2_uniref_env",
+    model_type=model_type,
+    num_models=1,
+    num_recycles=3,
+    is_complex=is_complex,
+    data_dir=data_dir,
+    keep_existing_results=True,
+    rank_by="auto",
+    user_agent="CFTR-Variant-Explorer",
+)
 
     return results
     
