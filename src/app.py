@@ -324,7 +324,7 @@ if st.button("Explore position"):
                          )
                      )
 
-                     pdb_files = list(output_dir.glob("*.pdb"))
+                    pdb_files = list(output_dir.glob("*.pdb"))
 
                      if pdb_files:
                          pdb_path = pdb_files[0]
