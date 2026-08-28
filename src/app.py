@@ -4,10 +4,11 @@ import altair as alt
 from data_loader import load_data
 from pathlib import Path
 
-from structure_prediction import run_structure_prediction
-from structure_prediction import create_mutated_sequence
-from structure_prediction import find_prediction_pdb
-from structure_prediction import display_structure
+from structure_prediction import (
+    run_structure_prediction,
+    create_mutated_sequence,
+    display_structure,
+)
 
 st.set_page_config(
     page_title="CFTR Variant Explorer",
@@ -276,7 +277,11 @@ if st.button("Explore position"):
                         )
                     )
 
-                    pdb_path = find_prediction_pdb(output_dir)
+                    
+                    pdb_files = list(output_dir.glob("*.pdb"))
+
+                    if pdb_files:
+                        pdb_path = pdb_files[0]
 
                     if pdb_path:
                         color_mode = st.selectbox(
