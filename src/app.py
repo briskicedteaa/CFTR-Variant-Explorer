@@ -52,7 +52,7 @@ from variant_explorer import (
     get_consequence_summary
 )
 
-from src.structure_prediction import (
+from structure_prediction import (
     create_mutated_sequence,
     run_structure_prediction,
     find_prediction_pdb,
