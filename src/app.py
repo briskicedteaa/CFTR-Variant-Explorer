@@ -94,7 +94,7 @@ from variant_explorer import (
     get_consequence_summary
 )
 
-position_df, variants_df = load_data()
+position_df, variants_df, cftr_df = load_data()
 
 human_sequence = position_df["Sequence"].iloc[0]
 
