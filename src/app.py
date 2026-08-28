@@ -94,13 +94,6 @@ from variant_explorer import (
     get_consequence_summary
 )
 
-from structure_prediction import (
-    create_mutated_sequence,
-    run_structure_prediction,
-    find_prediction_pdb,
-    display_structure,
-)
-
 position_df, variants_df = load_data()
 
 valid_positions = set(variants_df["Position"].dropna().astype(int))
