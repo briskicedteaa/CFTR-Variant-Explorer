@@ -279,20 +279,20 @@ selected_index = st.selectbox(
 
 selected_variant = variants.iloc[selected_index]
 
-        if (
-            pd.notna(selected_variant["WildType"])
-            and pd.notna(selected_variant["MutatedType"])
-            and len(str(selected_variant["WildType"])) == 1
-            and len(str(selected_variant["MutatedType"])) == 1
-        ):
-            mutated_sequence = create_mutated_sequence(
-                human_sequence=human_sequence,
-                position=int(selected_variant["Position"]),
-                wild_type=selected_variant["WildType"],
-                mutated_type=selected_variant["MutatedType"],
-            )
+    if (
+        pd.notna(selected_variant["WildType"])
+        and pd.notna(selected_variant["MutatedType"])
+        and len(str(selected_variant["WildType"])) == 1
+        and len(str(selected_variant["MutatedType"])) == 1
+    ):
+        mutated_sequence = create_mutated_sequence(
+            human_sequence=human_sequence,
+            position=int(selected_variant["Position"]),
+            wild_type=selected_variant["WildType"],
+            mutated_type=selected_variant["MutatedType"],
+        )
 
-            if st.button("Predict 3D Structure"):
+         if st.button("Predict 3D Structure"):
                 with st.spinner(
                     "Predicting mutated CFTR structure..."
                 ):
