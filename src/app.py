@@ -407,9 +407,10 @@ if st.button("Explore position"):
                 use_container_width=True
             )
 
+
+if st.session_state.get("explored_position") in valid_positions:
 st.subheader("3D Protein Structure")
 
-if st.session_state.get("explored_position") is not None:
     explored_position = st.session_state["explored_position"]
 
     if explored_position in valid_positions:
