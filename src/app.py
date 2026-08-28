@@ -326,29 +326,29 @@ if st.button("Explore position"):
 
                     pdb_files = list(output_dir.glob("*.pdb"))
 
-                     if pdb_files:
-                         pdb_path = pdb_files[0]
+                    if pdb_files:
+                        pdb_path = pdb_files[0]
 
-                         color_mode = st.selectbox(
-                             "Structure coloring",
-                             ["confidence", "rainbow"]
-                         )
+                        color_mode = st.selectbox(
+                            "Structure coloring",
+                            ["confidence", "rainbow"]
+                        )
 
-                         viewer = display_structure(
-                             pdb_path,
-                             color_mode=color_mode
-                         )
+                        viewer = display_structure(
+                            pdb_path,
+                            color_mode=color_mode
+                        )
 
-                         st.components.v1.html(
-                             viewer._make_html(),
-                             height=600
-                         )
+                        st.components.v1.html(
+                            viewer._make_html(),
+                            height=600
+                        )
 
-                     else:
-                         st.error(
-                             "The structure prediction completed, "
-                             "but no PDB structure was found."
-                         )
+                    else:
+                        st.error(
+                            "The structure prediction completed, "
+                            "but no PDB structure was found."
+                        )
 
     if position in valid_positions and position != 1481:
         st.subheader("CFTR Domain Conservation")
