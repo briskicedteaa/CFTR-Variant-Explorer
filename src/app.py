@@ -272,93 +272,6 @@ if st.button("Explore position"):
         st.subheader("Variants at this position")
         st.dataframe(variants)
 
-        if variants is not None and not variants.empty:
-            st.subheader("3D Protein Structure")
-
-            valid_variants = variants[
-                variants["WildType"].notna()
-                & variants["MutatedType"].notna()
-            ].copy()
-
-            if valid_variants.empty:
-                st.info(
-                    "No variants with a defined amino-acid substitution "
-                    "are available for structure prediction."
-                )
-            else:
-                variant_options = valid_variants.apply(
-                    lambda row: (
-                        f"{row['WildType']}"
-                        f"{int(row['Position'])}"
-                        f"{row['MutatedType']}"
-                    ),
-                    axis=1
-                )
-
-                selected_index = st.selectbox(
-                    "Select a variant",
-                    range(len(valid_variants)),
-                    format_func=lambda i: variant_options.iloc[i]
-                )
-
-                selected_variant = valid_variants.iloc[selected_index]
-
-                mutated_sequence = create_mutated_sequence(
-                    human_sequence=human_sequence,
-                    position=int(selected_variant["Position"]),
-                    wild_type=selected_variant["WildType"],
-                    mutated_type=selected_variant["MutatedType"],
-                )
-
-                if st.button("Predict 3D Structure"):
-                    with st.spinner("Predicting mutated CFTR structure..."):
-                        results = run_structure_prediction(
-                            mutated_sequence,
-                            jobname=(
-                                f"CFTR_position_"
-                                f"{selected_variant['Position']}_"
-                                f"{selected_variant['WildType']}"
-                                f"{selected_variant['MutatedType']}"
-                            ),
-                        )
-
-                    output_dir = (
-                        Path(__file__).resolve().parent.parent
-                         / "structure_results"
-                         / (
-                             f"CFTR_position_"
-                             f"{selected_variant['Position']}_"
-                             f"{selected_variant['WildType']}"
-                             f"{selected_variant['MutatedType']}"
-                         )
-                     )
-
-                    pdb_files = list(output_dir.glob("*.pdb"))
-
-                    if pdb_files:
-                        pdb_path = pdb_files[0]
-
-                        color_mode = st.selectbox(
-                            "Structure coloring",
-                            ["confidence", "rainbow"]
-                        )
-
-                        viewer = display_structure(
-                            pdb_path,
-                            color_mode=color_mode
-                        )
-
-                        st.components.v1.html(
-                            viewer._make_html(),
-                            height=600
-                        )
-
-                    else:
-                        st.error(
-                            "The structure prediction completed, "
-                            "but no PDB structure was found."
-                        )
-
     if position in valid_positions and position != 1481:
         st.subheader("CFTR Domain Conservation")
 
@@ -492,6 +405,95 @@ if st.button("Explore position"):
             st.altair_chart(
                 consequence_chart,
                 use_container_width=True
+            )
+
+
+st.subheader("3D Protein Structure")
+
+if st.session_state.get("explored_position") in valid_positions:
+    explored_position = st.session_state["explored_position"]
+
+    position_info, variants = get_position_summary(explored_position)
+
+    valid_variants = variants[
+        variants["WildType"].notna()
+        & variants["MutatedType"].notna()
+    ].copy()
+
+    if valid_variants.empty:
+        st.info(
+            "No variants with a defined amino-acid substitution "
+            "are available for structure prediction."
+        )
+    else:
+        variant_options = valid_variants.apply(
+            lambda row: (
+                f"{row['WildType']}"
+                f"{int(row['Position'])}"
+                f"{row['MutatedType']}"
+            ),
+            axis=1
+        )
+
+        selected_index = st.selectbox(
+            "Select a variant",
+            range(len(valid_variants)),
+            format_func=lambda i: variant_options.iloc[i]
+        )
+
+        selected_variant = valid_variants.iloc[selected_index]
+
+        if st.button("Predict 3D Structure"):
+            mutated_sequence = create_mutated_sequence(
+                human_sequence=human_sequence,
+                position=int(selected_variant["Position"]),
+                wild_type=selected_variant["WildType"],
+                mutated_type=selected_variant["MutatedType"],
+            )
+
+            with st.spinner("Predicting mutated CFTR structure..."):
+                run_structure_prediction(
+                    mutated_sequence,
+                    jobname=(
+                        f"CFTR_position_"
+                        f"{selected_variant['Position']}_"
+                        f"{selected_variant['WildType']}"
+                        f"{selected_variant['MutatedType']}"
+                    ),
+                )
+
+            output_dir = (
+                Path(__file__).resolve().parent.parent
+                / "structure_results"
+                / (
+                    f"CFTR_position_"
+                    f"{selected_variant['Position']}_"
+                    f"{selected_variant['WildType']}"
+                    f"{selected_variant['MutatedType']}"
+                )
+            )
+
+            pdb_files = list(output_dir.glob("*.pdb"))
+
+            if pdb_files:
+                st.session_state["pdb_path"] = str(pdb_files[0])
+            else:
+                st.session_state["pdb_path"] = None
+
+        if st.session_state.get("pdb_path"):
+            color_mode = st.selectbox(
+                "Structure coloring",
+                ["confidence", "rainbow"]
+            )
+
+            viewer = display_structure(
+                st.session_state["pdb_path"],
+                color_mode=color_mode
+            )
+
+            st.components.v1.html(
+                viewer._make_html(),
+                height=600
             )
 
 if st.session_state.get("explored_position") in valid_positions:
