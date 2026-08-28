@@ -3,8 +3,6 @@ import pandas as pd
 import altair as alt
 import py3Dmol
 from data_loader import load_data
-import data_loader
-st.write(data_loader.__file__)
 from pathlib import Path
 
 from structure_prediction import (
@@ -96,13 +94,11 @@ from variant_explorer import (
     get_consequence_summary
 )
 
-data = load_data()
+position_df, variants_df = load_data()
 
-st.write("Number of returned objects:", len(data))
+DATA_DIR = Path(__file__).resolve().parent.parent / "data"
 
-position_df = data[0]
-variants_df = data[1]
-cftr_df = data[2]
+cftr_df = pd.read_csv(DATA_DIR / "CFTR_DF.csv")
 
 human_sequence = cftr_df.loc[
     cftr_df["ID"].astype(str).str.contains("P13569", na=False),
