@@ -3,6 +3,8 @@ import pandas as pd
 import altair as alt
 import py3Dmol
 from data_loader import load_data
+import data_loader
+st.write(data_loader.__file__)
 from pathlib import Path
 
 from structure_prediction import (
