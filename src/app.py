@@ -4,6 +4,11 @@ import altair as alt
 from data_loader import load_data
 from pathlib import Path
 
+from structure_prediction import run_structure_prediction
+from structure_prediction import create_mutated_sequence
+from structure_prediction import find_prediction_pdb
+from structure_prediction import display_structure
+
 st.set_page_config(
     page_title="CFTR Variant Explorer",
     layout="wide"
