@@ -187,7 +187,7 @@ with st.expander("View positions with recorded variants"):
 
 if st.button("Explore position"):
     st.session_state["explored_position"] = position
-    
+
     position_info, variants = get_position_summary(position)
 
     st.title("Results")
@@ -215,6 +215,7 @@ if st.button("Explore position"):
         st.subheader(f"CFTR Position {position}")
 
         info = position_info.iloc[0]
+
         col1, col2, col3 = st.columns(3)
         col1.metric("Domain", info["CFTR_Domain"])
         col2.metric("Conservation", f"{info['Conservation']:.3f}")
@@ -222,74 +223,78 @@ if st.button("Explore position"):
 
     if variants is None or variants.empty:
         st.info("No recorded variants were found at this position.")
+
     else:
         st.subheader("Variants at this position")
         st.dataframe(variants)
-        
+
         if variants is not None and not variants.empty:
-        st.subheader("3D Protein Structure")
+            st.subheader("3D Protein Structure")
 
-        selected_variant = variants.iloc[0]
+            selected_variant = variants.iloc[0]
 
-        if (
-            pd.notna(selected_variant["WildType"])
-            and pd.notna(selected_variant["MutatedType"])
-            and len(str(selected_variant["WildType"])) == 1
-            and len(str(selected_variant["MutatedType"])) == 1
-        ):
-            mutated_sequence = create_mutated_sequence(
-                human_sequence=human_sequence,
-                position=int(selected_variant["Position"]),
-                wild_type=selected_variant["WildType"],
-                mutated_type=selected_variant["MutatedType"],
-            )
+            if (
+                pd.notna(selected_variant["WildType"])
+                and pd.notna(selected_variant["MutatedType"])
+                and len(str(selected_variant["WildType"])) == 1
+                and len(str(selected_variant["MutatedType"])) == 1
+            ):
+                mutated_sequence = create_mutated_sequence(
+                    human_sequence=human_sequence,
+                    position=int(selected_variant["Position"]),
+                    wild_type=selected_variant["WildType"],
+                    mutated_type=selected_variant["MutatedType"],
+                )
 
-            if st.button("Predict 3D Structure"):
-                with st.spinner("Predicting mutated CFTR structure..."):
-                    results = run_structure_prediction(
-                        mutated_sequence,
-                        jobname=(
+                if st.button("Predict 3D Structure"):
+                    with st.spinner(
+                        "Predicting mutated CFTR structure..."
+                    ):
+                        results = run_structure_prediction(
+                            mutated_sequence,
+                            jobname=(
+                                f"CFTR_position_"
+                                f"{selected_variant['Position']}_"
+                                f"{selected_variant['WildType']}"
+                                f"{selected_variant['MutatedType']}"
+                            ),
+                        )
+
+                    output_dir = (
+                        Path(__file__).resolve().parent.parent
+                        / "structure_results"
+                        / (
                             f"CFTR_position_"
                             f"{selected_variant['Position']}_"
                             f"{selected_variant['WildType']}"
                             f"{selected_variant['MutatedType']}"
-                        ),
+                        )
                     )
 
-                output_dir = (
-                    Path(__file__).resolve().parent.parent
-                    / "structure_results"
-                    / (
-                        f"CFTR_position_"
-                        f"{selected_variant['Position']}_"
-                        f"{selected_variant['WildType']}"
-                        f"{selected_variant['MutatedType']}"
-                    )
-                )
+                    pdb_path = find_prediction_pdb(output_dir)
 
-                pdb_path = find_prediction_pdb(output_dir)
+                    if pdb_path:
+                        color_mode = st.selectbox(
+                            "Structure coloring",
+                            ["confidence", "rainbow"]
+                        )
 
-                if pdb_path:
-                    color_mode = st.selectbox(
-                        "Structure coloring",
-                        ["confidence", "rainbow"]
-                    )
+                        viewer = display_structure(
+                            pdb_path,
+                            color_mode=color_mode
+                        )
 
-                    viewer = display_structure(
-                        pdb_path,
-                        color_mode=color_mode
-                    )
+                        st.components.v1.html(
+                            viewer._make_html(),
+                            height=600
+                        )
 
-                    st.components.v1.html(
-                        viewer._make_html(),
-                        height=600
-                    )
-                else:
-                    st.error(
-                        "The structure prediction completed, "
-                        "but no PDB structure was found."
-                    )
-        
+                    else:
+                        st.error(
+                            "The structure prediction completed, "
+                            "but no PDB structure was found."
+                        )
+
     if position in valid_positions and position != 1481:
         st.subheader("CFTR Domain Conservation")
 
@@ -316,9 +321,15 @@ if st.button("Explore position"):
             )
             .encode(
                 x=alt.X("Domain:N", title=None),
-                y=alt.Y("Conservation:Q", title="Average conservation"),
+                y=alt.Y(
+                    "Conservation:Q",
+                    title="Average conservation"
+                ),
                 tooltip=[
-                    alt.Tooltip("Domain:N", title="Domain"),
+                    alt.Tooltip(
+                        "Domain:N",
+                        title="Domain"
+                    ),
                     alt.Tooltip(
                         "Conservation:Q",
                         title="Conservation",
@@ -328,7 +339,10 @@ if st.button("Explore position"):
             )
         )
 
-        st.altair_chart(domain_chart, use_container_width=True)
+        st.altair_chart(
+            domain_chart,
+            use_container_width=True
+        )
 
         st.subheader("Variant Distribution by Protein Region")
 
@@ -349,15 +363,27 @@ if st.button("Explore position"):
             )
             .encode(
                 x=alt.X("Region:N", title=None),
-                y=alt.Y("Variant_Count:Q", title="Variant count"),
+                y=alt.Y(
+                    "Variant_Count:Q",
+                    title="Variant count"
+                ),
                 tooltip=[
-                    alt.Tooltip("Region:N", title="Region"),
-                    alt.Tooltip("Variant_Count:Q", title="Variants")
+                    alt.Tooltip(
+                        "Region:N",
+                        title="Region"
+                    ),
+                    alt.Tooltip(
+                        "Variant_Count:Q",
+                        title="Variants"
+                    )
                 ]
             )
         )
 
-        st.altair_chart(region_chart, use_container_width=True)
+        st.altair_chart(
+            region_chart,
+            use_container_width=True
+        )
 
         st.subheader("Variant consequences")
 
@@ -378,8 +404,14 @@ if st.button("Explore position"):
                     cornerRadiusTopRight=6
                 )
                 .encode(
-                    x=alt.X("Consequence:N", title=None),
-                    y=alt.Y("Count:Q", title="Variant count"),
+                    x=alt.X(
+                        "Consequence:N",
+                        title=None
+                    ),
+                    y=alt.Y(
+                        "Count:Q",
+                        title="Variant count"
+                    ),
                     tooltip=[
                         alt.Tooltip(
                             "Consequence:N",
