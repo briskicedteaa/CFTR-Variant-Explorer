@@ -5,6 +5,7 @@ from colabfold.download import download_alphafold_params
 from colabfold.utils import setup_logging
 
 
+
 def validate_protein_sequence(sequence):
     """Validate and clean a protein sequence."""
     sequence = sequence.strip().upper().replace(" ", "").replace("\n", "")
@@ -23,48 +24,41 @@ def validate_protein_sequence(sequence):
 
     return sequence
 
-def create_mutated_sequence(human_sequence, position, wild_type, mutated_type):
-    """Create a mutated CFTR protein sequence from a single amino-acid variant."""
 
+def create_mutated_sequence(
+    human_sequence,
+    position,
+    wild_type,
+    mutated_type
+):
+    """Create a mutated protein sequence from a CFTR position."""
     sequence = validate_protein_sequence(human_sequence)
 
     position = int(position)
-    wild_type = str(wild_type).strip().upper()
-    mutated_type = str(mutated_type).strip().upper()
 
     if position < 1 or position > len(sequence):
-        raise ValueError(
-            f"Position {position} is outside the CFTR sequence."
-        )
+        raise ValueError("Variant position is outside the CFTR sequence.")
 
     if sequence[position - 1] != wild_type:
         raise ValueError(
-            f"Expected {wild_type} at position {position}, "
-            f"but the CFTR sequence contains {sequence[position - 1]}."
+            f"Wild-type mismatch at position {position}: "
+            f"expected {sequence[position - 1]}, got {wild_type}"
         )
 
-    if len(mutated_type) != 1:
-        raise ValueError(
-            "This function currently supports single-amino-acid substitutions."
-        )
-
-    mutated_sequence = (
+    sequence = (
         sequence[:position - 1]
         + mutated_type
         + sequence[position:]
     )
 
-    return mutated_sequence
+    return sequence
 
 
-def prepare_colabfold_query(sequence, query_name="CFTR_variant"):
-    """Prepare a validated protein sequence for a ColabFold query."""
-    sequence = validate_protein_sequence(sequence)
+from pathlib import Path
 
-    return {
-        "name": query_name,
-        "sequence": sequence,
-    }
+from colabfold.batch import get_queries, run, set_model_type
+from colabfold.download import download_alphafold_params
+
 
 def run_structure_prediction(
     sequence,
@@ -74,51 +68,6 @@ def run_structure_prediction(
     num_models=5,
     num_recycles=3,
 ):
-
-def find_prediction_pdb(output_dir):
-    """Find the highest-ranked predicted PDB structure."""
-    pdb_files = sorted(
-        Path(output_dir).glob("*_unrelaxed_*.pdb")
-    )
-
-def display_structure(pdb_path, color_mode="confidence"):
-    """Create a 3Dmol.js viewer for a predicted protein structure."""
-
-    import py3Dmol
-    pdb_text = Path(pdb_path).read_text()
-
-    view = py3Dmol.view(width=800, height=600)
-    view.addModel(pdb_text, "pdb")
-
-    if color_mode == "confidence":
-        view.setStyle({
-            "cartoon": {
-                "colorscheme": {
-                    "prop": "b",
-                    "gradient": "roygb",
-                    "min": 50,
-                    "max": 90
-                }
-            }
-        })
-
-    elif color_mode == "rainbow":
-        view.setStyle({
-            "cartoon": {
-                "color": "spectrum"
-            }
-        })
-
-    view.zoomTo()
-
-    return view
-
-
-    if not pdb_files:
-        return None
-        
-    return pdb_files[0]
-
     """Run ColabFold structure prediction for one protein sequence."""
 
     sequence = validate_protein_sequence(sequence)
@@ -126,21 +75,15 @@ def display_structure(pdb_path, color_mode="confidence"):
     output_dir = Path("structure_results") / jobname
     output_dir.mkdir(parents=True, exist_ok=True)
 
-    queries_path = output_dir / f"{jobname}.csv"
+    query_file = output_dir / f"{jobname}.fasta"
 
-    with open(queries_path, "w") as f:
-        f.write(f"id,sequence\n{jobname},{sequence}")
+    with open(query_file, "w") as f:
+        f.write(f">{jobname}\n")
+        f.write(f"{sequence}\n")
 
-    setup_logging(
-        output_dir / "log.txt"
-    )
-
-    queries, is_complex = get_queries(
-        str(queries_path)
-    )
+    queries, is_complex = get_queries(str(query_file))
 
     model_type = set_model_type(
-
         is_complex,
         model_type
     )
@@ -164,9 +107,7 @@ def display_structure(pdb_path, color_mode="confidence"):
         data_dir=Path("."),
         keep_existing_results=True,
         rank_by="auto",
-        pair_mode="unpaired_paired",
-        stop_at_score=100.0,
-        user_agent="colabfold/google-colab-main",
+        user_agent="CFTR-Variant-Explorer",
     )
 
     return results
