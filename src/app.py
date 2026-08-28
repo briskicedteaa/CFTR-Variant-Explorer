@@ -1,14 +1,50 @@
 import streamlit as st
 import pandas as pd
 import altair as alt
+import py3Dmol
 from data_loader import load_data
 from pathlib import Path
 
 from structure_prediction import (
     run_structure_prediction,
     create_mutated_sequence,
-    display_structure,
 )
+
+def display_structure(pdb_path, color_mode="confidence"):
+    """Create an interactive 3D viewer for a predicted protein structure."""
+
+    view = py3Dmol.view(
+        width=900,
+        height=600
+    )
+
+    with open(pdb_path, "r") as f:
+        pdb_data = f.read()
+
+    view.addModel(pdb_data, "pdb")
+
+    if color_mode == "confidence":
+        view.setStyle({
+            "cartoon": {
+                "colorscheme": {
+                    "prop": "b",
+                    "gradient": "roygb",
+                    "min": 50,
+                    "max": 90
+                }
+            }
+        })
+
+    elif color_mode == "rainbow":
+        view.setStyle({
+            "cartoon": {
+                "color": "spectrum"
+            }
+        })
+
+    view.zoomTo()
+
+    return view
 
 st.set_page_config(
     page_title="CFTR Variant Explorer",
