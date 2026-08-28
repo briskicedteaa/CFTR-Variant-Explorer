@@ -96,7 +96,10 @@ from variant_explorer import (
 
 position_df, variants_df, cftr_df = load_data()
 
-human_sequence = position_df["Sequence"].iloc[0]
+human_sequence = cftr_df.loc[
+    cftr_df["ID"].astype(str).str.contains("P13569", na=False),
+    "sequence"
+].iloc[0]
 
 valid_positions = set(variants_df["Position"].dropna().astype(int))
 
