@@ -94,6 +94,7 @@ from variant_explorer import (
     get_consequence_summary
 )
 
+st.write(len(load_data()))
 position_df, variants_df, cftr_df = load_data()
 
 human_sequence = cftr_df.loc[
