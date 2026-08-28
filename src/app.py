@@ -295,19 +295,20 @@ selected_index = st.selectbox(
 )
 
 selected_variant = variants.iloc[selected_index]
-         if st.button("Predict 3D Structure"):
-                with st.spinner(
-                    "Predicting mutated CFTR structure..."
-                ):
-                    results = run_structure_prediction(
-                        mutated_sequence,
-                        jobname=(
-                            f"CFTR_position_"
-                            f"{selected_variant['Position']}_"
-                            f"{selected_variant['WildType']}"
-                            f"{selected_variant['MutatedType']}"
-                        ),
-                    )
+
+    if st.button("Predict 3D Structure"):
+            with st.spinner(
+                "Predicting mutated CFTR structure..."
+            ):
+                results = run_structure_prediction(
+                    mutated_sequence,
+                    jobname=(
+                        f"CFTR_position_"
+                        f"{selected_variant['Position']}_"
+                        f"{selected_variant['WildType']}"
+                        f"{selected_variant['MutatedType']}"
+                    ),
+                )
 
                 output_dir = (
                     Path(__file__).resolve().parent.parent
