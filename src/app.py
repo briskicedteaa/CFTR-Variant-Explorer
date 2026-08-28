@@ -312,7 +312,6 @@ if st.button("Explore position"):
                 if pdb_files:
                     pdb_path = pdb_files[0]
 
-                if pdb_path:
                     color_mode = st.selectbox(
                         "Structure coloring",
                         ["confidence", "rainbow"]
