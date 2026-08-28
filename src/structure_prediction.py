@@ -109,7 +109,7 @@ results = run(
     user_agent="CFTR-Variant-Explorer",
 )
 
-    return results
+return results
     
 import glob
 
