@@ -94,10 +94,13 @@ from variant_explorer import (
     get_consequence_summary
 )
 
-import inspect
-st.write(load_data.__code__.co_filename)
-st.code(inspect.getsource(load_data))
-position_df, variants_df, cftr_df = load_data()
+data = load_data()
+
+st.write("Number of returned objects:", len(data))
+
+position_df = data[0]
+variants_df = data[1]
+cftr_df = data[2]
 
 human_sequence = cftr_df.loc[
     cftr_df["ID"].astype(str).str.contains("P13569", na=False),
