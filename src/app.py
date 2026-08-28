@@ -96,6 +96,8 @@ from variant_explorer import (
 
 position_df, variants_df = load_data()
 
+human_sequence = position_df["Sequence"].iloc[0]
+
 valid_positions = set(variants_df["Position"].dropna().astype(int))
 
 st.markdown(
