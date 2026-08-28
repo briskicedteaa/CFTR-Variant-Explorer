@@ -294,7 +294,7 @@ selected_index = st.selectbox(
     format_func=lambda i: variant_options.iloc[i]
 )
 
-selected_variant = variants.iloc[selected_index
+selected_variant = variants.iloc[selected_index]
          if st.button("Predict 3D Structure"):
                 with st.spinner(
                     "Predicting mutated CFTR structure..."
