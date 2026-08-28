@@ -425,6 +425,7 @@ if st.session_state.get("explored_position") in valid_positions:
             "No variants with a defined amino-acid substitution "
             "are available for structure prediction."
         )
+
     else:
         variant_options = valid_variants.apply(
             lambda row: (
@@ -443,14 +444,14 @@ if st.session_state.get("explored_position") in valid_positions:
 
         selected_variant = valid_variants.iloc[selected_index]
 
-        if st.button("Predict 3D Structure"):
-            mutated_sequence = create_mutated_sequence(
-                human_sequence=human_sequence,
-                position=int(selected_variant["Position"]),
-                wild_type=selected_variant["WildType"],
-                mutated_type=selected_variant["MutatedType"],
-            )
+        mutated_sequence = create_mutated_sequence(
+            human_sequence=human_sequence,
+            position=int(selected_variant["Position"]),
+            wild_type=selected_variant["WildType"],
+            mutated_type=selected_variant["MutatedType"],
+        )
 
+        if st.button("Predict 3D Structure"):
             with st.spinner("Predicting mutated CFTR structure..."):
                 run_structure_prediction(
                     mutated_sequence,
@@ -495,6 +496,7 @@ if st.session_state.get("explored_position") in valid_positions:
                 viewer._make_html(),
                 height=600
             )
+
 
 if st.session_state.get("explored_position") in valid_positions:
 
