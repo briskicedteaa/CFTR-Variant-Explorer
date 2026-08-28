@@ -100,6 +100,8 @@ DATA_DIR = Path(__file__).resolve().parent.parent / "data"
 
 cftr_df = pd.read_csv(DATA_DIR / "CFTR_df.csv")
 
+cftr_df.columns = cftr_df.columns.str.strip()
+
 human_sequence = cftr_df.loc[
     cftr_df["ID"].astype(str).str.contains("P13569", na=False),
     "sequence"
