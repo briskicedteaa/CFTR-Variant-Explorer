@@ -63,12 +63,8 @@ from colabfold.download import download_alphafold_params
 def run_structure_prediction(
     sequence,
     jobname="CFTR_variant",
-    msa_mode="mmseqs2_uniref_env",
-    model_type="alphafold2_ptm",
-    num_models=5,
-    num_recycles=3,
 ):
-    """Run ColabFold structure prediction for one protein sequence."""
+    """Run a lightweight ColabFold prediction for one CFTR variant."""
 
     sequence = validate_protein_sequence(sequence)
 
@@ -85,7 +81,7 @@ def run_structure_prediction(
 
     model_type = set_model_type(
         is_complex,
-        model_type
+        "alphafold2_ptm"
     )
 
     download_alphafold_params(
@@ -99,10 +95,10 @@ def run_structure_prediction(
         use_templates=False,
         custom_template_path=None,
         num_relax=0,
-        msa_mode=msa_mode,
+        msa_mode="mmseqs2_uniref_env",
         model_type=model_type,
-        num_models=num_models,
-        num_recycles=num_recycles,
+        num_models=1,
+        num_recycles=3,
         is_complex=is_complex,
         data_dir=Path("."),
         keep_existing_results=True,
