@@ -84,10 +84,13 @@ def run_structure_prediction(
         "alphafold2_ptm"
     )
 
-    download_alphafold_params(
-        model_type,
-        Path(".")
-    )
+data_dir = Path("colabfold_data")
+data_dir.mkdir(parents=True, exist_ok=True)
+
+download_alphafold_params(
+    model_type,
+    data_dir
+)
 
     results = run(
         queries=queries,
@@ -100,7 +103,7 @@ def run_structure_prediction(
         num_models=1,
         num_recycles=3,
         is_complex=is_complex,
-        data_dir=Path("."),
+        data_dir=data_dir,
         keep_existing_results=True,
         rank_by="auto",
         user_agent="CFTR-Variant-Explorer",
