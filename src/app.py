@@ -277,21 +277,24 @@ selected_index = st.selectbox(
     format_func=lambda i: variant_options.iloc[i]
 )
 
-selected_variant = variants.iloc[selected_index]
+st.subheader("3D Protein Structure")
 
-    if (
-        pd.notna(selected_variant["WildType"])
-        and pd.notna(selected_variant["MutatedType"])
-        and len(str(selected_variant["WildType"])) == 1
-        and len(str(selected_variant["MutatedType"])) == 1
-    ):
-        mutated_sequence = create_mutated_sequence(
-            human_sequence=human_sequence,
-            position=int(selected_variant["Position"]),
-            wild_type=selected_variant["WildType"],
-            mutated_type=selected_variant["MutatedType"],
-        )
+variant_options = variants.apply(
+    lambda row: (
+        f"{row['WildType']}"
+        f"{int(row['Position'])}"
+        f"{row['MutatedType']}"
+    ),
+    axis=1
+)
 
+selected_index = st.selectbox(
+    "Select a variant",
+    range(len(variants)),
+    format_func=lambda i: variant_options.iloc[i]
+)
+
+selected_variant = variants.iloc[selected_index
          if st.button("Predict 3D Structure"):
                 with st.spinner(
                     "Predicting mutated CFTR structure..."
