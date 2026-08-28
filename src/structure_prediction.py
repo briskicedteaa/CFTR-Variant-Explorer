@@ -166,4 +166,15 @@ def create_structure_view(pdb_file, color_mode="confidence"):
         )
     view.zoomTo()
     return view
-    
+
+
+def find_prediction_pdb(output_dir):
+    """Find the first predicted PDB file in the output directory."""
+    output_dir = Path(output_dir)
+
+    pdb_files = list(output_dir.glob("*.pdb"))
+
+    if not pdb_files:
+        return None
+
+    return pdb_files[0]
