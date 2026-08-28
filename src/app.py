@@ -263,76 +263,76 @@ if st.button("Explore position"):
         st.subheader("Variants at this position")
         st.dataframe(variants)
 
-        if variants is not None and not variants.empty:
-            st.subheader("3D Protein Structure")
+    if variants is not None and not variants.empty:
+        st.subheader("3D Protein Structure")
 
-            selected_variant = variants.iloc[0]
+        selected_variant = variants.iloc[0]
 
-            if (
-                pd.notna(selected_variant["WildType"])
-                and pd.notna(selected_variant["MutatedType"])
-                and len(str(selected_variant["WildType"])) == 1
-                and len(str(selected_variant["MutatedType"])) == 1
-            ):
-                mutated_sequence = create_mutated_sequence(
-                    human_sequence=human_sequence,
-                    position=int(selected_variant["Position"]),
-                    wild_type=selected_variant["WildType"],
-                    mutated_type=selected_variant["MutatedType"],
-                )
+        if (
+            pd.notna(selected_variant["WildType"])
+            and pd.notna(selected_variant["MutatedType"])
+            and len(str(selected_variant["WildType"])) == 1
+            and len(str(selected_variant["MutatedType"])) == 1
+        ):
+            mutated_sequence = create_mutated_sequence(
+                human_sequence=human_sequence,
+                position=int(selected_variant["Position"]),
+                wild_type=selected_variant["WildType"],
+                mutated_type=selected_variant["MutatedType"],
+            )
 
-                if st.button("Predict 3D Structure"):
-                    with st.spinner(
-                        "Predicting mutated CFTR structure..."
-                    ):
-                        results = run_structure_prediction(
-                            mutated_sequence,
-                            jobname=(
-                                f"CFTR_position_"
-                                f"{selected_variant['Position']}_"
-                                f"{selected_variant['WildType']}"
-                                f"{selected_variant['MutatedType']}"
-                            ),
-                        )
-
-                    output_dir = (
-                        Path(__file__).resolve().parent.parent
-                        / "structure_results"
-                        / (
+            if st.button("Predict 3D Structure"):
+                with st.spinner(
+                    "Predicting mutated CFTR structure..."
+                ):
+                    results = run_structure_prediction(
+                        mutated_sequence,
+                        jobname=(
                             f"CFTR_position_"
                             f"{selected_variant['Position']}_"
                             f"{selected_variant['WildType']}"
                             f"{selected_variant['MutatedType']}"
-                        )
+                        ),
                     )
 
+                output_dir = (
+                    Path(__file__).resolve().parent.parent
+                    / "structure_results"
+                    / (
+                        f"CFTR_position_"
+                        f"{selected_variant['Position']}_"
+                        f"{selected_variant['WildType']}"
+                        f"{selected_variant['MutatedType']}"
+                    )
+                )
+
                     
-                    pdb_files = list(output_dir.glob("*.pdb"))
+                pdb_files = list(output_dir.glob("*.pdb"))
 
-                    if pdb_files:
-                        pdb_path = pdb_files[0]
+                if pdb_files:
+                    pdb_path = pdb_files[0]
 
-                    if pdb_path:
-                        color_mode = st.selectbox(
-                            "Structure coloring",
-                            ["confidence", "rainbow"]
-                        )
+                if pdb_path:
+                    color_mode = st.selectbox(
+                        "Structure coloring",
+                        ["confidence", "rainbow"]
+                    )
 
-                        viewer = display_structure(
-                            pdb_path,
-                            color_mode=color_mode
-                        )
+                    viewer = display_structure(
+                        pdb_path,
+                        color_mode=color_mode
+                    )
 
-                        st.components.v1.html(
-                            viewer._make_html(),
-                            height=600
-                        )
+                    st.components.v1.html(
+                        viewer._make_html(),
+                        height=600
+                    )
 
-                    else:
-                        st.error(
-                            "The structure prediction completed, "
-                            "but no PDB structure was found."
-                        )
+                else:
+                    st.error(
+                        "The structure prediction completed, "
+                        "but no PDB structure was found."
+                    )
 
     if position in valid_positions and position != 1481:
         st.subheader("CFTR Domain Conservation")
