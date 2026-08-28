@@ -408,9 +408,15 @@ if st.button("Explore position"):
             )
 
 
-if st.session_state.get("explored_position") in valid_positions:
-    st.subheader("3D Protein Structure")
+st.subheader("3D Protein Structure")
 
+if st.session_state.get("explored_position") is None:
+    st.info("Explore a CFTR position above to select a variant and predict its 3D structure.")
+
+elif st.session_state["explored_position"] not in valid_positions:
+    st.info("A 3D structure can only be predicted for a position with a recorded variant.")
+
+else:
     explored_position = st.session_state["explored_position"]
 
     position_info, variants = get_position_summary(explored_position)
@@ -425,6 +431,7 @@ if st.session_state.get("explored_position") in valid_positions:
             "No variants with a defined amino-acid substitution "
             "are available for structure prediction."
         )
+
     else:
         variant_options = valid_variants.apply(
             lambda row: (
