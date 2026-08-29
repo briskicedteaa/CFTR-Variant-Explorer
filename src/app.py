@@ -373,7 +373,7 @@ if st.button("Explore position"):
 
 
 if position in valid_positions and position != 1481:
-st.subheader("Machine Learning Prediction")
+    st.subheader("Machine Learning Prediction")
 
     _, prediction_variants = get_position_summary(position)
 
