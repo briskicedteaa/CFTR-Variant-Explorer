@@ -3,6 +3,7 @@ import pandas as pd
 import altair as alt
 from data_loader import load_data
 from pathlib import Path
+from ml_model import predict_consequence
 
 st.set_page_config(
     page_title="CFTR Variant Explorer",
@@ -230,8 +231,62 @@ if st.button("Explore position"):
         st.subheader("Variants at this position")
         st.dataframe(variants)
 
+    
+
     if position in valid_positions and position != 1481:
-        st.subheader("CFTR Domain Conservation")
+        st.subheader("Machine Learning Prediction")
+
+        prediction_variant = st.selectbox(
+
+            "Select a variant",
+             variants.index,
+             format_func=lambda i: (
+                  f"{variants.loc[i, 'WildType']}"
+                  f"{int(variants.loc[i, 'Position'])}"
+                  f"{variants.loc[i, 'MutatedType']}"
+             )
+        )
+
+        selected_variant = variants.loc[prediction_variant]
+
+        if pd.notna(selected_variant["MutatedType"]) and selected_variant["MutatedType"] != "*":
+
+            result = predict_consequence(
+                int(selected_variant["Position"]),
+                selected_variant["WildType"],
+                selected_variant["MutatedType"]
+            )
+
+            col1, col2, col3 = st.columns(3)
+
+            col1.metric(
+                "Predicted value",
+                result["prediction"].title()
+            )
+
+            col2.metric(
+                "Actual",
+                selected_variant["Consequence"].title()
+            )
+
+            if result["confidence"] is not None:
+                col3.metric(
+                    "Model confidence",
+                    f"{result['confidence']:.2%}"
+                )
+
+            if result["prediction"] == selected_variant["Consequence"]:
+                st.success("The model prediction matches the recorded consequence.")
+            else:
+                st.warning("The model prediction differs from the recorded consequence.")
+
+        else:
+            st.info(
+                "This variant does not have a standard amino-acid substitution, "
+                "so the machine-learning prediction is not available."
+            )
+
+    st.subheader("CFTR Domain Conservation")
 
         domain_conservation = {
             "NBD1": 0.820016,
