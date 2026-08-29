@@ -364,21 +364,19 @@ if st.button("Explore position"):
                 use_container_width=True
             )
     
-st.subheader("Machine Learning Prediction")
+if position_info is None and position == 1481:
+    st.subheader("CFTR Position 1481")
 
-elif position_info is None and position == 1481:
-        st.subheader("CFTR Position 1481")
+    st.info(
+        "Stop-loss variants were excluded from the machine-learning model "
+        "because only a very small number of stop-loss variants were present "
+        "in the dataset, which was insufficient to support reliable model "
+        "training for that consequence class."
+    )
 
-        st.info(
-            "Stop-loss variants were excluded from the machine-learning model " 
-            "because only a very small number of stop-loss variants were present " 
-            "in the dataset, which was insufficient to support reliable model training "
-            "for that consequence class."
-        )
-
-if position_info is None and position not in valid_positions:
-        st.error("ML Prediction Unavailable.")
-
+elif position_info is None and position not in valid_positions:
+    st.error("ML Prediction Unavailable.")
+    
 if position in valid_positions and position != 1481:
 
     _, prediction_variants = get_position_summary(position)
