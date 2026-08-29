@@ -270,7 +270,7 @@ if st.session_state["explored_position"] is not None:
                     "The machine-learning model predicts the likely consequence of the "
                     "selected CFTR variant based on its amino-acid position and substitution. "
                     "The prediction is made for the specific variant you selected, rather than "
-                    "for every variant recorded at that position. 
+                    "for every variant recorded at that position."
                 )
 
                 prediction_variants = variants.copy()
