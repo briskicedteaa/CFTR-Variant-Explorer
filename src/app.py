@@ -393,9 +393,8 @@ if st.session_state["explored_position"] is not None:
                 use_container_width=True
             )
             
-        if st.session_state.get("explored_position") in valid_positions:
-
-st.markdown("""
+if st.session_state.get("explored_position") in valid_positions:
+    st.markdown("""
 <div class="info-bubble">
 <h3>What The Data Suggests (Overall)</h3>
 
@@ -408,7 +407,6 @@ across the N-terminal, Middle, and C-terminal regions.
 </div>
 """, unsafe_allow_html=True)
 
-
     DON_PATH = Path(__file__).resolve().parent.parent / "images" / "77C31030-2369-452B-B746-B1636E691D0B.gif"
 
     col1, col2, col3 = st.columns([1, 2, 1])
@@ -418,7 +416,6 @@ across the N-terminal, Middle, and C-terminal regions.
             str(DON_PATH),
             use_container_width=True
         )
-
 
     st.markdown("""
 <div class="info-bubble">
@@ -447,7 +444,6 @@ rather than proving that a particular variant causes a specific clinical outcome
 </div>
 """, unsafe_allow_html=True)
 
-
     DON_PATH = Path(__file__).resolve().parent.parent / "images" / "77C31030-2369-452B-B746-B1636E691D0B.gif"
 
     col1, col2, col3 = st.columns([1, 2, 1])
@@ -457,7 +453,6 @@ rather than proving that a particular variant causes a specific clinical outcome
             str(DON_PATH),
             use_container_width=True
         )
-
 
     st.markdown("""
 <div class="info-bubble">
@@ -526,7 +521,6 @@ functioning CFTR protein.
 </div>
 """, unsafe_allow_html=True)
 
-
     DON_PATH = Path(__file__).resolve().parent.parent / "images" / "77C31030-2369-452B-B746-B1636E691D0B.gif"
 
     col1, col2, col3 = st.columns([1, 2, 1])
@@ -536,7 +530,6 @@ functioning CFTR protein.
             str(DON_PATH),
             use_container_width=True
         )
-
 
     st.markdown("""
 <div class="info-bubble">
