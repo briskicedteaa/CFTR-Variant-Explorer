@@ -192,8 +192,9 @@ if st.session_state["explored_position"] is not None:
 
     explored_position = st.session_state["explored_position"]
 
+    st.title("Results")
+    
     if explored_position not in valid_positions:
-        st.title("Results")
         st.error("That position was not found in the CFTR dataset.")
 
     else:
