@@ -263,7 +263,7 @@ if st.session_state["explored_position"] is not None:
                     int(info["Variant_Count"])
                 )
                 
-                B_PATH = Path(__file__).resolve().parent.parent / "images" / "762E5BF5-2C2A-47D2-B6D5-CE4384BD2CE5.gif"
+                B_PATH = Path(__file__).resolve().parent.parent / "images" / "B07F52FD-0104-4A8D-BD55-7B8E1BA7E386.gif"
 
                 col1, col2, col3 = st.columns([1, 2, 1])
 
@@ -349,7 +349,7 @@ if st.session_state["explored_position"] is not None:
                         "for prediction at this position."
                     )
 
-                B_PATH = Path(__file__).resolve().parent.parent / "images" / "762E5BF5-2C2A-47D2-B6D5-CE4384BD2CE5.gif"
+                B_PATH = Path(__file__).resolve().parent.parent / "images" / "B07F52FD-0104-4A8D-BD55-7B8E1BA7E386.gif"
 
                 col1, col2, col3 = st.columns([1, 2, 1])
 
@@ -364,7 +364,7 @@ if st.session_state["explored_position"] is not None:
             st.subheader("Variants at this position")
             st.dataframe(variants)
 
-        B_PATH = Path(__file__).resolve().parent.parent / "images" / "762E5BF5-2C2A-47D2-B6D5-CE4384BD2CE5.gif"
+        B_PATH = Path(__file__).resolve().parent.parent / "images" / "B07F52FD-0104-4A8D-BD55-7B8E1BA7E386.gif"
 
         col1, col2, col3 = st.columns([1, 2, 1])
 
@@ -426,7 +426,7 @@ if st.session_state["explored_position"] is not None:
                     use_container_width=True
                 )
                 
-                B_PATH = Path(__file__).resolve().parent.parent / "images" / "762E5BF5-2C2A-47D2-B6D5-CE4384BD2CE5.gif"
+                B_PATH = Path(__file__).resolve().parent.parent / "images" / "B07F52FD-0104-4A8D-BD55-7B8E1BA7E386.gif"
 
                 col1, col2, col3 = st.columns([1, 2, 1])
 
@@ -480,7 +480,7 @@ if st.session_state["explored_position"] is not None:
                     use_container_width=True
                 )
 
-                B_PATH = Path(__file__).resolve().parent.parent / "images" / "762E5BF5-2C2A-47D2-B6D5-CE4384BD2CE5.gif"
+                B_PATH = Path(__file__).resolve().parent.parent / "images" / "B07F52FD-0104-4A8D-BD55-7B8E1BA7E386.gif"
 
                 col1, col2, col3 = st.columns([1, 2, 1])
 
