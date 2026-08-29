@@ -395,7 +395,7 @@ if st.session_state["explored_position"] is not None:
             
         if st.session_state.get("explored_position") in valid_positions:
 
-    st.markdown("""
+st.markdown("""
 <div class="info-bubble">
 <h3>What The Data Suggests (Overall)</h3>
 
