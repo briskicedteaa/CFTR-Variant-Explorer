@@ -9,6 +9,20 @@ from variant_explorer import (
     predict_consequence
 )
 
+col1.metric("Domain", "NaN")
+col2.metric("Conservation", "NaN")
+col3.metric("Variant count", len(variants))
+
+PINK_PATH = Path(__file__).resolve().parent.parent / "images" / "AD711FFB-0CF7-41A1-92C3-46A79516DF7C.gif"
+
+col1, col2, col3 = st.columns([1, 2, 1])
+
+with col2:
+    st.image(
+        str(PINK_PATH),
+        use_container_width=True
+    )
+
 st.set_page_config(
     page_title="CFTR Variant Explorer",
     layout="wide"
