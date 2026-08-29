@@ -480,6 +480,16 @@ if st.session_state["explored_position"] is not None:
                     use_container_width=True
                 )
 
+                B_PATH = Path(__file__).resolve().parent.parent / "images" / "762E5BF5-2C2A-47D2-B6D5-CE4384BD2CE5.gif"
+
+                col1, col2, col3 = st.columns([1, 2, 1])
+
+                with col2:
+                    st.image(
+                        str(B_PATH),
+                        use_container_width=True
+                    )
+                
                 st.subheader("Variant consequences")
 
                 consequence_summary = get_consequence_summary(
