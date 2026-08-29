@@ -127,7 +127,7 @@ st.markdown(
     """
     <div class="info-bubble">
         <p style='text-align: center; font-family: Fredoka, sans-serif; font-size: 1.2rem; font-weight: 500;'>
-            CFTR variants are genetic changes that can affect the structure, processing, o
+            CFTR variants are genetic changes that can affect the structure, processing, or
             function of the CFTR protein. Their effects are not always the same, even when
             variants occur within the same general region or share a similar consequence
             type. Understanding these differences is important for investigating how
@@ -390,7 +390,7 @@ if st.session_state["explored_position"] is not None:
         
         if variants is not None and not variants.empty:
 
-            st.subheader("Variants at this position")
+            st.subheader("Variants At This Position")
             st.dataframe(variants)
 
         B_PATH = Path(__file__).resolve().parent.parent / "images" / "B07F52FD-0104-4A8D-BD55-7B8E1BA7E386.gif"
@@ -452,30 +452,6 @@ if st.session_state["explored_position"] is not None:
 
             st.altair_chart(
                 domain_chart,
-                use_container_width=True
-            )
-
-            B_PATH = Path(__file__).resolve().parent.parent / "images" / "B07F52FD-0104-4A8D-BD55-7B8E1BA7E386.gif"
-
-            col1, col2, col3 = st.columns([1, 2, 1])
-
-            with col2:
-                st.image(
-                    str(B_PATH),
-                    use_container_width=True
-                )
-
-        if variants is not None and not variants.empty:
-            st.subheader("Variants at this position")
-            st.dataframe(variants)
-
-        B_PATH = Path(__file__).resolve().parent.parent / "images" / "B07F52FD-0104-4A8D-BD55-7B8E1BA7E386.gif"
-
-        col1, col2, col3 = st.columns([1, 2, 1])
-
-        with col2:
-            st.image(
-                str(B_PATH),
                 use_container_width=True
             )
 
