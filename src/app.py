@@ -504,55 +504,62 @@ if st.button("Explore position"):
 
 st.subheader("Machine Learning Prediction")
 
-if (
-    position in valid_positions
-    and position != 1481
-    and variants is not None
-    and not variants.empty
-):
-    selected_variant = variants.iloc[0]
+if position in valid_positions and position != 1481:
 
-    if (
-        pd.notna(selected_variant["MutatedType"])
-        and selected_variant["MutatedType"] != "*"
-    ):
-        result = predict_consequence(
-            int(selected_variant["Position"]),
-            selected_variant["WildType"],
-            selected_variant["MutatedType"]
-        )
+    _, prediction_variants = get_position_summary(position)
 
-        col1, col2, col3 = st.columns(3)
+    if prediction_variants is not None and not prediction_variants.empty:
 
-        col1.metric(
-            "Predicted value",
-            result["prediction"].title()
-        )
+        selected_variant = prediction_variants.iloc[0]
 
-        col2.metric(
-            "Actual",
-            selected_variant["Consequence"].title()
-        )
+        if (
+            pd.notna(selected_variant["MutatedType"])
+            and selected_variant["MutatedType"] != "*"
+        ):
 
-        if result["confidence"] is not None:
-            col3.metric(
-                "Model confidence",
-                f"{result['confidence']:.2%}"
+            result = predict_consequence(
+                int(selected_variant["Position"]),
+                selected_variant["WildType"],
+                selected_variant["MutatedType"]
             )
 
-        if result["prediction"] == selected_variant["Consequence"]:
-            st.success(
-                "The model prediction matches the recorded consequence."
+            col1, col2, col3 = st.columns(3)
+
+            col1.metric(
+                "Predicted value",
+                result["prediction"].title()
             )
+
+            col2.metric(
+                "Actual",
+                selected_variant["Consequence"].title()
+            )
+
+            if result["confidence"] is not None:
+                col3.metric(
+                    "Model confidence",
+                    f"{result['confidence']:.2%}"
+                )
+
+            if result["prediction"] == selected_variant["Consequence"]:
+                st.success(
+                    "The model prediction matches the recorded consequence."
+                )
+            else:
+                st.warning(
+                    "The model prediction differs from the recorded consequence."
+                )
+
         else:
-            st.warning(
-                "The model prediction differs from the recorded consequence."
+            st.info(
+                "This variant does not have a standard amino-acid substitution, "
+                "so the machine-learning prediction is not available."
             )
 
     else:
         st.info(
-            "This variant does not have a standard amino-acid substitution, "
-            "so the machine-learning prediction is not available."
+            "No variants are available for machine-learning prediction "
+            "at this position."
         )
 
 if st.session_state.get("explored_position") in valid_positions:
