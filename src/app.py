@@ -177,93 +177,6 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-if position in valid_positions and position != 1481:
-    st.markdown(
-        "<h3 style='text-align: center;'>Machine Learning Prediction</h3>",
-        unsafe_allow_html=True
-    )
-    
-    position = st.number_input(
-        "Enter a CFTR amino-acid position",
-        min_value=1,
-        max_value=1481,
-        step=1
-    )
-
-    _, prediction_variants = get_position_summary(position)
-
-    if prediction_variants is not None and not prediction_variants.empty:
-
-        substitution_variants = prediction_variants[
-            prediction_variants["MutatedType"].notna()
-            & (prediction_variants["MutatedType"] != "*")
-            & prediction_variants["MutatedType"].isin(
-                list("ACDEFGHIKLMNPQRSTVWY")
-            )
-        ].copy()
-
-        if not substitution_variants.empty:
-
-            substitution_variants["Variant"] = (
-                substitution_variants["WildType"].astype(str)
-                + " → "
-                + substitution_variants["MutatedType"].astype(str)
-            )
-
-            selected_variant_label = st.selectbox(
-                "Select a variant",
-                substitution_variants["Variant"].tolist()
-            )
-
-            selected_variant = substitution_variants[
-                substitution_variants["Variant"] == selected_variant_label
-            ].iloc[0]
-
-            result = predict_consequence(
-                int(selected_variant["Position"]),
-                selected_variant["WildType"],
-                selected_variant["MutatedType"]
-            )
-
-            col1, col2, col3 = st.columns(3)
-
-            col1.metric(
-                "Predicted value",
-                result["prediction"].title()
-            )
-
-            col2.metric(
-                "Actual",
-                selected_variant["Consequence"].title()
-            )
-
-            if result["confidence"] is not None:
-                col3.metric(
-                    "Model confidence",
-                    f"{result['confidence']:.2%}"
-                )
-
-            if result["prediction"] == selected_variant["Consequence"]:
-                st.success(
-                    "The model prediction matches the recorded consequence."
-                )
-            else:
-                st.warning(
-                    "The model prediction differs from the recorded consequence."
-                )
-
-        else:
-            st.info(
-                "No standard amino-acid substitutions are available "
-                "for prediction at this position."
-            )
-
-    else:
-        st.info(
-            "No variants are available for machine-learning prediction "
-            "at this position."
-        )
-
 st.markdown(
     "<h3 style='text-align: center;'>Variant Explorer</h3>",
     unsafe_allow_html=True
@@ -278,6 +191,84 @@ position = st.number_input(
 
 with st.expander("View positions with recorded variants"):
             st.write(sorted(valid_positions))
+
+if st.session_state.get("explored_position") is not None:
+
+    explored_position = st.session_state["explored_position"]
+
+    if explored_position in valid_positions and explored_position != 1481:
+        st.markdown(
+            "<h3 style='text-align: center;'>Variant Explorer</h3>",
+            unsafe_allow_html=True
+        )
+
+        _, prediction_variants = get_position_summary(explored_position)
+
+        if prediction_variants is not None and not prediction_variants.empty:
+
+            substitution_variants = prediction_variants[
+                prediction_variants["MutatedType"].notna()
+                & (prediction_variants["MutatedType"] != "*")
+                & prediction_variants["MutatedType"].isin(
+                    list("ACDEFGHIKLMNPQRSTVWY")
+                )
+            ].copy()
+
+            if not substitution_variants.empty:
+
+                substitution_variants["Variant"] = (
+                    substitution_variants["WildType"].astype(str)
+                    + " → "
+                    + substitution_variants["MutatedType"].astype(str)
+                )
+
+                selected_variant_label = st.selectbox(
+                    "Select a variant",
+                    substitution_variants["Variant"].tolist()
+                )
+
+                selected_variant = substitution_variants[
+                    substitution_variants["Variant"] == selected_variant_label
+                ].iloc[0]
+
+                result = predict_consequence(
+                    int(selected_variant["Position"]),
+                    selected_variant["WildType"],
+                    selected_variant["MutatedType"]
+                )
+
+                col1, col2, col3 = st.columns(3)
+
+                col1.metric(
+                    "Predicted value",
+                    result["prediction"].title()
+                )
+
+                col2.metric(
+                    "Actual",
+                    selected_variant["Consequence"].title()
+                )
+
+                if result["confidence"] is not None:
+                    col3.metric(
+                        "Model confidence",
+                        f"{result['confidence']:.2%}"
+                    )
+
+                if result["prediction"] == selected_variant["Consequence"]:
+                    st.success(
+                        "The model prediction matches the recorded consequence."
+                    )
+                else:
+                    st.warning(
+                        "The model prediction differs from the recorded consequence."
+                    )
+
+            else:
+                st.info(
+                    "No standard amino-acid substitutions are available "
+                    "for prediction at this position."
+                )
 
 if st.button("Explore position"):
     st.session_state["explored_position"] = position
