@@ -210,6 +210,13 @@ if st.button("Explore position"):
             "dataset because stop-loss variants alter the normal stop signal, "
             "allowing translation to continue beyond the usual protein endpoint."
         )
+        
+        st.info(
+            "Stop-loss variants were excluded from the machine-learning model "
+            "because only a very small number of stop-loss variants were present "
+            "in the dataset, which was insufficient to support reliable model "
+            "training for that consequence class."
+        )
 
         variants = variants_df[variants_df["Position"] == 1481]
 
@@ -374,9 +381,8 @@ if position_info is None and position == 1481:
         "training for that consequence class."
     )
 
-elif position_info is None and position not in valid_positions:
-    st.error("ML Prediction Unavailable.")
-    
+st.subheader("Machine Learning Prediction")
+
 if position in valid_positions and position != 1481:
 
     _, prediction_variants = get_position_summary(position)
