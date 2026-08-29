@@ -3,7 +3,11 @@ import pandas as pd
 import altair as alt
 from data_loader import load_data
 from pathlib import Path
-from ml_model import predict_consequence
+from variant_explorer import (
+    get_position_summary,
+    get_consequence_summary,
+    predict_consequence
+)
 
 st.set_page_config(
     page_title="CFTR Variant Explorer",
