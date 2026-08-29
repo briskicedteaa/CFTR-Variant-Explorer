@@ -348,7 +348,8 @@ if st.session_state["explored_position"] is not None:
                         "No standard amino-acid substitutions are available "
                         "for prediction at this position."
                     )
-                    B_PATH = Path(__file__).resolve().parent.parent / "images" / "CABEF7BF-027D-4BFF-95B4-BBD51A8C5588.gif"
+
+                   B_PATH = Path(__file__).resolve().parent.parent / "images" / "CABEF7BF-027D-4BFF-95B4-BBD51A8C5588.gif"
 
                     col1, col2, col3 = st.columns([1, 2, 1])
 
@@ -357,7 +358,7 @@ if st.session_state["explored_position"] is not None:
                             str(B_PATH),
                             use_container_width=True
                         )
-                    
+        
         if variants is not None and not variants.empty:
 
             st.subheader("Variants at this position")
