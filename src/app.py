@@ -139,7 +139,7 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-N_PATH = Path(__file__).resolve().parent.parent / "images" / "IMG_8230.jpeg"
+N_PATH = Path(__file__).resolve().parent.parent / "images" / "9dbf5075-e67f-4832-bb23-666f5c248eb0_removalai_preview.png"
 
 col1, col2, col3 = st.columns([1, 2, 1])
 
@@ -164,6 +164,16 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
+
+N_PATH = Path(__file__).resolve().parent.parent / "images" / "9dbf5075-e67f-4832-bb23-666f5c248eb0_removalai_preview.png"
+
+col1, col2, col3 = st.columns([1, 2, 1])
+
+with col2:
+    st.image(
+        str(N_PATH),
+        use_container_width=True
+    )
 
 st.markdown(
     """
