@@ -364,169 +364,173 @@ if st.session_state["explored_position"] is not None:
                 use_container_width=True
             )
                     
-            if explored_position != 1481:
-                st.subheader("CFTR Domain Conservation")
+        if explored_position != 1481:
+    st.subheader("CFTR Domain Conservation")
 
-                domain_conservation = {
-                    "NBD1": 0.820016,
-                    "NBD2": 0.790831,
-                    "Other": 0.692784,
-                    "R domain": 0.640287,
-                    "TMD1": 0.767632,
-                    "TMD2": 0.729488,
-                }
+    domain_conservation = {
+        "NBD1": 0.820016,
+        "NBD2": 0.790831,
+        "Other": 0.692784,
+        "R domain": 0.640287,
+        "TMD1": 0.767632,
+        "TMD2": 0.729488,
+    }
 
-                domain_chart_data = pd.DataFrame(
-                    list(domain_conservation.items()),
-                    columns=["Domain", "Conservation"]
+    domain_chart_data = pd.DataFrame(
+        list(domain_conservation.items()),
+        columns=["Domain", "Conservation"]
+    )
+
+    domain_chart = (
+        alt.Chart(domain_chart_data)
+        .mark_bar(
+            color="#ffc4e7",
+            cornerRadiusTopLeft=6,
+            cornerRadiusTopRight=6
+        )
+        .encode(
+            x=alt.X(
+                "Domain:N",
+                title=None
+            ),
+            y=alt.Y(
+                "Conservation:Q",
+                title="Average conservation"
+            ),
+            tooltip=[
+                alt.Tooltip(
+                    "Domain:N",
+                    title="Domain"
+                ),
+                alt.Tooltip(
+                    "Conservation:Q",
+                    title="Conservation",
+                    format=".3f"
                 )
+            ]
+        )
+    )
 
-                domain_chart = (
-                    alt.Chart(domain_chart_data)
-                    .mark_bar(
-                        color="#ffc4e7",
-                        cornerRadiusTopLeft=6,
-                        cornerRadiusTopRight=6
+    st.altair_chart(
+        domain_chart,
+        use_container_width=True
+    )
+
+if variants is not None and not variants.empty:
+    st.subheader("Variants at this position")
+    st.dataframe(variants)
+
+B_PATH = Path(__file__).resolve().parent.parent / "images" / "B07F52FD-0104-4A8D-BD55-7B8E1BA7E386.gif"
+
+col1, col2, col3 = st.columns([1, 2, 1])
+
+with col2:
+    st.image(
+        str(B_PATH),
+        use_container_width=True
+    )
+
+if explored_position != 1481:
+    st.subheader("Variant Distribution by Protein Region")
+
+    region_counts = variants_df["Region"].value_counts()
+
+    region_chart_data = (
+        region_counts
+        .rename_axis("Region")
+        .reset_index(name="Variant_Count")
+    )
+
+    region_chart = (
+        alt.Chart(region_chart_data)
+        .mark_bar(
+            color="#ffc4e7",
+            cornerRadiusTopLeft=6,
+            cornerRadiusTopRight=6
+        )
+        .encode(
+            x=alt.X(
+                "Region:N",
+                title=None
+            ),
+            y=alt.Y(
+                "Variant_Count:Q",
+                title="Variant count"
+            ),
+            tooltip=[
+                alt.Tooltip(
+                    "Region:N",
+                    title="Region"
+                ),
+                alt.Tooltip(
+                    "Variant_Count:Q",
+                    title="Variants"
+                )
+            ]
+        )
+    )
+
+    st.altair_chart(
+        region_chart,
+        use_container_width=True
+    )
+
+    B_PATH = Path(__file__).resolve().parent.parent / "images" / "B07F52FD-0104-4A8D-BD55-7B8E1BA7E386.gif"
+
+    col1, col2, col3 = st.columns([1, 2, 1])
+
+    with col2:
+        st.image(
+            str(B_PATH),
+            use_container_width=True
+        )
+
+    st.subheader("Variant consequences")
+
+    consequence_summary = get_consequence_summary(
+        explored_position
+    )
+
+    if consequence_summary:
+        consequence_chart_data = (
+            pd.Series(consequence_summary)
+            .rename_axis("Consequence")
+            .reset_index(name="Count")
+        )
+
+        consequence_chart = (
+            alt.Chart(consequence_chart_data)
+            .mark_bar(
+                color="#ffc4e7",
+                cornerRadiusTopLeft=6,
+                cornerRadiusTopRight=6
+            )
+            .encode(
+                x=alt.X(
+                    "Consequence:N",
+                    title=None
+                ),
+                y=alt.Y(
+                    "Count:Q",
+                    title="Variant count"
+                ),
+                tooltip=[
+                    alt.Tooltip(
+                        "Consequence:N",
+                        title="Consequence"
+                    ),
+                    alt.Tooltip(
+                        "Count:Q",
+                        title="Variants"
                     )
-                    .encode(
-                        x=alt.X(
-                            "Domain:N",
-                            title=None
-                        ),
-                        y=alt.Y(
-                            "Conservation:Q",
-                            title="Average conservation"
-                        ),
-                        tooltip=[
-                            alt.Tooltip(
-                                "Domain:N",
-                                title="Domain"
-                            ),
-                            alt.Tooltip(
-                                "Conservation:Q",
-                                title="Conservation",
-                                format=".3f"
-                            )
-                        ]
-                    )
-                )
+                ]
+            )
+        )
 
-                st.altair_chart(
-                    domain_chart,
-                    use_container_width=True
-                )
-                
-            B_PATH = Path(__file__).resolve().parent.parent / "images" / "B07F52FD-0104-4A8D-BD55-7B8E1BA7E386.gif"
-
-            col1, col2, col3 = st.columns([1, 2, 1])
-
-            with col2:
-                st.image(
-                    str(B_PATH),
-                    use_container_width=True
-                )
-                
-                st.subheader("Variant Distribution by Protein Region")
-
-                region_counts = variants_df["Region"].value_counts()
-
-                region_chart_data = (
-                    region_counts
-                    .rename_axis("Region")
-                    .reset_index(name="Variant_Count")
-                )
-
-                region_chart = (
-                    alt.Chart(region_chart_data)
-                    .mark_bar(
-                        color="#ffc4e7",
-                        cornerRadiusTopLeft=6,
-                        cornerRadiusTopRight=6
-                    )
-                    .encode(
-                        x=alt.X(
-                            "Region:N",
-                            title=None
-                        ),
-                        y=alt.Y(
-                            "Variant_Count:Q",
-                            title="Variant count"
-                        ),
-                        tooltip=[
-                            alt.Tooltip(
-                                "Region:N",
-                                title="Region"
-                            ),
-                            alt.Tooltip(
-                                "Variant_Count:Q",
-                                title="Variants"
-                            )
-                        ]
-                    )
-                )
-
-                st.altair_chart(
-                    region_chart,
-                    use_container_width=True
-                )
-
-            B_PATH = Path(__file__).resolve().parent.parent / "images" / "B07F52FD-0104-4A8D-BD55-7B8E1BA7E386.gif"
-
-            col1, col2, col3 = st.columns([1, 2, 1])
-
-            with col2:
-                st.image(
-                    str(B_PATH),
-                    use_container_width=True
-                )
-                
-                st.subheader("Variant consequences")
-
-                consequence_summary = get_consequence_summary(
-                    explored_position
-                )
-
-                if consequence_summary:
-
-                    consequence_chart_data = (
-                        pd.Series(consequence_summary)
-                        .rename_axis("Consequence")
-                        .reset_index(name="Count")
-                    )
-
-                    consequence_chart = (
-                        alt.Chart(consequence_chart_data)
-                        .mark_bar(
-                            color="#ffc4e7",
-                            cornerRadiusTopLeft=6,
-                            cornerRadiusTopRight=6
-                        )
-                        .encode(
-                            x=alt.X(
-                                "Consequence:N",
-                                title=None
-                            ),
-                            y=alt.Y(
-                                "Count:Q",
-                                title="Variant count"
-                            ),
-                            tooltip=[
-                                alt.Tooltip(
-                                    "Consequence:N",
-                                    title="Consequence"
-                                ),
-                                alt.Tooltip(
-                                    "Count:Q",
-                                    title="Variants"
-                                )
-                            ]
-                        )
-                    )
-
-                    st.altair_chart(
-                        consequence_chart,
-                        use_container_width=True
-                    )
+        st.altair_chart(
+            consequence_chart,
+            use_container_width=True
+        )
             
 if st.session_state.get("explored_position") in valid_positions:
     st.markdown("""
