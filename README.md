@@ -6,7 +6,7 @@ An interactive bioinformatics tool for exploring genetic variants across the CFT
 
 ### Project Overview
 
-I developed the CFTR Variant Explorer to investigate where genetic variants occur across the CFTR protein, what types of variants occur at those positions, and what characteristics of the affected protein regions might help explain differences in their potential functional effects.
+I developed the [CFTR Variant Explorer](https://cftr-variant-explorer.streamlit.app) to investigate where genetic variants occur across the CFTR protein, what types of variants occur at those positions, and what characteristics of the affected protein regions might help explain differences in their potential functional effects.
 
 The project combines computational bioinformatics analysis with machine learning and an interactive Streamlit application. Users can enter a human CFTR amino-acid position and explore the variants recorded at that position, associated protein characteristics, broader patterns across CFTR, and machine-learning predictions for eligible amino-acid substitutions.
 
