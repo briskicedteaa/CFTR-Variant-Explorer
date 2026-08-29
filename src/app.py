@@ -70,16 +70,6 @@ human_sequence = cftr_df.loc[
 
 valid_positions = set(variants_df["Position"].dropna().astype(int))
 
-PINK_PATH = Path(__file__).resolve().parent.parent / "images" / "CABEF7BF-027D-4BFF-95B4-BBD51A8C5588.gif"
-
-col1, col2, col3 = st.columns([1, 2, 1])
-
-with col2:
-    st.image(
-        str(PINK_PATH),
-        use_container_width=True
-    )
-
 st.markdown(
     "<h1 style='text-align: center; font-size: 3rem;'>"
     "CFTR Variant Explorer"
