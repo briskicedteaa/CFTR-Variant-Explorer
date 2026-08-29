@@ -316,7 +316,7 @@ if st.session_state["explored_position"] is not None:
                     
                     st.info(
                         "The confidence score indicates "
-                        "how strongly the model favors its prediction. Because the model was trained 
+                        "how strongly the model favors its prediction. Because the model was trained "
                         "on existing CFTR variant data, its predictions should be interpreted as "
                         "computational estimates rather than definitive evidence of biological or "
                         "clinical effect." 
