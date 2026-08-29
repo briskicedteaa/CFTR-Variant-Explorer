@@ -127,13 +127,12 @@ st.markdown(
     """
     <div class="info-bubble">
         <p style='text-align: center; font-family: Fredoka, sans-serif; font-size: 1.2rem; font-weight: 500;'>
-            CFTR variants are responsible for the underlying genetic changes associated with
-            cystic fibrosis and other CFTR-related conditions, but their effects are not always
-            the same. Differences in CFTR function can contribute to major clinical challenges,
-            including persistent respiratory symptoms, recurrent lung infections, digestive and
-            nutritional complications, and the long-term progression of disease. Because individual
-            variants can disrupt CFTR function in different ways, determining how a specific variant
-            affects the protein is an important part of understanding its potential clinical significance.
+            CFTR variants are genetic changes that can affect the structure, processing, o
+            function of the CFTR protein. Their effects are not always the same, even when
+            variants occur within the same general region or share a similar consequence
+            type. Understanding these differences is important for investigating how
+            changes in the CFTR sequence may relate to protein function and potential
+            clinical significance.
         </p>
     </div>
     """,
@@ -154,13 +153,20 @@ st.markdown(
     """
     <div class="info-bubble">
         <p style='text-align: center; font-family: Fredoka, sans-serif; font-size: 1.2rem; font-weight: 500;'>
-            The purpose of this project is to investigate the molecular patterns that may help explain
-            differences between CFTR variants and their potential effects on health. By examining where
-            variants occur, what types of changes they produce, and what characteristics define the
-            affected regions of the CFTR protein, the Explorer provides an interactive way to connect
-            genetic variation with protein function and its broader clinical relevance. This approach
-            can help make complex CFTR variant data more accessible for exploring why different genetic
-            changes may contribute to different outcomes for patients.
+            The purpose of this project is to investigate patterns across CFTR variants by
+            examining where variants occur in the protein, what types of consequences they
+            have, how variants are distributed across protein regions, and how conserved
+            the affected domains are. The Explorer brings these analyses together in an
+            interactive interface so users can examine individual positions while also
+            viewing broader patterns across the CFTR protein.
+
+            The project also uses machine learning to predict the likely consequence of
+            selected amino-acid substitutions. By comparing the model's predictions with
+            recorded variant consequences and displaying its confidence, the Explorer
+            demonstrates how computational methods can be applied to biological variant
+            data. Together, these analyses provide a data-driven approach for exploring
+            relationships between CFTR sequence variation, protein characteristics, and.    
+            variant consequences
         </p>
     </div>
     """,
@@ -552,11 +558,11 @@ if st.session_state.get("explored_position") in valid_positions:
 <h3>What The Data Suggests (Overall)</h3>
 
 <p>
-CFTR domains differ in their average conservation.
-NBD1 is the most conserved domain in this dataset, while the R domain
-has the lowest average conservation. Variant distribution also differs
-across the N-terminal, Middle, and C-terminal regions.
-</p>
+CFTR domains differ in their average conservation, with NBD1 being the most conserved domain in this dataset and the R domain having the lowest average conservation. 
+Variant distribution also differs across the N-terminal, Middle, and C-terminal regions, and multiple consequence types can occur at the same amino-acid position. 
+The machine-learning component predicts the likely consequence of a selected amino-acid substitution based on patterns learned from the CFTR variant dataset, 
+allowing the prediction to be compared with the recorded consequence. These results identify patterns and computational predictions within the dataset but do not 
+by themselves establish the biological or clinical effect of an individual variant.
 </div>
 """, unsafe_allow_html=True)
 
@@ -575,25 +581,45 @@ across the N-terminal, Middle, and C-terminal regions.
 <h3>Why This Matters</h3>
 
 <p>
-CFTR helps regulate chloride and bicarbonate transport across
-epithelial tissues. Changes that substantially reduce CFTR function
-can affect several organs and contribute to the manifestations
-associated with cystic fibrosis.
+CFTR helps regulate chloride and bicarbonate transport across epithelial tissues,
+making it important for the normal function of several organs. Changes in CFTR
+can affect how the protein folds, reaches the cell surface, or functions as an
+ion channel, contributing to the effects associated with cystic fibrosis and
+other CFTR-related conditions. Because different variants can affect CFTR in
+different ways, identifying where a variant occurs and what type of change it
+produces can provide important information about its potential functional
+significance.
 </p>
 
 <p>
-By examining where variants occur, what types of changes they represent,
-and how conserved the affected regions are, this project helps investigate
-why variants in different parts of CFTR may have different functional
-consequences. These patterns can also help identify regions of the protein
-that may be particularly important for CFTR function.
+This project examines CFTR variants from multiple perspectives by investigating
+where variants occur across the protein, what consequence types are associated
+with those positions, which protein regions contain greater numbers of variants,
+and how conserved different CFTR domains are. By comparing variant locations
+with regional and domain-level characteristics, the Explorer provides an
+interactive way to investigate patterns between sequence variation and
+characteristics of the affected protein regions.
 </p>
 
 <p>
-Importantly, this analysis identifies patterns and possible relationships
-rather than proving that a particular variant causes a specific clinical outcome.
+The project also incorporates machine learning to analyze individual
+amino-acid substitutions. The model was trained using CFTR variant data and
+predicts the likely consequence of a selected substitution. Users can compare
+the model's prediction with the recorded consequence of that variant while
+also viewing the model's confidence, demonstrating how patterns within existing
+biological data can be used for computational variant classification.
 </p>
 
+<p>
+Together, these analyses connect sequence-level variation, protein-region
+characteristics, conservation, variant consequences, and machine-learning
+prediction in one interactive tool. The goal is to identify patterns that may
+help explain why variants occurring in different parts of CFTR can have
+different functional consequences. Importantly, these patterns and
+machine-learning predictions represent computational analyses of the available
+dataset and should not be interpreted as definitive evidence of an individual
+variant's biological or clinical effect.
+</p>
 </div>
 """, unsafe_allow_html=True)
 
@@ -612,65 +638,34 @@ rather than proving that a particular variant causes a specific clinical outcome
 <h3>Understanding Variant Consequences</h3>
 
 <p>
-A variant consequence describes what a genetic change does to the
-CFTR sequence or protein. The consequence type alone does not determine
-whether a variant is harmful. Its effect depends on the specific change,
-where it occurs, and how much functional CFTR remains.
+CFTR plays an important role in regulating the movement of chloride and
+bicarbonate ions across epithelial tissues. Variants that reduce or disrupt
+CFTR function can alter this transport and affect the movement of water and
+ions across tissues. The resulting effects can involve multiple organs,
+depending on the amount of CFTR function that remains and the specific
+biological properties of the variant.
 </p>
 
 <p>
-Missense variants replace one amino acid with another. Depending on the
-location and properties of the substituted amino acid, this can have little
-effect or can interfere with CFTR folding, stability, trafficking, or channel
-activity.
+In the lungs, substantially impaired CFTR function can contribute to changes
+in airway surface liquid and mucus clearance, which can increase the risk of
+airway obstruction, inflammation, and recurrent respiratory infections. In
+the digestive system, CFTR dysfunction can affect the pancreas and
+gastrointestinal tract and may contribute to difficulties with digestion and
+nutrient absorption. The severity and combination of these effects can vary
+between individuals and between different CFTR variants.
 </p>
 
 <p>
-Frameshift variants result from insertions or deletions that change the
-reading frame. They can alter the downstream protein sequence and may
-introduce a premature stop signal, often resulting in substantially reduced
-CFTR function.
+These clinical effects are not determined by variant consequence type alone.
+Different variants can affect CFTR through different molecular mechanisms and
+can leave different amounts of residual protein function. As a result,
+variants with the same general consequence category can have different
+biological effects and may be associated with different clinical outcomes.
+This is why examining variant location, consequence, conservation, and
+protein-region characteristics together can provide more context than
+considering consequence type alone.
 </p>
-
-<p>
-Inframe deletions remove one or more amino acids without shifting the
-reading frame. Their effects depend strongly on which amino acids and
-structural regions are removed.
-</p>
-
-<p>
-Synonymous, sometimes called silent, variants do not change the encoded
-amino acid. They are often less disruptive to the protein sequence, but
-some can still affect RNA processing or splicing.
-</p>
-
-<p>
-Nonsense or stop-gained variants introduce a premature stop signal.
-This can produce a shortened protein or cause the cell to destroy the
-altered RNA before a functional protein is produced.
-</p>
-
-<p>
-Stop-loss variants alter the normal stop signal at the end of the CFTR
-coding sequence. Instead of stopping at the usual endpoint, protein
-production can continue beyond the normal 1,480-amino-acid sequence,
-producing an altered protein with additional amino acids at its end.
-</p>
-
-<p>
-This type of variant is represented in this dataset at position 1481.
-These variants are recorded as stop-loss changes, meaning that the normal
-CFTR stop signal has been altered. Position 1481 therefore does not mean
-that normal CFTR is 1,481 amino acids long; rather, it reflects a variant
-that can extend translation beyond the usual protein endpoint.
-</p>
-
-<p>
-Splice-site variants can interfere with the normal processing of CFTR RNA.
-This may result in abnormal transcripts and reduced production of correctly
-functioning CFTR protein.
-</p>
-
 </div>
 """, unsafe_allow_html=True)
 
