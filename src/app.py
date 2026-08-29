@@ -198,7 +198,7 @@ if st.session_state.get("explored_position") is not None:
 
     if explored_position in valid_positions and explored_position != 1481:
         st.markdown(
-            "<h3 style='text-align: center;'>Variant Explorer</h3>",
+            "<h3 style='text-align: center;'>Machine Learning Prediction</h3>",
             unsafe_allow_html=True
         )
 
