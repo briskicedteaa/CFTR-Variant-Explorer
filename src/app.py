@@ -189,9 +189,6 @@ position = st.number_input(
     step=1
 )
 
-with st.expander("View positions with recorded variants"):
-            st.write(sorted(valid_positions))
-
 if st.session_state.get("explored_position") is not None:
 
     explored_position = st.session_state["explored_position"]
@@ -269,6 +266,9 @@ if st.session_state.get("explored_position") is not None:
                     "No standard amino-acid substitutions are available "
                     "for prediction at this position."
                 )
+
+with st.expander("View positions with recorded variants"):
+            st.write(sorted(valid_positions))
 
 if st.button("Explore position"):
     st.session_state["explored_position"] = position
