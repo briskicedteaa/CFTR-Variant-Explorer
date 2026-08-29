@@ -370,16 +370,6 @@ if st.button("Explore position"):
                 consequence_chart,
                 use_container_width=True
             )
-    
-if position_info is None and position == 1481:
-    st.subheader("CFTR Position 1481")
-
-    st.info(
-        "Stop-loss variants were excluded from the machine-learning model "
-        "because only a very small number of stop-loss variants were present "
-        "in the dataset, which was insufficient to support reliable model "
-        "training for that consequence class."
-    )
 
 st.subheader("Machine Learning Prediction")
 
