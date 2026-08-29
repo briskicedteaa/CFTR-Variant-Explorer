@@ -159,20 +159,29 @@ st.markdown(
             the affected domains are. The Explorer brings these analyses together in an
             interactive interface so users can examine individual positions while also
             viewing broader patterns across the CFTR protein.
-
-            The project also uses machine learning to predict the likely consequence of
-            selected amino-acid substitutions. By comparing the model's predictions with
-            recorded variant consequences and displaying its confidence, the Explorer
-            demonstrates how computational methods can be applied to biological variant
-            data. Together, these analyses provide a data-driven approach for exploring
-            relationships between CFTR sequence variation, protein characteristics, and.    
-            variant consequences
         </p>
     </div>
     """,
     unsafe_allow_html=True
 )
 
+st.markdown(
+    """
+    <div class="info-bubble">
+        <p style='text-align: center; font-family: Fredoka, sans-serif; font-size: 1.2rem; font-weight: 500;'>
+            The project also uses machine learning to predict the likely consequence of
+            selected amino-acid substitutions. By comparing the model's predictions with
+            recorded variant consequences and displaying its confidence, the Explorer
+            demonstrates how computational methods can be applied to biological variant
+            data. Together, these analyses provide a data-driven approach for exploring
+            relationships between CFTR sequence variation, protein characteristics, and
+            variant consequences.
+        </p>
+    </div>
+    """,
+    unsafe_allow_html=True 
+)
+    
 st.markdown(
     "<h3 style='text-align: center;'>Variant Explorer</h3>",
     unsafe_allow_html=True
