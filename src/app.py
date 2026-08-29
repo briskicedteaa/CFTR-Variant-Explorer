@@ -19,7 +19,9 @@ st.markdown("""
 @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&family=Quicksand:wght@400;500;600;700&display=swap');
 
 html, body, [class*="css"] {
+
     font-family: 'Fredoka', sans-serif !important;
+
 }
 
 h1, h2, h3 {
@@ -50,6 +52,11 @@ h1, h2, h3 {
 </style>
 """, unsafe_allow_html=True)
 
+from variant_explorer import (
+    get_position_summary,
+    get_consequence_summary
+)
+
 position_df, variants_df = load_data()
 
 DATA_DIR = Path(__file__).resolve().parent.parent / "data"
@@ -61,9 +68,7 @@ human_sequence = cftr_df.loc[
     "Sequence"
 ].iloc[0]
 
-valid_positions = set(
-    variants_df["Position"].dropna().astype(int)
-)
+valid_positions = set(variants_df["Position"].dropna().astype(int))
 
 st.markdown(
     "<h1 style='text-align: center; font-size: 3rem;'>"
@@ -115,7 +120,7 @@ with col2:
     )
 
 st.markdown(
-    "<p style='font-family: Fredoka, sans-serif; font-size: 1.2rem; font-weight: 500;'>"
+    "<p style='font-family: Fredoka, sans-serif; font-size: 1.2rem; font-weight: 500;''>"
     "Where do CFTR variants occur across the protein, what types of variants "
     "occur at those positions, and what characteristics of the affected protein "
     "regions might help explain their different effects on CFTR function?"
@@ -188,100 +193,20 @@ position = st.number_input(
 )
 
 with st.expander("View positions with recorded variants"):
-    st.write(sorted(valid_positions))
+            st.write(sorted(valid_positions))
 
 if st.button("Explore position"):
     st.session_state["explored_position"] = position
+    
+if st.session_state["explored_position"] is not None:
 
-explored_position = st.session_state.get("explored_position")
+    explored_position = st.session_state["explored_position"]
 
-if (
-    explored_position is not None
-    and explored_position in valid_positions
-    and explored_position != 1481
-):
-
-    st.subheader("Machine Learning Prediction")
-
-    _, prediction_variants = get_position_summary(
-        explored_position
-    )
-
-    if prediction_variants is not None and not prediction_variants.empty:
-
-        substitution_variants = prediction_variants[
-            prediction_variants["MutatedType"].notna()
-            & (prediction_variants["MutatedType"] != "*")
-            & prediction_variants["MutatedType"].isin(
-                list("ACDEFGHIKLMNPQRSTVWY")
-            )
-        ].copy()
-
-        if not substitution_variants.empty:
-
-            substitution_variants["Variant"] = (
-                substitution_variants["WildType"].astype(str)
-                + " → "
-                + substitution_variants["MutatedType"].astype(str)
-            )
-
-            selected_variant_label = st.selectbox(
-                "Select a variant",
-                substitution_variants["Variant"].tolist()
-            )
-
-            selected_variant = substitution_variants[
-                substitution_variants["Variant"] == selected_variant_label
-            ].iloc[0]
-
-            result = predict_consequence(
-                int(selected_variant["Position"]),
-                selected_variant["WildType"],
-                selected_variant["MutatedType"]
-            )
-
-            col1, col2, col3 = st.columns(3)
-
-            col1.metric(
-                "Predicted value",
-                result["prediction"].title()
-            )
-
-            col2.metric(
-                "Actual",
-                selected_variant["Consequence"].title()
-            )
-
-            if result["confidence"] is not None:
-                col3.metric(
-                    "Model confidence",
-                    f"{result['confidence']:.2%}"
-                )
-
-            if result["prediction"] == selected_variant["Consequence"]:
-                st.success(
-                    "The model prediction matches the recorded consequence."
-                )
-            else:
-                st.warning(
-                    "The model prediction differs from the recorded consequence."
-                )
-
-        else:
-            st.info(
-                "No standard amino-acid substitutions are available "
-                "for prediction at this position."
-            )
-
-if explored_position is not None:
-
-    position_info, variants = get_position_summary(
-        explored_position
-    )
+    position_info, variants = get_position_summary(explored_position)
 
     st.title("Results")
 
-    if explored_position not in valid_positions:
+    if position_info is None and explored_position not in valid_positions:
         st.error("That position was not found in the CFTR dataset.")
 
     elif position_info is None and explored_position == 1481:
@@ -302,7 +227,7 @@ if explored_position is not None:
 
         variants = variants_df[
             variants_df["Position"] == 1481
-        ]
+        ].copy()
 
         col1, col2, col3 = st.columns(3)
 
@@ -311,9 +236,7 @@ if explored_position is not None:
         col3.metric("Variant count", len(variants))
 
     elif position_info is not None and explored_position in valid_positions:
-        st.subheader(
-            f"CFTR Position {explored_position}"
-        )
+        st.subheader(f"CFTR Position {explored_position}")
 
         info = position_info.iloc[0]
 
@@ -334,14 +257,9 @@ if explored_position is not None:
             int(info["Variant_Count"])
         )
 
-    if variants is None or variants.empty:
-        st.info(
-            "No recorded variants were found at this position."
-        )
+    if variants is not None and not variants.empty:
 
-    else:
         st.subheader("Variants at this position")
-
         st.dataframe(variants)
 
         if explored_position != 1481:
@@ -397,9 +315,7 @@ if explored_position is not None:
                 use_container_width=True
             )
 
-            st.subheader(
-                "Variant Distribution by Protein Region"
-            )
+            st.subheader("Variant Distribution by Protein Region")
 
             region_counts = variants_df["Region"].value_counts()
 
@@ -491,6 +407,9 @@ if explored_position is not None:
                     use_container_width=True
                 )
 
+    else:
+        st.info("No recorded variants were found at this position.")
+            
 if st.session_state.get("explored_position") in valid_positions:
 
     st.markdown("""
@@ -506,6 +425,7 @@ across the N-terminal, Middle, and C-terminal regions.
 </div>
 """, unsafe_allow_html=True)
 
+
     DON_PATH = Path(__file__).resolve().parent.parent / "images" / "77C31030-2369-452B-B746-B1636E691D0B.gif"
 
     col1, col2, col3 = st.columns([1, 2, 1])
@@ -515,6 +435,7 @@ across the N-terminal, Middle, and C-terminal regions.
             str(DON_PATH),
             use_container_width=True
         )
+
 
     st.markdown("""
 <div class="info-bubble">
@@ -543,6 +464,7 @@ rather than proving that a particular variant causes a specific clinical outcome
 </div>
 """, unsafe_allow_html=True)
 
+
     DON_PATH = Path(__file__).resolve().parent.parent / "images" / "77C31030-2369-452B-B746-B1636E691D0B.gif"
 
     col1, col2, col3 = st.columns([1, 2, 1])
@@ -552,6 +474,7 @@ rather than proving that a particular variant causes a specific clinical outcome
             str(DON_PATH),
             use_container_width=True
         )
+
 
     st.markdown("""
 <div class="info-bubble">
@@ -620,6 +543,7 @@ functioning CFTR protein.
 </div>
 """, unsafe_allow_html=True)
 
+
     DON_PATH = Path(__file__).resolve().parent.parent / "images" / "77C31030-2369-452B-B746-B1636E691D0B.gif"
 
     col1, col2, col3 = st.columns([1, 2, 1])
@@ -629,6 +553,7 @@ functioning CFTR protein.
             str(DON_PATH),
             use_container_width=True
         )
+
 
     st.markdown("""
 <div class="info-bubble">
