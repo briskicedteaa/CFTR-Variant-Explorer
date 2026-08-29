@@ -9,10 +9,6 @@ from variant_explorer import (
     predict_consequence
 )
 
-col1.metric("Domain", "NaN")
-col2.metric("Conservation", "NaN")
-col3.metric("Variant count", len(variants))
-
 st.set_page_config(
     page_title="CFTR Variant Explorer",
     layout="wide"
