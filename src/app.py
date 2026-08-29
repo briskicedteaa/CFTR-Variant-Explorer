@@ -423,8 +423,9 @@ if st.session_state["explored_position"] is not None:
 
                 st.altair_chart(
                     domain_chart,
-                    use_container_width=
-                    
+                    use_container_width=True
+                )
+                
                 B_PATH = Path(__file__).resolve().parent.parent / "images" / "762E5BF5-2C2A-47D2-B6D5-CE4384BD2CE5.gif"
 
                 col1, col2, col3 = st.columns([1, 2, 1])
