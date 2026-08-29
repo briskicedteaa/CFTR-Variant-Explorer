@@ -266,6 +266,13 @@ if st.session_state["explored_position"] is not None:
 
                 st.subheader("Machine Learning Prediction")
 
+                st.info(
+                    "The machine-learning model predicts the likely consequence of the "
+                    "selected CFTR variant based on its amino-acid position and substitution. "
+                    "The prediction is made for the specific variant you selected, rather than "
+                    "for every variant recorded at that position. 
+                )
+
                 prediction_variants = variants.copy()
 
                 substitution_variants = prediction_variants[
@@ -302,22 +309,20 @@ if st.session_state["explored_position"] is not None:
 
                     col1, col2, col3 = st.columns(3)
 
-                    st.info(
-                        "The machine-learning model predicts the likely consequence of the "
-                        "selected CFTR variant based on its amino-acid position and substitution. "
-                        "The prediction is made for the specific variant you selected, rather than "
-                        "for every variant recorded at that position. The confidence score indicates "
-                        "how strongly the model favors its prediction. Because the model was trained "
-                        "on existing CFTR variant data, its predictions should be interpreted as "
-                        "computational estimates rather than definitive evidence of biological or "
-                        "clinical effect."
-                    )
-
                     col1.metric(
                         "Predicted value",
                         result["prediction"].title()
                     )
+                    
+                    st.info(
+                        "The confidence score indicates "
+                        "how strongly the model favors its prediction. Because the model was trained 
+                        "on existing CFTR variant data, its predictions should be interpreted as "
+                        "computational estimates rather than definitive evidence of biological or "
+                        "clinical effect." 
+                    )
 
+                    
                     col2.metric(
                         "Actual",
                         selected_variant["Consequence"].title()
