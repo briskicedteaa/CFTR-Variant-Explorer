@@ -119,16 +119,6 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-IMG1_PATH = Path(__file__).resolve().parent.parent / "images" / "IMG_8224-Picsart-BackgroundRemover.jpeg.png"
-
-col1, col2, col3 = st.columns([1, 3, 1])
-
-with col2:
-    st.image(
-        str(IMG1_PATH),
-        use_container_width=True
-    )
-
 st.markdown(
     "<p style='font-family: Fredoka, sans-serif; font-size: 1.2rem; font-weight: 500;''>"
     "Where do CFTR variants occur across the protein, what types of variants "
