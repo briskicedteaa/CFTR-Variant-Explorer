@@ -263,12 +263,8 @@ if st.session_state["explored_position"] is not None:
                     int(info["Variant_Count"])
                 )
 
-        if variants is not None and not variants.empty:
 
-            st.subheader("Variants at this position")
-            st.dataframe(variants)
-
-            if explored_position != 1481:
+        if explored_position != 1481:
 
                 st.subheader("Machine Learning Prediction")
 
@@ -343,6 +339,12 @@ if st.session_state["explored_position"] is not None:
                         "No standard amino-acid substitutions are available "
                         "for prediction at this position."
                     )
+                    
+        if variants is not None and not variants.empty:
+
+            st.subheader("Variants at this position")
+            st.dataframe(variants)
+
 
             if explored_position != 1481:
 
