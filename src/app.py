@@ -372,12 +372,30 @@ if position in valid_positions and position != 1481:
 
     if prediction_variants is not None and not prediction_variants.empty:
 
-        selected_variant = prediction_variants.iloc[0]
+        substitution_variants = prediction_variants[
+            prediction_variants["MutatedType"].notna()
+            & (prediction_variants["MutatedType"] != "*")
+            & prediction_variants["MutatedType"].isin(
+                list("ACDEFGHIKLMNPQRSTVWY")
+            )
+        ].copy()
 
-        if (
-            pd.notna(selected_variant["MutatedType"])
-            and selected_variant["MutatedType"] != "*"
-        ):
+        if not substitution_variants.empty:
+
+            substitution_variants["Variant"] = (
+                substitution_variants["WildType"].astype(str)
+                + " → "
+                + substitution_variants["MutatedType"].astype(str)
+            )
+
+            selected_variant_label = st.selectbox(
+                "Select a variant",
+                substitution_variants["Variant"].tolist()
+            )
+
+            selected_variant = substitution_variants[
+                substitution_variants["Variant"] == selected_variant_label
+            ].iloc[0]
 
             result = predict_consequence(
                 int(selected_variant["Position"]),
@@ -414,8 +432,8 @@ if position in valid_positions and position != 1481:
 
         else:
             st.info(
-                "This variant does not have a standard amino-acid substitution, "
-                "so the machine-learning prediction is not available."
+                "No standard amino-acid substitutions are available "
+                "for prediction at this position."
             )
 
     else:
