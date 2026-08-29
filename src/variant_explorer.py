@@ -1,5 +1,18 @@
 from data_loader import load_data
 
+import joblib
+from pathlib import Path
+
+DATA_DIR = Path(__file__).resolve().parent.parent / "data"
+
+final_model = joblib.load(
+    DATA_DIR / "cftr_random_forest.pkl"
+)
+
+model_features = joblib.load(
+    DATA_DIR / "cftr_model_features.pkl"
+)
+
 def get_position(position):
     FinalPosition, CFTR_variants = load_data()
   
