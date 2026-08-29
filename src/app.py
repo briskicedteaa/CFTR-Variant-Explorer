@@ -182,6 +182,13 @@ if position in valid_positions and position != 1481:
         "<h3 style='text-align: center;'>Machine Learning Prediction</h3>",
         unsafe_allow_html=True
     )
+    
+    position = st.number_input(
+        "Enter a CFTR amino-acid position",
+        min_value=1,
+        max_value=1481,
+        step=1
+    )
 
     _, prediction_variants = get_position_summary(position)
 
