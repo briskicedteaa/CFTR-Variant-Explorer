@@ -505,47 +505,55 @@ if st.button("Explore position"):
 st.subheader("Machine Learning Prediction")
 
 if (
-    pd.notna(selected_variant["MutatedType"])
-    and selected_variant["MutatedType"] != "*"
+    position in valid_positions
+    and position != 1481
+    and variants is not None
+    and not variants.empty
 ):
-    result = predict_consequence(
-        int(selected_variant["Position"]),
-        selected_variant["WildType"],
-        selected_variant["MutatedType"]
-    )
+    selected_variant = variants.iloc[0]
 
-    col1, col2, col3 = st.columns(3)
-
-    col1.metric(
-        "Predicted value",
-        result["prediction"].title()
-    )
-
-    col2.metric(
-        "Actual",
-        selected_variant["Consequence"].title()
-    )
-
-    if result["confidence"] is not None:
-        col3.metric(
-            "Model confidence",
-            f"{result['confidence']:.2%}"
+    if (
+        pd.notna(selected_variant["MutatedType"])
+        and selected_variant["MutatedType"] != "*"
+    ):
+        result = predict_consequence(
+            int(selected_variant["Position"]),
+            selected_variant["WildType"],
+            selected_variant["MutatedType"]
         )
 
-    if result["prediction"] == selected_variant["Consequence"]:
-        st.success(
-            "The model prediction matches the recorded consequence."
+        col1, col2, col3 = st.columns(3)
+
+        col1.metric(
+            "Predicted value",
+            result["prediction"].title()
         )
+
+        col2.metric(
+            "Actual",
+            selected_variant["Consequence"].title()
+        )
+
+        if result["confidence"] is not None:
+            col3.metric(
+                "Model confidence",
+                f"{result['confidence']:.2%}"
+            )
+
+        if result["prediction"] == selected_variant["Consequence"]:
+            st.success(
+                "The model prediction matches the recorded consequence."
+            )
+        else:
+            st.warning(
+                "The model prediction differs from the recorded consequence."
+            )
+
     else:
-        st.warning(
-            "The model prediction differs from the recorded consequence."
+        st.info(
+            "This variant does not have a standard amino-acid substitution, "
+            "so the machine-learning prediction is not available."
         )
-
-else:
-    st.info(
-        "This variant does not have a standard amino-acid substitution, "
-        "so the machine-learning prediction is not available."
-    )
 
 if st.session_state.get("explored_position") in valid_positions:
 
