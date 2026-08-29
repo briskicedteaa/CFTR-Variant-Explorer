@@ -263,13 +263,13 @@ if st.session_state["explored_position"] is not None:
                     int(info["Variant_Count"])
                 )
                 
-                B_PATH = Path(__file__).resolve().parent.parent / "images" / CABEF7BF-027D-4BFF-95B4-BBD51A8C5588.gif"
+                B_PATH = Path(__file__).resolve().parent.parent / "images" / "CABEF7BF-027D-4BFF-95B4-BBD51A8C5588.gif"
 
                 col1, col2, col3 = st.columns([1, 2, 1])
 
                 with col2:
                     st.image(
-                        str(DON_PATH),
+                        str(B_PATH),
                         use_container_width=True
                     )
   
