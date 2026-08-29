@@ -313,16 +313,7 @@ if st.session_state["explored_position"] is not None:
                         "Predicted value",
                         result["prediction"].title()
                     )
-                    
-                    st.info(
-                        "The confidence score indicates "
-                        "how strongly the model favors its prediction. Because the model was trained "
-                        "on existing CFTR variant data, its predictions should be interpreted as "
-                        "computational estimates rather than definitive evidence of biological or "
-                        "clinical effect." 
-                    )
 
-                    
                     col2.metric(
                         "Actual",
                         selected_variant["Consequence"].title()
@@ -353,6 +344,14 @@ if st.session_state["explored_position"] is not None:
                         "No standard amino-acid substitutions are available "
                         "for prediction at this position."
                     )
+                    
+                st.info(
+                    "The confidence score indicates "
+                    "how strongly the model favors its prediction. Because the model was trained "
+                    "on existing CFTR variant data, its predictions should be interpreted as "
+                    "computational estimates rather than definitive evidence of biological or "
+                    "clinical effect." 
+                )
 
                 B_PATH = Path(__file__).resolve().parent.parent / "images" / "B07F52FD-0104-4A8D-BD55-7B8E1BA7E386.gif"
 
