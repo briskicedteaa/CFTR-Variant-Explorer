@@ -2,5 +2,4 @@ streamlit
 pandas
 altair
 biopython
-py3Dmol
-colabfold[alphafold]
+joblib
