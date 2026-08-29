@@ -202,196 +202,292 @@ if st.session_state["explored_position"] is not None:
 
     explored_position = st.session_state["explored_position"]
 
-    position_info, variants = get_position_summary(explored_position)
-
-    st.title("Results")
-
-    if position_info is None and explored_position not in valid_positions:
+    if explored_position not in valid_positions:
+        st.title("Results")
         st.error("That position was not found in the CFTR dataset.")
 
-    elif position_info is None and explored_position == 1481:
-        st.subheader("CFTR Position 1481")
+    else:
+        position_info, variants = get_position_summary(explored_position)
 
-        st.info(
-            "CFTR contains 1,480 amino acids. Position 1481 appears in this "
-            "dataset because stop-loss variants alter the normal stop signal, "
-            "allowing translation to continue beyond the usual protein endpoint."
-        )
+        st.title("Results")
 
-        st.info(
-            "Stop-loss variants were excluded from the machine-learning model "
-            "because only a very small number of stop-loss variants were present "
-            "in the dataset, which was insufficient to support reliable model "
-            "training for that consequence class."
-        )
+        if explored_position == 1481:
 
-        variants = variants_df[
-            variants_df["Position"] == 1481
-        ].copy()
+            st.subheader("CFTR Position 1481")
 
-        col1, col2, col3 = st.columns(3)
-
-        col1.metric("Domain", "NaN")
-        col2.metric("Conservation", "NaN")
-        col3.metric("Variant count", len(variants))
-
-    elif position_info is not None and explored_position in valid_positions:
-        st.subheader(f"CFTR Position {explored_position}")
-
-        info = position_info.iloc[0]
-
-        col1, col2, col3 = st.columns(3)
-
-        col1.metric(
-            "Domain",
-            info["CFTR_Domain"]
-        )
-
-        col2.metric(
-            "Conservation",
-            f"{info['Conservation']:.3f}"
-        )
-
-        col3.metric(
-            "Variant count",
-            int(info["Variant_Count"])
-        )
-
-    if variants is not None and not variants.empty:
-
-        st.subheader("Variants at this position")
-        st.dataframe(variants)
-
-        st.subheader("CFTR Domain Conservation")
-
-        domain_conservation = {
-            "NBD1": 0.820016,
-            "NBD2": 0.790831,
-            "Other": 0.692784,
-            "R domain": 0.640287,
-            "TMD1": 0.767632,
-            "TMD2": 0.729488,
-        }
-
-        domain_chart_data = pd.DataFrame(
-            list(domain_conservation.items()),
-            columns=["Domain", "Conservation"]
-        )
-
-        domain_chart = (
-            alt.Chart(domain_chart_data)
-            .mark_bar(
-                color="#ffc4e7",
-                cornerRadiusTopLeft=6,
-                cornerRadiusTopRight=6
-            )
-            .encode(
-                x=alt.X("Domain:N", title=None),
-                y=alt.Y(
-                    "Conservation:Q",
-                    title="Average conservation"
-                ),
-                tooltip=[
-                    alt.Tooltip("Domain:N", title="Domain"),
-                    alt.Tooltip(
-                        "Conservation:Q",
-                        title="Conservation",
-                        format=".3f"
-                    )
-                ]
-            )
-        )
-
-        st.altair_chart(
-            domain_chart,
-            use_container_width=True
-        )
-
-        st.subheader("Variant Distribution by Protein Region")
-
-        region_counts = variants_df["Region"].value_counts()
-
-        region_chart_data = (
-            region_counts
-            .rename_axis("Region")
-            .reset_index(name="Variant_Count")
-        )
-
-        region_chart = (
-            alt.Chart(region_chart_data)
-            .mark_bar(
-                color="#ffc4e7",
-                cornerRadiusTopLeft=6,
-                cornerRadiusTopRight=6
-            )
-            .encode(
-                x=alt.X("Region:N", title=None),
-                y=alt.Y(
-                    "Variant_Count:Q",
-                    title="Variant count"
-                ),
-                tooltip=[
-                    alt.Tooltip("Region:N", title="Region"),
-                    alt.Tooltip(
-                        "Variant_Count:Q",
-                        title="Variants"
-                    )
-                ]
-            )
-        )
-
-        st.altair_chart(
-            region_chart,
-            use_container_width=True
-        )
-
-        st.subheader("Variant consequences")
-
-        consequence_summary = get_consequence_summary(
-            explored_position
-        )
-
-        if consequence_summary:
-
-            consequence_chart_data = (
-                pd.Series(consequence_summary)
-                .rename_axis("Consequence")
-                .reset_index(name="Count")
+            st.info(
+                "CFTR contains 1,480 amino acids. Position 1481 appears in this "
+                "dataset because stop-loss variants alter the normal stop signal, "
+                "allowing translation to continue beyond the usual protein endpoint."
             )
 
-            consequence_chart = (
-                alt.Chart(consequence_chart_data)
-                .mark_bar(
-                    color="#ffc4e7",
-                    cornerRadiusTopLeft=6,
-                    cornerRadiusTopRight=6
+            st.info(
+                "Stop-loss variants were excluded from the machine-learning model "
+                "because only a very small number of stop-loss variants were present "
+                "in the dataset, which was insufficient to support reliable model "
+                "training for that consequence class."
+            )
+
+            variants = variants_df[
+                variants_df["Position"] == 1481
+            ].copy()
+
+            col1, col2, col3 = st.columns(3)
+
+            col1.metric("Domain", "NaN")
+            col2.metric("Conservation", "NaN")
+            col3.metric("Variant count", len(variants))
+
+        else:
+
+            st.subheader(f"CFTR Position {explored_position}")
+
+            if position_info is not None and not position_info.empty:
+
+                info = position_info.iloc[0]
+
+                col1, col2, col3 = st.columns(3)
+
+                col1.metric(
+                    "Domain",
+                    info["CFTR_Domain"]
                 )
-                .encode(
-                    x=alt.X(
-                        "Consequence:N",
-                        title=None
-                    ),
-                    y=alt.Y(
-                        "Count:Q",
-                        title="Variant count"
-                    ),
-                    tooltip=[
-                        alt.Tooltip(
-                            "Consequence:N",
-                            title="Consequence"
+
+                col2.metric(
+                    "Conservation",
+                    f"{info['Conservation']:.3f}"
+                )
+
+                col3.metric(
+                    "Variant count",
+                    int(info["Variant_Count"])
+                )
+
+        if variants is not None and not variants.empty:
+
+            st.subheader("Variants at this position")
+            st.dataframe(variants)
+
+            if explored_position != 1481:
+
+                st.subheader("CFTR Domain Conservation")
+
+                domain_conservation = {
+                    "NBD1": 0.820016,
+                    "NBD2": 0.790831,
+                    "Other": 0.692784,
+                    "R domain": 0.640287,
+                    "TMD1": 0.767632,
+                    "TMD2": 0.729488,
+                }
+
+                domain_chart_data = pd.DataFrame(
+                    list(domain_conservation.items()),
+                    columns=["Domain", "Conservation"]
+                )
+
+                domain_chart = (
+                    alt.Chart(domain_chart_data)
+                    .mark_bar(
+                        color="#ffc4e7",
+                        cornerRadiusTopLeft=6,
+                        cornerRadiusTopRight=6
+                    )
+                    .encode(
+                        x=alt.X(
+                            "Domain:N",
+                            title=None
                         ),
-                        alt.Tooltip(
-                            "Count:Q",
-                            title="Variants"
-                        )
-                    ]
+                        y=alt.Y(
+                            "Conservation:Q",
+                            title="Average conservation"
+                        ),
+                        tooltip=[
+                            alt.Tooltip(
+                                "Domain:N",
+                                title="Domain"
+                            ),
+                            alt.Tooltip(
+                                "Conservation:Q",
+                                title="Conservation",
+                                format=".3f"
+                            )
+                        ]
+                    )
                 )
-            )
 
-            st.altair_chart(
-                consequence_chart,
-                use_container_width=True
-            )
+                st.altair_chart(
+                    domain_chart,
+                    use_container_width=True
+                )
+
+                st.subheader("Variant Distribution by Protein Region")
+
+                region_counts = variants_df["Region"].value_counts()
+
+                region_chart_data = (
+                    region_counts
+                    .rename_axis("Region")
+                    .reset_index(name="Variant_Count")
+                )
+
+                region_chart = (
+                    alt.Chart(region_chart_data)
+                    .mark_bar(
+                        color="#ffc4e7",
+                        cornerRadiusTopLeft=6,
+                        cornerRadiusTopRight=6
+                    )
+                    .encode(
+                        x=alt.X(
+                            "Region:N",
+                            title=None
+                        ),
+                        y=alt.Y(
+                            "Variant_Count:Q",
+                            title="Variant count"
+                        ),
+                        tooltip=[
+                            alt.Tooltip(
+                                "Region:N",
+                                title="Region"
+                            ),
+                            alt.Tooltip(
+                                "Variant_Count:Q",
+                                title="Variants"
+                            )
+                        ]
+                    )
+                )
+
+                st.altair_chart(
+                    region_chart,
+                    use_container_width=True
+                )
+
+                st.subheader("Variant consequences")
+
+                consequence_summary = get_consequence_summary(
+                    explored_position
+                )
+
+                if consequence_summary:
+
+                    consequence_chart_data = (
+                        pd.Series(consequence_summary)
+                        .rename_axis("Consequence")
+                        .reset_index(name="Count")
+                    )
+
+                    consequence_chart = (
+                        alt.Chart(consequence_chart_data)
+                        .mark_bar(
+                            color="#ffc4e7",
+                            cornerRadiusTopLeft=6,
+                            cornerRadiusTopRight=6
+                        )
+                        .encode(
+                            x=alt.X(
+                                "Consequence:N",
+                                title=None
+                            ),
+                            y=alt.Y(
+                                "Count:Q",
+                                title="Variant count"
+                            ),
+                            tooltip=[
+                                alt.Tooltip(
+                                    "Consequence:N",
+                                    title="Consequence"
+                                ),
+                                alt.Tooltip(
+                                    "Count:Q",
+                                    title="Variants"
+                                )
+                            ]
+                        )
+                    )
+
+                    st.altair_chart(
+                        consequence_chart,
+                        use_container_width=True
+                    )
+
+            if explored_position != 1481:
+
+                st.subheader("Machine Learning Prediction")
+
+                prediction_variants = variants.copy()
+
+                substitution_variants = prediction_variants[
+                    prediction_variants["MutatedType"].notna()
+                    & (prediction_variants["MutatedType"] != "*")
+                    & prediction_variants["MutatedType"].isin(
+                        list("ACDEFGHIKLMNPQRSTVWY")
+                    )
+                ].copy()
+
+                if not substitution_variants.empty:
+
+                    substitution_variants["Variant"] = (
+                        substitution_variants["WildType"].astype(str)
+                        + " → "
+                        + substitution_variants["MutatedType"].astype(str)
+                    )
+
+                    selected_variant_label = st.selectbox(
+                        "Select a variant",
+                        substitution_variants["Variant"].tolist()
+                    )
+
+                    selected_variant = substitution_variants[
+                        substitution_variants["Variant"]
+                        == selected_variant_label
+                    ].iloc[0]
+
+                    result = predict_consequence(
+                        int(selected_variant["Position"]),
+                        selected_variant["WildType"],
+                        selected_variant["MutatedType"]
+                    )
+
+                    col1, col2, col3 = st.columns(3)
+
+                    col1.metric(
+                        "Predicted value",
+                        result["prediction"].title()
+                    )
+
+                    col2.metric(
+                        "Actual",
+                        selected_variant["Consequence"].title()
+                    )
+
+                    if result["confidence"] is not None:
+
+                        col3.metric(
+                            "Model confidence",
+                            f"{result['confidence']:.2%}"
+                        )
+
+                    if result["prediction"] == selected_variant["Consequence"]:
+
+                        st.success(
+                            "The model prediction matches the recorded consequence."
+                        )
+
+                    else:
+
+                        st.warning(
+                            "The model prediction differs from the recorded consequence."
+                        )
+
+                else:
+
+                    st.info(
+                        "No standard amino-acid substitutions are available "
+                        "for prediction at this position."
+                    )
             
 if st.session_state.get("explored_position") in valid_positions:
     st.markdown("""
