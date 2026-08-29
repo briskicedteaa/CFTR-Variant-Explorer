@@ -70,7 +70,7 @@ human_sequence = cftr_df.loc[
 
 valid_positions = set(variants_df["Position"].dropna().astype(int))
 
-PINK_PATH = Path(__file__).resolve().parent.parent / "images" / "IMG_8224-Picsart-BackgroundRemover.jpeg.png"
+PINK_PATH = Path(__file__).resolve().parent.parent / "images" / "CABEF7BF-027D-4BFF-95B4-BBD51A8C5588.gif"
 
 col1, col2, col3 = st.columns([1, 2, 1])
 
@@ -119,7 +119,7 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-IMG1_PATH = Path(__file__).resolve().parent.parent / "images" / "0E11DECF-757B-4E64-ADBA-713D560B56A9.gif"
+IMG1_PATH = Path(__file__).resolve().parent.parent / "images" / "IMG_8224-Picsart-BackgroundRemover.jpeg.png"
 
 col1, col2, col3 = st.columns([1, 3, 1])
 
