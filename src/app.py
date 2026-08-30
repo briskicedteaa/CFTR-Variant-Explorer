@@ -207,10 +207,17 @@ if st.button("Explore position"):
     
 if st.session_state["explored_position"] is not None:
 
-    explored_position = st.session_state["explored_position"]
-    
-    if explored_position not in valid_positions:
-        st.error("That position was not found in the CFTR dataset.")
+    explored_position = int(st.session_state["explored_position"])
+
+    if explored_position < 1 or explored_position > 1481:
+        st.error(
+            "Please enter a CFTR amino-acid position between 1 and 1481."
+        )
+
+    elif explored_position not in valid_positions:
+        st.error(
+            "That position was not found in the CFTR dataset."
+        )
 
     else:
         position_info, variants = get_position_summary(explored_position)
