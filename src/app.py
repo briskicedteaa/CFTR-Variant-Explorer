@@ -192,18 +192,29 @@ st.markdown(
 if "explored_position" not in st.session_state:
     st.session_state["explored_position"] = None
 
-position = st.number_input(
+position_input = st.text_input(
     "Enter a CFTR amino-acid position",
-    min_value=1,
-    max_value=1481,
-    step=1
+    placeholder="Example: 125"
 )
 
 with st.expander("View positions with recorded variants"):
             st.write(sorted(valid_positions))
 
 if st.button("Explore position"):
-    st.session_state["explored_position"] = position
+
+    if not position_input.strip().isdigit():
+        st.error("Please enter a valid amino-acid position.")
+
+    else:
+        position = int(position_input)
+
+        if position < 1 or position > 1481:
+            st.error(
+                "Please enter a CFTR amino-acid position between 1 and 1481."
+            )
+
+        else:
+            st.session_state["explored_position"] = position
     
 if st.session_state["explored_position"] is not None:
 
