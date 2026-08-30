@@ -328,10 +328,13 @@ if st.session_state["explored_position"] is not None:
                 
                 B_PATH = Path(__file__).resolve().parent.parent / "images" / "B07F52FD-0104-4A8D-BD55-7B8E1BA7E386.gif"
                 
-                st.image(
-                    str(B_PATH),
-                    use_container_width=True
-                )
+                left, center, right = st.columns([1, 4, 1])
+
+                with center:
+                    st.image(
+                        str(B_PATH),
+                        use_container_width=True
+                    )
   
         if explored_position != 1481:
 
@@ -449,10 +452,13 @@ if st.session_state["explored_position"] is not None:
 
                 B_PATH = Path(__file__).resolve().parent.parent / "images" / "B07F52FD-0104-4A8D-BD55-7B8E1BA7E386.gif"
 
-                st.image(
-                    str(B_PATH),
-                    use_container_width=True
-                )
+                left, center, right = st.columns([1, 4, 1])
+
+                with center:
+                    st.image(
+                        str(B_PATH),
+                        use_container_width=True
+                    )
         
         if variants is not None and not variants.empty:
 
