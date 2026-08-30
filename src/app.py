@@ -444,13 +444,13 @@ if st.session_state["explored_position"] is not None:
                     "clinical effect." 
                 )
 
-                B_PATH = Path(__file__).resolve().parent.parent / "images" / "B07F52FD-0104-4A8D-BD55-7B8E1BA7E386.gif"
+                N_PATH = Path(__file__).resolve().parent.parent / "images" / "bcb43178-c776-4fed-b8ee-5b9f36f8bfa7_removalai_preview.png"
 
-                left, center, right = st.columns([1, 4, 1])
+                left, center, right = st.columns([1, 3, 1])
 
                 with center:
                     st.image(
-                        str(B_PATH),
+                        str(N_PATH),
                         use_container_width=True
                     )
         
