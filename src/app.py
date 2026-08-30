@@ -50,6 +50,11 @@ h1, h2, h3 {
     color: #4a3a42;
 }
 
+.center-image {
+    display: flex;
+    justify-content: center;
+}
+
 </style>
 """, unsafe_allow_html=True)
 
@@ -97,13 +102,14 @@ st.markdown(
 
 GIF_PATH = Path(__file__).resolve().parent.parent / "images" / "8D83949E-9C79-479B-BD57-BA4F6ED95A0A.gif"
 
-left, center, right = st.columns(3)
+st.markdown('<div class="center-image">', unsafe_allow_html=True)
 
-with center:
-    st.image(
-        str(GIF_PATH),
-        width=1000
-    )
+st.image(
+    str(N_PATH),
+    width=1000
+)
+
+st.markdown('</div>', unsafe_allow_html=True)
 
 st.markdown(
     "<h3 style='text-align: center;'>Research Question</h3>",
