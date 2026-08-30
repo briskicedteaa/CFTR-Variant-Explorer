@@ -202,6 +202,8 @@ with st.expander("View positions with recorded variants"):
 
 if st.button("Explore position"):
 
+    st.session_state["explored_position"] = None
+
     if not position_input.strip().isdigit():
         st.error("Please enter a valid amino-acid position.")
 
@@ -211,6 +213,11 @@ if st.button("Explore position"):
         if position < 1 or position > 1481:
             st.error(
                 "Please enter a CFTR amino-acid position between 1 and 1481."
+            )
+
+        elif position not in valid_positions:
+            st.error(
+                "That position was not found in the CFTR dataset."
             )
 
         else:
