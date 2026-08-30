@@ -353,15 +353,6 @@ if st.session_state["explored_position"] is not None:
                     "for every variant recorded at that position."
                 )
                 
-                N_PATH = Path(__file__).resolve().parent.parent / "images" / "bcb43178-c776-4fed-b8ee-5b9f36f8bfa7_removalai_preview.png"
-
-                left, center, right = st.columns([1, 3, 1])
-
-                with center:
-                    st.image(
-                        str(N_PATH),
-                        use_container_width=True
-                    )
 
                 prediction_variants = variants.copy()
 
