@@ -99,7 +99,7 @@ GIF_PATH = Path(__file__).resolve().parent.parent / "images" / "8D83949E-9C79-47
 
 st.image(
     str(GIF_PATH),
-    use_container_width=True
+    width=600
 )
 
 st.markdown(
