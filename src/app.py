@@ -97,24 +97,13 @@ st.markdown(
 
 GIF_PATH = Path(__file__).resolve().parent.parent / "images" / "8D83949E-9C79-479B-BD57-BA4F6ED95A0A.gif"
 
-st.markdown(
-    """
-    <div style="display: flex; justify-content: center;">
-    """,
-    unsafe_allow_html=True
-)
+left, center, right = st.columns(3)
 
-st.image(
-    str(GIF_PATH),
-    width=600
-)
-
-st.markdown(
-    """
-    </div>
-    """,
-    unsafe_allow_html=True
-)
+with center:
+    st.image(
+        str(GIF_PATH),
+        width=1000
+    )
 
 st.markdown(
     "<h3 style='text-align: center;'>Research Question</h3>",
