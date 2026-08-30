@@ -46,6 +46,10 @@ h1, h2, h3 {
     font-weight: 700;
 }
 
+.info-bubble p {
+    color: #4a3a42;
+}
+
 </style>
 """, unsafe_allow_html=True)
 
