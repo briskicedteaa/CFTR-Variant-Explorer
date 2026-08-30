@@ -105,7 +105,7 @@ GIF_PATH = Path(__file__).resolve().parent.parent / "images" / "8D83949E-9C79-47
 st.markdown('<div class="center-image">', unsafe_allow_html=True)
 
 st.image(
-    str(N_PATH),
+    str(GIF_PATH),
     width=1000
 )
 
