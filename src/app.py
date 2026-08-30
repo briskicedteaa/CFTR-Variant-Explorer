@@ -248,6 +248,16 @@ if st.session_state["explored_position"] is not None:
                 "dataset because stop-loss variants alter the normal stop signal, "
                 "allowing translation to continue beyond the usual protein endpoint."
             )
+            
+            THE_PATH = Path(__file__).resolve().parent.parent / "images" / "0E11DECF-757B-4E64-ADBA-713D560B56A9.gif"
+
+            col1, col2, col3 = st.columns([1, 2, 1])
+
+            with col2:
+                st.image(
+                    str(THE_PATH),
+                    use_container_width=True
+                )
 
             st.info(
                 "Stop-loss variants were excluded from the machine-learning model "
