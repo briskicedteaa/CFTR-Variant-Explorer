@@ -49,6 +49,14 @@ h1, h2, h3 {
 .info-bubble p {
     color: #4a3a42;
 }
+
+div[data-testid="stAlert"] {
+    background-color: #fff4fa;
+    border: 1.5px solid #ffc4e7;
+    border-radius: 18px;
+    color: #4a3a42;
+}
+
 </style>
 """, unsafe_allow_html=True)
 
