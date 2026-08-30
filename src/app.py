@@ -234,7 +234,10 @@ if st.session_state["explored_position"] is not None:
                 use_container_width=True
             )
         
-        st.title("Results")
+        st.markdown(
+            "<h1 style='text-align: center;'>Results</h1>",
+            unsafe_allow_html=True
+        )
 
         if explored_position == 1481:
 
@@ -300,7 +303,10 @@ if st.session_state["explored_position"] is not None:
   
         if explored_position != 1481:
 
-                st.subheader("Machine Learning Prediction")
+                st.markdown(
+                    "<h3 style='text-align: center;'>Machine Learning Prediction</h3>",
+                    unsafe_allow_html=True
+                )
 
                 st.info(
                     "The machine-learning model predicts the likely consequence of the "
@@ -421,7 +427,11 @@ if st.session_state["explored_position"] is not None:
         
         if variants is not None and not variants.empty:
 
-            st.subheader("Variants At This Position")
+            st.markdown(
+                "<h3 style='text-align: center;'>Variants At This Position</h3>",
+                unsafe_allow_html=True
+            )
+            
             st.dataframe(variants)
 
         B_PATH = Path(__file__).resolve().parent.parent / "images" / "B07F52FD-0104-4A8D-BD55-7B8E1BA7E386.gif"
@@ -435,7 +445,10 @@ if st.session_state["explored_position"] is not None:
             )
                     
         if explored_position != 1481:
-            st.subheader("CFTR Domain Conservation")
+            st.markdown(
+                "<h3 style='text-align: center;'>CFTR Domain Conservation</h3>",
+                unsafe_allow_html=True
+            )
 
             domain_conservation = {
                 "NBD1": 0.820016,
@@ -497,7 +510,10 @@ if st.session_state["explored_position"] is not None:
             )
 
         if explored_position != 1481:
-            st.subheader("Variant Distribution by Protein Region")
+            st.markdown(
+                "<h3 style='text-align: center;'>Variant Distribution by Protein Region</h3>",
+                unsafe_allow_html=True
+            )
 
             region_counts = variants_df["Region"].value_counts()
 
@@ -551,7 +567,10 @@ if st.session_state["explored_position"] is not None:
                    use_container_width=True
                )
 
-            st.subheader("Variant consequences")
+            st.markdown(
+                "<h3 style='text-align: center;'>Variant Consequences</h3>",
+                unsafe_allow_html=True
+            )
 
             consequence_summary = get_consequence_summary(
                 explored_position
