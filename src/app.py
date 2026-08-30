@@ -223,7 +223,17 @@ if st.session_state["explored_position"] is not None:
 
     else:
         position_info, variants = get_position_summary(explored_position)
+        
+        N_PATH = Path(__file__).resolve().parent.parent / "images" / "bcb43178-c776-4fed-b8ee-5b9f36f8bfa7_removalai_preview.png"
 
+        col1, col2, col3 = st.columns([1, 2, 1])
+
+        with col2:
+            st.image(
+                str(N_PATH),
+                use_container_width=True
+            )
+        
         st.title("Results")
 
         if explored_position == 1481:
