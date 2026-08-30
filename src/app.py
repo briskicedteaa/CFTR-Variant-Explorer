@@ -276,10 +276,13 @@ if st.session_state["explored_position"] is not None:
             
             THE_PATH = Path(__file__).resolve().parent.parent / "images" / "0E11DECF-757B-4E64-ADBA-713D560B56A9.gif"
 
-            st.image(
-                str(THE_PATH),
-                use_container_width=True
-            )
+            left, center, right = st.columns([1, 4, 1])
+
+            with center:
+                st.image(
+                    str(THE_PATH),
+                    use_container_width=True
+                )
 
             st.info(
                 "Stop-loss variants were excluded from the machine-learning model "
@@ -346,10 +349,13 @@ if st.session_state["explored_position"] is not None:
                 
                 N_PATH = Path(__file__).resolve().parent.parent / "images" / "bcb43178-c776-4fed-b8ee-5b9f36f8bfa7_removalai_preview.png"
 
-                st.image(
-                    str(N_PATH),
-                    use_container_width=True
-                )
+                left, center, right = st.columns([1, 4, 1])
+
+                with center:
+                    st.image(
+                        str(N_PATH),
+                        use_container_width=True
+                    )
 
                 prediction_variants = variants.copy()
 
@@ -425,10 +431,13 @@ if st.session_state["explored_position"] is not None:
                     
                 N_PATH = Path(__file__).resolve().parent.parent / "images" / "bcb43178-c776-4fed-b8ee-5b9f36f8bfa7_removalai_preview.png"
 
-                st.image(
-                    str(N_PATH),
-                    use_container_width=True
-                )
+                left, center, right = st.columns([1, 4, 1])
+
+                with center:
+                    st.image(
+                        str(N_PATH),
+                        use_container_width=True
+                    )
                     
                 st.info(
                     "The confidence score indicates "
@@ -456,10 +465,13 @@ if st.session_state["explored_position"] is not None:
 
         B_PATH = Path(__file__).resolve().parent.parent / "images" / "B07F52FD-0104-4A8D-BD55-7B8E1BA7E386.gif"
 
-        st.image(
-            str(B_PATH),
-            use_container_width=True
-        )
+        left, center, right = st.columns([1, 4, 1])
+
+        with center:
+            st.image(
+                str(B_PATH),
+                use_container_width=True
+            )
                     
         st.markdown(
             "<h3 style='text-align: center;'>CFTR Domain Conservation</h3>",
@@ -517,10 +529,13 @@ if st.session_state["explored_position"] is not None:
 
         B_PATH = Path(__file__).resolve().parent.parent / "images" / "B07F52FD-0104-4A8D-BD55-7B8E1BA7E386.gif"
     
-        st.image(
-            str(B_PATH),
-            use_container_width=True
-        )
+        left, center, right = st.columns([1, 4, 1])
+
+        with center:
+            st.image(
+                str(B_PATH),
+                use_container_width=True
+            )
     
         st.markdown(
             "<h3 style='text-align: center;'>Variant Distribution by Protein Region</h3>",
@@ -571,10 +586,13 @@ if st.session_state["explored_position"] is not None:
     
         B_PATH = Path(__file__).resolve().parent.parent / "images" / "B07F52FD-0104-4A8D-BD55-7B8E1BA7E386.gif"
     
-        st.image(
-            str(B_PATH),
-            use_container_width=True
-        )
+        left, center, right = st.columns([1, 4, 1])
+
+        with center:
+            st.image(
+                str(B_PATH),
+                use_container_width=True
+            )
     
         st.markdown(
             "<h3 style='text-align: center;'>Variant Consequences</h3>",
