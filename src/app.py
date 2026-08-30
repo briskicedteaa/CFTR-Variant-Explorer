@@ -46,7 +46,7 @@ h1, h2, h3 {
     font-weight: 700;
 }
 
-div[data-testid="stAlert"] {
+div[data-testid="stAlert"][data-baseweb="notification"] {
     border-color: #ffa6e0 !important;
 }
 
