@@ -666,7 +666,7 @@ by themselves establish the biological or clinical effect of an individual varia
 
     DON_PATH = Path(__file__).resolve().parent.parent / "images" / "77C31030-2369-452B-B746-B1636E691D0B.gif"
 
-    left, center, right = st.columns([1, 4, 1])
+    left, center, right = st.columns([1, 3, 1])
 
     with center:
         st.image(
@@ -723,7 +723,7 @@ variant's biological or clinical effect.
 
     DON_PATH = Path(__file__).resolve().parent.parent / "images" / "77C31030-2369-452B-B746-B1636E691D0B.gif"
 
-    left, center, right = st.columns([1, 4, 1])
+    left, center, right = st.columns([1, 3, 1])
 
     with center:
         st.image(
@@ -769,7 +769,7 @@ considering consequence type alone.
 
     DON_PATH = Path(__file__).resolve().parent.parent / "images" / "77C31030-2369-452B-B746-B1636E691D0B.gif"
 
-    left, center, right = st.columns([1, 4, 1])
+    left, center, right = st.columns([1, 3, 1])
 
     with center:
         st.image(
