@@ -212,7 +212,7 @@ if st.button("Explore position"):
 
         if position < 1 or position > 1481:
             st.error(
-                "Please enter a CFTR amino-acid position between 1 and 1481."
+                "Enter a CFTR amino-acid position between 1 and 1481. Only positions with recorded variants in the dataset can be explored! :)"
             )
 
         elif position not in valid_positions:
