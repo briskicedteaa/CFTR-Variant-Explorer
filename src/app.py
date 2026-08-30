@@ -478,85 +478,28 @@ if st.session_state["explored_position"] is not None:
             use_container_width=True
         )
 
-    B_PATH = Path(__file__).resolve().parent.parent / "images" / "B07F52FD-0104-4A8D-BD55-7B8E1BA7E386.gif"
-
-    st.image(
-        str(B_PATH),
-        use_container_width=True
-    )
-
-    st.markdown(
-        "<h3 style='text-align: center;'>Variant Distribution by Protein Region</h3>",
-        unsafe_allow_html=True
-    )
-
-    region_counts = variants_df["Region"].value_counts()
-
-    region_chart_data = (
-        region_counts
-        .rename_axis("Region")
-        .reset_index(name="Variant_Count")
-    )
-
-    region_chart = (
-        alt.Chart(region_chart_data)
-        .mark_bar(
-            color="#ffc4e7",
-            cornerRadiusTopLeft=6,
-            cornerRadiusTopRight=6
+        B_PATH = Path(__file__).resolve().parent.parent / "images" / "B07F52FD-0104-4A8D-BD55-7B8E1BA7E386.gif"
+    
+        st.image(
+            str(B_PATH),
+            use_container_width=True
         )
-        .encode(
-            x=alt.X(
-                "Region:N",
-                title=None
-            ),
-            y=alt.Y(
-                "Variant_Count:Q",
-                title="Variant count"
-            ),
-            tooltip=[
-                alt.Tooltip(
-                    "Region:N",
-                    title="Region"
-                ),
-                alt.Tooltip(
-                    "Variant_Count:Q",
-                    title="Variants"
-                )
-            ]
+    
+        st.markdown(
+            "<h3 style='text-align: center;'>Variant Distribution by Protein Region</h3>",
+            unsafe_allow_html=True
         )
-    )
-
-    st.altair_chart(
-        region_chart,
-        use_container_width=True
-    )
-
-    B_PATH = Path(__file__).resolve().parent.parent / "images" / "B07F52FD-0104-4A8D-BD55-7B8E1BA7E386.gif"
-
-    st.image(
-        str(B_PATH),
-        use_container_width=True
-    )
-
-    st.markdown(
-        "<h3 style='text-align: center;'>Variant Consequences</h3>",
-        unsafe_allow_html=True
-    )
-
-    consequence_summary = get_consequence_summary(
-        explored_position
-    )
-
-    if consequence_summary:
-        consequence_chart_data = (
-            pd.Series(consequence_summary)
-            .rename_axis("Consequence")
-            .reset_index(name="Count")
+    
+        region_counts = variants_df["Region"].value_counts()
+    
+        region_chart_data = (
+            region_counts
+            .rename_axis("Region")
+            .reset_index(name="Variant_Count")
         )
-
-        consequence_chart = (
-            alt.Chart(consequence_chart_data)
+    
+        region_chart = (
+            alt.Chart(region_chart_data)
             .mark_bar(
                 color="#ffc4e7",
                 cornerRadiusTopLeft=6,
@@ -564,30 +507,87 @@ if st.session_state["explored_position"] is not None:
             )
             .encode(
                 x=alt.X(
-                    "Consequence:N",
+                    "Region:N",
                     title=None
                 ),
                 y=alt.Y(
-                    "Count:Q",
+                    "Variant_Count:Q",
                     title="Variant count"
                 ),
                 tooltip=[
                     alt.Tooltip(
-                        "Consequence:N",
-                        title="Consequence"
+                        "Region:N",
+                        title="Region"
                     ),
                     alt.Tooltip(
-                        "Count:Q",
+                        "Variant_Count:Q",
                         title="Variants"
                     )
                 ]
             )
         )
-
+    
         st.altair_chart(
-            consequence_chart,
+            region_chart,
             use_container_width=True
         )
+    
+        B_PATH = Path(__file__).resolve().parent.parent / "images" / "B07F52FD-0104-4A8D-BD55-7B8E1BA7E386.gif"
+    
+        st.image(
+            str(B_PATH),
+            use_container_width=True
+        )
+    
+        st.markdown(
+            "<h3 style='text-align: center;'>Variant Consequences</h3>",
+            unsafe_allow_html=True
+        )
+    
+        consequence_summary = get_consequence_summary(
+            explored_position
+        )
+    
+        if consequence_summary:
+            consequence_chart_data = (
+                pd.Series(consequence_summary)
+                .rename_axis("Consequence")
+                .reset_index(name="Count")
+            )
+    
+            consequence_chart = (
+                alt.Chart(consequence_chart_data)
+                .mark_bar(
+                    color="#ffc4e7",
+                    cornerRadiusTopLeft=6,
+                    cornerRadiusTopRight=6
+                )
+                .encode(
+                    x=alt.X(
+                        "Consequence:N",
+                        title=None
+                    ),
+                    y=alt.Y(
+                        "Count:Q",
+                        title="Variant count"
+                    ),
+                    tooltip=[
+                        alt.Tooltip(
+                            "Consequence:N",
+                            title="Consequence"
+                        ),
+                        alt.Tooltip(
+                            "Count:Q",
+                            title="Variants"
+                        )
+                    ]
+                )
+            )
+    
+            st.altair_chart(
+                consequence_chart,
+                use_container_width=True
+            )
             
 if st.session_state.get("explored_position") in valid_positions:
     st.markdown("""
