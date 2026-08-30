@@ -97,7 +97,7 @@ st.markdown(
 
 GIF_PATH = Path(__file__).resolve().parent.parent / "images" / "8D83949E-9C79-479B-BD57-BA4F6ED95A0A.gif"
 
-left, center, right = st.columns([1, 4, 1])
+left, center, right = st.columns([1, 3, 1])
 
 with center:
     st.image(
@@ -168,7 +168,7 @@ st.markdown(
 
 N_PATH = Path(__file__).resolve().parent.parent / "images" / "bcb43178-c776-4fed-b8ee-5b9f36f8bfa7_removalai_preview.png"
 
-left, center, right = st.columns([1, 4, 1])
+left, center, right = st.columns([1, 3, 1])
 
 with center:
     st.image(
@@ -251,7 +251,7 @@ if st.session_state["explored_position"] is not None:
         
         N_PATH = Path(__file__).resolve().parent.parent / "images" / "bcb43178-c776-4fed-b8ee-5b9f36f8bfa7_removalai_preview.png"
         
-        left, center, right = st.columns([1, 4, 1])
+        left, center, right = st.columns([1, 3, 1])
 
         with center:
             st.image(
@@ -276,7 +276,7 @@ if st.session_state["explored_position"] is not None:
             
             THE_PATH = Path(__file__).resolve().parent.parent / "images" / "0E11DECF-757B-4E64-ADBA-713D560B56A9.gif"
 
-            left, center, right = st.columns([1, 4, 1])
+            left, center, right = st.columns([1, 3, 1])
 
             with center:
                 st.image(
@@ -328,7 +328,7 @@ if st.session_state["explored_position"] is not None:
                 
                 B_PATH = Path(__file__).resolve().parent.parent / "images" / "B07F52FD-0104-4A8D-BD55-7B8E1BA7E386.gif"
                 
-                left, center, right = st.columns([1, 4, 1])
+                left, center, right = st.columns([1, 3, 1])
 
                 with center:
                     st.image(
@@ -352,7 +352,7 @@ if st.session_state["explored_position"] is not None:
                 
                 N_PATH = Path(__file__).resolve().parent.parent / "images" / "bcb43178-c776-4fed-b8ee-5b9f36f8bfa7_removalai_preview.png"
 
-                left, center, right = st.columns([1, 4, 1])
+                left, center, right = st.columns([1, 3, 1])
 
                 with center:
                     st.image(
@@ -434,7 +434,7 @@ if st.session_state["explored_position"] is not None:
                     
                 N_PATH = Path(__file__).resolve().parent.parent / "images" / "bcb43178-c776-4fed-b8ee-5b9f36f8bfa7_removalai_preview.png"
 
-                left, center, right = st.columns([1, 4, 1])
+                left, center, right = st.columns([1, 3, 1])
 
                 with center:
                     st.image(
