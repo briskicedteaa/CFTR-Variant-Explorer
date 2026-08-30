@@ -666,7 +666,7 @@ by themselves establish the biological or clinical effect of an individual varia
 
     DON_PATH = Path(__file__).resolve().parent.parent / "images" / "77C31030-2369-452B-B746-B1636E691D0B.gif"
 
-    left, center, right = st.columns([1, 2.5, 1])
+    left, center, right = st.columns([1, 2, 1])
 
     with center:
         st.image(
