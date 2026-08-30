@@ -142,10 +142,13 @@ st.markdown(
 
 N_PATH = Path(__file__).resolve().parent.parent / "images" / "bcb43178-c776-4fed-b8ee-5b9f36f8bfa7_removalai_preview.png"
 
-st.image(
-    str(N_PATH),
-    use_container_width=True
-)
+left, center, right = st.columns([1, 4, 1])
+
+with center:
+    st.image(
+        str(N_PATH),
+        use_container_width=True
+    )
 
 st.markdown(
     """
@@ -165,10 +168,13 @@ st.markdown(
 
 N_PATH = Path(__file__).resolve().parent.parent / "images" / "bcb43178-c776-4fed-b8ee-5b9f36f8bfa7_removalai_preview.png"
 
-st.image(
-    str(N_PATH),
-    use_container_width=True
-)
+left, center, right = st.columns([1, 4, 1])
+
+with center:
+    st.image(
+        str(N_PATH),
+        use_container_width=True
+    )
 
 st.markdown(
     """
@@ -245,10 +251,13 @@ if st.session_state["explored_position"] is not None:
         
         N_PATH = Path(__file__).resolve().parent.parent / "images" / "bcb43178-c776-4fed-b8ee-5b9f36f8bfa7_removalai_preview.png"
         
-        st.image(
-            str(N_PATH),
-            use_container_width=True
-        )
+        left, center, right = st.columns([1, 4, 1])
+
+        with center:
+            st.image(
+                str(N_PATH),
+                use_container_width=True
+            )
         
         st.markdown(
             "<h1 style='text-align: center;'>Results</h1>",
