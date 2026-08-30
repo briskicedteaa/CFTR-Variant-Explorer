@@ -290,6 +290,16 @@ if st.session_state["explored_position"] is not None:
         if explored_position != 1481:
 
                 st.subheader("Machine Learning Prediction")
+                
+                N_PATH = Path(__file__).resolve().parent.parent / "images" / "bcb43178-c776-4fed-b8ee-5b9f36f8bfa7_removalai_preview.png"
+
+                col1, col2, col3 = st.columns([1, 2, 1])
+
+                with col2:
+                    st.image(
+                        str(N_PATH),
+                        use_container_width=True
+                    )
 
                 st.info(
                     "The machine-learning model predicts the likely consequence of the "
@@ -297,6 +307,16 @@ if st.session_state["explored_position"] is not None:
                     "The prediction is made for the specific variant you selected, rather than "
                     "for every variant recorded at that position."
                 )
+                
+                N_PATH = Path(__file__).resolve().parent.parent / "images" / "bcb43178-c776-4fed-b8ee-5b9f36f8bfa7_removalai_preview.png"
+
+                col1, col2, col3 = st.columns([1, 2, 1])
+
+                with col2:
+                    st.image(
+                        str(N_PATH),
+                        use_container_width=True
+                    )
 
                 prediction_variants = variants.copy()
 
@@ -368,6 +388,16 @@ if st.session_state["explored_position"] is not None:
                     st.info(
                         "No standard amino-acid substitutions are available "
                         "for prediction at this position."
+                    )
+                    
+                N_PATH = Path(__file__).resolve().parent.parent / "images" / "bcb43178-c776-4fed-b8ee-5b9f36f8bfa7_removalai_preview.png"
+
+                col1, col2, col3 = st.columns([1, 2, 1])
+
+                with col2:
+                    st.image(
+                        str(N_PATH),
+                        use_container_width=True
                     )
                     
                 st.info(
