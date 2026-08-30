@@ -444,7 +444,6 @@ if st.session_state["explored_position"] is not None:
                 use_container_width=True
             )
                     
-        if explored_position != 1481:
             st.markdown(
                 "<h3 style='text-align: center;'>CFTR Domain Conservation</h3>",
                 unsafe_allow_html=True
@@ -509,7 +508,6 @@ if st.session_state["explored_position"] is not None:
                 use_container_width=True
             )
 
-        if explored_position != 1481:
             st.markdown(
                 "<h3 style='text-align: center;'>Variant Distribution by Protein Region</h3>",
                 unsafe_allow_html=True
