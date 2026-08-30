@@ -97,13 +97,10 @@ st.markdown(
 
 GIF_PATH = Path(__file__).resolve().parent.parent / "images" / "8D83949E-9C79-479B-BD57-BA4F6ED95A0A.gif"
 
-col1, col2, col3 = st.columns([1, 3, 1])
-
-with col2:
-    st.image(
-        str(GIF_PATH),
-        use_container_width=True
-    )
+st.image(
+    str(GIF_PATH),
+    use_container_width=True
+)
 
 st.markdown(
     "<h3 style='text-align: center;'>Research Question</h3>",
