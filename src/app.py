@@ -328,7 +328,7 @@ if st.session_state["explored_position"] is not None:
                 
                 B_PATH = Path(__file__).resolve().parent.parent / "images" / "B07F52FD-0104-4A8D-BD55-7B8E1BA7E386.gif"
                 
-                left, center, right = st.columns([1, 3, 1])
+                left, center, right = st.columns([1, 4 , 1])
 
                 with center:
                     st.image(
@@ -666,10 +666,13 @@ by themselves establish the biological or clinical effect of an individual varia
 
     DON_PATH = Path(__file__).resolve().parent.parent / "images" / "77C31030-2369-452B-B746-B1636E691D0B.gif"
 
-    st.image(
-        str(DON_PATH),
-        use_container_width=True
-    )
+    left, center, right = st.columns([1, 4, 1])
+
+    with center:
+        st.image(
+            str(DON_PATH),
+            use_container_width=True
+        )
 
     st.markdown("""
 <div class="info-bubble">
@@ -720,10 +723,13 @@ variant's biological or clinical effect.
 
     DON_PATH = Path(__file__).resolve().parent.parent / "images" / "77C31030-2369-452B-B746-B1636E691D0B.gif"
 
-    st.image(
-        str(DON_PATH),
-        use_container_width=True
-    )
+    left, center, right = st.columns([1, 4, 1])
+
+    with center:
+        st.image(
+            str(DON_PATH),
+            use_container_width=True
+        )
 
     st.markdown("""
 <div class="info-bubble">
@@ -763,10 +769,13 @@ considering consequence type alone.
 
     DON_PATH = Path(__file__).resolve().parent.parent / "images" / "77C31030-2369-452B-B746-B1636E691D0B.gif"
 
-    st.image(
-        str(DON_PATH),
-        use_container_width=True
-    )
+    left, center, right = st.columns([1, 4, 1])
+
+    with center:
+        st.image(
+            str(DON_PATH),
+            use_container_width=True
+        )
 
     st.markdown("""
 <div class="info-bubble">
