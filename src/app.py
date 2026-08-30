@@ -50,10 +50,6 @@ h1, h2, h3 {
     color: #4a3a42;
 }
 
-div[data-testid="stAlert"] {
-    border-color: #ffa6e0 !important;
-}
-
 </style>
 """, unsafe_allow_html=True)
 
