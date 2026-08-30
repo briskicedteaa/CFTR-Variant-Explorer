@@ -50,11 +50,6 @@ h1, h2, h3 {
     color: #4a3a42;
 }
 
-.center-image {
-    display: flex;
-    justify-content: center;
-}
-
 </style>
 """, unsafe_allow_html=True)
 
