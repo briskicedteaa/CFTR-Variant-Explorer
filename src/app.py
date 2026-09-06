@@ -323,7 +323,7 @@ if st.session_state["explored_position"] is not None:
                     )
                     
                     
-            with col3
+            with col3:
                 st.metric("Variant count", len(variants))
                 with st.popover("ⓘ"):
                     st.write(
