@@ -270,8 +270,9 @@ if st.session_state["explored_position"] is not None:
         if explored_position == 1481:
 
             st.subheader("CFTR Position 1481")
-
-            st.info(
+            
+        with st.expander("Why CFTR AA Position 1481 appears in the dataset?"):
+            st.write(
                 "CFTR contains 1,480 amino acids. Position 1481 appears in this "
                 "dataset because stop-loss variants alter the normal stop signal, "
                 "allowing translation to continue beyond the usual protein endpoint."
@@ -286,8 +287,9 @@ if st.session_state["explored_position"] is not None:
                     str(THE_PATH),
                     use_container_width=True
                 )
-
-            st.info(
+                
+        with st.expander("Why there are no predictions for stop-loss variants"):
+            st.write(
                 "Stop-loss variants were excluded from the machine-learning model "
                 "because only a very small number of stop-loss variants were present "
                 "in the dataset, which was insufficient to support reliable model "
@@ -345,8 +347,9 @@ if st.session_state["explored_position"] is not None:
                     "<h3 style='text-align: center;'>Machine Learning Prediction</h3>",
                     unsafe_allow_html=True
                 )
-
-                st.info(
+                
+            with st.expander("What RandomForest Predicts"):
+                st.write(
                     "The machine-learning model predicts the likely consequence of the "
                     "selected CFTR variant based on its amino-acid position and substitution. "
                     "The prediction is made for the specific variant you selected, rather than "
@@ -426,8 +429,8 @@ if st.session_state["explored_position"] is not None:
                         "for prediction at this position."
                     )
                     
-                    
-                st.info(
+            with st.expander(What does confidence mean?"):
+                st.write(
                     "The confidence score indicates "
                     "how strongly the model favors its prediction. Because the model was trained "
                     "on existing CFTR variant data, its predictions should be interpreted as "
