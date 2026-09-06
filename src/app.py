@@ -669,14 +669,17 @@ if st.session_state["explored_position"] is not None:
             use_container_width=True
         )
         
-        with st.expander("What Model Confidence Means"):
-            st.write(
-                "The confidence score indicates "
-                "how strongly the model favors its prediction. Because the model was trained "
-                "on existing CFTR variant data, its predictions should be interpreted as "
-                "computational estimates rather than definitive evidence of biological or "
-                "clinical effect." 
-            )
+        with st.expander("Don't Understand Unfamiliar Terms? Click Me!"):
+            st.markdown("""
+            **N-terminal:** The beginning of the protein sequence.
+        
+            **Middle:** The central portion of the protein sequence.
+        
+            **C-terminal:** The end of the protein sequence.
+        
+            Knowing where variants occur within a protein is important because different parts of a protein can have different structures and functions. Identifying whether variants are concentrated near the beginning, middle, or end of CFTR can help researchers see patterns in where changes occur and investigate whether certain regions may be more affected than others.
+            """)
+            
     
         B_PATH = Path(__file__).resolve().parent.parent / "images" / "B07F52FD-0104-4A8D-BD55-7B8E1BA7E386.gif"
     
