@@ -341,11 +341,6 @@ if st.session_state["explored_position"] is not None:
                 variants_df["Position"] == 1481
             ].copy()
 
-            col1, col2, col3 = st.columns(3)
-                    
-        else:
-            st.subheader(f"CFTR Position {explored_position}")
-
             if position_info is not None and not position_info.empty:
 
                 info = position_info.iloc[0]
@@ -372,6 +367,9 @@ if st.session_state["explored_position"] is not None:
                         int(info["Variant_Count"]),
                         "The number of recorded CFTR variants associated with this amino-acid position in the dataset."
                     )
+                    
+        else:
+            st.subheader(f"CFTR Position {explored_position}")
                 
                 B_PATH = Path(__file__).resolve().parent.parent / "images" / "B07F52FD-0104-4A8D-BD55-7B8E1BA7E386.gif"
                 
