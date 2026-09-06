@@ -96,6 +96,12 @@ When a user selects an eligible variant in the Explorer, the application reconst
 
 The application then displays the predicted consequence, the recorded consequence from the dataset, and the model confidence. This provides an interactive way to examine how the computational model classifies individual substitutions and where its predictions agree or differ from the recorded annotations.
 
+### Handling Position 1481
+
+The canonical human CFTR protein contains 1,480 amino acids, but the variant dataset includes two recorded variants at position 1481. Both are classified as stop-loss variants, meaning they alter the normal signal that marks the end of the protein-coding sequence.
+
+Because position 1481 falls outside the canonical 1,480-amino-acid CFTR sequence, it cannot be assigned a standard evolutionary conservation score or mapped to one of the major CFTR protein domains used in this analysis. Rather than estimating or creating information that is not supported by the data, the application handles position 1481 as a special case. It displays the recorded variant information, classifies the position as Other, and reports conservation as N/A.
+
 ### Technology
 
 This project uses Python, Pandas, NumPy, Biopython, scikit-learn, joblib, Matplotlib, Altair, Streamlit, EMBL’s Clustal Omega, Google Colab, and UniProt data.
