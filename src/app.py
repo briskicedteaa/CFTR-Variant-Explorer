@@ -317,15 +317,6 @@ if st.session_state["explored_position"] is not None:
         )
 
         if explored_position == 1481:
-
-            st.subheader("CFTR Position 1481")
-            
-            with st.expander("Why CFTR AA Position 1481 Appears In The Dataset"):
-                st.write(
-                    "CFTR contains 1,480 amino acids. Position 1481 appears in this "
-                    "dataset because stop-loss variants alter the normal stop signal, "
-                    "allowing translation to continue beyond the usual protein endpoint."
-                )
             
             THE_PATH = Path(__file__).resolve().parent.parent / "images" / "0E11DECF-757B-4E64-ADBA-713D560B56A9.gif"
 
@@ -369,13 +360,22 @@ if st.session_state["explored_position"] is not None:
                     unsafe_allow_html=True
                 )
                 
-        with st.expander("What RandomForest Predicts"):
+        with st.expander("What Random Forest Predicts"):
                     st.write(
                         "The machine-learning model predicts the likely consequence of the "
                         "selected CFTR variant based on its amino-acid position and substitution. "
                         "The prediction is made for the specific variant you selected, rather than "
                         "for every variant recorded at that position."
                     )
+                    
+        st.subheader("CFTR Position 1481")
+            
+            with st.expander("Why CFTR AA Position 1481 Appears In The Dataset"):
+                st.write(
+                    "CFTR contains 1,480 amino acids. Position 1481 appears in this "
+                    "dataset because stop-loss variants alter the normal stop signal, "
+                    "allowing translation to continue beyond the usual protein endpoint."
+                )
                     
         if explored_position != 1481:
             
