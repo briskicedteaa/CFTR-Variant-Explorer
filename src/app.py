@@ -664,6 +664,11 @@ if st.session_state["explored_position"] is not None:
             )
         )
     
+        st.altair_chart(
+            region_chart,
+            use_container_width=True
+        )
+        
         with st.expander("What Model Confidence Means"):
             st.write(
                 "The confidence score indicates "
@@ -672,11 +677,6 @@ if st.session_state["explored_position"] is not None:
                 "computational estimates rather than definitive evidence of biological or "
                 "clinical effect." 
             )
-    
-        st.altair_chart(
-            region_chart,
-            use_container_width=True
-        )
     
         B_PATH = Path(__file__).resolve().parent.parent / "images" / "B07F52FD-0104-4A8D-BD55-7B8E1BA7E386.gif"
     
