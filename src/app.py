@@ -364,10 +364,7 @@ if st.session_state["explored_position"] is not None:
         if explored_position == 1481:
 
             stop_loss_count = int(
-                variant_counts.loc[
-                    variant_counts["Human_Position"] == 1481,
-                    "Variant_Count"
-                ].iloc[0]
+                (variants_df["Position"] == 1481).sum()
             )
         
             col1, col2, col3 = st.columns(3)
@@ -390,7 +387,7 @@ if st.session_state["explored_position"] is not None:
                 glossary_metric(
                     "Variant count",
                     stop_loss_count,
-                    "The number of recorded CFTR stop-loss variants associated with position 1481 in the dataset."
+                    "The number of recorded CFTR variants associated with position 1481 in the dataset."
                 )
         
         elif explored_position in valid_positions:
