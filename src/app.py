@@ -361,7 +361,7 @@ if st.session_state["explored_position"] is not None:
                     use_container_width=True
                 )
                 
-        if position_info is not None and not position_info.empty:
+        if explored_position in valid_positions:
 
             info = position_info.iloc[0]
 
