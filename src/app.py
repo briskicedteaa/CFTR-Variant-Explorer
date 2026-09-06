@@ -658,10 +658,20 @@ if st.session_state["explored_position"] is not None:
                     alt.Tooltip(
                         "Variant_Count:Q",
                         title="Variants"
+        
                     )
                 ]
             )
         )
+    
+        with st.expander("What Model Confidence Means"):
+            st.write(
+                "The confidence score indicates "
+                "how strongly the model favors its prediction. Because the model was trained "
+                "on existing CFTR variant data, its predictions should be interpreted as "
+                "computational estimates rather than definitive evidence of biological or "
+                "clinical effect." 
+            )
     
         st.altair_chart(
             region_chart,
