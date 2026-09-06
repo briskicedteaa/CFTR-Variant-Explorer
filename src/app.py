@@ -368,6 +368,15 @@ if st.session_state["explored_position"] is not None:
                     "<h3 style='text-align: center;'>Machine Learning Prediction</h3>",
                     unsafe_allow_html=True
                 )
+                
+        with st.expander("What RandomForest Predicts"):
+                    st.write(
+                        "The machine-learning model predicts the likely consequence of the "
+                        "selected CFTR variant based on its amino-acid position and substitution. "
+                        "The prediction is made for the specific variant you selected, rather than "
+                        "for every variant recorded at that position."
+                    )
+                    
         if explored_position != 1481:
             
             info = position_info.iloc[0]
@@ -394,15 +403,6 @@ if st.session_state["explored_position"] is not None:
                     int(info["Variant_Count"]),
                     "The number of recorded CFTR variants associated with this amino-acid position in the dataset."
                 )
-                    
-            with st.expander("What RandomForest Predicts"):
-                    st.write(
-                        "The machine-learning model predicts the likely consequence of the "
-                        "selected CFTR variant based on its amino-acid position and substitution. "
-                        "The prediction is made for the specific variant you selected, rather than "
-                        "for every variant recorded at that position."
-                    )
-                
 
             prediction_variants = variants.copy()
 
