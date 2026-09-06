@@ -307,7 +307,6 @@ if st.session_state["explored_position"] is not None:
             col3.metric("Variant count", len(variants))
 
         else:
-
             st.subheader(f"CFTR Position {explored_position}")
 
             if position_info is not None and not position_info.empty:
