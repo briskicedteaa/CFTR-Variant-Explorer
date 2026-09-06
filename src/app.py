@@ -361,32 +361,65 @@ if st.session_state["explored_position"] is not None:
                     use_container_width=True
                 )
                 
-        if explored_position in valid_positions:
+        if explored_position == 1481:
 
-            info = position_info.iloc[0]
-
+            stop_loss_count = int(
+                variant_counts.loc[
+                    variant_counts["Human_Position"] == 1481,
+                    "Variant_Count"
+                ].iloc[0]
+            )
+        
             col1, col2, col3 = st.columns(3)
-
+        
+            with col1:
+                glossary_metric(
+                    "Domain",
+                    "Other",
+                    "Position 1481 is the stop-loss site immediately after the canonical 1,480-amino-acid CFTR sequence."
+                )
+        
+            with col2:
+                glossary_metric(
+                    "Conservation",
+                    "N/A",
+                    "Conservation is not available because position 1481 is not an amino-acid position in canonical human CFTR."
+                )
+        
+            with col3:
+                glossary_metric(
+                    "Variant count",
+                    stop_loss_count,
+                    "The number of recorded CFTR stop-loss variants associated with position 1481 in the dataset."
+                )
+        
+        elif explored_position in valid_positions:
+        
+            info = position_info.iloc[0]
+        
+            col1, col2, col3 = st.columns(3)
+        
             with col1:
                 glossary_metric(
                     "Domain",
                     info["CFTR_Domain"],
                     "A specific region of a protein that has a particular structure or function."
                 )
-
+        
             with col2:
                 glossary_metric(
                     "Conservation",
                     f"{info['Conservation']:.3f}",
                     "A measure of how strongly this amino-acid position has been preserved across related proteins."
                 )
-
+        
             with col3:
                 glossary_metric(
                     "Variant count",
                     int(info["Variant_Count"]),
                     "The number of recorded CFTR variants associated with this amino-acid position in the dataset."
                 )
+        
 
         if explored_position != 1481:
             st.markdown(
