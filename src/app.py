@@ -315,6 +315,15 @@ if st.session_state["explored_position"] is not None:
             "<h1 style='text-align: center;'>Results</h1>",
             unsafe_allow_html=True
         )
+        
+        st.subheader("CFTR Position 1481")
+            
+        with st.expander("Why CFTR AA Position 1481 Appears In The Dataset"):
+            st.write(
+                "CFTR contains 1,480 amino acids. Position 1481 appears in this "
+                "dataset because stop-loss variants alter the normal stop signal, "
+                "allowing translation to continue beyond the usual protein endpoint."
+            )
 
         if explored_position == 1481:
             
@@ -368,14 +377,6 @@ if st.session_state["explored_position"] is not None:
                         "for every variant recorded at that position."
                     )
                     
-        st.subheader("CFTR Position 1481")
-            
-        with st.expander("Why CFTR AA Position 1481 Appears In The Dataset"):
-            st.write(
-                "CFTR contains 1,480 amino acids. Position 1481 appears in this "
-                "dataset because stop-loss variants alter the normal stop signal, "
-                "allowing translation to continue beyond the usual protein endpoint."
-            )
                     
         if explored_position != 1481:
             
