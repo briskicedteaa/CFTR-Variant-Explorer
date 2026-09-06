@@ -80,7 +80,6 @@ h1, h2, h3 {
     line-height: 1.2;
     margin-top: 0.15rem;
 }
-
 .glossary-definition {
     margin: 0.5rem auto;
     padding: 0.5rem;
@@ -93,35 +92,44 @@ h1, h2, h3 {
 }
 .position-1481-dropdown {
     width: 100%;
+    max-width: 100%;
+    text-align: center;
 }
-
 .position-1481-dropdown summary {
-    font-size: 1.5rem;
     cursor: pointer;
+    list-style: none;
     font-family: 'Fredoka', sans-serif;
+    font-size: 1.5rem;
     font-weight: 500;
     color: inherit;
     text-decoration: underline dotted;
     text-underline-offset: 3px;
 }
 
-.position-1481-dropdown .glossary-definition {
-    width: 100%;
-    max-width: none;
+.position-1481-dropdown summary::-webkit-details-marker {
+    display: none;
 }
+
+.position-1481-content {
+    width: 100%;
+    max-width: 100%;
+    margin: 0.75rem 0;
+    font-family: 'Quicksand', sans-serif;
+}
+
 .position-1481-table {
     width: 100%;
+    max-width: 100%;
     border-collapse: collapse;
-    margin-top: 10px;
     table-layout: fixed;
 }
 
 .position-1481-table th,
 .position-1481-table td {
-    padding: 12px 16px;
+    padding: 14px 18px;
     text-align: left;
-    border-bottom: 1px solid rgba(128, 128, 128, 0.25);
     vertical-align: top;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.25);
     word-wrap: break-word;
 }
 
@@ -186,7 +194,7 @@ st.markdown(
 def glossary_metric(label, value, definition):
     st.markdown(
         f"""
-        <details class="glossary-metric">
+        <details class="position-1481-dropdown">
             <summary>{label}</summary>
             <div class="glossary-definition">{definition}</div>
         </details>
@@ -380,9 +388,9 @@ if st.session_state["explored_position"] is not None:
             
             st.markdown(
                 """
-                <details class="glossary-metric">
-                    <summary>Special case!: Position 1481 (Click For Information About Position 1481)</summary>
-                    <div class="glossary-definition">
+                <details class="position-1481-dropdown">
+                    <summary>Special Case: Position 1481! (Click For Information About Position 1481)</summary>
+                    <div class="position-1481-content">
                         <table class="position-1481-table">
                             <tr>
                                 <th>Topic</th>
@@ -611,7 +619,7 @@ if st.session_state["explored_position"] is not None:
         st.markdown(
             """
             <h3 class='glossary-heading' style='text-align: center;'>
-                <details class="glossary-metric">
+                <details class="position-1481-dropdown">
                     <summary>CFTR Domain Conservation</summary>
                     <div class="glossary-definition">
                         The average evolutionary conservation of amino-acid positions within each major CFTR domain.
@@ -699,7 +707,7 @@ if st.session_state["explored_position"] is not None:
         st.markdown(
             """
             <h3 class='glossary-heading' style='text-align: center;'>
-                <details class="glossary-metric">
+                <details class="position-1481-dropdown">
                     <summary>Variant Distribution by Protein Region</summary>
                     <div class="glossary-definition">
                         The distribution of recorded CFTR variants across the major protein regions.
@@ -778,7 +786,7 @@ if st.session_state["explored_position"] is not None:
         st.markdown(
             """
             <h3 class='glossary-heading' style='text-align: center;'>
-                <details class="glossary-metric">
+                <details class="position-1481-dropdown">
                     <summary>Variant Consequences</summary>
                     <div class="glossary-definition">
                         The distribution of recorded CFTR variants by the type of change they produce in the protein.
@@ -861,7 +869,7 @@ if st.session_state["explored_position"] is not None:
                 st.markdown(
                     """
                     <h3 class='glossary-heading' style='text-align: center;'>
-                        <details class="glossary-metric">
+                        <details class="position-1481-dropdown">
                             <summary>Variants at This Position</summary>
                             <div class="glossary-definition">
                                 A list of recorded CFTR variants found at the amino-acid position you entered.
