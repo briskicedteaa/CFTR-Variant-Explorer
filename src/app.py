@@ -340,33 +340,6 @@ if st.session_state["explored_position"] is not None:
             variants = variants_df[
                 variants_df["Position"] == 1481
             ].copy()
-
-            if position_info is not None and not position_info.empty:
-
-                info = position_info.iloc[0]
-
-                col1, col2, col3 = st.columns(3)
-                
-                with col1:
-                    glossary_metric(
-                        "Domain",
-                        info["CFTR_Domain"],
-                        "A specific region of a protein that has a particular structure or function."
-                    )
-                    
-                with col2:
-                    glossary_metric(
-                        "Conservation",
-                        f"{info['Conservation']:.3f}",
-                        "A measure of how strongly this amino-acid position has been preserved across related proteins."
-                    )
-                
-                with col3:
-                    glossary_metric(
-                        "Variant count",
-                        int(info["Variant_Count"]),
-                        "The number of recorded CFTR variants associated with this amino-acid position in the dataset."
-                    )
                     
         else:
             st.subheader(f"CFTR Position {explored_position}")
@@ -380,8 +353,8 @@ if st.session_state["explored_position"] is not None:
                     str(B_PATH),
                     use_container_width=True
                 )
-  
-        if explored_position != 1481:
+                
+        if position_info is not None and not position_info.empty:
 
                 st.markdown(
                     "<h3 style='text-align: center;'>Machine Learning Prediction</h3>",
@@ -389,13 +362,38 @@ if st.session_state["explored_position"] is not None:
                 )
         if explored_position != 1481:
             
-            with st.expander("What RandomForest Predicts"):
-                st.write(
-                    "The machine-learning model predicts the likely consequence of the "
-                    "selected CFTR variant based on its amino-acid position and substitution. "
-                    "The prediction is made for the specific variant you selected, rather than "
-                    "for every variant recorded at that position."
+            info = position_info.iloc[0]
+
+            col1, col2, col3 = st.columns(3)
+        
+            with col1:
+                glossary_metric(
+                    "Domain",
+                    info["CFTR_Domain"],
+                    "A specific region of a protein that has a particular structure or function."
                 )
+        
+            with col2:
+                glossary_metric(
+                    "Conservation",
+                    f"{info['Conservation']:.3f}",
+                    "A measure of how strongly this amino-acid position has been preserved across related proteins."
+                )
+        
+            with col3:
+                glossary_metric(
+                    "Variant count",
+                    int(info["Variant_Count"]),
+                    "The number of recorded CFTR variants associated with this amino-acid position in the dataset."
+                )
+                    
+                    with st.expander("What RandomForest Predicts"):
+                        st.write(
+                            "The machine-learning model predicts the likely consequence of the "
+                            "selected CFTR variant based on its amino-acid position and substitution. "
+                            "The prediction is made for the specific variant you selected, rather than "
+                            "for every variant recorded at that position."
+                        )
                 
 
             prediction_variants = variants.copy()
