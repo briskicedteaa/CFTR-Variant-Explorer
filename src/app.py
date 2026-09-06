@@ -609,9 +609,18 @@ if st.session_state["explored_position"] is not None:
             )
     
         st.markdown(
-            "<h3 style='text-align: center;'>Variant Distribution by Protein Region</h3>",
+            """
+            <h3 style='text-align: center;'>
+                <details class="glossary-metric">
+                    <summary>Variant Distribution by Protein Region</summary>
+                    <div class="glossary-definition">
+                        The distribution of recorded CFTR variants across the major protein regions.
+                    </div>
+                </details>
+            </h3>
+            """,
             unsafe_allow_html=True
-        )
+)
     
         region_counts = variants_df["Region"].value_counts()
     
