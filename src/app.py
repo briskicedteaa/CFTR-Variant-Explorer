@@ -321,14 +321,6 @@ if st.session_state["explored_position"] is not None:
         )
 
         if explored_position == 1481:
-            st.subheader("CFTR Position 1481")
-            
-            with st.expander("Why CFTR AA Position 1481 Appears In The Dataset"):
-                st.write(
-                    "CFTR contains 1,480 amino acids. Position 1481 appears in this "
-                    "dataset because stop-loss variants alter the normal stop signal, "
-                    "allowing translation to continue beyond the usual protein endpoint."
-                )
             
             THE_PATH = Path(__file__).resolve().parent.parent / "images" / "0E11DECF-757B-4E64-ADBA-713D560B56A9.gif"
 
@@ -338,6 +330,15 @@ if st.session_state["explored_position"] is not None:
                 st.image(
                     str(THE_PATH),
                     use_container_width=True
+                )
+                
+            st.subheader("CFTR Position 1481")
+            
+            with st.expander("Why CFTR AA Position 1481 Appears In The Dataset"):
+                st.write(
+                    "CFTR contains 1,480 amino acids. Position 1481 appears in this "
+                    "dataset because stop-loss variants alter the normal stop signal, "
+                    "allowing translation to continue beyond the usual protein endpoint."
                 )
                 
             with st.expander("Why There Are No Predictions For Stop-loss Variants"):
@@ -353,8 +354,6 @@ if st.session_state["explored_position"] is not None:
             ].copy()
                     
         else:
-            st.subheader(f"CFTR Position {explored_position}")
-                
             B_PATH = Path(__file__).resolve().parent.parent / "images" / "B07F52FD-0104-4A8D-BD55-7B8E1BA7E386.gif"
                 
             left, center, right = st.columns([1, 4 , 1])
@@ -365,6 +364,7 @@ if st.session_state["explored_position"] is not None:
                     use_container_width=True
                 )
                 
+            st.subheader(f"CFTR Position {explored_position}")
         if explored_position == 1481:
 
             stop_loss_count = int(
