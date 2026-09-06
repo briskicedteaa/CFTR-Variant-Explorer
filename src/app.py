@@ -91,27 +91,52 @@ h1, h2, h3 {
     line-height: 1.4;
     background: rgba(128, 128, 128, 0.1);
 }
+.position-1481-dropdown {
+    width: 100%;
+}
+
+.position-1481-dropdown summary {
+    font-size: 1.5rem;
+    cursor: pointer;
+    font-family: 'Fredoka', sans-serif;
+    font-weight: 500;
+    color: inherit;
+    text-decoration: underline dotted;
+    text-underline-offset: 3px;
+}
+
+.position-1481-dropdown .glossary-definition {
+    width: 100%;
+    max-width: none;
+}
 .position-1481-table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 10px;
+    table-layout: fixed;
 }
 
 .position-1481-table th,
 .position-1481-table td {
-    padding: 10px 12px;
+    padding: 12px 16px;
     text-align: left;
     border-bottom: 1px solid rgba(128, 128, 128, 0.25);
     vertical-align: top;
+    word-wrap: break-word;
 }
 
 .position-1481-table th {
     font-weight: 600;
 }
 
+.position-1481-table th:first-child,
 .position-1481-table td:first-child {
-    width: 30%;
-    font-weight: 500;
+    width: 25%;
+}
+
+.position-1481-table th:last-child,
+.position-1481-table td:last-child {
+    width: 75%;
 }
 </style>
 """, unsafe_allow_html=True)
