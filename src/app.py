@@ -332,7 +332,14 @@ if st.session_state["explored_position"] is not None:
                     use_container_width=True
                 )
                 
-            st.subheader("CFTR Position 1481")
+            st.markdown(
+                """
+                <h3 style='text-align: center;'>
+                    CFTR Position 1481
+                </h3>
+                """,
+                unsafe_allow_html=True
+            )
             
             with st.expander("Why CFTR AA Position 1481 Appears In The Dataset"):
                 st.write(
@@ -364,7 +371,14 @@ if st.session_state["explored_position"] is not None:
                     use_container_width=True
                 )
                 
-            st.subheader(f"CFTR Position {explored_position}")
+            st.markdown(
+                f"""
+                <h3 style='text-align: center;'>
+                    CFTR Position {explored_position}
+                </h3>
+                """,
+                unsafe_allow_html=True
+            )
         if explored_position == 1481:
 
             stop_loss_count = int(
