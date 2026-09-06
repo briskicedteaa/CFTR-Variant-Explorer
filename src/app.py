@@ -64,6 +64,10 @@ h1, h2, h3 {
     text-underline-offset: 3px;
 }
 
+.glossary-heading .glossary-metric summary {
+    font-size: inherit;
+}
+
 .glossary-metric summary::-webkit-details-marker {
     display: none;
 }
