@@ -57,9 +57,9 @@ h1, h2, h3 {
     cursor: pointer;
     list-style: none;
     font-family: 'Fredoka', sans-serif;
-    font-size: 0.875rem;
-    font-weight: 400;
-    color: rgba(49, 51, 63, 0.6);
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: inherit;
     text-decoration: underline dotted;
     text-underline-offset: 3px;
 }
