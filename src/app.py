@@ -646,7 +646,7 @@ if st.session_state["explored_position"] is not None:
             use_container_width=True
         )
         
-        with st.expander("Don't Understand Unfamiliar Terms? Click Me! (Explanations Are Simplifed For General-Understanding"):
+        with st.expander("Don't Understand Unfamiliar Terms? Click Me! (Explanations Are Simplifed For General-Understanding)"):
             st.markdown("""
             **NBD1 and NBD2:** Nucleotide-binding domains. These are two parts of CFTR that interact with ATP, a molecule that provides energy for many processes in cells. ATP helps CFTR control when its channel is open or closed.
         
