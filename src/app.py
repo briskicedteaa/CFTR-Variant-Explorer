@@ -9,10 +9,6 @@ from variant_explorer import (
     predict_consequence
 )
 
-def info_popover(term, definition):
-    with st.popover(f"ⓘ {term}"):
-        st.write(definition)
-
 st.set_page_config(
     page_title="CFTR Variant Explorer",
     layout="wide"
@@ -53,7 +49,34 @@ h1, h2, h3 {
 .info-bubble p {
     color: #4a3a42;
 }
+.glossary-term {
+    position: relative;
+    display: inline-block;
+    color: inherit;
+    text-decoration: underline dotted;
+    text-underline-offset: 3px;
+    cursor: pointer;
 
+}
+.glossary-term .glossary-definition {
+    display: none;
+    position: absolute;
+    z-index: 1000;
+    width: 280px;
+    padding: 10px 12px;
+    margin-top: 8px;
+    border-radius: 8px;
+    background: white;
+    border: 1px solid #ddd;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.12);
+    font-size: 14px;
+    line-height: 1.4;
+    color: #333;
+}
+
+.glossary-term:hover .glossary-definition {
+    display: block;
+}
 </style>
 """, unsafe_allow_html=True)
 
@@ -98,6 +121,20 @@ st.markdown(
     "</p>",
     unsafe_allow_html=True
 )
+
+def glossary_metric(label, value, definition):
+    st.markdown(
+        f"""
+        <div class="glossary-metric">
+            <details>
+                <summary>{label}</summary>
+                <div class="glossary-definition">{definition}</div>
+            </details>
+            <div class="glossary-value">{value}</div>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
 
 GIF_PATH = Path(__file__).resolve().parent.parent / "images" / "8D83949E-9C79-479B-BD57-BA4F6ED95A0A.gif"
 
@@ -341,21 +378,27 @@ if st.session_state["explored_position"] is not None:
                 info = position_info.iloc[0]
 
                 col1, col2, col3 = st.columns(3)
-
-                col1.metric(
-                    "Domain",
-                    info["CFTR_Domain"]
-                )
-
-                col2.metric(
-                    "Conservation",
-                    f"{info['Conservation']:.3f}"
-                )
-
-                col3.metric(
-                    "Variant count",
-                    int(info["Variant_Count"])
-                )
+                
+                with col1:
+                    glossary_metric(
+                        "Domain",
+                        info["CFTR_Domain"],
+                        "A specific region of a protein that has a particular structure or function."
+                    )
+                    
+                with col2:
+                    glossary_metric(
+                        "Conservation",
+                        f"{info['Conservation']:.3f}",
+                        "A measure of how strongly this amino-acid position has been preserved across related proteins."
+                    )
+                
+                with col3:
+                    glossary_metric(
+                        "Variant count",
+                        int(info["Variant_Count"]),
+                        "The number of recorded CFTR variants associated with this amino-acid position in the dataset."
+                    )
                 
                 B_PATH = Path(__file__).resolve().parent.parent / "images" / "B07F52FD-0104-4A8D-BD55-7B8E1BA7E386.gif"
                 
