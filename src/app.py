@@ -614,7 +614,7 @@ if st.session_state["explored_position"] is not None:
     
         st.markdown(
             """
-            <h3 style='text-align: center;'>
+            <h3 class='glossary-heading' style='text-align: center;'>
                 <details class="glossary-metric">
                     <summary>Variant Distribution by Protein Region</summary>
                     <div class="glossary-definition">
@@ -624,7 +624,7 @@ if st.session_state["explored_position"] is not None:
             </h3>
             """,
             unsafe_allow_html=True
-)
+        )
     
         region_counts = variants_df["Region"].value_counts()
     
