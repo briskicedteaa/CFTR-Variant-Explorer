@@ -601,6 +601,21 @@ if st.session_state["explored_position"] is not None:
             domain_chart,
             use_container_width=True
         )
+        
+        with st.expander("Don't Understand Unfamiliar Terms? Click Me!"):
+            st.markdown("""
+            **NBD1 and NBD2:** Nucleotide-binding domains. These are two parts of CFTR that interact with ATP, a molecule that provides energy for many processes in cells. ATP helps CFTR control when its channel is open or closed.
+        
+            **R domain:** The regulatory domain. This part helps control the activity of CFTR, including whether the channel can open.
+        
+            **TMD1 and TMD2:** Transmembrane domains. These are parts of CFTR that are located within the cell membrane, the thin outer barrier of a cell. Together, they form the channel that allows chloride ions to move across the membrane.
+        
+            **Other:** Positions that are outside the five major CFTR domains included in this analysis.
+        
+            **Average conservation:** The average conservation score of all the amino-acid positions within a domain. A higher score means that these positions tend to remain more similar across related proteins, suggesting that they may be important for the protein's structure or function.
+        
+            This chart shows a **global view of CFTR conservation** rather than the conservation of the specific position entered above. Conservation is calculated for individual amino-acid positions by comparing related CFTR proteins. The scores are then grouped by domain and averaged, allowing us to compare how strongly different parts of CFTR have been preserved over evolutionary time.
+            """)
 
         B_PATH = Path(__file__).resolve().parent.parent / "images" / "B07F52FD-0104-4A8D-BD55-7B8E1BA7E386.gif"
     
