@@ -356,7 +356,7 @@ if st.session_state["explored_position"] is not None:
             st.markdown(
                 """
                 <details class="glossary-metric">
-                    <summary>About Position 1481</summary>
+                    <summary>Special case!: Position 1481 (Click For Information About Position 1481)</summary>
                     <div class="glossary-definition">
                         <table class="position-1481-table">
                             <tr>
