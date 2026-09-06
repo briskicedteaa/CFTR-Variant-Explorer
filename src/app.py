@@ -91,6 +91,28 @@ h1, h2, h3 {
     line-height: 1.4;
     background: rgba(128, 128, 128, 0.1);
 }
+.position-1481-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.position-1481-table th,
+.position-1481-table td {
+    padding: 10px 12px;
+    text-align: left;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.25);
+    vertical-align: top;
+}
+
+.position-1481-table th {
+    font-weight: 600;
+}
+
+.position-1481-table td:first-child {
+    width: 30%;
+    font-weight: 500;
+}
 </style>
 """, unsafe_allow_html=True)
 
@@ -341,20 +363,38 @@ if st.session_state["explored_position"] is not None:
                 unsafe_allow_html=True
             )
             
-            with st.expander("Why CFTR AA Position 1481 Appears In The Dataset"):
-                st.write(
-                    "CFTR contains 1,480 amino acids. Position 1481 appears in this "
-                    "dataset because stop-loss variants alter the normal stop signal, "
-                    "allowing translation to continue beyond the usual protein endpoint."
-                )
-                
-            with st.expander("Why There Are No Predictions For Stop-loss Variants"):
-                st.write(
-                    "Stop-loss variants were excluded from the machine-learning model "
-                    "because only a very small number of stop-loss variants were present "
-                    "in the dataset, which was insufficient to support reliable model "
-                    "training for that consequence class."
-                )
+            st.markdown(
+                """
+                <details class="glossary-metric">
+                    <summary>About Position 1481</summary>
+                    <div class="glossary-definition">
+                        <table class="position-1481-table">
+                            <tr>
+                                <th>Topic</th>
+                                <th>Explanation</th>
+                            </tr>
+                            <tr>
+                                <td>Why does position 1481 appear?</td>
+                                <td>CFTR contains 1,480 amino acids. Position 1481 appears in this dataset because stop-loss variants alter the normal stop signal, allowing translation to continue beyond the usual protein endpoint.</td>
+                            </tr>
+                            <tr>
+                                <td>Why is the domain "Other"?</td>
+                                <td>Position 1481 is outside the canonical CFTR protein sequence, so it does not fall within any of the major CFTR domains defined in this analysis.</td>
+                            </tr>
+                            <tr>
+                                <td>Why is conservation "N/A"?</td>
+                                <td>Position 1481 is not a canonical amino-acid position in human CFTR, so it cannot be assigned a conservation score using the same position-based analysis as positions 1–1480.</td>
+                            </tr>
+                            <tr>
+                                <td>Why are there no predictions?</td>
+                                <td>Stop-loss variants were excluded from the machine-learning model because only a very small number were present in the dataset, which was insufficient to support reliable model training for that consequence class.</td>
+                            </tr>
+                        </table>
+                    </div>
+                </details>
+                """,
+                unsafe_allow_html=True
+            )
 
             variants = variants_df[
                 variants_df["Position"] == 1481
