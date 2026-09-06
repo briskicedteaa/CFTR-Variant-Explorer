@@ -361,14 +361,12 @@ if st.session_state["explored_position"] is not None:
                     use_container_width=True
                 )
                 
-        if position_info is not None and not position_info.empty:
-
-                st.markdown(
-                    "<h3 style='text-align: center;'>Machine Learning Prediction</h3>",
-                    unsafe_allow_html=True
-                )
-        
         if explored_position != 1481:
+            st.markdown(
+                "<h3 style='text-align: center;'>Machine Learning Prediction</h3>",
+                unsafe_allow_html=True
+            )
+        
             with st.expander("What Random Forest Predicts"):
                 st.write(
                     "The machine-learning model predicts the likely consequence of the "
