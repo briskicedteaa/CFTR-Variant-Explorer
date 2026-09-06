@@ -271,7 +271,7 @@ if st.session_state["explored_position"] is not None:
 
             st.subheader("CFTR Position 1481")
             
-            with st.expander("Why CFTR AA Position 1481 appears in the dataset?"):
+            with st.expander("Why CFTR AA Position 1481 Appears In The Dataset"):
                 st.write(
                     "CFTR contains 1,480 amino acids. Position 1481 appears in this "
                     "dataset because stop-loss variants alter the normal stop signal, "
@@ -288,7 +288,7 @@ if st.session_state["explored_position"] is not None:
                     use_container_width=True
                 )
                 
-            with st.expander("Why there are no predictions for stop-loss variants"):
+            with st.expander("Why There Are No Predictions For Stop-loss Variants"):
                 st.write(
                     "Stop-loss variants were excluded from the machine-learning model "
                     "because only a very small number of stop-loss variants were present "
@@ -411,7 +411,7 @@ if st.session_state["explored_position"] is not None:
                     )
                     
                     if explored_position != 1481:
-                        with st.expander("What confidence means"):
+                        with st.expander("What Model Confidence Means"):
                             st.write(
                                 "The confidence score indicates "
                                 "how strongly the model favors its prediction. Because the model was trained "
