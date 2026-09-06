@@ -530,7 +530,16 @@ if st.session_state["explored_position"] is not None:
                     )
                     
         st.markdown(
-            "<h3 style='text-align: center;'>CFTR Domain Conservation</h3>",
+            """
+            <h3 class='glossary-heading' style='text-align: center;'>
+                <details class="glossary-metric">
+                    <summary>CFTR Domain Conservation</summary>
+                    <div class="glossary-definition">
+                        The average evolutionary conservation of amino-acid positions within each major CFTR domain.
+                    </div>
+                </details>
+            </h3>
+            """,
             unsafe_allow_html=True
         )
 
@@ -688,7 +697,16 @@ if st.session_state["explored_position"] is not None:
             )
     
         st.markdown(
-            "<h3 style='text-align: center;'>Variant Consequences</h3>",
+            """
+            <h3 class='glossary-heading' style='text-align: center;'>
+                <details class="glossary-metric">
+                    <summary>Variant Consequences</summary>
+                    <div class="glossary-definition">
+                        The distribution of recorded CFTR variants by the type of change they produce in the protein.
+                    </div>
+                </details>
+            </h3>
+            """,
             unsafe_allow_html=True
         )
     
@@ -762,7 +780,16 @@ if st.session_state["explored_position"] is not None:
                 
             if variants is not None and not variants.empty:
                 st.markdown(
-                    "<h3 style='text-align: center;'>Variants At This Position</h3>",
+                    """
+                    <h3 class='glossary-heading' style='text-align: center;'>
+                        <details class="glossary-metric">
+                            <summary>Variants at This Position</summary>
+                            <div class="glossary-definition">
+                                A list of recorded CFTR variants found at the amino-acid position you entered.
+                            </div>
+                        </details>
+                    </h3>
+                    """,
                     unsafe_allow_html=True
                 )
             
