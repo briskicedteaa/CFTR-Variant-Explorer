@@ -646,7 +646,7 @@ if st.session_state["explored_position"] is not None:
             use_container_width=True
         )
         
-        with st.expander("Don't Understand Unfamiliar Terms? Click Me!"):
+        with st.expander("Don't Understand Unfamiliar Terms? Click Me! (Explanations Are Simplifed For General-Understanding"):
             st.markdown("""
             **NBD1 and NBD2:** Nucleotide-binding domains. These are two parts of CFTR that interact with ATP, a molecule that provides energy for many processes in cells. ATP helps CFTR control when its channel is open or closed.
         
@@ -728,7 +728,7 @@ if st.session_state["explored_position"] is not None:
             use_container_width=True
         )
         
-        with st.expander("Don't Understand Unfamiliar Terms? Click Me!"):
+        with st.expander("Don't Understand Unfamiliar Terms? Click Me! (Explanations Are Simplifed For General-Understanding)"):
             st.markdown("""
             **N-terminal:** The beginning of the protein sequence.
         
@@ -809,7 +809,7 @@ if st.session_state["explored_position"] is not None:
                 use_container_width=True
             )
             
-            with st.expander("Don't Understand Unfamiliar Terms? Click Me!"):
+            with st.expander("Don't Understand Unfamiliar Terms? Click Me! (Explanations Are Simplifed For General-Understanding)"):
                 st.markdown("""
                 **Variant consequence:** A description of how a genetic change affects the CFTR protein. Different types of changes can affect the protein in different ways, such as changing an amino acid, removing part of the protein, or causing the protein to end earlier than expected.
             
@@ -849,7 +849,7 @@ if st.session_state["explored_position"] is not None:
             
                 st.dataframe(variants)
             
-            with st.expander("Don't Understand Unfamiliar Terms? Click Me!"):
+            with st.expander("Don't Understand Unfamiliar Terms? Click Me! (Explanations Are Simplifed For General-Understanding)"):
                 st.markdown("""
                 **Position:** The location of the variant within the CFTR protein.
             
