@@ -409,6 +409,16 @@ if st.session_state["explored_position"] is not None:
                         "Model confidence",
                         f"{result['confidence']:.2%}"
                     )
+                    
+                    if explored_position != 1481:
+                    with st.expander("What confidence means"):
+                        st.write(
+                            "The confidence score indicates "
+                            "how strongly the model favors its prediction. Because the model was trained "
+                            "on existing CFTR variant data, its predictions should be interpreted as "
+                            "computational estimates rather than definitive evidence of biological or "
+                            "clinical effect." 
+                        )
 
                     if result["prediction"] == selected_variant["Consequence"]:
 
@@ -427,15 +437,6 @@ if st.session_state["explored_position"] is not None:
                         "for prediction at this position."
                     )
                 
-            if explored_position != 1481:
-                with st.expander("What confidence means"):
-                    st.write(
-                        "The confidence score indicates "
-                        "how strongly the model favors its prediction. Because the model was trained "
-                        "on existing CFTR variant data, its predictions should be interpreted as "
-                        "computational estimates rather than definitive evidence of biological or "
-                        "clinical effect." 
-                    )
 
                 N_PATH = Path(__file__).resolve().parent.parent / "images" / "bcb43178-c776-4fed-b8ee-5b9f36f8bfa7_removalai_preview.png"
 
