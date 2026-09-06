@@ -528,25 +528,6 @@ if st.session_state["explored_position"] is not None:
                         str(N_PATH),
                         use_container_width=True
                     )
-        
-        if variants is not None and not variants.empty:
-
-            st.markdown(
-                "<h3 style='text-align: center;'>Variants At This Position</h3>",
-                unsafe_allow_html=True
-            )
-            
-            st.dataframe(variants)
-
-        B_PATH = Path(__file__).resolve().parent.parent / "images" / "B07F52FD-0104-4A8D-BD55-7B8E1BA7E386.gif"
-
-        left, center, right = st.columns([1, 4, 1])
-
-        with center:
-            st.image(
-                str(B_PATH),
-                use_container_width=True
-            )
                     
         st.markdown(
             "<h3 style='text-align: center;'>CFTR Domain Conservation</h3>",
@@ -777,6 +758,29 @@ if st.session_state["explored_position"] is not None:
                 **Sequence-level descriptions:** Some variants are represented by the amino-acid changes themselves rather than by a consequence label such as "missense" or "frameshift." These entries show the specific amino-acid sequence associated with the variant.
             
                 This chart shows the distribution of recorded variant consequences in the CFTR dataset. Looking at these categories helps show which types of genetic changes are most frequently represented in the dataset.
+                """)
+                
+            if variants is not None and not variants.empty:
+                st.markdown(
+                    "<h3 style='text-align: center;'>Variants At This Position</h3>",
+                    unsafe_allow_html=True
+                )
+            
+                st.dataframe(variants)
+            
+            with st.expander("Don't Understand Unfamiliar Terms? Click Me!"):
+                st.markdown("""
+                **Position:** The location of the variant within the CFTR protein.
+            
+                **Wild type:** The amino acid normally found at this position in the reference human CFTR protein.
+            
+                **Mutated type:** The amino acid or value recorded at this position for the variant. If it says "None," the variant does not specify a replacement amino acid at that position.
+            
+                **Consequence:** A description of how the genetic change affects the CFTR protein.
+            
+                **Region:** The general part of the CFTR protein where the variant is located, such as the N-terminal, Middle, or C-terminal region.
+            
+                This table lists the recorded CFTR variants found at the amino-acid position you entered. Each row represents a variant in the dataset and provides information about the change and where it occurs in the CFTR protein.
                 """)
             
 if st.session_state.get("explored_position") in valid_positions:
