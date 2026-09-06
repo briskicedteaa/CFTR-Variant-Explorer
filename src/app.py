@@ -515,7 +515,7 @@ if st.session_state["explored_position"] is not None:
                 unsafe_allow_html=True
             )
 
-            with st.expander("What RandomForest Predicts"):
+            with st.expander("What Random Forest Is Predicting"):
                 st.write(
                     "The machine-learning model predicts the likely consequence of the "
                     "selected CFTR variant based on its amino-acid position and substitution. "
