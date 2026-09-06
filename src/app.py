@@ -756,6 +756,29 @@ if st.session_state["explored_position"] is not None:
                 use_container_width=True
             )
             
+            with st.expander("Don't Understand Unfamiliar Terms? Click Me!"):
+                st.markdown("""
+                **Variant consequence:** A description of how a genetic change affects the CFTR protein. Different types of changes can affect the protein in different ways, such as changing an amino acid, removing part of the protein, or causing the protein to end earlier than expected.
+            
+                **Missense:** A variant that changes one amino acid in the protein to a different amino acid. Depending on where the change occurs, it may affect how CFTR is structured or how well it functions.
+            
+                **Frameshift:** A change that shifts the way the genetic sequence is read. This can change many of the amino acids that follow the variant and may result in a protein that does not function normally.
+            
+                **Frame deletion:** A deletion that removes part of the genetic sequence while preserving the reading frame. This can remove one or more amino acids from the CFTR protein, and its effects depend on which part of the protein is removed.
+            
+                **Stop gained:** A variant that introduces an early stop signal into the genetic sequence. This can cause the cell to produce a shorter CFTR protein.
+            
+                **Stop loss:** A variant that removes the normal stop signal. This can cause the protein-making process to continue beyond its usual endpoint, resulting in extra amino acids being added to the protein.
+            
+                **Initiator codon variant:** A variant that changes the genetic signal that tells the cell where to begin making the CFTR protein. A change to this signal can interfere with the production of the protein.
+            
+                **Gap (-):** A dash means that no amino acid is present at that position in the sequence.
+            
+                **Sequence-level descriptions:** Some variants are represented by the amino-acid changes themselves rather than by a consequence label such as "missense" or "frameshift." These entries show the specific amino-acid sequence associated with the variant.
+            
+                This chart shows the distribution of recorded variant consequences in the CFTR dataset. Looking at these categories helps show which types of genetic changes are most frequently represented in the dataset.
+                """)
+            
 if st.session_state.get("explored_position") in valid_positions:
     
     N_PATH = Path(__file__).resolve().parent.parent / "images" / "bcb43178-c776-4fed-b8ee-5b9f36f8bfa7_removalai_preview.png"
