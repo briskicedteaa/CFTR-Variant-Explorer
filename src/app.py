@@ -9,6 +9,10 @@ from variant_explorer import (
     predict_consequence
 )
 
+def info_popover(term, definition):
+    with st.popover(f"ⓘ {term}"):
+        st.write(definition)
+
 st.set_page_config(
     page_title="CFTR Variant Explorer",
     layout="wide"
@@ -302,9 +306,32 @@ if st.session_state["explored_position"] is not None:
 
             col1, col2, col3 = st.columns(3)
 
-            col1.metric("Domain", "NaN")
-            col2.metric("Conservation", "NaN")
-            col3.metric("Variant count", len(variants))
+            with col1:
+                st.metric("Domain", "NaN")
+                with st.popover("ⓘ"):
+                    st.write(
+                        "A protein domain is a distinct region of a protein "
+                        "that often has a specific structure or function."
+                    )
+                        
+            with col2:
+                st.metric("Conservation", "NaN")
+                with st.popover("ⓘ"):
+                    st.write(
+                        "Conservation describes how strongly an amino-acid "
+                        "position has been preserved across related proteins."
+                    )
+                    
+                    
+            with col3
+                st.metric("Variant count", len(variants))
+                with st.popover("ⓘ"):
+                    st.write(
+                        "The number of recorded CFTR variants associated "
+                        "with this amino-acid position in the dataset."
+                    )
+
+                    
 
         else:
             st.subheader(f"CFTR Position {explored_position}")
