@@ -49,33 +49,43 @@ h1, h2, h3 {
 .info-bubble p {
     color: #4a3a42;
 }
-.glossary-term {
-    position: relative;
-    display: inline-block;
-    color: inherit;
+.glossary-metric {
+    text-align: center;
+}
+
+.glossary-metric summary {
+    cursor: pointer;
+    list-style: none;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: rgba(49, 51, 63, 0.6);
     text-decoration: underline dotted;
     text-underline-offset: 3px;
-    cursor: pointer;
-
 }
-.glossary-term .glossary-definition {
+
+.glossary-metric summary::-webkit-details-marker {
     display: none;
-    position: absolute;
-    z-index: 1000;
-    width: 280px;
-    padding: 10px 12px;
-    margin-top: 8px;
-    border-radius: 8px;
-    background: white;
-    border: 1px solid #ddd;
-    box-shadow: 0 3px 12px rgba(0,0,0,0.12);
-    font-size: 14px;
-    line-height: 1.4;
-    color: #333;
 }
 
-.glossary-term:hover .glossary-definition {
-    display: block;
+.glossary-value {
+    text-align: center;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 2rem;
+    font-weight: 400;
+    line-height: 1.2;
+    margin-top: 0.15rem;
+}
+
+.glossary-definition {
+    margin: 0.5rem auto;
+    padding: 0.5rem;
+    max-width: 280px;
+    border-radius: 0.5rem;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    background: rgba(128, 128, 128, 0.1);
 }
 </style>
 """, unsafe_allow_html=True)
@@ -125,13 +135,11 @@ st.markdown(
 def glossary_metric(label, value, definition):
     st.markdown(
         f"""
-        <div class="glossary-metric">
-            <details>
-                <summary>{label}</summary>
-                <div class="glossary-definition">{definition}</div>
-            </details>
-            <div class="glossary-value">{value}</div>
-        </div>
+        <details class="glossary-metric">
+            <summary>{label}</summary>
+            <div class="glossary-definition">{definition}</div>
+        </details>
+        <div class="glossary-value">{value}</div>
         """,
         unsafe_allow_html=True
     )
