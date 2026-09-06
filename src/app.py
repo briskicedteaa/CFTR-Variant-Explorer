@@ -543,69 +543,68 @@ if st.session_state["explored_position"] is not None:
                         use_container_width=True
                     )
                     
-        if explored_position != 1481:           
-            st.markdown(
-                """
-                <h3 class='glossary-heading' style='text-align: center;'>
-                    <details class="glossary-metric">
-                        <summary>CFTR Domain Conservation</summary>
-                        <div class="glossary-definition">
-                            The average evolutionary conservation of amino-acid positions within each major CFTR domain.
-                        </div>
-                    </details>
-                </h3>
-                """,
-                unsafe_allow_html=True
+        st.markdown(
+            """
+            <h3 class='glossary-heading' style='text-align: center;'>
+                <details class="glossary-metric">
+                    <summary>CFTR Domain Conservation</summary>
+                    <div class="glossary-definition">
+                        The average evolutionary conservation of amino-acid positions within each major CFTR domain.
+                    </div>
+                </details>
+            </h3>
+            """,
+            unsafe_allow_html=True
+        )
+
+        domain_conservation = {
+            "NBD1": 0.820016,
+            "NBD2": 0.790831,
+            "Other": 0.692784,
+            "R domain": 0.640287,
+            "TMD1": 0.767632,
+            "TMD2": 0.729488,
+        }
+
+        domain_chart_data = pd.DataFrame(
+            list(domain_conservation.items()),
+            columns=["Domain", "Conservation"]
+        )
+
+        domain_chart = (
+            alt.Chart(domain_chart_data)
+            .mark_bar(
+                color="#ffc4e7",
+                cornerRadiusTopLeft=6,
+                cornerRadiusTopRight=6
             )
-    
-            domain_conservation = {
-                "NBD1": 0.820016,
-                "NBD2": 0.790831,
-                "Other": 0.692784,
-                "R domain": 0.640287,
-                "TMD1": 0.767632,
-                "TMD2": 0.729488,
-            }
-    
-            domain_chart_data = pd.DataFrame(
-                list(domain_conservation.items()),
-                columns=["Domain", "Conservation"]
-            )
-    
-            domain_chart = (
-                alt.Chart(domain_chart_data)
-                .mark_bar(
-                    color="#ffc4e7",
-                    cornerRadiusTopLeft=6,
-                    cornerRadiusTopRight=6
-                )
-                .encode(
-                    x=alt.X(
+            .encode(
+                x=alt.X(
+                    "Domain:N",
+                    title=None
+                ),
+                y=alt.Y(
+                    "Conservation:Q",
+                    title="Average conservation"
+                ),
+                tooltip=[
+                    alt.Tooltip(
                         "Domain:N",
-                        title=None
+                        title="Domain"
                     ),
-                    y=alt.Y(
+                    alt.Tooltip(
                         "Conservation:Q",
-                        title="Average conservation"
-                    ),
-                    tooltip=[
-                        alt.Tooltip(
-                            "Domain:N",
-                            title="Domain"
-                        ),
-                        alt.Tooltip(
-                            "Conservation:Q",
-                            title="Conservation",
-                            format=".3f"
-                        )
-                    ]
-                )
+                        title="Conservation",
+                        format=".3f"
+                    )
+                ]
             )
-    
-            st.altair_chart(
-                domain_chart,
-                use_container_width=True
-            )
+        )
+
+        st.altair_chart(
+            domain_chart,
+            use_container_width=True
+        )
         
         with st.expander("Don't Understand Unfamiliar Terms? Click Me!"):
             st.markdown("""
