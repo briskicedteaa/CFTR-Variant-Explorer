@@ -357,51 +357,51 @@ if st.session_state["explored_position"] is not None:
                 )
                 
 
-                prediction_variants = variants.copy()
+            prediction_variants = variants.copy()
 
-                substitution_variants = prediction_variants[
-                    prediction_variants["MutatedType"].notna()
-                    & (prediction_variants["MutatedType"] != "*")
-                    & prediction_variants["MutatedType"].isin(
-                        list("ACDEFGHIKLMNPQRSTVWY")
-                    )
-                ].copy()
+            substitution_variants = prediction_variants[
+                prediction_variants["MutatedType"].notna()
+                & (prediction_variants["MutatedType"] != "*")
+                & prediction_variants["MutatedType"].isin(
+                    list("ACDEFGHIKLMNPQRSTVWY")
+                )
+            ].copy()
 
-                if not substitution_variants.empty:
+            if not substitution_variants.empty:
 
-                    substitution_variants["Variant"] = (
-                        substitution_variants["WildType"].astype(str)
-                        + ">"
-                        + substitution_variants["MutatedType"].astype(str)
-                    )
+                substitution_variants["Variant"] = (
+                    substitution_variants["WildType"].astype(str)
+                    + ">"
+                    + substitution_variants["MutatedType"].astype(str)
+                )
 
-                    selected_variant_label = st.selectbox(
-                        "Select a variant",
-                        substitution_variants["Variant"].tolist()
-                    )
+                selected_variant_label = st.selectbox(
+                    "Select a variant",
+                    substitution_variants["Variant"].tolist()
+                )
 
-                    selected_variant = substitution_variants[
-                        substitution_variants["Variant"]
-                        == selected_variant_label
-                    ].iloc[0]
+                selected_variant = substitution_variants[
+                    substitution_variants["Variant"]
+                    == selected_variant_label
+                ].iloc[0]
 
-                    result = predict_consequence(
-                        int(selected_variant["Position"]),
-                        selected_variant["WildType"],
-                        selected_variant["MutatedType"]
-                    )
+                result = predict_consequence(
+                    int(selected_variant["Position"]),
+                    selected_variant["WildType"],
+                    selected_variant["MutatedType"]
+                )
 
-                    col1, col2, col3 = st.columns(3)
+                col1, col2, col3 = st.columns(3)
 
-                    col1.metric(
-                        "Predicted value",
-                        result["prediction"].title()
-                    )
+                col1.metric(
+                    "Predicted value",
+                    result["prediction"].title()
+                )
 
-                    col2.metric(
-                        "Actual",
-                        selected_variant["Consequence"].title()
-                    )
+                col2.metric(
+                    "Actual",
+                    selected_variant["Consequence"].title()
+                )
 
                 if result["confidence"] is not None:
 
@@ -437,15 +437,15 @@ if st.session_state["explored_position"] is not None:
                         "clinical effect." 
                     )
 
-                    N_PATH = Path(__file__).resolve().parent.parent / "images" / "bcb43178-c776-4fed-b8ee-5b9f36f8bfa7_removalai_preview.png"
+                N_PATH = Path(__file__).resolve().parent.parent / "images" / "bcb43178-c776-4fed-b8ee-5b9f36f8bfa7_removalai_preview.png"
 
-                    left, center, right = st.columns([1, 3, 1])
+                left, center, right = st.columns([1, 3, 1])
 
-                    with center:
-                        st.image(
-                            str(N_PATH),
-                            use_container_width=True
-                        )
+                with center:
+                    st.image(
+                        str(N_PATH),
+                        use_container_width=True
+                    )
         
         if variants is not None and not variants.empty:
 
