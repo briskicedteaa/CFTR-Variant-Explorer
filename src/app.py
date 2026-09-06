@@ -426,7 +426,7 @@ if st.session_state["explored_position"] is not None:
                     "for prediction at this position."
                 )
                     
-        with st.expander(What does confidence mean?"):
+        with st.expander("What does confidence mean?"):
             st.write(
                 "The confidence score indicates "
                 "how strongly the model favors its prediction. Because the model was trained "
