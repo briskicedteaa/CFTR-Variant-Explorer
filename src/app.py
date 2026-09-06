@@ -378,7 +378,7 @@ if st.session_state["explored_position"] is not None:
                 )
                     
                     
-        if explored_position != 1481:
+        if position_info is not None and not position_info.empty:
             
             info = position_info.iloc[0]
 
