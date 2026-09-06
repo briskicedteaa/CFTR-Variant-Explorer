@@ -346,61 +346,62 @@ if st.session_state["explored_position"] is not None:
                     "<h3 style='text-align: center;'>Machine Learning Prediction</h3>",
                     unsafe_allow_html=True
                 )
+        if explored_position != 1481:
+            
+            with st.expander("What RandomForest Predicts"):
+                st.write(
+                    "The machine-learning model predicts the likely consequence of the "
+                    "selected CFTR variant based on its amino-acid position and substitution. "
+                    "The prediction is made for the specific variant you selected, rather than "
+                    "for every variant recorded at that position."
+                )
                 
-        with st.expander("What RandomForest Predicts"):
-            st.write(
-                "The machine-learning model predicts the likely consequence of the "
-                "selected CFTR variant based on its amino-acid position and substitution. "
-                "The prediction is made for the specific variant you selected, rather than "
-                "for every variant recorded at that position."
-            )
-                
 
-            prediction_variants = variants.copy()
+                prediction_variants = variants.copy()
 
-            substitution_variants = prediction_variants[
-                prediction_variants["MutatedType"].notna()
-                & (prediction_variants["MutatedType"] != "*")
-                & prediction_variants["MutatedType"].isin(
-                    list("ACDEFGHIKLMNPQRSTVWY")
-                )
-            ].copy()
+                substitution_variants = prediction_variants[
+                    prediction_variants["MutatedType"].notna()
+                    & (prediction_variants["MutatedType"] != "*")
+                    & prediction_variants["MutatedType"].isin(
+                        list("ACDEFGHIKLMNPQRSTVWY")
+                    )
+                ].copy()
 
-            if not substitution_variants.empty:
+                if not substitution_variants.empty:
 
-                substitution_variants["Variant"] = (
-                    substitution_variants["WildType"].astype(str)
-                    + ">"
-                    + substitution_variants["MutatedType"].astype(str)
-                )
+                    substitution_variants["Variant"] = (
+                        substitution_variants["WildType"].astype(str)
+                        + ">"
+                        + substitution_variants["MutatedType"].astype(str)
+                    )
 
-                selected_variant_label = st.selectbox(
-                    "Select a variant",
-                    substitution_variants["Variant"].tolist()
-                )
+                    selected_variant_label = st.selectbox(
+                        "Select a variant",
+                        substitution_variants["Variant"].tolist()
+                    )
 
-                selected_variant = substitution_variants[
-                    substitution_variants["Variant"]
-                    == selected_variant_label
-                ].iloc[0]
+                    selected_variant = substitution_variants[
+                        substitution_variants["Variant"]
+                        == selected_variant_label
+                    ].iloc[0]
 
-                result = predict_consequence(
-                    int(selected_variant["Position"]),
-                    selected_variant["WildType"],
-                    selected_variant["MutatedType"]
-                )
+                    result = predict_consequence(
+                        int(selected_variant["Position"]),
+                        selected_variant["WildType"],
+                        selected_variant["MutatedType"]
+                    )
 
-                col1, col2, col3 = st.columns(3)
+                    col1, col2, col3 = st.columns(3)
 
-                col1.metric(
-                    "Predicted value",
-                    result["prediction"].title()
-                )
+                    col1.metric(
+                        "Predicted value",
+                        result["prediction"].title()
+                    )
 
-                col2.metric(
-                    "Actual",
-                    selected_variant["Consequence"].title()
-                )
+                    col2.metric(
+                        "Actual",
+                        selected_variant["Consequence"].title()
+                    )
 
                 if result["confidence"] is not None:
 
@@ -409,42 +410,42 @@ if st.session_state["explored_position"] is not None:
                         f"{result['confidence']:.2%}"
                     )
 
-                if result["prediction"] == selected_variant["Consequence"]:
+                    if result["prediction"] == selected_variant["Consequence"]:
 
-                    st.success(
-                        "The model prediction matches the recorded consequence."
-                    )
+                        st.success(
+                            "The model prediction matches the recorded consequence."
+                        )
+
+                    else:
+                        st.warning(
+                            "The model prediction differs from the recorded consequence."
+                        )
 
                 else:
-                    st.warning(
-                        "The model prediction differs from the recorded consequence."
+                    st.info(
+                        "No standard amino-acid substitutions are available "
+                        "for prediction at this position."
                     )
-
-            else:
-                st.info(
-                    "No standard amino-acid substitutions are available "
-                    "for prediction at this position."
-                )
                 
-        if explored_position != 1481:
-            with st.expander("What confidence means"):
-                st.write(
-                    "The confidence score indicates "
-                    "how strongly the model favors its prediction. Because the model was trained "
-                    "on existing CFTR variant data, its predictions should be interpreted as "
-                    "computational estimates rather than definitive evidence of biological or "
-                    "clinical effect." 
-                )
-
-                N_PATH = Path(__file__).resolve().parent.parent / "images" / "bcb43178-c776-4fed-b8ee-5b9f36f8bfa7_removalai_preview.png"
-
-                left, center, right = st.columns([1, 3, 1])
-
-                with center:
-                    st.image(
-                        str(N_PATH),
-                        use_container_width=True
+            if explored_position != 1481:
+                with st.expander("What confidence means"):
+                    st.write(
+                        "The confidence score indicates "
+                        "how strongly the model favors its prediction. Because the model was trained "
+                        "on existing CFTR variant data, its predictions should be interpreted as "
+                        "computational estimates rather than definitive evidence of biological or "
+                        "clinical effect." 
                     )
+
+                    N_PATH = Path(__file__).resolve().parent.parent / "images" / "bcb43178-c776-4fed-b8ee-5b9f36f8bfa7_removalai_preview.png"
+
+                    left, center, right = st.columns([1, 3, 1])
+
+                    with center:
+                        st.image(
+                            str(N_PATH),
+                            use_container_width=True
+                        )
         
         if variants is not None and not variants.empty:
 
