@@ -483,7 +483,7 @@ if st.session_state["explored_position"] is not None:
         
         LOL_PATH = Path(__file__).resolve().parent.parent / "images" / "7C388663-A094-40F7-A22D-127FC2BC746B.gif"
 
-        left, center, right = st.columns([1, 1.30, 1])
+        left, center, right = st.columns([1, 1.5, 1])
 
         with center:
             st.image(
