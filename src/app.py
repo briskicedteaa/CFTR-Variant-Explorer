@@ -703,15 +703,15 @@ if st.session_state["explored_position"] is not None:
                 
         if explored_position != 1481:
             
-            N_PATH = Path(__file__).resolve().parent.parent / "images" / "bcb43178-c776-4fed-b8ee-5b9f36f8bfa7_removalai_preview.png"
+        N_PATH = Path(__file__).resolve().parent.parent / "images" / "bcb43178-c776-4fed-b8ee-5b9f36f8bfa7_removalai_preview.png"
 
-            left, center, right = st.columns([1, 3, 1])
+        left, center, right = st.columns([1, 3, 1])
         
-            with center:
-                st.image(
-                    str(N_PATH),
-                    use_container_width=True
-                )
+        with center:
+            st.image(
+                str(N_PATH),
+                use_container_width=True
+            )
             
             col1, col2 = st.columns(2)
         
