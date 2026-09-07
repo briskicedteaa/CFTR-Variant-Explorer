@@ -481,13 +481,13 @@ if st.session_state["explored_position"] is not None:
             unsafe_allow_html=True
         )
         
-        N_PATH = Path(__file__).resolve().parent.parent / "images" / "bcb43178-c776-4fed-b8ee-5b9f36f8bfa7_removalai_preview.png"
+        LOL_PATH = Path(__file__).resolve().parent.parent / "images" / "IMG_8442.jpeg"
 
         left, center, right = st.columns([1, 3, 1])
 
         with center:
             st.image(
-                str(N_PATH),
+                str(LOL_PATH),
             use_container_width=True
             )
         
