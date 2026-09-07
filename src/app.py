@@ -661,7 +661,7 @@ if st.session_state["explored_position"] is not None:
                     "for every variant recorded at that position."
                 )
             
-            prediction_variants = variants.copy(
+            prediction_variants = variants.copy()
             
             prediction_variants = prediction_variants[
                 prediction_variants["Consequence"] != "stop lost"
