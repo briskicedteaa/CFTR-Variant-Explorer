@@ -615,9 +615,14 @@ if st.session_state["explored_position"] is not None:
                 )
             
             prediction_variants = variants.copy()
-            
+
             prediction_variants = prediction_variants[
-                prediction_variants["Consequence"] != "stop lost"
+                prediction_variants["Consequence"].isin([
+                    "missense",
+                    "frameshift",
+                    "stop gained",
+                    "inframe deletion"
+                ])
             ].copy()
 
             if not prediction_variants.empty:
