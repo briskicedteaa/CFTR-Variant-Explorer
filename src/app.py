@@ -107,7 +107,7 @@ h1, h2, h3 {
     cursor: pointer;
     list-style: none;
     font-family: 'Fredoka', sans-serif;
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: 500;
     color: inherit;
     text-decoration: underline dotted;
