@@ -708,20 +708,6 @@ if st.session_state["explored_position"] is not None:
                     "Recorded consequence",
                     selected_variant["Consequence"].title()
                 )
-                
-                col1, col2 = st.columns(2)
-            
-                with col1:
-                    st.metric(
-                        "Model accuracy",
-                        f"{model_metrics['accuracy']:.1%}"
-                    )
-            
-                with col2:
-                    st.metric(
-                        "Macro F1",
-                        f"{model_metrics['macro_f1']:.1%}"
-                    )
     
             if result["confidence"] is not None:
 
@@ -739,6 +725,20 @@ if st.session_state["explored_position"] is not None:
                                 "computational estimates rather than definitive evidence of biological or "
                                 "clinical effect." 
                             )
+                            
+                    col1, col2 = st.columns(2)
+            
+                    with col1:
+                        st.metric(
+                            "Model accuracy",
+                            f"{model_metrics['accuracy']:.1%}"
+                        )
+                
+                    with col2:
+                        st.metric(
+                            "Macro F1",
+                            f"{model_metrics['macro_f1']:.1%}"
+                        )
 
                     if result["prediction"] == selected_variant["Consequence"]:
 
