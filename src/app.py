@@ -660,34 +660,26 @@ if st.session_state["explored_position"] is not None:
                     "The prediction is made for the specific variant you selected, rather than "
                     "for every variant recorded at that position."
                 )
-
             
-
-            prediction_variants = variants.copy()
-
-            substitution_variants = prediction_variants[
-                prediction_variants["MutatedType"].notna()
-                & (prediction_variants["MutatedType"] != "*")
-                & prediction_variants["MutatedType"].isin(
-                    list("ACDEFGHIKLMNPQRSTVWY")
-                )
+            prediction_variants = prediction_variants[
+                prediction_variants["Consequence"] != "stop lost"
             ].copy()
-            
-            if not substitution_variants.empty:
 
-                substitution_variants["Variant"] = (
-                    substitution_variants["WildType"].astype(str)
+            if not prediction_variants.empty:
+
+                prediction_variants["Variant"] = (
+                    prediction_variants["WildType"].fillna("Missing").astype(str)
                     + ">"
-                    + substitution_variants["MutatedType"].astype(str)
+                    + prediction_variants["MutatedType"].fillna("Missing").astype(str)
                 )
 
                 selected_variant_label = st.selectbox(
                     "Select a variant",
-                    substitution_variants["Variant"].tolist()
+                    prediction_variants["Variant"].tolist()
                 )
 
-                selected_variant = substitution_variants[
-                    substitution_variants["Variant"]
+                selected_variant = prediction_variants[
+                    prediction_variants["Variant"]
                     == selected_variant_label
                 ].iloc[0]
 
@@ -742,8 +734,7 @@ if st.session_state["explored_position"] is not None:
 
         else:
             st.info(
-                "No standard amino-acid substitutions are available "
-                "for prediction at this position."
+                "No variants are available for prediction at this position."
             )
                 
         if explored_position != 1481:
