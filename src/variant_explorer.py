@@ -110,13 +110,9 @@ def predict_consequence(position, wild_type, mutated_type):
         position_df["Human_Position"].eq(position)
     ]
 
-    alignment_position = position_info["Alignment_Position"].iloc[0]
-
-    if pd.isna(alignment_position):
-        return {
-            "prediction": "Unable to predict",
-            "confidence": None
-        }
+    alignment_position = int(
+        position_info.iloc[0]["Alignment_Position"]
+    )
 
     column = alignment[:, int(alignment_position) - 1]
     counts = Counter(column)
