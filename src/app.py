@@ -514,25 +514,6 @@ if st.session_state["explored_position"] is not None:
             ].copy()
                     
         else:
-            B_PATH = Path(__file__).resolve().parent.parent / "images" / "B07F52FD-0104-4A8D-BD55-7B8E1BA7E386.gif"
-                
-            left, center, right = st.columns([1, 4 , 1])
-
-            with center:
-                st.image(
-                    str(B_PATH),
-                    use_container_width=True
-                )
-                
-            st.markdown(
-                f"""
-                <h3 style='text-align: center;'>
-                    CFTR Position {explored_position}
-                </h3>
-                """,
-                unsafe_allow_html=True
-            )
-            
             N_PATH = Path(__file__).resolve().parent.parent / "images" / "bcb43178-c776-4fed-b8ee-5b9f36f8bfa7_removalai_preview.png"
 
             left, center, right = st.columns([1, 3, 1])
@@ -541,6 +522,15 @@ if st.session_state["explored_position"] is not None:
                 st.image(
                     str(N_PATH),
                     use_container_width=True
+            )
+                
+            st.markdown(
+                f"""
+                <h3 style='text-align: center;'>
+                    CFTR Position {explored_position}
+                </h3>
+                """,
+                unsafe_allow_html=True
             )
             
         if explored_position == 1481:
