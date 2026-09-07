@@ -590,11 +590,6 @@ if st.session_state["explored_position"] is not None:
                 )
         
         if explored_position != 1481:
-                
-            st.markdown(
-                "<h3 style='text-align: center;'>Machine Learning Prediction</h3>",
-                unsafe_allow_html=True
-            )
             
             N_PATH = Path(__file__).resolve().parent.parent / "images" / "bcb43178-c776-4fed-b8ee-5b9f36f8bfa7_removalai_preview.png"
 
@@ -604,6 +599,11 @@ if st.session_state["explored_position"] is not None:
                 st.image(
                     str(N_PATH),
                     use_container_width=True
+            )
+                
+            st.markdown(
+                "<h3 style='text-align: center;'>Machine Learning Prediction</h3>",
+                unsafe_allow_html=True
             )
 
             with st.expander("What Random Forest Is Predicting"):
