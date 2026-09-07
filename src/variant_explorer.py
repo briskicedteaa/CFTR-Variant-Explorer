@@ -9,15 +9,15 @@ from pathlib import Path
 DATA_DIR = Path(__file__).resolve().parent.parent / "data"
 
 final_model = joblib.load(
-    DATA_DIR / "cftr_random_forest.pkl"
+    DATA_DIR / "cftr_random_forest1.pkl"
 )
 
 model_features = joblib.load(
-    DATA_DIR / "cftr_model_features.pkl"
+    DATA_DIR / "cftr_model_features1.pkl"
 )
 
 train_medians = joblib.load(
-    DATA_DIR / "cftr_train_medians.pkl"
+    DATA_DIR / "cftr_train_medians1.pkl"
 )
 
 alignment = load_alignment()
