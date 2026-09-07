@@ -562,12 +562,12 @@ if st.session_state["explored_position"] is not None:
                 col1, col2, col3 = st.columns(3)
 
                 col1.metric(
-                    "Predicted value",
+                    "Predicted consequence",
                     result["prediction"].title()
                 )
 
                 col2.metric(
-                    "Actual",
+                    "Recorded Consequence",
                     selected_variant["Consequence"].title()
                 )
 
