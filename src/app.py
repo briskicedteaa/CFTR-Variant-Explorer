@@ -3,11 +3,17 @@ import pandas as pd
 import altair as alt
 from data_loader import load_data
 from pathlib import Path
+import joblib
 from variant_explorer import (
     get_position_summary,
     get_consequence_summary,
-    predict_consequence,
-    model_metrics
+    predict_consequences
+)
+
+DATA_DIR = Path(__file__).resolve().parent.parent / "data"
+
+model_metrics = joblib.load(
+    DATA_DIR / "cftr_model_metrics1.pkl"
 )
 
 st.set_page_config(
