@@ -508,17 +508,17 @@ if st.session_state["explored_position"] is not None:
                     "The number of recorded CFTR variants associated with this amino-acid position in the dataset."
                 )
         
-        with st.expander("Model Performance"):
-            col1, col2 = st.columns(2)
-        
-            with col1:
-                st.metric("Model accuracy", "96.9%")
-        
-            with col2:
-                st.metric("Macro F1", "55.8%")
-        
-
         if explored_position != 1481:
+            
+            with st.expander("Model Performance"):
+                col1, col2 = st.columns(2)
+            
+                with col1:
+                    st.metric("Model accuracy", "96.9%")
+            
+                with col2:
+                    st.metric("Macro F1", "55.8%")
+                
             st.markdown(
                 "<h3 style='text-align: center;'>Machine Learning Prediction</h3>",
                 unsafe_allow_html=True
