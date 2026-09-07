@@ -84,10 +84,15 @@ def get_position_summary(position):
     }
 
 
-def get_consequence_summary():
+def get_consequence_summary(position=None):
     position_df, variants_df = load_data()
 
-    return variants_df["Consequence"].value_counts()
+    if position is not None:
+        variants_df = variants_df[
+            variants_df["Position"] == position
+        ]
+
+    return variants_df["Consequence"].value_counts().to_dict()
 
 
 def predict_consequence(position, wild_type, mutated_type):
