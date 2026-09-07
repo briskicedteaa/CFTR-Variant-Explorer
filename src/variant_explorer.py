@@ -91,9 +91,10 @@ def get_consequence_summary(position=None):
 
     return variants_df["Consequence"].value_counts().to_dict()
 
-
 def predict_consequence(position, wild_type, mutated_type):
     position_df, variants_df = load_data()
+
+    position = int(position)
 
     position_df["Human_Position"] = pd.to_numeric(
         position_df["Human_Position"],
@@ -105,19 +106,11 @@ def predict_consequence(position, wild_type, mutated_type):
         errors="coerce"
     )
 
-    position = int(position)
-
-    position_info = position_df[
-        position_df["Human_Position"] == position
+    position_info = position_df.loc[
+        position_df["Human_Position"].eq(position)
     ]
 
-    if position_info.empty:
-        return {
-            "prediction": "Unable to predict",
-            "confidence": None
-        }
-
-    alignment_position = position_info.iloc[0]["Alignment_Position"]
+    alignment_position = position_info["Alignment_Position"].iloc[0]
 
     if pd.isna(alignment_position):
         return {
