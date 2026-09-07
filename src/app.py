@@ -512,6 +512,14 @@ if st.session_state["explored_position"] is not None:
         if explored_position != 1481:
             st.markdown(
                 "<h3 style='text-align: center;'>Machine Learning Prediction</h3>",
+                with st.expander("Model Performance"):
+                    col1, col2 = st.columns(2)
+                
+                    with col1:
+                        st.metric("Model accuracy", "96.9%")
+                
+                    with col2:
+                        st.metric("Macro F1", "55.8%")
                 unsafe_allow_html=True
             )
 
@@ -567,7 +575,7 @@ if st.session_state["explored_position"] is not None:
                 )
 
                 col2.metric(
-                    "Recorded Consequence",
+                    "Recorded consequence",
                     selected_variant["Consequence"].title()
                 )
 
