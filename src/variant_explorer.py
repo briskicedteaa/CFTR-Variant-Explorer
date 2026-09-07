@@ -71,7 +71,7 @@ def get_position_summary(position):
     position_df, variants_df = load_data()
 
     position_info = position_df[
-        position_df["Human_Position"] == position
+        position_df["Human_Position"].astype(int) == int(position)
     ]
 
     variants = variants_df[
