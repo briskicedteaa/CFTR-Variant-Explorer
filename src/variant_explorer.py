@@ -112,9 +112,18 @@ def predict_consequence(position, wild_type, mutated_type):
 
     total = len(column)
 
-    wild_type = str(wild_type).upper()
-    mutated_type = str(mutated_type).upper()
+    wild_type = (
+    str(wild_type).upper()
+    if pd.notna(wild_type)
+    else ""
+)
 
+mutated_type = (
+    str(mutated_type).upper()
+    if pd.notna(mutated_type)
+    else ""
+)
+    
     features = {
         "Position": position,
         "WildType": wild_type,
