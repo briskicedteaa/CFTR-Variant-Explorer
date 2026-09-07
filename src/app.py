@@ -460,17 +460,8 @@ if st.session_state["explored_position"] is not None:
                 unsafe_allow_html=True
             )
             
-            consequence_counts = (
-                variants["Consequence"]
-                .fillna("Missing")
-                .value_counts()
-            )
-            
-            def get_count(name):
-                return consequence_counts.get(name, 0)
-            
             st.markdown(
-                f"""
+                """
                 <details class="position-1481-dropdown">
                     <summary>Why Are Some Variants Not Available For Prediction? (Click For Information)</summary>
                     <div class="position-1481-content">
@@ -479,131 +470,45 @@ if st.session_state["explored_position"] is not None:
                                 <th>Variant Type</th>
                                 <th>Why Is It Not Available For Prediction?</th>
                             </tr>
-            
                             <tr>
                                 <td>Standard amino-acid substitutions</td>
-                                <td>
-                                    These variants <b>are available for prediction</b>. They replace one
-                                    amino acid with another, such as K&gt;N or S&gt;A. The Random Forest
-                                    was specifically trained for this one-to-one amino-acid change.
-                                    Its features include the wild-type and mutated amino acids, changes
-                                    in hydrophobicity, polarity, charge, and size, and evolutionary
-                                    information from the sequence alignment.
-                                </td>
+                                <td>These variants are available for prediction because the Random Forest was specifically designed for a single amino-acid substitution, where one amino acid is replaced by another. The model can represent both amino acids and calculate changes in hydrophobicity, polarity, charge, and size, along with evolutionary features from the sequence alignment.</td>
                             </tr>
-            
                             <tr>
                                 <td>Stop-gained variants (*)</td>
-                                <td>
-                                    Stop-gained variants are represented by <b>*</b>, which means a
-                                    premature stop codon rather than an amino acid. There are
-                                    <b>{get_count("stop gained")}</b> of these variants in the dataset,
-                                    so rarity is not the primary reason they are excluded. The technical
-                                    limitation is that the current model calculates biochemical changes
-                                    between two amino acids. A stop codon does not have amino-acid
-                                    properties such as hydrophobicity, polarity, charge, or size.
-                                    Therefore, a change such as K&gt;* cannot be represented using the
-                                    same feature pipeline. Supporting stop-gained variants would
-                                    require different features and retraining.
-                                </td>
+                                <td>Stop-gained variants are represented by an asterisk (*), which indicates a premature stop codon rather than an amino acid. The current model requires a defined WildType amino acid and MutatedType amino acid so it can calculate biochemical changes such as hydrophobicity, polarity, charge, and size. A stop codon does not have these amino-acid properties, so a change such as K&gt;* cannot be represented using the same feature pipeline. There are enough stop-gained variants in the dataset that rarity is not the main limitation; the primary limitation is that the current feature design does not represent stop codons.</td>
                             </tr>
-            
                             <tr>
                                 <td>In-frame deletions</td>
-                                <td>
-                                    In-frame deletions remove one or more amino acids instead of
-                                    replacing one amino acid with another. The current model requires
-                                    one WildType amino acid and one MutatedType amino acid so their
-                                    biochemical properties can be compared. A deletion does not provide
-                                    that one-to-one relationship. Supporting this variant type would
-                                    require sequence-level deletion features and retraining the model.
-                                </td>
+                                <td>In-frame deletions remove one or more amino acids instead of replacing one amino acid with another. The current model is built around a one-to-one amino-acid substitution and therefore expects both a WildType and a MutatedType amino acid. A deletion does not provide that one-to-one relationship, so the current biochemical property features cannot describe what was removed. Supporting in-frame deletions would require sequence-level deletion features and retraining the model.</td>
                             </tr>
-            
                             <tr>
                                 <td>Insertions / multi-amino-acid changes</td>
-                                <td>
-                                    Insertions can introduce multiple amino acids rather than making
-                                    one amino-acid substitution. Values such as LL or KK therefore
-                                    cannot be treated as a single amino acid when calculating
-                                    biochemical property changes. The current model expects one
-                                    WildType and one MutatedType. Supporting insertions would require
-                                    a sequence-level representation capable of describing multiple
-                                    residues.
-                                </td>
+                                <td>Insertions can introduce multiple amino acids at once rather than replacing one amino acid with another. A value such as LL or KK therefore cannot be treated as a single amino acid when calculating hydrophobicity, polarity, charge, or size. The current model expects one WildType amino acid and one MutatedType amino acid. Insertions would require a different sequence-level representation. They are also a very small class in this dataset, making it difficult to learn a reliable insertion-specific pattern.</td>
                             </tr>
-            
                             <tr>
                                 <td>Frameshifts</td>
-                                <td>
-                                    Frameshifts alter the reading frame and can change every downstream
-                                    codon. They therefore cannot be represented as a simple
-                                    single-amino-acid substitution. Although frameshifts are present
-                                    in the dataset, the current features do not describe the downstream
-                                    sequence changes caused by a frameshift. Supporting them would
-                                    require sequence-level features designed for reading-frame changes.
-                                </td>
+                                <td>Frameshift variants alter the reading frame of the sequence, potentially changing every downstream codon and amino acid. This is fundamentally different from replacing one amino acid with another. Although frameshift variants are present in the dataset, the current features do not describe downstream sequence changes or reading-frame alterations. Supporting frameshifts would therefore require sequence-level features specifically designed to represent the effects of a frameshift.</td>
                             </tr>
-            
                             <tr>
                                 <td>Missing / "-" mutated amino-acid values</td>
-                                <td>
-                                    A missing value or <b>-</b> does not identify a specific replacement
-                                    amino acid. The current model needs a defined MutatedType to
-                                    calculate the biochemical property changes used as model features.
-                                    Without that information, those features cannot be calculated
-                                    consistently without guessing biological information that is not
-                                    present in the dataset.
-                                </td>
+                                <td>A missing value or "-" does not identify a specific replacement amino acid. The current model requires a defined MutatedType so it can calculate the biochemical property differences between the original and altered amino acids. Without knowing the actual mutation, those features cannot be calculated reliably without guessing information that is not present in the dataset.</td>
                             </tr>
-            
                             <tr>
                                 <td>Stop-loss variants</td>
-                                <td>
-                                    Stop-loss variants were excluded from model training because there
-                                    are only <b>{get_count("stop lost")}</b> examples in the dataset.
-                                    That is not enough data for a machine-learning model to learn a
-                                    reliable consequence pattern or for the class to be meaningfully
-                                    evaluated on independent test data. This is therefore a
-                                    <b>training-data limitation</b>.
-                                </td>
+                                <td>Stop-loss variants were excluded from model training because there are only 3 examples in the dataset. Three examples are not enough for a Random Forest to learn a reliable pattern for a consequence class or to evaluate that class meaningfully on independent test data. This is therefore a training-data limitation rather than a statement that stop-loss variants are biologically unimportant.</td>
                             </tr>
-            
                             <tr>
                                 <td>Initiator codon variants</td>
-                                <td>
-                                    There is only <b>{get_count("initiator codon variant")}</b> example
-                                    of an initiator codon variant in the dataset. A single example
-                                    cannot provide enough information for the Random Forest to learn
-                                    or independently evaluate a reliable pattern for this consequence
-                                    class. It was therefore excluded from model training.
-                                </td>
+                                <td>There is only 1 initiator codon variant in the dataset. A single example cannot provide enough information for a Random Forest to learn a generalizable pattern or for the model's performance on that consequence class to be independently evaluated. This class was therefore excluded from model training because there is insufficient data to support reliable machine-learning predictions.</td>
                             </tr>
-            
                             <tr>
                                 <td>Why not train one model on every variant type?</td>
-                                <td>
-                                    The limitation is both <b>technical and statistical</b>. The current
-                                    feature engineering was designed for a single amino acid changing
-                                    into another single amino acid. Stop codons, deletions, insertions,
-                                    and frameshifts require different representations of the sequence
-                                    change. Some consequence classes also contain very few examples.
-                                    Simply adding these variants to the existing model would not give
-                                    the model the appropriate biological features needed to represent
-                                    them reliably.
-                                </td>
+                                <td>The current limitation is both technical and statistical. Technically, the model's feature engineering was designed for a single amino acid changing into another single amino acid, so stop codons, deletions, insertions, and frameshifts require different representations. Statistically, some consequence classes contain very few examples. Simply adding every variant type to the current model would therefore neither provide the appropriate biological features nor enough representative data for some rare classes. An expanded model would require new feature engineering, additional training data, and a new evaluation strategy.</td>
                             </tr>
-            
                             <tr>
                                 <td>Does "not available" mean these variants can never be predicted?</td>
-                                <td>
-                                    <b>No.</b> These variants are outside the scope of the current model,
-                                    not inherently impossible to predict. A future model could use
-                                    sequence-level features designed for these variant types, along
-                                    with appropriate training data and evaluation. The current project
-                                    limits predictions to variants that the existing feature design and
-                                    training data can support.
-                                </td>
+                                <td>No. These variants are outside the scope of the current model, not inherently impossible to predict. A future model could be designed with sequence-level features capable of representing insertions, deletions, frameshifts, stop-gained variants, and other complex changes. However, that would require appropriate feature engineering, sufficient representative training data, and independent evaluation. The current project intentionally limits predictions to variants that the existing model can represent and support.</td>
                             </tr>
                         </table>
                     </div>
