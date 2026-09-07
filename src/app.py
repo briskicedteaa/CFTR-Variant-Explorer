@@ -363,75 +363,75 @@ if st.session_state["explored_position"] is not None:
         st.error(
             "That position was not found in the CFTR dataset."
         )
-        
-    st.markdown(
-        "<h3 style='text-align: center;'>Machine Learning Prediction</h3>",
-        unsafe_allow_html=True
-    )
-
-    with st.expander("What Random Forest Is Predicting"):
-        st.write(
-            "The machine-learning model predicts the likely consequence of the "
-            "selected CFTR variant based on its amino-acid position and substitution. "
-            "The prediction is made for the specific variant you selected, rather than "
-            "for every variant recorded at that position."
-        )
-    
-    prediction_variants = variants.copy()
-
-    prediction_variants = prediction_variants[
-        prediction_variants["Consequence"].isin([
-            "missense",
-            "frameshift",
-            "stop gained",
-            "inframe deletion"
-        ])
-    ].copy()
-
-    if not prediction_variants.empty:
-
-        prediction_variants["Variant"] = (
-            prediction_variants["WildType"].fillna("Missing").astype(str)
-            + ">"
-            + prediction_variants["MutatedType"].fillna("Missing").astype(str)
-        )
-
-        selected_variant_label = st.selectbox(
-            "Select a variant",
-            ["Please select a variant"] + prediction_variants["Variant"].tolist()
-        )
-        
-        if selected_variant_label == "Please select a variant":
-            st.stop()
-        
-        selected_variant = prediction_variants[
-            prediction_variants["Variant"]
-            == selected_variant_label
-        ].iloc[0]
-
-        selected_variant = prediction_variants[
-            prediction_variants["Variant"]
-            == selected_variant_label
-        ].iloc[0]
-
-        result = predict_consequence(
-            int(selected_variant["Position"]),
-            selected_variant["WildType"],
-            selected_variant["MutatedType"]
-        )
-        
-        N_PATH = Path(__file__).resolve().parent.parent / "images" / "bcb43178-c776-4fed-b8ee-5b9f36f8bfa7_removalai_preview.png"
-
-        left, center, right = st.columns([1, 3, 1])
-
-        with center:
-            st.image(
-                str(N_PATH),
-                use_container_width=True
-        )
 
     else:
         position_info, variants = get_position_summary(explored_position)
+        
+        st.markdown(
+            "<h3 style='text-align: center;'>Machine Learning Prediction</h3>",
+            unsafe_allow_html=True
+        )
+    
+        with st.expander("What Random Forest Is Predicting"):
+            st.write(
+                "The machine-learning model predicts the likely consequence of the "
+                "selected CFTR variant based on its amino-acid position and substitution. "
+                "The prediction is made for the specific variant you selected, rather than "
+                "for every variant recorded at that position."
+            )
+        
+        prediction_variants = variants.copy()
+    
+        prediction_variants = prediction_variants[
+            prediction_variants["Consequence"].isin([
+                "missense",
+                "frameshift",
+                "stop gained",
+                "inframe deletion"
+            ])
+        ].copy()
+    
+        if not prediction_variants.empty:
+    
+            prediction_variants["Variant"] = (
+                prediction_variants["WildType"].fillna("Missing").astype(str)
+                + ">"
+                + prediction_variants["MutatedType"].fillna("Missing").astype(str)
+            )
+    
+            selected_variant_label = st.selectbox(
+                "Select a variant",
+                ["Please select a variant"] + prediction_variants["Variant"].tolist()
+            )
+            
+            if selected_variant_label == "Please select a variant":
+                st.stop()
+            
+            selected_variant = prediction_variants[
+                prediction_variants["Variant"]
+                == selected_variant_label
+            ].iloc[0]
+    
+            selected_variant = prediction_variants[
+                prediction_variants["Variant"]
+                == selected_variant_label
+            ].iloc[0]
+    
+            result = predict_consequence(
+                int(selected_variant["Position"]),
+                selected_variant["WildType"],
+                selected_variant["MutatedType"]
+            )
+            
+            N_PATH = Path(__file__).resolve().parent.parent / "images" / "bcb43178-c776-4fed-b8ee-5b9f36f8bfa7_removalai_preview.png"
+    
+            left, center, right = st.columns([1, 3, 1])
+    
+            with center:
+                st.image(
+                    str(N_PATH),
+                    use_container_width=True
+            )
         
         st.markdown(
             "<h1 style='text-align: center;'>Results</h1>",
