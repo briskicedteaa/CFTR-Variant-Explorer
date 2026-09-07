@@ -7,7 +7,7 @@ import joblib
 from variant_explorer import (
     get_position_summary,
     get_consequence_summary,
-    predict_consequences
+    predict_consequence
 )
 
 DATA_DIR = Path(__file__).resolve().parent.parent / "data"
