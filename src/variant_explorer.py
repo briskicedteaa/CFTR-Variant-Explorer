@@ -96,7 +96,7 @@ def predict_consequence(position, wild_type, mutated_type):
     position_df, variants_df = load_data()
 
     position_info = position_df[
-        position_df["Human_Position"] == position
+        position_df["Human_Position"].astype(int) == int(position)
     ]
 
     if position_info.empty:
