@@ -375,7 +375,7 @@ if st.session_state["explored_position"] is not None:
         st.markdown(
             """
             <details class="position-1481-dropdown">
-                <summary>Why Some Variant Consequences Are Not Predicted</summary>
+                <summary>Why Some Variant Consequences Are Not Predicted (Click For Information)</summary>
                 <div class="position-1481-content">
                     <table class="position-1481-table">
                         <tr>
@@ -594,6 +594,16 @@ if st.session_state["explored_position"] is not None:
             st.markdown(
                 "<h3 style='text-align: center;'>Machine Learning Prediction</h3>",
                 unsafe_allow_html=True
+            )
+            
+            N_PATH = Path(__file__).resolve().parent.parent / "images" / "bcb43178-c776-4fed-b8ee-5b9f36f8bfa7_removalai_preview.png"
+
+            left, center, right = st.columns([1, 3, 1])
+            
+            with center:
+                st.image(
+                    str(N_PATH),
+                    use_container_width=True
             )
 
             with st.expander("What Random Forest Is Predicting"):
