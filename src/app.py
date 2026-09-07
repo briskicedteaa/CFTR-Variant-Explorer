@@ -202,11 +202,13 @@ st.markdown(
 def glossary_metric(label, value, definition):
     st.markdown(
         f"""
-        <details class="position-1481-dropdown">
-            <summary>{label}</summary>
-            <div class="glossary-definition">{definition}</div>
-        </details>
-        <div class="glossary-value">{value}</div>
+        <div class="glossary-metric">
+            <details class="position-1481-dropdown">
+                <summary>{label}</summary>
+                <div class="glossary-definition">{definition}</div>
+            </details>
+            <div class="glossary-value">{value}</div>
+        </div>
         """,
         unsafe_allow_html=True
     )
