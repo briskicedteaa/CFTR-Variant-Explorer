@@ -544,7 +544,7 @@ if st.session_state["explored_position"] is not None:
                 unsafe_allow_html=True
             )
             
-            consequence_counts = variants["Consequence"].fillna("Missing").value_counts()
+            consequence_counts = variants_df["Consequence"].fillna("Missing").value_counts()
 
             rows = ""
             
@@ -573,15 +573,6 @@ if st.session_state["explored_position"] is not None:
                 """,
                 unsafe_allow_html=True
             )
-            
-            consequence_counts = (
-                variants["Consequence"]
-                .fillna("Missing")
-                .value_counts()
-            )
-            
-            def get_count(name):
-                return consequence_counts.get(name, 0)
             
         if explored_position == 1481:
 
