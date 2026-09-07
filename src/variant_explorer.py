@@ -135,22 +135,24 @@ def predict_consequence(position, wild_type, mutated_type):
     wild = aa_properties.get(wild_type)
     mutant = aa_properties.get(mutated_type)
 
-    if wild is None or mutant is None:
-        return {
-            "prediction": "Unable to predict",
-            "confidence": None
-        }
-
-    features.update({
-        "Hydrophobicity_Change":
-            mutant["hydrophobicity"] - wild["hydrophobicity"],
-        "Polarity_Change":
-            mutant["polarity"] - wild["polarity"],
-        "Charge_Change":
-            mutant["charge"] - wild["charge"],
-        "Size_Change":
-            mutant["size"] - wild["size"]
-    })
+    if wild is not None and mutant is not None:
+        features.update({
+            "Hydrophobicity_Change":
+                mutant["hydrophobicity"] - wild["hydrophobicity"],
+            "Polarity_Change":
+                mutant["polarity"] - wild["polarity"],
+            "Charge_Change":
+                mutant["charge"] - wild["charge"],
+            "Size_Change":
+                mutant["size"] - wild["size"]
+        })
+    else:
+        features.update({
+            "Hydrophobicity_Change": np.nan,
+            "Polarity_Change": np.nan,
+            "Charge_Change": np.nan,
+            "Size_Change": np.nan
+        })
 
     input_df = pd.DataFrame([features])
 
