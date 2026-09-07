@@ -82,7 +82,7 @@ h1, h2, h3 {
 .glossary-value {
     text-align: center;
     font-family: 'Fredoka', sans-serif;
-    font-size: 2rem;
+    font-size: 3rem;
     font-weight: 400;
     line-height: 1.2;
     margin-top: 0.15rem;
@@ -94,7 +94,7 @@ h1, h2, h3 {
     box-sizing: border-box;
     border-radius: 0.5rem;
     font-family: 'Quicksand', sans-serif;
-    font-size: 0.85rem;
+    font-size: 1rem;
     line-height: 1.4;
     background: rgba(128, 128, 128, 0.1);
 }
