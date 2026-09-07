@@ -16,76 +16,79 @@ model_features = joblib.load(
     DATA_DIR / "cftr_model_features.pkl"
 )
 
+train_medians = joblib.load(
+    DATA_DIR / "cftr_train_medians.pkl"
+)
+
 alignment = load_alignment()
 
 aa_properties = {
-    "A": {"hydrophobicity": 1.8, "polarity": 8.1, "charge": 0, "size": 89.1},
-    "R": {"hydrophobicity": -4.5, "polarity": 10.5, "charge": 1, "size": 174.2},
-    "N": {"hydrophobicity": -3.5, "polarity": 11.6, "charge": 0, "size": 132.1},
-    "D": {"hydrophobicity": -3.5, "polarity": 13.0, "charge": -1, "size": 133.1},
-    "C": {"hydrophobicity": 2.5, "polarity": 5.5, "charge": 0, "size": 121.2},
-    "Q": {"hydrophobicity": -3.5, "polarity": 10.5, "charge": 0, "size": 146.2},
-    "E": {"hydrophobicity": -3.5, "polarity": 12.3, "charge": -1, "size": 147.1},
-    "G": {"hydrophobicity": -0.4, "polarity": 9.0, "charge": 0, "size": 75.1},
-    "H": {"hydrophobicity": -3.2, "polarity": 10.4, "charge": 0, "size": 155.2},
-    "I": {"hydrophobicity": 4.5, "polarity": 5.2, "charge": 0, "size": 131.2},
-    "L": {"hydrophobicity": 3.8, "polarity": 4.9, "charge": 0, "size": 131.2},
-    "K": {"hydrophobicity": -3.9, "polarity": 11.3, "charge": 1, "size": 146.2},
-    "M": {"hydrophobicity": 1.9, "polarity": 5.7, "charge": 0, "size": 149.2},
-    "F": {"hydrophobicity": 2.8, "polarity": 5.2, "charge": 0, "size": 165.2},
-    "P": {"hydrophobicity": -1.6, "polarity": 8.0, "charge": 0, "size": 115.1},
-    "S": {"hydrophobicity": -0.8, "polarity": 9.2, "charge": 0, "size": 105.1},
-    "T": {"hydrophobicity": -0.7, "polarity": 8.6, "charge": 0, "size": 119.1},
-    "W": {"hydrophobicity": -0.9, "polarity": 5.4, "charge": 0, "size": 204.2},
-    "Y": {"hydrophobicity": -1.3, "polarity": 6.2, "charge": 0, "size": 181.2},
-    "V": {"hydrophobicity": 4.2, "polarity": 5.9, "charge": 0, "size": 117.1}
+    "A": {"hydrophobicity": 1.8, "polarity": 8.1, "charge": 0, "size": 1},
+    "R": {"hydrophobicity": -4.5, "polarity": 10.5, "charge": 1, "size": 4},
+    "N": {"hydrophobicity": -3.5, "polarity": 11.6, "charge": 0, "size": 2},
+    "D": {"hydrophobicity": -3.5, "polarity": 13.0, "charge": -1, "size": 2},
+    "C": {"hydrophobicity": 2.5, "polarity": 5.5, "charge": 0, "size": 2},
+    "Q": {"hydrophobicity": -3.5, "polarity": 10.5, "charge": 0, "size": 3},
+    "E": {"hydrophobicity": -3.5, "polarity": 12.3, "charge": -1, "size": 3},
+    "G": {"hydrophobicity": -0.4, "polarity": 9.0, "charge": 0, "size": 1},
+    "H": {"hydrophobicity": -3.2, "polarity": 10.4, "charge": 1, "size": 3},
+    "I": {"hydrophobicity": 4.5, "polarity": 5.2, "charge": 0, "size": 3},
+    "L": {"hydrophobicity": 3.8, "polarity": 4.9, "charge": 0, "size": 3},
+    "K": {"hydrophobicity": -3.9, "polarity": 11.3, "charge": 1, "size": 4},
+    "M": {"hydrophobicity": 1.9, "polarity": 5.7, "charge": 0, "size": 3},
+    "F": {"hydrophobicity": 2.8, "polarity": 5.2, "charge": 0, "size": 3},
+    "P": {"hydrophobicity": -1.6, "polarity": 8.0, "charge": 0, "size": 2},
+    "S": {"hydrophobicity": -0.8, "polarity": 9.2, "charge": 0, "size": 2},
+    "T": {"hydrophobicity": -0.7, "polarity": 8.6, "charge": 0, "size": 2},
+    "W": {"hydrophobicity": -0.9, "polarity": 5.4, "charge": 0, "size": 4},
+    "Y": {"hydrophobicity": -1.3, "polarity": 6.2, "charge": 0, "size": 4},
+    "V": {"hydrophobicity": 4.2, "polarity": 5.9, "charge": 0, "size": 2}
 }
 
+
 def get_position(position):
-    FinalPosition, CFTR_variants = load_data()
+    position_df, variants_df = load_data()
 
-    result = FinalPosition[
-        FinalPosition["Position"] == position
-    ].copy()
+    result = position_df[
+        position_df["Human_Position"] == position
+    ]
 
-    return result
+    if result.empty:
+        return None
+
+    return result.iloc[0]
+
 
 def get_variants_at_position(position):
     position_df, variants_df = load_data()
 
-    result = variants_df[
+    return variants_df[
         variants_df["Position"] == position
-    ].copy()
+    ]
 
-    return result
 
 def get_position_summary(position):
     position_df, variants_df = load_data()
 
-    position_info = position_df[
-        position_df["Human_Position"] == position
-    ].copy()
-
-    if position_info.empty:
-        return None, None
-
     variants = variants_df[
         variants_df["Position"] == position
-    ].copy()
-
-    return position_info, variants
-
-def get_consequence_summary(position):
-    position_df, variants_df = load_data()
-
-    variants = variants_df[
-        variants_df["Position"] == position
-    ].copy()
+    ]
 
     if variants.empty:
-        return {}
+        return None
 
-    return variants["Consequence"].value_counts().to_dict()
+    return {
+        "position": position,
+        "variant_count": len(variants),
+        "consequences": variants["Consequence"].value_counts().to_dict()
+    }
+
+
+def get_consequence_summary():
+    position_df, variants_df = load_data()
+
+    return variants_df["Consequence"].value_counts()
+
 
 def predict_consequence(position, wild_type, mutated_type):
     position_df, variants_df = load_data()
@@ -106,57 +109,46 @@ def predict_consequence(position, wild_type, mutated_type):
     counts = Counter(column)
 
     total = len(column)
-    non_gap = total - counts.get("-", 0)
+
+    wild_type = str(wild_type).upper()
+    mutated_type = str(mutated_type).upper()
 
     features = {
         "Position": position,
         "WildType": wild_type,
         "MutatedType": mutated_type,
         "Alignment_Position": alignment_position,
-        "Human_Residue_Frequency": counts.get(
-            wild_type, 0
-        ) / non_gap,
-        "Mutant_Residue_Frequency": counts.get(
-            mutated_type, 0
-        ) / non_gap,
-        "Gap_Frequency": counts.get("-", 0) / total,
-        "Distinct_Residues": len(
-            [x for x in counts if x != "-"]
-        ),
-        "Mutant_Observed": counts.get(
-            mutated_type, 0
-        ) > 0
+        "Human_Residue_Frequency":
+            counts.get(wild_type, 0) / total,
+        "Mutant_Residue_Frequency":
+            counts.get(mutated_type, 0) / total,
+        "Gap_Frequency":
+            counts.get("-", 0) / total,
+        "Distinct_Residues":
+            len(counts),
+        "Mutant_Observed":
+            mutated_type in counts
     }
 
-    if (
-        wild_type in aa_properties
-        and mutated_type in aa_properties
-    ):
-        features.update({
-            "Hydrophobicity_Change":
-                aa_properties[mutated_type]["hydrophobicity"]
-                - aa_properties[wild_type]["hydrophobicity"],
+    wild = aa_properties.get(wild_type)
+    mutant = aa_properties.get(mutated_type)
 
-            "Polarity_Change":
-                aa_properties[mutated_type]["polarity"]
-                - aa_properties[wild_type]["polarity"],
+    if wild is None or mutant is None:
+        return {
+            "prediction": "Unable to predict",
+            "confidence": None
+        }
 
-            "Charge_Change":
-                aa_properties[mutated_type]["charge"]
-                - aa_properties[wild_type]["charge"],
-
-            "Size_Change":
-                aa_properties[mutated_type]["size"]
-                - aa_properties[wild_type]["size"]
-        })
-
-    else:
-        features.update({
-            "Hydrophobicity_Change": 0,
-            "Polarity_Change": 0,
-            "Charge_Change": 0,
-            "Size_Change": 0
-        })
+    features.update({
+        "Hydrophobicity_Change":
+            mutant["hydrophobicity"] - wild["hydrophobicity"],
+        "Polarity_Change":
+            mutant["polarity"] - wild["polarity"],
+        "Charge_Change":
+            mutant["charge"] - wild["charge"],
+        "Size_Change":
+            mutant["size"] - wild["size"]
+    })
 
     input_df = pd.DataFrame([features])
 
@@ -171,11 +163,25 @@ def predict_consequence(position, wild_type, mutated_type):
         fill_value=0
     )
 
-    input_df = input_df.fillna(0)
+    input_df = input_df.replace(
+        [np.inf, -np.inf],
+        np.nan
+    )
+
+    numeric_columns = input_df.select_dtypes(
+        include=["number"]
+    ).columns
+
+    input_df[numeric_columns] = input_df[numeric_columns].fillna(
+        train_medians
+    )
+
+    input_df = input_df.fillna(False)
 
     prediction = final_model.predict(input_df)[0]
 
     probabilities = final_model.predict_proba(input_df)[0]
+
     confidence = probabilities.max()
 
     return {
