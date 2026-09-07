@@ -635,10 +635,16 @@ if st.session_state["explored_position"] is not None:
 
                 selected_variant_label = st.selectbox(
                     "Select a variant",
-                    prediction_variants["Variant"].tolist(),
-                    index=None,
-                    placeholder="Please select a variant"
+                    ["Please select a variant"] + prediction_variants["Variant"].tolist()
                 )
+                
+                if selected_variant_label == "Please select a variant":
+                    st.stop()
+                
+                selected_variant = prediction_variants[
+                    prediction_variants["Variant"]
+                    == selected_variant_label
+                ].iloc[0]
 
                 selected_variant = prediction_variants[
                     prediction_variants["Variant"]
