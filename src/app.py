@@ -720,21 +720,21 @@ if st.session_state["explored_position"] is not None:
                         "The confidence score indicates how strongly the model favors its prediction. Because the model was trained on existing CFTR variant data, its predictions should be interpreted as computational estimates rather than definitive evidence of biological or clinical effect."
                     )
                     
-                    if result["prediction"] == selected_variant["Consequence"]:
-                        st.success(
-                            "The model prediction matches the recorded consequence."
-                        )
+                if result["prediction"] == selected_variant["Consequence"]:
+                    st.success(
+                        "The model prediction matches the recorded consequence."
+                    )
 
-                    else:
-                        st.warning(
-                            "The model prediction differs from the recorded consequence."
-                        )
+                else:
+                    st.warning(
+                        "The model prediction differs from the recorded consequence."
+                    )
 
-            else:
-                st.info(
-                    "No standard amino-acid substitutions are available "
-                    "for prediction at this position."
-                )
+        else:
+            st.info(
+                "No standard amino-acid substitutions are available "
+                "for prediction at this position."
+            )
                 
             if explored_position != 1481:
                 
