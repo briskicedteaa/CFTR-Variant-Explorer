@@ -481,7 +481,7 @@ if st.session_state["explored_position"] is not None:
             unsafe_allow_html=True
         )
         
-        LOL_PATH = Path(__file__).resolve().parent.parent / "images" / "images/7C388663-A094-40F7-A22D-127FC2BC746B.gif"
+        LOL_PATH = Path(__file__).resolve().parent.parent / "images" / "7C388663-A094-40F7-A22D-127FC2BC746B.gif"
 
         left, center, right = st.columns([1, 1.25, 1])
 
