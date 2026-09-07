@@ -699,41 +699,37 @@ if st.session_state["explored_position"] is not None:
 
                 col1, col2, col3 = st.columns(3)
 
-                col1.metric(
-                    "Predicted consequence",
-                    result["prediction"].title()
-                )
-
-                col2.metric(
-                    "Recorded consequence",
-                    selected_variant["Consequence"].title()
-                )
-    
-            if result["confidence"] is not None:
-
-                    col3.metric(
-                        "Model confidence",
-                        f"{result['confidence']:.2%}"
+                with col1:
+                    glossary_metric(
+                        "Predicted consequence",
+                        result["prediction"].title(),
+                        "The consequence predicted by the machine-learning model for the selected variant."
                     )
-                    
-                    if explored_position != 1481:
-                        with st.expander("What Model Confidence Means"):
-                            st.write(
-                                "The confidence score indicates "
-                                "how strongly the model favors its prediction. Because the model was trained "
-                                "on existing CFTR variant data, its predictions should be interpreted as "
-                                "computational estimates rather than definitive evidence of biological or "
-                                "clinical effect." 
-                            )
-                            
+                
+                with col2:
+                    glossary_metric(
+                        "Recorded consequence",
+                        selected_variant["Consequence"].title(),
+                        "The consequence recorded for this variant in the dataset."
+                    )
+                
+                with col3:
+                    glossary_metric(
+                        "Model confidence",
+                        f"{result['confidence']:.2%}",
+                        "The confidence score indicates how strongly the model favors its prediction. Because the model was trained on existing CFTR variant data, its predictions should be interpreted as computational estimates rather than definitive evidence of biological or clinical effect."
+                    )
+                
+                if explored_position != 1481:
                     col1, col2 = st.columns(2)
-
+                
                     with col1:
-                        st.metric(
+                        glossary_metric(
                             "Model accuracy",
-                            f"{model_metrics['accuracy']:.1%}"
+                            f"{model_metrics['accuracy']:.1%}",
+                            "Model accuracy is the proportion of test variants that the model classified correctly."
                         )
-                    
+                
                     with col2:
                         glossary_metric(
                             "Macro F1",
