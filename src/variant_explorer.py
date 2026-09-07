@@ -20,10 +20,6 @@ train_medians = joblib.load(
     DATA_DIR / "cftr_train_medians1.pkl"
 )
 
-model_metrics = joblib.load(
-    DATA_DIR / "cftr_model_metrics1.pkl"
-)
-
 alignment = load_alignment()
 
 aa_properties = {
