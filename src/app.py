@@ -475,80 +475,68 @@ if st.session_state["explored_position"] is not None:
                                 <th>Variant Type</th>
                                 <th>Why Is It Not Available For Prediction?</th>
                             </tr>
-            
                             <tr>
                                 <td>Stop-gained variants (*)</td>
                                 <td>
                                     There are <b>{get_count("stop gained")}</b> stop-gained variants.
-                                    These use <b>*</b> to represent a premature stop codon, not an amino acid.
+                                    The <b>*</b> represents a premature stop codon rather than an amino acid.
                                     The current model uses amino-acid properties such as hydrophobicity, polarity,
-                                    charge, and size, so <b>*</b> cannot be represented by the existing feature pipeline.
-                                    Supporting this class would require new feature engineering and retraining.
+                                    charge, and size, so <b>*</b> cannot be represented by the current feature pipeline.
                                 </td>
                             </tr>
-            
                             <tr>
                                 <td>In-frame deletions</td>
                                 <td>
                                     There are <b>{get_count("inframe deletion")}</b> in-frame deletions.
-                                    These remove amino acids rather than replacing one amino acid with another,
-                                    so the current one-to-one substitution features cannot describe them.
-                                    Supporting them would require representing deletion length and sequence context,
-                                    followed by retraining.
+                                    These remove amino acids instead of replacing one amino acid with another.
+                                    The current model is built around one-to-one amino-acid substitutions,
+                                    so deletions require different feature engineering and retraining.
                                 </td>
                             </tr>
-            
                             <tr>
                                 <td>Insertions / multi-amino-acid changes</td>
                                 <td>
                                     There are <b>{get_count("insertion")}</b> insertions.
-                                    Some contain multiple amino acids, such as <b>LL</b> or <b>KK</b>, rather than
-                                    a single substituted residue. The current model expects one wild-type amino acid
-                                    and one mutant amino acid, so these variants need a different representation.
+                                    Changes such as <b>LL</b> or <b>KK</b> contain multiple amino acids rather than
+                                    one substituted residue. The current model expects a single wild-type amino acid
+                                    and a single mutant amino acid, so these changes cannot use the current feature pipeline.
                                 </td>
                             </tr>
-            
                             <tr>
                                 <td>Frameshifts</td>
                                 <td>
                                     There are <b>{get_count("frameshift")}</b> frameshift variants.
-                                    Frameshifts alter the reading frame and can change the downstream protein sequence,
-                                    so they cannot be represented as a simple amino-acid-to-amino-acid substitution.
-                                    Modeling them would require sequence-level or positional features and retraining.
+                                    Frameshifts change the reading frame and can alter the downstream protein sequence,
+                                    rather than producing a simple amino-acid substitution. They would require
+                                    sequence-level or other specialized features and retraining.
                                 </td>
                             </tr>
-            
                             <tr>
                                 <td>Missing / "-" mutated-amino-acid values</td>
                                 <td>
                                     There are <b>{get_count("-")}</b> variants recorded with <b>-</b> as the
-                                    mutated amino acid. This does not provide a valid single amino-acid identity,
-                                    so properties such as hydrophobicity, polarity, charge, and size cannot be calculated.
-                                    These values therefore cannot pass through the current substitution-based feature pipeline.
+                                    mutated amino acid. Because <b>-</b> is not an amino-acid identity, properties such as
+                                    hydrophobicity, polarity, charge, and size cannot be calculated for the mutation.
                                 </td>
                             </tr>
-            
                             <tr>
                                 <td>Stop-loss variants</td>
                                 <td>
                                     There are <b>{get_count("stop lost")}</b> stop-loss variants.
                                     These disrupt the normal stop signal and allow translation to continue beyond
-                                    the canonical 1,480-amino-acid CFTR sequence. Because they occur outside the
-                                    standard protein endpoint and are extremely rare here, they were excluded from
-                                    the current model.
+                                    the canonical 1,480-amino-acid CFTR sequence. They were excluded from the current
+                                    model because they are extremely rare and fall outside the standard protein endpoint.
                                 </td>
                             </tr>
-            
                             <tr>
                                 <td>Initiator codon variants</td>
                                 <td>
                                     There are <b>{get_count("initiator codon variant")}</b> initiator codon variants.
                                     These affect the translation-start signal rather than representing a standard
-                                    amino-acid substitution. They were grouped into <b>Other</b> for modeling because
-                                    the current feature pipeline is designed for amino-acid substitutions.
+                                    amino-acid substitution. They were grouped into <b>Other</b> for the current model
+                                    because the feature pipeline is designed around amino-acid substitutions.
                                 </td>
                             </tr>
-            
                         </table>
                     </div>
                 </details>
