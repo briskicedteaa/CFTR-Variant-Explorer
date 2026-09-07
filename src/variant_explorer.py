@@ -70,18 +70,15 @@ def get_variants_at_position(position):
 def get_position_summary(position):
     position_df, variants_df = load_data()
 
+    position_info = position_df[
+        position_df["Human_Position"] == position
+    ]
+
     variants = variants_df[
         variants_df["Position"] == position
     ]
 
-    if variants.empty:
-        return None
-
-    return {
-        "position": position,
-        "variant_count": len(variants),
-        "consequences": variants["Consequence"].value_counts().to_dict()
-    }
+    return position_info, variants
 
 
 def get_consequence_summary(position=None):
