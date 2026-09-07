@@ -372,6 +372,49 @@ if st.session_state["explored_position"] is not None:
             unsafe_allow_html=True
         )
         
+        st.markdown(
+            """
+            <details class="position-1481-dropdown">
+                <summary>Why Some Variant Consequences Are Not Predicted</summary>
+                <div class="position-1481-content">
+                    <table class="position-1481-table">
+                        <tr>
+                            <th>Consequence</th>
+                            <th>Why It Is Not Predicted</th>
+                        </tr>
+                        <tr>
+                            <td>Stop lost</td>
+                            <td>Only 3 examples were available, which was too few to support reliable model learning.</td>
+                        </tr>
+                        <tr>
+                            <td>Insertion</td>
+                            <td>Only 11 examples were available, making this consequence class too small for reliable learning.</td>
+                        </tr>
+                        <tr>
+                            <td>Initiator codon variant</td>
+                            <td>Only 1 example was available, which was insufficient for reliable model learning.</td>
+                        </tr>
+                        <tr>
+                            <td>Unspecified (<code>-</code>)</td>
+                            <td>13 examples had no specified consequence annotation, so they were excluded from the defined consequence classes used for training.</td>
+                        </tr>
+                    </table>
+                </div>
+            </details>
+            """,
+            unsafe_allow_html=True
+        )
+        
+        N_PATH = Path(__file__).resolve().parent.parent / "images" / "bcb43178-c776-4fed-b8ee-5b9f36f8bfa7_removalai_preview.png"
+
+        left, center, right = st.columns([1, 3, 1])
+
+        with center:
+            st.image(
+                str(N_PATH),
+            use_container_width=True
+            )
+        
         consequence_counts = variants_df["Consequence"].fillna("Missing").value_counts()
 
         rows = ""
