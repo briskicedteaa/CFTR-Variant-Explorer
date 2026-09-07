@@ -371,6 +371,36 @@ if st.session_state["explored_position"] is not None:
             "<h1 style='text-align: center;'>Results</h1>",
             unsafe_allow_html=True
         )
+        
+        consequence_counts = variants_df["Consequence"].fillna("Missing").value_counts()
+
+        rows = ""
+        
+        for consequence, count in consequence_counts.items():
+            rows += (
+                "<tr>"
+                f"<td>{consequence}</td>"
+                f"<td>{count}</td>"
+                "</tr>"
+            )
+        
+        st.markdown(
+            f"""
+            <details class="position-1481-dropdown">
+                <summary>Variant Consequence Counts (Click For Summary)</summary>
+                <div class="position-1481-content">
+                    <table class="position-1481-table">
+                        <tr>
+                            <th>Consequence</th>
+                            <th>Count</th>
+                        </tr>
+                        {rows}
+                    </table>
+                </div>
+            </details>
+            """,
+            unsafe_allow_html=True
+        )
 
         if explored_position == 1481:
             
@@ -456,126 +486,6 @@ if st.session_state["explored_position"] is not None:
                 <h3 style='text-align: center;'>
                     CFTR Position {explored_position}
                 </h3>
-                """,
-                unsafe_allow_html=True
-            )
-            
-            st.markdown(
-                """
-                <details class="position-1481-dropdown">
-                    <summary>Why Are Some Variants Not Available For Prediction? (Click For Information)</summary>
-                    <div class="position-1481-content">
-                        <table class="position-1481-table">
-                            <tr>
-                                <th>Variant Type</th>
-                                <th>Why Is It Not Available For Prediction?</th>
-                            </tr>
-                            <tr>
-                                <td>Stop-gained variants (*)</td>
-                                <td>
-                                    Stop-gained variants use <b>*</b> to represent a premature stop codon,
-                                    not an amino acid. The current model calculates amino-acid properties such as
-                                    hydrophobicity, polarity, charge, and size for a single amino-acid substitution,
-                                    so <b>*</b> cannot be represented by the current feature pipeline.
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>In-frame deletions</td>
-                                <td>
-                                    In-frame deletions remove one or more amino acids rather than replacing one
-                                    amino acid with another. The current model is designed around one-to-one
-                                    amino-acid substitutions, so it does not have features describing the deleted
-                                    sequence or deletion length.
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Insertions / multi-amino-acid changes</td>
-                                <td>
-                                    Insertions can introduce multiple amino acids, such as <b>LL</b> or <b>KK</b>,
-                                    rather than a single substituted residue. The current model expects one
-                                    wild-type amino acid and one mutant amino acid, so multi-amino-acid changes
-                                    cannot be represented by the existing feature pipeline.
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Frameshifts</td>
-                                <td>
-                                    Frameshifts change the reading frame and can alter the downstream protein
-                                    sequence. They are therefore fundamentally different from a single
-                                    amino-acid substitution and would require sequence-level features or another
-                                    representation designed specifically for frameshift effects.
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Missing / "-" mutated-amino-acid values</td>
-                                <td>
-                                    A <b>-</b> or missing value does not identify a specific mutant amino acid.
-                                    Because the current model calculates properties such as hydrophobicity,
-                                    polarity, charge, and size from amino-acid identities, these variants cannot
-                                    pass through the existing substitution-based feature pipeline.
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Stop-loss variants</td>
-                                <td>
-                                    Stop-loss variants disrupt the normal stop signal and allow translation to
-                                    continue beyond the canonical 1,480-amino-acid CFTR sequence. There are only
-                                    <b>3</b> stop-loss variants in this dataset, making model results for this
-                                    consequence class too unstable to support a reliable prediction.
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Initiator codon variants</td>
-                                <td>
-                                    Initiator codon variants affect the signal that starts translation rather than
-                                    representing a standard amino-acid substitution. The current feature pipeline
-                                    is designed around amino-acid identities and their biochemical properties,
-                                    so this variant type requires a different representation.
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                </details>
-                """,
-                unsafe_allow_html=True
-            )
-            
-            N_PATH = Path(__file__).resolve().parent.parent / "images" / "bcb43178-c776-4fed-b8ee-5b9f36f8bfa7_removalai_preview.png"
-
-            left, center, right = st.columns([1, 3, 1])
-            
-            with center:
-                st.image(
-                    str(N_PATH),
-                    use_container_width=True
-            )
-            
-            consequence_counts = variants_df["Consequence"].fillna("Missing").value_counts()
-
-            rows = ""
-            
-            for consequence, count in consequence_counts.items():
-                rows += (
-                    "<tr>"
-                    f"<td>{consequence}</td>"
-                    f"<td>{count}</td>"
-                    "</tr>"
-                )
-            
-            st.markdown(
-                f"""
-                <details class="position-1481-dropdown">
-                    <summary>Variant Consequence Counts (Click For Summary)</summary>
-                    <div class="position-1481-content">
-                        <table class="position-1481-table">
-                            <tr>
-                                <th>Consequence</th>
-                                <th>Count</th>
-                            </tr>
-                            {rows}
-                        </table>
-                    </div>
-                </details>
                 """,
                 unsafe_allow_html=True
             )
