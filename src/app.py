@@ -727,7 +727,9 @@ if st.session_state["explored_position"] is not None:
                             )
                             
                     col1, col2 = st.columns(2)
-            
+                    
+                    info = position_info.iloc[0]
+                    
                     with col1:
                         st.metric(
                             "Model accuracy",
@@ -735,9 +737,11 @@ if st.session_state["explored_position"] is not None:
                         )
                 
                     with col2:
-                        st.metric(
+                        glossary_metric(
                             "Macro F1",
-                            f"{model_metrics['macro_f1']:.1%}"
+                            f"{model_metrics['macro_f1']:.1%},
+                            info["Macro F1"],
+                            "Macro F1 measures how well the model performs across all consequence classes by calculating the F1 score for each class and giving every class equal weight. This is especially useful for imbalanced datasets like this one, where some consequence types are much rarer than others."
                         )
 
                     if result["prediction"] == selected_variant["Consequence"]:
