@@ -719,6 +719,22 @@ if st.session_state["explored_position"] is not None:
                         f"{result['confidence']:.2%}",
                         "The confidence score indicates how strongly the model favors its prediction. Because the model was trained on existing CFTR variant data, its predictions should be interpreted as computational estimates rather than definitive evidence of biological or clinical effect."
                     )
+                    
+                    if result["prediction"] == selected_variant["Consequence"]:
+                        st.success(
+                            "The model prediction matches the recorded consequence."
+                        )
+
+                    else:
+                        st.warning(
+                            "The model prediction differs from the recorded consequence."
+                        )
+
+            else:
+                st.info(
+                    "No standard amino-acid substitutions are available "
+                    "for prediction at this position."
+                )
                 
                 if explored_position != 1481:
                     
@@ -747,24 +763,7 @@ if st.session_state["explored_position"] is not None:
                             f"{model_metrics['macro_f1']:.1%}",
                             "Macro F1 measures how well the model performs across all consequence classes by calculating the F1 score for each class and giving every class equal weight. This is especially useful for imbalanced datasets like this one, where some consequence types are much rarer than others."
                         )
-                    
-                    if result["prediction"] == selected_variant["Consequence"]:
-                        st.success(
-                            "The model prediction matches the recorded consequence."
-                        )
-
-                    else:
-                        st.warning(
-                            "The model prediction differs from the recorded consequence."
-                        )
-
-            else:
-                st.info(
-                    "No standard amino-acid substitutions are available "
-                    "for prediction at this position."
-                )
                 
-
                 N_PATH = Path(__file__).resolve().parent.parent / "images" / "bcb43178-c776-4fed-b8ee-5b9f36f8bfa7_removalai_preview.png"
 
                 left, center, right = st.columns([1, 3, 1])
