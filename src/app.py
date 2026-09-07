@@ -6,7 +6,8 @@ from pathlib import Path
 from variant_explorer import (
     get_position_summary,
     get_consequence_summary,
-    predict_consequence
+    predict_consequence,
+    model_metrics
 )
 
 st.set_page_config(
@@ -571,14 +572,19 @@ if st.session_state["explored_position"] is not None:
                     selected_variant["Consequence"].title()
                 )
                 
-        
                 col1, col2 = st.columns(2)
             
                 with col1:
-                    st.metric("Model accuracy", "96.9%")
+                    st.metric(
+                        "Model accuracy",
+                        f"{model_metrics['accuracy']:.1%}"
+                    )
             
                 with col2:
-                    st.metric("Macro F1", "55.8%")
+                    st.metric(
+                        "Macro F1",
+                        f"{model_metrics['macro_f1']:.1%}"
+                    )
     
             if result["confidence"] is not None:
 
