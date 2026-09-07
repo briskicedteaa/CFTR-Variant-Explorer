@@ -90,7 +90,8 @@ h1, h2, h3 {
 .glossary-definition {
     margin: 0.5rem auto;
     padding: 0.5rem;
-    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
     border-radius: 0.5rem;
     font-family: 'Quicksand', sans-serif;
     font-size: 0.85rem;
@@ -473,7 +474,7 @@ if st.session_state["explored_position"] is not None:
         
         LOL_PATH = Path(__file__).resolve().parent.parent / "images" / "A85ED006-0868-4ADA-9966-0377253351CC.gif"
 
-        left, center, right = st.columns([1, 1, 1])
+        left, center, right = st.columns([0.5, 4, 0.5])
 
         with center:
             st.image(
@@ -515,7 +516,7 @@ if st.session_state["explored_position"] is not None:
             
             THE_PATH = Path(__file__).resolve().parent.parent / "images" / "0E11DECF-757B-4E64-ADBA-713D560B56A9.gif"
 
-            left, center, right = st.columns([1, 3, 1])
+            left, center, right = st.columns([0.5, 4, 0.5])
 
             with center:
                 st.image(
@@ -567,7 +568,7 @@ if st.session_state["explored_position"] is not None:
 
             N_PATH = Path(__file__).resolve().parent.parent / "images" / "bcb43178-c776-4fed-b8ee-5b9f36f8bfa7_removalai_preview.png"
 
-            left, center, right = st.columns([1, 3, 1])
+            left, center, right = st.columns([0.5, 4, 0.5])
 
             with center:
                 st.image(
@@ -649,7 +650,7 @@ if st.session_state["explored_position"] is not None:
             
             N_PATH = Path(__file__).resolve().parent.parent / "images" / "bcb43178-c776-4fed-b8ee-5b9f36f8bfa7_removalai_preview.png"
 
-            left, center, right = st.columns([1, 3, 1])
+            left, center, right = st.columns([0.5, 4, 0.5])
             
             with center:
                 st.image(
