@@ -736,33 +736,33 @@ if st.session_state["explored_position"] is not None:
                 "for prediction at this position."
             )
                 
-            if explored_position != 1481:
-                
-                N_PATH = Path(__file__).resolve().parent.parent / "images" / "bcb43178-c776-4fed-b8ee-5b9f36f8bfa7_removalai_preview.png"
+        if explored_position != 1481:
+            
+            N_PATH = Path(__file__).resolve().parent.parent / "images" / "bcb43178-c776-4fed-b8ee-5b9f36f8bfa7_removalai_preview.png"
 
-                left, center, right = st.columns([1, 3, 1])
+            left, center, right = st.columns([1, 3, 1])
+        
+            with center:
+                st.image(
+                    str(N_PATH),
+                    use_container_width=True
+                )
             
-                with center:
-                    st.image(
-                        str(N_PATH),
-                        use_container_width=True
-                    )
-                
-                col1, col2 = st.columns(2)
-            
-                with col1:
-                    glossary_metric(
-                        "Model accuracy",
-                        f"{model_metrics['accuracy']:.1%}",
-                        "Model accuracy is the proportion of test variants that the model classified correctly."
-                    )
-            
-                with col2:
-                    glossary_metric(
-                        "Macro F1",
-                        f"{model_metrics['macro_f1']:.1%}",
-                        "Macro F1 measures how well the model performs across all consequence classes by calculating the F1 score for each class and giving every class equal weight. This is especially useful for imbalanced datasets like this one, where some consequence types are much rarer than others."
-                    )
+            col1, col2 = st.columns(2)
+        
+            with col1:
+                glossary_metric(
+                    "Model accuracy",
+                    f"{model_metrics['accuracy']:.1%}",
+                    "Model accuracy is the proportion of test variants that the model classified correctly."
+                )
+        
+            with col2:
+                glossary_metric(
+                    "Macro F1",
+                    f"{model_metrics['macro_f1']:.1%}",
+                    "Macro F1 measures how well the model performs across all consequence classes by calculating the F1 score for each class and giving every class equal weight. This is especially useful for imbalanced datasets like this one, where some consequence types are much rarer than others."
+                )
                 
                 N_PATH = Path(__file__).resolve().parent.parent / "images" / "bcb43178-c776-4fed-b8ee-5b9f36f8bfa7_removalai_preview.png"
 
