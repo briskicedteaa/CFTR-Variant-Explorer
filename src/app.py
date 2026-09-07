@@ -549,17 +549,17 @@ if st.session_state["explored_position"] is not None:
             rows = ""
             
             for consequence, count in consequence_counts.items():
-                rows += f"""
-                    <tr>
-                        <td>{consequence}</td>
-                        <td>{count}</td>
-                    </tr>
-                """
+                rows += (
+                    "<tr>"
+                    f"<td>{consequence}</td>"
+                    f"<td>{count}</td>"
+                    "</tr>"
+                )
             
             st.markdown(
                 f"""
                 <details class="position-1481-dropdown">
-                    <summary>Variant Consequence Counts (Click To See How Many Consequences There Are For Each Variant)</summary>
+                    <summary>Variant Consequence Counts (Click For Summary)</summary>
                     <div class="position-1481-content">
                         <table class="position-1481-table">
                             <tr>
