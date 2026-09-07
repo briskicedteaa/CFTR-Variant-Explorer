@@ -460,13 +460,8 @@ if st.session_state["explored_position"] is not None:
                 unsafe_allow_html=True
             )
             
-            consequence_counts = variants["Consequence"].fillna("Missing").value_counts()
-
-            def get_count(name):
-                return consequence_counts.get(name, 0)
-            
             st.markdown(
-                f"""
+                """
                 <details class="position-1481-dropdown">
                     <summary>Why Are Some Variants Not Available For Prediction? (Click For Information)</summary>
                     <div class="position-1481-content">
@@ -478,63 +473,64 @@ if st.session_state["explored_position"] is not None:
                             <tr>
                                 <td>Stop-gained variants (*)</td>
                                 <td>
-                                    There are <b>{get_count("stop gained")}</b> stop-gained variants.
-                                    The <b>*</b> represents a premature stop codon rather than an amino acid.
-                                    The current model uses amino-acid properties such as hydrophobicity, polarity,
-                                    charge, and size, so <b>*</b> cannot be represented by the current feature pipeline.
+                                    Stop-gained variants use <b>*</b> to represent a premature stop codon,
+                                    not an amino acid. The current model calculates amino-acid properties such as
+                                    hydrophobicity, polarity, charge, and size for a single amino-acid substitution,
+                                    so <b>*</b> cannot be represented by the current feature pipeline.
                                 </td>
                             </tr>
                             <tr>
                                 <td>In-frame deletions</td>
                                 <td>
-                                    There are <b>{get_count("inframe deletion")}</b> in-frame deletions.
-                                    These remove amino acids instead of replacing one amino acid with another.
-                                    The current model is built around one-to-one amino-acid substitutions,
-                                    so deletions require different feature engineering and retraining.
+                                    In-frame deletions remove one or more amino acids rather than replacing one
+                                    amino acid with another. The current model is designed around one-to-one
+                                    amino-acid substitutions, so it does not have features describing the deleted
+                                    sequence or deletion length.
                                 </td>
                             </tr>
                             <tr>
                                 <td>Insertions / multi-amino-acid changes</td>
                                 <td>
-                                    There are <b>{get_count("insertion")}</b> insertions.
-                                    Changes such as <b>LL</b> or <b>KK</b> contain multiple amino acids rather than
-                                    one substituted residue. The current model expects a single wild-type amino acid
-                                    and a single mutant amino acid, so these changes cannot use the current feature pipeline.
+                                    Insertions can introduce multiple amino acids, such as <b>LL</b> or <b>KK</b>,
+                                    rather than a single substituted residue. The current model expects one
+                                    wild-type amino acid and one mutant amino acid, so multi-amino-acid changes
+                                    cannot be represented by the existing feature pipeline.
                                 </td>
                             </tr>
                             <tr>
                                 <td>Frameshifts</td>
                                 <td>
-                                    There are <b>{get_count("frameshift")}</b> frameshift variants.
-                                    Frameshifts change the reading frame and can alter the downstream protein sequence,
-                                    rather than producing a simple amino-acid substitution. They would require
-                                    sequence-level or other specialized features and retraining.
+                                    Frameshifts change the reading frame and can alter the downstream protein
+                                    sequence. They are therefore fundamentally different from a single
+                                    amino-acid substitution and would require sequence-level features or another
+                                    representation designed specifically for frameshift effects.
                                 </td>
                             </tr>
                             <tr>
                                 <td>Missing / "-" mutated-amino-acid values</td>
                                 <td>
-                                    There are <b>{get_count("-")}</b> variants recorded with <b>-</b> as the
-                                    mutated amino acid. Because <b>-</b> is not an amino-acid identity, properties such as
-                                    hydrophobicity, polarity, charge, and size cannot be calculated for the mutation.
+                                    A <b>-</b> or missing value does not identify a specific mutant amino acid.
+                                    Because the current model calculates properties such as hydrophobicity,
+                                    polarity, charge, and size from amino-acid identities, these variants cannot
+                                    pass through the existing substitution-based feature pipeline.
                                 </td>
                             </tr>
                             <tr>
                                 <td>Stop-loss variants</td>
                                 <td>
-                                    There are <b>{get_count("stop lost")}</b> stop-loss variants.
-                                    These disrupt the normal stop signal and allow translation to continue beyond
-                                    the canonical 1,480-amino-acid CFTR sequence. They were excluded from the current
-                                    model because they are extremely rare and fall outside the standard protein endpoint.
+                                    Stop-loss variants disrupt the normal stop signal and allow translation to
+                                    continue beyond the canonical 1,480-amino-acid CFTR sequence. There are only
+                                    <b>3</b> stop-loss variants in this dataset, making model results for this
+                                    consequence class too unstable to support a reliable prediction.
                                 </td>
                             </tr>
                             <tr>
                                 <td>Initiator codon variants</td>
                                 <td>
-                                    There are <b>{get_count("initiator codon variant")}</b> initiator codon variants.
-                                    These affect the translation-start signal rather than representing a standard
-                                    amino-acid substitution. They were grouped into <b>Other</b> for the current model
-                                    because the feature pipeline is designed around amino-acid substitutions.
+                                    Initiator codon variants affect the signal that starts translation rather than
+                                    representing a standard amino-acid substitution. The current feature pipeline
+                                    is designed around amino-acid identities and their biochemical properties,
+                                    so this variant type requires a different representation.
                                 </td>
                             </tr>
                         </table>
