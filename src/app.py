@@ -90,7 +90,7 @@ h1, h2, h3 {
 .glossary-definition {
     margin: 0.5rem auto;
     padding: 0.5rem;
-    max-width: 280px;
+    max-width: 100%;
     border-radius: 0.5rem;
     font-family: 'Quicksand', sans-serif;
     font-size: 0.85rem;
