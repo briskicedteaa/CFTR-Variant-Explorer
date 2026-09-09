@@ -157,21 +157,7 @@ h1, h2, h3 {
 </style>
 """, unsafe_allow_html=True)
 
-from variant_explorer import (
-    get_position_summary,
-    get_consequence_summary
-)
-
 position_df, variants_df = load_data()
-
-DATA_DIR = Path(__file__).resolve().parent.parent / "data"
-
-cftr_df = pd.read_csv(DATA_DIR / "CFTR_df.csv")
-
-human_sequence = cftr_df.loc[
-    cftr_df["ID"].astype(str).str.contains("P13569", na=False),
-    "Sequence"
-].iloc[0]
 
 valid_positions = set(variants_df["Position"].dropna().astype(int))
 
@@ -419,11 +405,6 @@ if st.session_state["explored_position"] is not None:
             
             if selected_variant_label == "Please select a variant":
                 st.stop()
-            
-            selected_variant = prediction_variants[
-                prediction_variants["Variant"]
-                == selected_variant_label
-            ].iloc[0]
     
             selected_variant = prediction_variants[
                 prediction_variants["Variant"]
