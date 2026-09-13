@@ -915,7 +915,6 @@ if st.session_state["explored_position"] is not None:
             selection = alt.selection_point(
                 name="consequence_selection",
                 fields=["Consequence"],
-                on="click"
             )
             
             consequence_chart = (
