@@ -992,7 +992,7 @@ if st.session_state["explored_position"] is not None:
             consequence_event = st.altair_chart(
                 consequence_chart,
                 width="stretch",
-                key="consequence_chart",
+                key=f"consequence_chart_{explored_position}",
                 on_select=select_consequence,
                 selection_mode=["consequence_selection"]
             )
