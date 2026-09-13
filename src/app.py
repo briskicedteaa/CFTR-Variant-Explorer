@@ -938,7 +938,6 @@ if st.session_state["explored_position"] is not None:
                 name="consequence_selection",
                 fields=["Consequence"],
                 on="click",
-                clear="mouseout",
                 toggle=False
             )
         
@@ -976,10 +975,24 @@ if st.session_state["explored_position"] is not None:
                 "Click a consequence in the chart to find its definition in the glossary below."
             )
         
+            def select_consequence():
+                selection = st.session_state.consequence_chart.selection
+                selection_data = selection.get(
+                    "consequence_selection",
+                    []
+                )
+            
+                if selection_data:
+                    st.session_state.selected_consequence = str(
+                        selection_data[0]["Consequence"]
+                    ).lower()
+            
+            
             consequence_event = st.altair_chart(
                 consequence_chart,
                 width="stretch",
-                on_select="rerun",
+                key="consequence_chart",
+                on_select=select_consequence,
                 selection_mode=["consequence_selection"]
             )
             
@@ -988,12 +1001,9 @@ if st.session_state["explored_position"] is not None:
                 []
             )
             
-            selected_consequence = None
-            
-            if selection_data:
-                selected_consequence = str(
-                    selection_data[0]["Consequence"]
-                ).lower()
+            selected_consequence = st.session_state.get(
+                "selected_consequence"
+            )
         
             st.markdown(
                 """
