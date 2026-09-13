@@ -987,6 +987,62 @@ if st.session_state["explored_position"] is not None:
                 []
             )
             
+            def navigate_to_consequence(term):
+                target_id = f"consequence-definition-{term}"
+            
+                st.html(
+                    f"""
+                    <script>
+                    const targetId = "{target_id}";
+            
+                    setTimeout(() => {{
+                        const summaries = Array.from(
+                            document.querySelectorAll("details summary")
+                        );
+            
+                        const glossarySummary = summaries.reverse().find(
+                            summary =>
+                                summary.textContent.includes(
+                                    "Don't Understand Unfamiliar Terms?"
+                                )
+                        );
+            
+                        if (glossarySummary) {{
+                            const glossary = glossarySummary.parentElement;
+            
+                            if (!glossary.open) {{
+                                glossarySummary.click();
+                            }}
+                        }}
+            
+                        setTimeout(() => {{
+                            const target = document.getElementById(targetId);
+            
+                            if (target) {{
+                                target.scrollIntoView({{
+                                    behavior: "smooth",
+                                    block: "center"
+                                }});
+            
+                                target.animate(
+                                    [
+                                        {{ backgroundColor: "rgba(255, 196, 231, 0)" }},
+                                        {{ backgroundColor: "rgba(255, 196, 231, 0.55)" }},
+                                        {{ backgroundColor: "rgba(255, 196, 231, 0)" }}
+                                    ],
+                                    {{
+                                        duration: 1800,
+                                        easing: "ease-in-out"
+                                    }}
+                                );
+                            }}
+                        }}, 300);
+                    }}, 100);
+                    </script>
+                    """,
+                    unsafe_allow_javascript=True
+                )
+            
             selected_consequence = None
             
             if selection_data:
