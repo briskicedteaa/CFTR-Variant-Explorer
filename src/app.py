@@ -1040,7 +1040,7 @@ if st.session_state["explored_position"] is not None:
             elif selected_consequence == "stop gained":
                 navigate_to_consequence("stop-gained")
             
-            elif selected_consequence == "stop loss":
+            elif selected_consequence == "stop lost":
                 navigate_to_consequence("stop-loss")
             
             elif selected_consequence == "initiator codon variant":
