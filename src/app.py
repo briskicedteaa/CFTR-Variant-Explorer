@@ -10,6 +10,8 @@ from variant_explorer import (
     predict_consequence
 )
 
+st.write(st.__version__)
+
 DATA_DIR = Path(__file__).resolve().parent.parent / "data"
 
 model_metrics = joblib.load(
