@@ -979,7 +979,7 @@ if st.session_state["explored_position"] is not None:
             consequence_event = st.altair_chart(
                 consequence_chart,
                 width="stretch",
-                key=f"consequence_chart_{st.session_state.get('consequence_chart_reset', 0)}",
+                key="consequence_chart",
                 on_select="rerun",
                 selection_mode=["consequence_selection"]
             )
@@ -1094,11 +1094,6 @@ if st.session_state["explored_position"] is not None:
                     """,
                     unsafe_allow_javascript=True
                 )
-                
-                st.session_state.consequence_chart_reset = (
-                    st.session_state.get("consequence_chart_reset", 0) + 1
-                )
-
             
 if st.session_state.get("explored_position") in valid_positions:
     
