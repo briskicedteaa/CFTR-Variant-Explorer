@@ -98,6 +98,18 @@ h1, h2, h3 {
     line-height: 1.4;
     background: rgba(128, 128, 128, 0.1);
 }
+
+.consequence-definition {
+    scroll-margin-top: 100px;
+    transition: background-color 0.5s, box-shadow 0.5s;
+}
+
+.consequence-definition.highlighted {
+    background: #fff4fa;
+    box-shadow: 0 0 0 3px #ffc4e7;
+    border-radius: 0.5rem;
+}
+
 .position-1481-dropdown {
     width: 100%;
     max-width: 100%;
@@ -957,59 +969,84 @@ if st.session_state["explored_position"] is not None:
                 .add_params(consequence_selection)
             )
         
-            st.caption(
-                "Click a consequence in the chart to view its definition."
-            )
-        
             consequence_event = st.altair_chart(
                 consequence_chart,
-                use_container_width=True,
+                width="stretch",
                 key="consequence_chart",
                 on_select="rerun",
                 selection_mode=["consequence_selection"]
             )
         
-            selected_consequence = None
+            selected_consequence = st.session_state.get(
+                "selected_consequence",
+                None
+            )
         
             selection_data = consequence_event.selection.get(
                 "consequence_selection",
-                {}
-            )
-        
-            selected_values = selection_data.get(
-                "Consequence",
                 []
             )
         
-            if selected_values:
-                selected_consequence = selected_values[0]
+            if selection_data:
+                selected_consequence = selection_data[0]["Consequence"]
+                st.session_state["selected_consequence"] = selected_consequence
         
-            if selected_consequence is not None:
-                selected_definition = CONSEQUENCE_DEFINITIONS.get(
-                    selected_consequence.title()
+            glossary_open = selected_consequence is not None
+        
+            glossary_html = f"""
+            <details
+                id="consequence-glossary"
+                class="position-1481-dropdown"
+                {"open" if glossary_open else ""}
+            >
+                <summary>Don't Understand Unfamiliar Terms? Click Me! (Explanations Are Simplifed For General-Understanding)</summary>
+                <div class="position-1481-content">
+            """
+        
+            for term, definition in CONSEQUENCE_DEFINITIONS.items():
+                highlighted = (
+                    selected_consequence is not None
+                    and selected_consequence.lower() == term.lower()
                 )
         
-                if selected_definition is not None:
-                    st.markdown(
-                        f"""
-                        <div class="info-bubble">
-                            <h3>{selected_consequence.title()}</h3>
-                            <p>{selected_definition}</p>
-                        </div>
-                        """,
-                        unsafe_allow_html=True
-                    )
+                glossary_html += f"""
+                <div
+                    id="consequence-{term.replace(" ", "-").replace("/", "-")}"
+                    class="consequence-definition{" highlighted" if highlighted else ""}"
+                >
+                    <p><strong>{term.title()}:</strong> {definition}</p>
+                </div>
+                """
         
-            with st.expander(
-                "Don't Understand Unfamiliar Terms? Click Me! (Explanations Are Simplifed For General-Understanding)"
-            ):
-                for term, definition in CONSEQUENCE_DEFINITIONS.items():
-                    st.markdown(
-                        f"**{term}:** {definition}"
-                    )
+            glossary_html += """
+                <p>
+                This chart shows the distribution of recorded variant consequences in the CFTR dataset. Looking at these categories helps show which types of genetic changes are most frequently represented in the dataset.
+                </p>
+                </div>
+            </details>
+            """
         
-                st.markdown(
-                    "This chart shows the distribution of recorded variant consequences in the CFTR dataset. Looking at these categories helps show which types of genetic changes are most frequently represented in the dataset."
+            st.html(glossary_html)
+        
+            if selected_consequence is not None:
+                target_id = (
+                    "consequence-"
+                    + selected_consequence.lower().replace(" ", "-").replace("/", "-")
+                )
+        
+                st.html(
+                    f"""
+                    <script>
+                    const target = document.getElementById("{target_id}");
+                    if (target) {{
+                        target.scrollIntoView({{
+                            behavior: "smooth",
+                            block: "center"
+                        }});
+                    }}
+                    </script>
+                    """,
+                    unsafe_allow_javascript=True
                 )
         
             if variants is not None and not variants.empty:
