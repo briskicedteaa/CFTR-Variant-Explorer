@@ -975,14 +975,6 @@ if st.session_state["explored_position"] is not None:
                 "Click a consequence in the chart to find its definition in the glossary below."
             )
         
-            consequence_event = st.altair_chart(
-                consequence_chart,
-                width="stretch",
-                key="consequence_chart",
-                on_select="rerun",
-                selection_mode=["consequence_selection"]
-            )
-        
             selection_data = consequence_event.selection.get(
                 "consequence_selection",
                 []
