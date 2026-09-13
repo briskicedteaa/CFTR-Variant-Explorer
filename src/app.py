@@ -922,7 +922,7 @@ if st.session_state["explored_position"] is not None:
             """,
             unsafe_allow_html=True
         )
-    
+
         consequence_summary = get_consequence_summary(
             explored_position
         )
@@ -969,6 +969,10 @@ if st.session_state["explored_position"] is not None:
                 .add_params(consequence_selection)
             )
         
+            st.caption(
+                "Click a consequence in the chart to find its definition in the glossary below."
+            )
+        
             consequence_event = st.altair_chart(
                 consequence_chart,
                 width="stretch",
@@ -977,111 +981,115 @@ if st.session_state["explored_position"] is not None:
                 selection_mode=["consequence_selection"]
             )
         
-            selected_consequence = st.session_state.get(
-                "selected_consequence",
-                None
-            )
-        
             selection_data = consequence_event.selection.get(
                 "consequence_selection",
                 []
             )
         
+            selected_consequence = None
+        
             if selection_data:
-                selected_consequence = selection_data[0]["Consequence"]
-                st.session_state["selected_consequence"] = selected_consequence
+                selected_consequence = str(
+                    selection_data[0]["Consequence"]
+                ).lower()
         
-            glossary_open = selected_consequence is not None
+            st.markdown(
+                """
+                <div id="consequence-glossary-anchor"></div>
+                """,
+                unsafe_allow_html=True
+            )
         
-            glossary_html = f"""
-            <details
-                id="consequence-glossary"
-                class="position-1481-dropdown"
-                {"open" if glossary_open else ""}
-            >
-                <summary>Don't Understand Unfamiliar Terms? Click Me! (Explanations Are Simplifed For General-Understanding)</summary>
-                <div class="position-1481-content">
-            """
+            with st.expander(
+                "Don't Understand Unfamiliar Terms? Click Me! (Explanations Are Simplifed For General-Understanding)"
+            ):
+                for term, definition in CONSEQUENCE_DEFINITIONS.items():
+                    term_id = (
+                        "consequence-definition-"
+                        + term.lower()
+                        .replace(" ", "-")
+                        .replace("/", "-")
+                        .replace("(", "")
+                        .replace(")", "")
+                    )
         
-            for term, definition in CONSEQUENCE_DEFINITIONS.items():
-                highlighted = (
-                    selected_consequence is not None
-                    and selected_consequence.lower() == term.lower()
+                    st.markdown(
+                        f"""
+                        <div id="{term_id}" style="scroll-margin-top: 100px;">
+                            <strong>{term.title()}</strong>
+                            <p>{definition}</p>
+                        </div>
+                        """,
+                        unsafe_allow_html=True
+                    )
+        
+                st.markdown(
+                    "This chart shows the distribution of recorded variant consequences in the CFTR dataset. Looking at these categories helps show which types of genetic changes are most frequently represented in the dataset."
                 )
         
-                glossary_html += f"""
-                <div
-                    id="consequence-{term.replace(" ", "-").replace("/", "-")}"
-                    class="consequence-definition{" highlighted" if highlighted else ""}"
-                >
-                    <p><strong>{term.title()}:</strong> {definition}</p>
-                </div>
-                """
-        
-            glossary_html += """
-                <p>
-                This chart shows the distribution of recorded variant consequences in the CFTR dataset. Looking at these categories helps show which types of genetic changes are most frequently represented in the dataset.
-                </p>
-                </div>
-            </details>
-            """
-        
-            st.html(glossary_html)
-        
-            if selected_consequence is not None:
+            if selected_consequence in CONSEQUENCE_DEFINITIONS:
                 target_id = (
-                    "consequence-"
-                    + selected_consequence.lower().replace(" ", "-").replace("/", "-")
+                    "consequence-definition-"
+                    + selected_consequence
+                    .replace(" ", "-")
+                    .replace("/", "-")
+                    .replace("(", "")
+                    .replace(")", "")
                 )
         
                 st.html(
                     f"""
                     <script>
-                    const target = document.getElementById("{target_id}");
-                    if (target) {{
-                        target.scrollIntoView({{
-                            behavior: "smooth",
-                            block: "center"
-                        }});
+                    const targetId = "{target_id}";
+        
+                    function openAndScrollToConsequence() {{
+                        const summaries = Array.from(
+                            document.querySelectorAll("details summary")
+                        );
+        
+                        const glossarySummary = summaries.find(
+                            summary =>
+                                summary.textContent.includes(
+                                    "Don't Understand Unfamiliar Terms?"
+                                )
+                        );
+        
+                        if (glossarySummary) {{
+                            const glossary = glossarySummary.parentElement;
+        
+                            if (!glossary.open) {{
+                                glossarySummary.click();
+                            }}
+                        }}
+        
+                        setTimeout(() => {{
+                            const target = document.getElementById(targetId);
+        
+                            if (target) {{
+                                target.scrollIntoView({{
+                                    behavior: "smooth",
+                                    block: "center"
+                                }});
+        
+                                target.style.backgroundColor = "#fff4fa";
+                                target.style.boxShadow = "0 0 0 3px #ffc4e7";
+                                target.style.borderRadius = "12px";
+                                target.style.padding = "10px";
+        
+                                setTimeout(() => {{
+                                    target.style.backgroundColor = "";
+                                    target.style.boxShadow = "";
+                                }}, 2500);
+                            }}
+                        }}, 300);
                     }}
+        
+                    openAndScrollToConsequence();
                     </script>
                     """,
                     unsafe_allow_javascript=True
                 )
-        
-            if variants is not None and not variants.empty:
-                st.markdown(
-                    """
-                    <h3 class='glossary-heading' style='text-align: center;'>
-                        <details class="position-1481-dropdown">
-                            <summary>Variants at This Position</summary>
-                            <div class="glossary-definition">
-                                A list of recorded CFTR variants found at the amino-acid position you entered.
-                            </div>
-                        </details>
-                    </h3>
-                    """,
-                    unsafe_allow_html=True
-                )
-        
-                st.dataframe(variants)
-        
-                with st.expander(
-                    "Don't Understand Unfamiliar Terms? Click Me! (Explanations Are Simplifed For General-Understanding)"
-                ):
-                    st.markdown("""
-                    **Position:** The location of the variant within the CFTR protein.
-        
-                    **Wild type:** The amino acid normally found at this position in the reference human CFTR protein.
-        
-                    **Mutated type:** The amino acid or value recorded at this position for the variant. If it says "None," the variant does not specify a replacement amino acid at that position.
-        
-                    **Consequence:** A description of how the genetic change affects the CFTR protein.
-        
-                    **Region:** The general part of the CFTR protein where the variant is located, such as the N-terminal, Middle, or C-terminal region.
-        
-                    This table lists the recorded CFTR variants found at the amino-acid position you entered. Each row represents a variant in the dataset and provides information about the change and where it occurs in the CFTR protein.
-                    """)
+
             
 if st.session_state.get("explored_position") in valid_positions:
     
