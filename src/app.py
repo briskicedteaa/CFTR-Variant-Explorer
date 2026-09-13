@@ -980,15 +980,16 @@ if st.session_state["explored_position"] is not None:
                 width="stretch",
                 key=f"consequence_chart_{explored_position}",
                 on_select="rerun",
-                selection_mode=["consequence_selection"]
             )
             
-            selection_data = consequence_event.selection.get(
-                "consequence_selection",
-                []
-            )
-            
+            selection_data = consequence_event.selection
+
             selected_consequence = None
+            
+            if selection_data:
+                selected_consequence = str(
+                    selection_data["selection"]["Consequence"][0]
+                ).lower()
             
             if selection_data:
                 selected_consequence = str(
