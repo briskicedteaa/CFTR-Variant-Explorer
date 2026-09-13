@@ -913,6 +913,7 @@ if st.session_state["explored_position"] is not None:
             )
             
             selection = alt.selection_point(
+                name="consequence_selection",
                 fields=["Consequence"],
                 on="click"
             )
@@ -950,10 +951,11 @@ if st.session_state["explored_position"] is not None:
             event = st.altair_chart(
                 consequence_chart,
                 use_container_width=True,
-                on_select="rerun"
+                on_select="rerun",
+                selection_mode=["consequence_selection"]
             )
             
-            st.write(event)
+            st.write(event.selection)
             
             with st.expander("Don't Understand Unfamiliar Terms? Click Me! (Explanations Are Simplifed For General-Understanding)"):
                 st.markdown("""
