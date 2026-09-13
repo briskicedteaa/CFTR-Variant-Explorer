@@ -10,8 +10,6 @@ from variant_explorer import (
     predict_consequence
 )
 
-st.write(st.__version__)
-
 DATA_DIR = Path(__file__).resolve().parent.parent / "data"
 
 model_metrics = joblib.load(
@@ -913,7 +911,12 @@ if st.session_state["explored_position"] is not None:
                 .rename_axis("Consequence")
                 .reset_index(name="Count")
             )
-    
+            
+            selection = alt.selection_point(
+                fields=["Consequence"],
+                on="click"
+            )
+            
             consequence_chart = (
                 alt.Chart(consequence_chart_data)
                 .mark_bar(
@@ -941,12 +944,16 @@ if st.session_state["explored_position"] is not None:
                         )
                     ]
                 )
+                .add_params(selection)
             )
     
-            st.altair_chart(
+            event = st.altair_chart(
                 consequence_chart,
-                use_container_width=True
+                use_container_width=True,
+                on_select="rerun"
             )
+            
+            st.write(event)
             
             with st.expander("Don't Understand Unfamiliar Terms? Click Me! (Explanations Are Simplifed For General-Understanding)"):
                 st.markdown("""
