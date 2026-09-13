@@ -922,15 +922,6 @@ if st.session_state["explored_position"] is not None:
             """,
             unsafe_allow_html=True
         )
-        
-        def select_consequence():
-            selection = st.session_state.consequence_chart.selection
-            selection_data = selection.get("consequence_selection", [])
-        
-            if selection_data:
-                st.session_state.selected_consequence = str(
-                    selection_data[0]["Consequence"]
-                ).lower()
 
         consequence_summary = get_consequence_summary(
             explored_position
