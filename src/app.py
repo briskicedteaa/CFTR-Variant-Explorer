@@ -975,25 +975,12 @@ if st.session_state["explored_position"] is not None:
             st.caption(
                 "Click a consequence in the chart to find its definition in the glossary below."
             )
-        
-            def select_consequence():
-                selection = st.session_state.consequence_chart.selection
-                selection_data = selection.get(
-                    "consequence_selection",
-                    []
-                )
-            
-                if selection_data:
-                    st.session_state.selected_consequence = str(
-                        selection_data[0]["Consequence"]
-                    ).lower()
-            
             
             consequence_event = st.altair_chart(
                 consequence_chart,
                 width="stretch",
                 key=f"consequence_chart_{explored_position}",
-                on_select=select_consequence,
+                on_select="rerun",
                 selection_mode=["consequence_selection"]
             )
             
@@ -1002,9 +989,12 @@ if st.session_state["explored_position"] is not None:
                 []
             )
             
-            selected_consequence = st.session_state.get(
-                "selected_consequence"
-            )
+            selected_consequence = None
+            
+            if selection_data:
+                selected_consequence = str(
+                    selection_data[0]["Consequence"]
+                ).lower()
         
             st.markdown(
                 """
