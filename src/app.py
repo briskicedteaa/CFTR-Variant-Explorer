@@ -937,7 +937,8 @@ if st.session_state["explored_position"] is not None:
             consequence_selection = alt.selection_point(
                 name="consequence_selection",
                 fields=["Consequence"],
-                on="click"
+                on="click",
+                clear="mouseout"
             )
         
             consequence_chart = (
@@ -977,6 +978,7 @@ if st.session_state["explored_position"] is not None:
             consequence_event = st.altair_chart(
                 consequence_chart,
                 width="stretch",
+                key="consequence_chart",
                 on_select="rerun",
                 selection_mode=["consequence_selection"]
             )
