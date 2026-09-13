@@ -1047,7 +1047,7 @@ if st.session_state["explored_position"] is not None:
                             document.querySelectorAll("details summary")
                         );
         
-                        const glossarySummary = summaries.find(
+                        const glossarySummary = summaries.reverse().find(
                             summary =>
                                 summary.textContent.includes(
                                     "Don't Understand Unfamiliar Terms?"
