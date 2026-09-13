@@ -1074,14 +1074,14 @@ if st.session_state["explored_position"] is not None:
         
                                 target.animate(
                                     [
-                                        { backgroundColor: "rgba(255, 196, 231, 0)" },
-                                        { backgroundColor: "rgba(255, 196, 231, 0.55)" },
-                                        { backgroundColor: "rgba(255, 196, 231, 0)" }
+                                        { backgroundColor: "rgba(255, 196, 231, 0)" }},
+                                        { backgroundColor: "rgba(255, 196, 231, 0.55)" }},
+                                        { backgroundColor: "rgba(255, 196, 231, 0)" }}
                                     ],
-                                    {
+                                    {{
                                         duration: 1800,
                                         easing: "ease-in-out"
-                                    }
+                                    }}
                                 );
                             }}
                         }}, 300);
