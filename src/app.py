@@ -936,7 +936,8 @@ if st.session_state["explored_position"] is not None:
         
             consequence_selection = alt.selection_point(
                 name="consequence_selection",
-                fields=["Consequence"]
+                fields=["Consequence"],
+                clear="dblclick"
             )
         
             consequence_chart = (
@@ -1071,15 +1072,17 @@ if st.session_state["explored_position"] is not None:
                                     block: "center"
                                 }});
         
-                                target.style.backgroundColor = "#fff4fa";
-                                target.style.boxShadow = "0 0 0 3px #ffc4e7";
-                                target.style.borderRadius = "12px";
-                                target.style.padding = "10px";
-        
-                                setTimeout(() => {{
-                                    target.style.backgroundColor = "";
-                                    target.style.boxShadow = "";
-                                }}, 2500);
+                                target.animate(
+                                    [
+                                        { backgroundColor: "rgba(255, 196, 231, 0)" },
+                                        { backgroundColor: "rgba(255, 196, 231, 0.55)" },
+                                        { backgroundColor: "rgba(255, 196, 231, 0)" }
+                                    ],
+                                    {
+                                        duration: 1800,
+                                        easing: "ease-in-out"
+                                    }
+                                );
                             }}
                         }}, 300);
                     }}
