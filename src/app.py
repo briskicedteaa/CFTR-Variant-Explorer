@@ -938,7 +938,7 @@ if st.session_state["explored_position"] is not None:
                 name="consequence_selection",
                 fields=["Consequence"],
                 on="click",
-                clear=False,
+                clear="mouseup",
                 toggle=False
             )
         
