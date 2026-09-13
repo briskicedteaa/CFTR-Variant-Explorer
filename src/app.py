@@ -198,6 +198,16 @@ def glossary_metric(label, value, definition):
         """,
         unsafe_allow_html=True
     )
+    
+CONSEQUENCE_DEFINITIONS = {
+    "missense": "A variant that changes one amino acid in the protein to a different amino acid. Depending on where the change occurs, it may affect how CFTR is structured or how well it functions.",
+    "frameshift": "A change that shifts the way the genetic sequence is read. This can change many of the amino acids that follow the variant and may result in a protein that does not function normally.",
+    "inframe deletion": "A deletion that removes part of the genetic sequence while preserving the reading frame. This can remove one or more amino acids from the CFTR protein, and its effects depend on which part of the protein is removed.",
+    "stop gained": "A variant that introduces an early stop signal into the genetic sequence. This can cause the cell to produce a shorter CFTR protein.",
+    "stop loss": "A variant that removes the normal stop signal. This can cause the protein-making process to continue beyond its usual endpoint, resulting in extra amino acids being added to the protein.",
+    "initiator codon variant": "A variant that changes the genetic signal that tells the cell where to begin making the CFTR protein. A change to this signal can interfere with the production of the protein.",
+    "-": "A dash means that no amino acid is present at that position in the sequence."
+}
 
 GIF_PATH = Path(__file__).resolve().parent.parent / "images" / "8D83949E-9C79-479B-BD57-BA4F6ED95A0A.gif"
 
@@ -904,19 +914,19 @@ if st.session_state["explored_position"] is not None:
         consequence_summary = get_consequence_summary(
             explored_position
         )
-    
+        
         if consequence_summary:
             consequence_chart_data = (
                 pd.Series(consequence_summary)
                 .rename_axis("Consequence")
                 .reset_index(name="Count")
             )
-            
-            selection = alt.selection_point(
+        
+            consequence_selection = alt.selection_point(
                 name="consequence_selection",
-                fields=["Consequence"],
+                fields=["Consequence"]
             )
-            
+        
             consequence_chart = (
                 alt.Chart(consequence_chart_data)
                 .mark_bar(
@@ -944,39 +954,64 @@ if st.session_state["explored_position"] is not None:
                         )
                     ]
                 )
-                .add_params(selection)
+                .add_params(consequence_selection)
             )
-    
-            event = st.altair_chart(
+        
+            st.caption(
+                "Click a consequence in the chart to view its definition."
+            )
+        
+            consequence_event = st.altair_chart(
                 consequence_chart,
                 use_container_width=True,
+                key="consequence_chart",
                 on_select="rerun",
                 selection_mode=["consequence_selection"]
             )
-            
-            with st.expander("Don't Understand Unfamiliar Terms? Click Me! (Explanations Are Simplifed For General-Understanding)"):
-                st.markdown("""
-                **Variant consequence:** A description of how a genetic change affects the CFTR protein. Different types of changes can affect the protein in different ways, such as changing an amino acid, removing part of the protein, or causing the protein to end earlier than expected.
-            
-                **Missense:** A variant that changes one amino acid in the protein to a different amino acid. Depending on where the change occurs, it may affect how CFTR is structured or how well it functions.
-            
-                **Frameshift:** A change that shifts the way the genetic sequence is read. This can change many of the amino acids that follow the variant and may result in a protein that does not function normally.
-            
-                **Frame deletion:** A deletion that removes part of the genetic sequence while preserving the reading frame. This can remove one or more amino acids from the CFTR protein, and its effects depend on which part of the protein is removed.
-            
-                **Stop gained:** A variant that introduces an early stop signal into the genetic sequence. This can cause the cell to produce a shorter CFTR protein.
-            
-                **Stop loss:** A variant that removes the normal stop signal. This can cause the protein-making process to continue beyond its usual endpoint, resulting in extra amino acids being added to the protein.
-            
-                **Initiator codon variant:** A variant that changes the genetic signal that tells the cell where to begin making the CFTR protein. A change to this signal can interfere with the production of the protein.
-            
-                **Gap (-):** A dash means that no amino acid is present at that position in the sequence.
-            
-                **Sequence-level descriptions:** Some variants are represented by the amino-acid changes themselves rather than by a consequence label such as "missense" or "frameshift." These entries show the specific amino-acid sequence associated with the variant.
-            
-                This chart shows the distribution of recorded variant consequences in the CFTR dataset. Looking at these categories helps show which types of genetic changes are most frequently represented in the dataset.
-                """)
-                
+        
+            selected_consequence = None
+        
+            selection_data = consequence_event.selection.get(
+                "consequence_selection",
+                {}
+            )
+        
+            selected_values = selection_data.get(
+                "Consequence",
+                []
+            )
+        
+            if selected_values:
+                selected_consequence = selected_values[0]
+        
+            if selected_consequence is not None:
+                selected_definition = CONSEQUENCE_DEFINITIONS.get(
+                    selected_consequence.title()
+                )
+        
+                if selected_definition is not None:
+                    st.markdown(
+                        f"""
+                        <div class="info-bubble">
+                            <h3>{selected_consequence.title()}</h3>
+                            <p>{selected_definition}</p>
+                        </div>
+                        """,
+                        unsafe_allow_html=True
+                    )
+        
+            with st.expander(
+                "Don't Understand Unfamiliar Terms? Click Me! (Explanations Are Simplifed For General-Understanding)"
+            ):
+                for term, definition in CONSEQUENCE_DEFINITIONS.items():
+                    st.markdown(
+                        f"**{term}:** {definition}"
+                    )
+        
+                st.markdown(
+                    "This chart shows the distribution of recorded variant consequences in the CFTR dataset. Looking at these categories helps show which types of genetic changes are most frequently represented in the dataset."
+                )
+        
             if variants is not None and not variants.empty:
                 st.markdown(
                     """
@@ -991,23 +1026,25 @@ if st.session_state["explored_position"] is not None:
                     """,
                     unsafe_allow_html=True
                 )
-            
+        
                 st.dataframe(variants)
-            
-            with st.expander("Don't Understand Unfamiliar Terms? Click Me! (Explanations Are Simplifed For General-Understanding)"):
-                st.markdown("""
-                **Position:** The location of the variant within the CFTR protein.
-            
-                **Wild type:** The amino acid normally found at this position in the reference human CFTR protein.
-            
-                **Mutated type:** The amino acid or value recorded at this position for the variant. If it says "None," the variant does not specify a replacement amino acid at that position.
-            
-                **Consequence:** A description of how the genetic change affects the CFTR protein.
-            
-                **Region:** The general part of the CFTR protein where the variant is located, such as the N-terminal, Middle, or C-terminal region.
-            
-                This table lists the recorded CFTR variants found at the amino-acid position you entered. Each row represents a variant in the dataset and provides information about the change and where it occurs in the CFTR protein.
-                """)
+        
+                with st.expander(
+                    "Don't Understand Unfamiliar Terms? Click Me! (Explanations Are Simplifed For General-Understanding)"
+                ):
+                    st.markdown("""
+                    **Position:** The location of the variant within the CFTR protein.
+        
+                    **Wild type:** The amino acid normally found at this position in the reference human CFTR protein.
+        
+                    **Mutated type:** The amino acid or value recorded at this position for the variant. If it says "None," the variant does not specify a replacement amino acid at that position.
+        
+                    **Consequence:** A description of how the genetic change affects the CFTR protein.
+        
+                    **Region:** The general part of the CFTR protein where the variant is located, such as the N-terminal, Middle, or C-terminal region.
+        
+                    This table lists the recorded CFTR variants found at the amino-acid position you entered. Each row represents a variant in the dataset and provides information about the change and where it occurs in the CFTR protein.
+                    """)
             
 if st.session_state.get("explored_position") in valid_positions:
     
