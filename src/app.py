@@ -954,8 +954,6 @@ if st.session_state["explored_position"] is not None:
                 selection_mode=["consequence_selection"]
             )
             
-            st.write(event.selection)
-            
             with st.expander("Don't Understand Unfamiliar Terms? Click Me! (Explanations Are Simplifed For General-Understanding)"):
                 st.markdown("""
                 **Variant consequence:** A description of how a genetic change affects the CFTR protein. Different types of changes can affect the protein in different ways, such as changing an amino acid, removing part of the protein, or causing the protein to end earlier than expected.
