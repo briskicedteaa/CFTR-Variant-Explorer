@@ -996,10 +996,6 @@ if st.session_state["explored_position"] is not None:
                     selection_data[0]["Consequence"]
                 ).lower()
         
-            selected_consequence = st.session_state.get(
-                "selected_consequence"
-            )
-        
             st.markdown(
                 """
                 <div id="consequence-glossary-anchor"></div>
