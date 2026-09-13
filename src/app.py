@@ -937,8 +937,7 @@ if st.session_state["explored_position"] is not None:
             consequence_selection = alt.selection_point(
                 name="consequence_selection",
                 fields=["Consequence"],
-                on="click",
-                toggle=False
+                on="click"
             )
         
             consequence_chart = (
@@ -1029,14 +1028,81 @@ if st.session_state["explored_position"] is not None:
                     "This chart shows the distribution of recorded variant consequences in the CFTR dataset. Looking at these categories helps show which types of genetic changes are most frequently represented in the dataset."
                 )
         
-            if selected_consequence in CONSEQUENCE_DEFINITIONS:
-                target_id = (
-                    "consequence-definition-"
-                    + selected_consequence
-                    .replace(" ", "-")
-                    .replace("/", "-")
-                    .replace("(", "")
-                    .replace(")", "")
+            if selected_consequence == "missense":
+                navigate_to_consequence("missense")
+            
+            elif selected_consequence == "frameshift":
+                navigate_to_consequence("frameshift")
+            
+            elif selected_consequence == "inframe deletion":
+                navigate_to_consequence("inframe-deletion")
+            
+            elif selected_consequence == "stop gained":
+                navigate_to_consequence("stop-gained")
+            
+            elif selected_consequence == "stop loss":
+                navigate_to_consequence("stop-loss")
+            
+            elif selected_consequence == "initiator codon variant":
+                navigate_to_consequence("initiator-codon-variant")
+            
+            elif selected_consequence == "-":
+                navigate_to_consequence("-")
+            
+            def navigate_to_consequence(term):
+                target_id = f"consequence-definition-{term}"
+            
+                st.html(
+                    f"""
+                    <script>
+                    const targetId = "{target_id}";
+            
+                    setTimeout(() => {{
+                        const summaries = Array.from(
+                            document.querySelectorAll("details summary")
+                        );
+            
+                        const glossarySummary = summaries.reverse().find(
+                            summary =>
+                                summary.textContent.includes(
+                                    "Don't Understand Unfamiliar Terms?"
+                                )
+                        );
+            
+                        if (glossarySummary) {{
+                            const glossary = glossarySummary.parentElement;
+            
+                            if (!glossary.open) {{
+                                glossarySummary.click();
+                            }}
+                        }}
+            
+                        setTimeout(() => {{
+                            const target = document.getElementById(targetId);
+            
+                            if (target) {{
+                                target.scrollIntoView({{
+                                    behavior: "smooth",
+                                    block: "center"
+                                }});
+            
+                                target.animate(
+                                    [
+                                        {{ backgroundColor: "rgba(255, 196, 231, 0)" }},
+                                        {{ backgroundColor: "rgba(255, 196, 231, 0.55)" }},
+                                        {{ backgroundColor: "rgba(255, 196, 231, 0)" }}
+                                    ],
+                                    {{
+                                        duration: 1800,
+                                        easing: "ease-in-out"
+                                    }}
+                                );
+                            }}
+                        }}, 300);
+                    }}, 100);
+                    </script>
+                    """,
+                    unsafe_allow_javascript=True
                 )
         
                 st.html(
