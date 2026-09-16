@@ -1049,6 +1049,8 @@ if st.session_state["explored_position"] is not None:
                 selected_consequence = str(
                     selection_data[0]["Consequence"]
                 ).lower()
+                
+            st.write("SELECTED:", selected_consequence)
         
             st.markdown(
                 """
