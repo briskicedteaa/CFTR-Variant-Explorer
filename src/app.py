@@ -167,6 +167,18 @@ h1, h2, h3 {
 .position-1481-table td:last-child {
     width: 75%;
 }
+div[data-testid="stExpander"] details summary svg {
+    display: none !important;
+}
+
+div[data-testid="stExpander"] details summary {
+    list-style: none;
+}
+
+div[data-testid="stExpander"] details summary::-webkit-details-marker {
+    display: none;
+}
+
 div[data-testid="stExpander"] details summary::before {
     content: "";
     display: inline-block;
@@ -182,10 +194,6 @@ div[data-testid="stExpander"] details summary::before {
 
 div[data-testid="stExpander"] details[open] summary::before {
     transform: rotate(45deg);
-}
-
-div[data-testid="stExpander"] details summary svg {
-    display: none;
 }
 </style>
 """, unsafe_allow_html=True)
