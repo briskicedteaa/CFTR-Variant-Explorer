@@ -934,6 +934,11 @@ if st.session_state["explored_position"] is not None:
                 .reset_index(name="Count")
             )
         
+            consequence_selection = alt.selection_point(
+                name="consequence_selection",
+                fields=["Consequence"]
+            )
+            
             consequence_chart = (
                 alt.Chart(consequence_chart_data)
                 .mark_bar(
@@ -961,6 +966,7 @@ if st.session_state["explored_position"] is not None:
                         )
                     ]
                 )
+                .add_params(consequence_selection)
             )
         
             st.caption(
