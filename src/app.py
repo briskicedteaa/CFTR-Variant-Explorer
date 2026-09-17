@@ -56,22 +56,6 @@ h1, h2, h3 {
 .info-bubble p {
     color: #4a3a42;
 }
-
-div[data-testid="stExpander"] details summary::before {
-    content: "▶";
-    display: inline-block;
-    margin-right: 0.5rem;
-    font-size: 0.7em;
-    transition: transform 0.15s ease;
-}
-
-div[data-testid="stExpander"] details[open] summary::before {
-    transform: rotate(90deg);
-}
-
-div[data-testid="stExpander"] details summary > svg {
-    display: none;
-}
 .glossary-metric {
     text-align: center;
 }
@@ -182,6 +166,21 @@ div[data-testid="stExpander"] details summary > svg {
 .position-1481-table th:last-child,
 .position-1481-table td:last-child {
     width: 75%;
+}
+div[data-testid="stExpander"] details summary::before {
+    content: ">";
+    display: inline-block;
+    margin-right: 0.5rem;
+    font-size: 0.7em;
+    transition: transform 0.15s ease;
+}
+
+div[data-testid="stExpander"] details[open] summary::before {
+    transform: rotate(90deg);
+}
+
+div[data-testid="stExpander"] details summary > svg {
+    display: none;
 }
 </style>
 """, unsafe_allow_html=True)
