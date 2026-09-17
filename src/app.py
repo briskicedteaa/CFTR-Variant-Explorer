@@ -168,18 +168,23 @@ h1, h2, h3 {
     width: 75%;
 }
 div[data-testid="stExpander"] details summary::before {
-    content: ">";
+    content: "";
     display: inline-block;
-    margin-right: 0.5rem;
-    font-size: 0.7em;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    transform: rotate(-45deg);
     transition: transform 0.15s ease;
+    margin-right: 0.65rem;
+    margin-bottom: 0.1rem;
 }
 
 div[data-testid="stExpander"] details[open] summary::before {
-    transform: rotate(90deg);
+    transform: rotate(45deg);
 }
 
-div[data-testid="stExpander"] details summary > svg {
+div[data-testid="stExpander"] details summary svg {
     display: none;
 }
 </style>
