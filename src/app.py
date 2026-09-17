@@ -863,6 +863,7 @@ if st.session_state["explored_position"] is not None:
         
                 if (details && !details.open) {
                     details.open = true;
+                    details.dispatchEvent(new Event("toggle"));
                 }
         
                 setTimeout(() => {
@@ -1135,6 +1136,7 @@ if st.session_state["explored_position"] is not None:
         
                 if (details && !details.open) {
                     details.open = true;
+                    details.dispatchEvent(new Event("toggle"));
                 }
         
                 setTimeout(() => {
@@ -1406,6 +1408,7 @@ if st.session_state["explored_position"] is not None:
             
                     if (details && !details.open) {
                         details.open = true;
+                        details.dispatchEvent(new Event("toggle"));
                     }
             
                     setTimeout(() => {
