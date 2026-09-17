@@ -129,6 +129,18 @@ h1, h2, h3 {
     display: none;
 }
 
+.position-1481-dropdown summary::marker {
+    display: none;
+}
+
+.position-1481-dropdown summary {
+    list-style: none;
+}
+
+.position-1481-dropdown[open] summary {
+    list-style: none;
+}
+
 .position-1481-content {
     width: 100%;
     max-width: 100%;
@@ -860,9 +872,8 @@ if st.session_state["explored_position"] is not None:
         
                 const details = target.closest("details");
         
-                if (details && !details.open) {
-                    details.querySelector("summary").click();
-                }
+                details.open = true;
+                details.dispatchEvent(new Event("toggle"));
         
                 setTimeout(() => {
                     target.scrollIntoView({
