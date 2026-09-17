@@ -865,58 +865,56 @@ if st.session_state["explored_position"] is not None:
                 """,
                 unsafe_allow_html=True
             )
-            
-            st.html(
-                f"""
-                <script>
-                function navigateToDomain(domain) {{
-                    const targetId =
-                        "domain-definition-" +
-                        domain
-                            .toLowerCase()
-                            .replace(/ /g, "-");
-            
-                    const target = document.getElementById(targetId);
-            
-                    if (!target) {{
-                        return;
-                    }}
-            
-                    const details = target.closest("details");
-            
-                    if (details && !details.open) {{
-                        details.open = true;
-                    }}
-            
-                    setTimeout(() => {{
-                        target.scrollIntoView({{
-                            behavior: "smooth",
-                            block: "center"
-                        }});
-            
-                        target.animate(
-                            [
-                                {{ backgroundColor: "rgba(255,196,231,0)" }},
-                                {{ backgroundColor: "rgba(255,196,231,0.55)" }},
-                                {{ backgroundColor: "rgba(255,196,231,0)" }}
-                            ],
-                            {{
-                                duration: 1800,
-                                easing: "ease-in-out"
-                            }}
-                        );
-                    }}, 200);
+        
+        st.html(
+            f"""
+            <script>
+            function navigateToDomain(domain) {{
+                const targetId =
+                    "domain-definition-" +
+                    domain
+                        .toLowerCase()
+                        .replace(/ /g, "-");
+        
+                const target = document.getElementById(targetId);
+        
+                if (!target) {{
+                    return;
                 }}
-            
-                if ({selected_domain is not None}) {{
-                    navigateToDomain("{selected_domain if selected_domain else ''}");
+        
+                const details = target.closest("details");
+        
+                if (details && !details.open) {{
+                    details.open = true;
                 }}
-                </script>
-                """,
-                unsafe_allow_javascript=True
-            )
-            
-            
+        
+                setTimeout(() => {{
+                    target.scrollIntoView({{
+                        behavior: "smooth",
+                        block: "center"
+                    }});
+        
+                    target.animate(
+                        [
+                            {{ backgroundColor: "rgba(255,196,231,0)" }},
+                            {{ backgroundColor: "rgba(255,196,231,0.55)" }},
+                            {{ backgroundColor: "rgba(255,196,231,0)" }}
+                        ],
+                        {{
+                            duration: 1800,
+                            easing: "ease-in-out"
+                        }}
+                    );
+                }}, 200);
+            }}
+        
+            if ({selected_domain is not None}) {{
+                navigateToDomain("{selected_domain if selected_domain else ''}");
+            }}
+            </script>
+            """,
+            unsafe_allow_javascript=True
+        )
 
         B_PATH = Path(__file__).resolve().parent.parent / "images" / "B07F52FD-0104-4A8D-BD55-7B8E1BA7E386.gif"
     
