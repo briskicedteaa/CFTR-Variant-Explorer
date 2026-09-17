@@ -817,8 +817,6 @@ if st.session_state["explored_position"] is not None:
             on_select="rerun"
         )
         
-        st.write("selection:", domain_event.selection)
-        
         selected_domain = None
         
         selection = domain_event.selection.get(
@@ -1172,8 +1170,6 @@ if st.session_state["explored_position"] is not None:
                 key="consequence_browser_chart",
                 on_select="rerun"
             )
-            
-            st.write("selection:", consequence_event.selection)
             
             selected_consequence = None
 
