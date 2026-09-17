@@ -1019,45 +1019,48 @@ if st.session_state["explored_position"] is not None:
             
                 function bindConsequenceChart() {
                     const chart = document.querySelector(".st-key-consequence_browser_chart");
-            
+                
                     if (!chart) {
                         return false;
                     }
-            
+                
                     const svg = chart.querySelector("svg");
-            
+                
                     if (!svg) {
                         return false;
                     }
-            
+                
                     if (svg.dataset.consequenceBound === "true") {
                         return true;
                     }
-            
+                
                     svg.dataset.consequenceBound = "true";
-            
+                
                     svg.addEventListener("click", (event) => {
-                        const mark = event.target.closest("rect");
-            
-                        if (!mark || !svg.contains(mark)) {
+                        const element = event.target;
+                
+                        if (!element) {
                             return;
                         }
-            
-                        const ariaLabel = mark.getAttribute("aria-label");
-            
+                
+                        const ariaLabel =
+                            element.getAttribute("aria-label") ||
+                            element.parentElement?.getAttribute("aria-label") ||
+                            element.parentElement?.parentElement?.getAttribute("aria-label");
+                
                         if (!ariaLabel) {
                             return;
                         }
-            
-                        const match = ariaLabel.match(/Consequence[^:]*:\\s*([^,]+)/i);
-            
+                
+                        const match = ariaLabel.match(/Consequence[^:]*:\s*([^,]+)/i);
+                
                         if (!match) {
                             return;
                         }
-            
+                
                         navigateToConsequence(match[1].trim());
                     });
-            
+                
                     return true;
                 }
             
