@@ -983,6 +983,8 @@ if st.session_state["explored_position"] is not None:
                 on_select=handle_consequence_selection
             )
             
+            st.write("selection:", consequence_event.selection)
+            
             selected_consequence = None
 
             selection = consequence_event.selection.get(
