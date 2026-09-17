@@ -1021,6 +1021,16 @@ if st.session_state["explored_position"] is not None:
                 width="stretch"
             )
     
+        B_PATH = Path(__file__).resolve().parent.parent / "images" / "B07F52FD-0104-4A8D-BD55-7B8E1BA7E386.gif"
+
+        left, center, right = st.columns([1, 4, 1])
+        
+        with center:
+            st.image(
+                str(B_PATH),
+                width="stretch"
+            )
+        
         st.markdown(
             """
             <h3 class='glossary-heading' style='text-align: center;'>
@@ -1034,15 +1044,20 @@ if st.session_state["explored_position"] is not None:
             """,
             unsafe_allow_html=True
         )
-    
+        
         region_counts = variants_df["Region"].value_counts()
-    
+        
         region_chart_data = (
             region_counts
             .rename_axis("Region")
             .reset_index(name="Variant_Count")
         )
-    
+        
+        region_selection = alt.selection_point(
+            name="region_selection",
+            fields=["Region"],
+        )
+        
         region_chart = (
             alt.Chart(region_chart_data)
             .mark_bar(
@@ -1067,53 +1082,213 @@ if st.session_state["explored_position"] is not None:
                     alt.Tooltip(
                         "Variant_Count:Q",
                         title="Variants"
-        
                     )
                 ]
             )
+            .add_params(region_selection)
         )
-    
-        st.altair_chart(
+        
+        st.caption(
+            "Click a protein region in the chart to find its definition in the glossary below."
+        )
+        
+        region_event = st.altair_chart(
             region_chart,
-            width="stretch"
+            width="stretch",
+            key="region_browser_chart",
+            on_select="rerun"
         )
         
-        with st.expander("Don't Understand Unfamiliar Terms? Click Me! (Explanations Are Simplifed For General-Understanding)"):
-            st.markdown("""
-            **N-terminal:** The beginning of the protein sequence.
+        selected_region = None
         
-            **Middle:** The central portion of the protein sequence.
+        selection = region_event.selection.get(
+            "region_selection",
+            []
+        )
         
-            **C-terminal:** The end of the protein sequence.
+        if selection:
+            selected_region = selection[0]["Region"]
         
-            Knowing where variants occur within a protein is important because different parts of a protein can have different structures and functions. Identifying whether variants are concentrated near the beginning, middle, or end of CFTR can help researchers see patterns in where changes occur and investigate whether certain regions may be more affected than others.
-            """)
-            
-    
-        B_PATH = Path(__file__).resolve().parent.parent / "images" / "B07F52FD-0104-4A8D-BD55-7B8E1BA7E386.gif"
-    
-        left, center, right = st.columns([1, 4, 1])
-
-        with center:
-            st.image(
-                str(B_PATH),
-                width="stretch"
+            if "last_region" not in st.session_state:
+                st.session_state.last_region = None
+        
+            if selected_region == st.session_state.last_region:
+                selected_region = None
+            else:
+                st.session_state.last_region = selected_region
+        
+        if selected_region:
+            selected_region_event = (
+                explored_position,
+                selected_region
             )
-    
+        
+        st.html(
+            """
+            <script>
+            function navigateToRegion(region) {
+                const targetId =
+                    "region-definition-" +
+                    region
+                        .toLowerCase()
+                        .replace(/ /g, "-")
+                        .replace(/\//g, "-")
+                        .replace(/[()]/g, "");
+        
+                const target = document.getElementById(targetId);
+        
+                if (!target) {
+                    return;
+                }
+        
+                const details = target.closest("details");
+        
+                if (details && !details.open) {
+                    details.open = true;
+                }
+        
+                setTimeout(() => {
+                    target.scrollIntoView({
+                        behavior: "smooth",
+                        block: "center"
+                    });
+        
+                    target.animate(
+                        [
+                            { backgroundColor: "rgba(255,196,231,0)" },
+                            { backgroundColor: "rgba(255,196,231,0.55)" },
+                            { backgroundColor: "rgba(255,196,231,0)" }
+                        ],
+                        {
+                            duration: 1800,
+                            easing: "ease-in-out"
+                        }
+                    );
+                }, 200);
+            }
+        
+            function bindRegionChart() {
+                const chart = document.querySelector(
+                    '[class*="st-key-region_browser_chart"]'
+                );
+        
+                if (!chart) {
+                    return false;
+                }
+        
+                const svg = chart.querySelector("svg");
+        
+                if (!svg) {
+                    return false;
+                }
+        
+                if (svg.dataset.regionBound === "true") {
+                    return true;
+                }
+        
+                svg.dataset.regionBound = "true";
+        
+                svg.addEventListener("click", (event) => {
+                    const element = event.target;
+        
+                    if (!element) {
+                        return;
+                    }
+        
+                    const ariaLabel =
+                        element.getAttribute("aria-label") ||
+                        element.parentElement?.getAttribute("aria-label") ||
+                        element.parentElement?.parentElement?.getAttribute("aria-label");
+        
+                    if (!ariaLabel) {
+                        return;
+                    }
+        
+                    const match = ariaLabel.match(/Region[^:]*:\s*([^,]+)/i);
+        
+                    if (!match) {
+                        return;
+                    }
+        
+                    navigateToRegion(match[1].trim());
+                });
+        
+                return true;
+            }
+        
+            if (!bindRegionChart()) {
+                const regionObserver = new MutationObserver(() => {
+                    if (bindRegionChart()) {
+                        regionObserver.disconnect();
+                    }
+                });
+        
+                regionObserver.observe(document.body, {
+                    childList: true,
+                    subtree: true
+                });
+            }
+            </script>
+            """,
+            unsafe_allow_javascript=True
+        )
+        
         st.markdown(
             """
-            <h3 class='glossary-heading' style='text-align: center;'>
-                <details class="position-1481-dropdown">
-                    <summary>Variant Consequences</summary>
-                    <div class="glossary-definition">
-                        The distribution of recorded CFTR variants by the type of change they produce in the protein.
-                    </div>
-                </details>
-            </h3>
+            <div id="region-glossary-anchor"></div>
             """,
             unsafe_allow_html=True
         )
-
+        
+        with st.expander(
+            "Don't Understand Unfamiliar Terms? Click Me! (Explanations Are Simplifed For General-Understanding)"
+        ):
+            region_definitions = {
+                "N-terminal": "The N-terminal region is the beginning of the CFTR protein sequence. It contains sequence elements that occur before the major transmembrane and nucleotide-binding domains and can contribute to the protein's structure, interactions, and cellular processing.",
+                "Middle": "The middle region refers to the central portion of the CFTR protein sequence used in this analysis. It contains multiple functionally important structural regions, including portions of the transmembrane and nucleotide-binding regions.",
+                "C-terminal": "The C-terminal region is the end of the CFTR protein sequence. It contains the final portion of CFTR and includes sequence elements that can contribute to protein interactions, localization, and regulation."
+            }
+        
+            for term, definition in region_definitions.items():
+                term_id = (
+                    "region-definition-"
+                    + term.lower()
+                    .replace(" ", "-")
+                    .replace("/", "-")
+                    .replace("(", "")
+                    .replace(")", "")
+                )
+        
+                st.markdown(
+                    f"""
+                    <div id="{term_id}" style="scroll-margin-top: 100px;">
+                        <strong>{term}</strong>
+                        <p>{definition}</p>
+                    </div>
+                    """,
+                    unsafe_allow_html=True
+                )
+        
+                st.html(
+                    f"""
+                    <script>
+                    navigateToRegion("{selected_region}");
+                    </script>
+                    """,
+                    unsafe_allow_javascript=True
+                )
+        
+            st.markdown(
+                "This chart shows how the recorded CFTR variants are distributed across the N-terminal, Middle, and C-terminal regions used in this analysis. Comparing these regions helps identify whether variants are concentrated in particular portions of the protein sequence."
+            )
+        
+        st.markdown(
+            """
+            <div id="region-glossary-anchor"></div>
+            """,
+            unsafe_allow_html=True
+        )
+        
         consequence_summary = get_consequence_summary(
             explored_position
         )
