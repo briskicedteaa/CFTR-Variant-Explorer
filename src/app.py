@@ -1286,15 +1286,15 @@ if st.session_state["explored_position"] is not None:
                 )
                 
                     
-                if selected_consequence:
-                    st.html(
-                        f"""
-                        <script>
-                        navigateToConsequence("{selected_consequence}");
-                        </script>
-                        """,
-                        unsafe_allow_javascript=True
-                    )
+            if selected_consequence:
+                st.html(
+                    f"""
+                    <script>
+                    navigateToConsequence("{selected_consequence}");
+                    </script>
+                    """,
+                    unsafe_allow_javascript=True
+                )
         
             
 if st.session_state.get("explored_position") in valid_positions:
