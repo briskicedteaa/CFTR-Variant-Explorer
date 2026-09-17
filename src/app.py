@@ -167,19 +167,15 @@ h1, h2, h3 {
 .position-1481-table td:last-child {
     width: 75%;
 }
+div[data-testid="stExpander"] [data-testid="stIconMaterial"] {
+    display: none !important;
+}
+
 div[data-testid="stExpander"] details summary {
     list-style: none !important;
 }
 
 div[data-testid="stExpander"] details summary::-webkit-details-marker {
-    display: none !important;
-}
-
-div[data-testid="stExpander"] details summary::marker {
-    content: "" !important;
-}
-
-div[data-testid="stExpander"] details summary > div:first-child {
     display: none !important;
 }
 
