@@ -800,6 +800,8 @@ if st.session_state["explored_position"] is not None:
             on_select="rerun"
         )
         
+        st.write(domain_event)
+        
         selected_domain = None
         
         selection = domain_event.selection.get(
