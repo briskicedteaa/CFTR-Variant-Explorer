@@ -25,10 +25,8 @@ st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&family=Quicksand:wght@400;500;600;700&display=swap');
 
-html, body, [class*="css"] {
-
+html, body {
     font-family: 'Fredoka', sans-serif !important;
-
 }
 
 h1, h2, h3 {
