@@ -884,72 +884,6 @@ if st.session_state["explored_position"] is not None:
                 }, 200);
             }
         
-            function bindDomainChart() {
-                const chart = document.querySelector(
-                    '[class*="st-key-domain_browser_chart"]'
-                );
-        
-                if (!chart) {
-                    return false;
-                }
-        
-                const svg = chart.querySelector("svg");
-        
-                if (!svg) {
-                    return false;
-                }
-        
-                if (svg.dataset.domainBound === "true") {
-                    return true;
-                }
-        
-                svg.dataset.domainBound = "true";
-        
-                svg.addEventListener("click", (event) => {
-                    const element = event.target;
-        
-                    if (!element) {
-                        return;
-                    }
-        
-                    const ariaLabel =
-                        element.getAttribute("aria-label") ||
-                        element.parentElement?.getAttribute("aria-label") ||
-                        element.parentElement?.parentElement?.getAttribute("aria-label");
-        
-                    if (!ariaLabel) {
-                        return;
-                    }
-        
-                    const match = ariaLabel.match(/Domain[^:]*:\s*([^,]+)/i);
-        
-                    if (!match) {
-                        return;
-                    }
-        
-                    navigateToDomain(match[1].trim());
-                });
-        
-                return true;
-            }
-        
-            if (!bindDomainChart()) {
-                const domainObserver = new MutationObserver(() => {
-                    if (bindDomainChart()) {
-                        domainObserver.disconnect();
-                    }
-                });
-        
-                domainObserver.observe(document.body, {
-                    childList: true,
-                    subtree: true
-                });
-            }
-            </script>
-            """,
-            unsafe_allow_javascript=True
-        )
-        
         st.markdown(
             """
             <div id="domain-glossary-anchor"></div>
@@ -969,35 +903,6 @@ if st.session_state["explored_position"] is not None:
                 "Other": "Positions that do not fall within the major CFTR domain ranges used in this project. This category includes regions outside the defined TMD1, NBD1, R domain, TMD2, and NBD2 ranges.",
                 "Average conservation": "The average evolutionary conservation of the amino-acid positions within a domain. It summarizes how consistently those positions are preserved among the CFTR-related sequences used to calculate conservation in this project."
             }
-        
-            for term, definition in domain_definitions.items():
-                term_id = (
-                    "domain-definition-"
-                    + term.lower()
-                    .replace(" ", "-")
-                    .replace("/", "-")
-                    .replace("(", "")
-                    .replace(")", "")
-                )
-        
-                st.markdown(
-                    f"""
-                    <div id="{term_id}" style="scroll-margin-top: 100px;">
-                        <strong>{term}</strong>
-                        <p>{definition}</p>
-                    </div>
-                    """,
-                    unsafe_allow_html=True
-                )
-        
-                st.html(
-                    f"""
-                    <script>
-                    navigateToDomain("{selected_domain}");
-                    </script>
-                    """,
-                    unsafe_allow_javascript=True
-                )
         
             st.markdown(
                 "This chart shows a global view of conservation across the major CFTR domains. Comparing these values helps show which regions of CFTR are more strongly conserved across the sequences used in the analysis."
@@ -1156,72 +1061,6 @@ if st.session_state["explored_position"] is not None:
                 }, 200);
             }
         
-            function bindRegionChart() {
-                const chart = document.querySelector(
-                    '[class*="st-key-region_browser_chart"]'
-                );
-        
-                if (!chart) {
-                    return false;
-                }
-        
-                const svg = chart.querySelector("svg");
-        
-                if (!svg) {
-                    return false;
-                }
-        
-                if (svg.dataset.regionBound === "true") {
-                    return true;
-                }
-        
-                svg.dataset.regionBound = "true";
-        
-                svg.addEventListener("click", (event) => {
-                    const element = event.target;
-        
-                    if (!element) {
-                        return;
-                    }
-        
-                    const ariaLabel =
-                        element.getAttribute("aria-label") ||
-                        element.parentElement?.getAttribute("aria-label") ||
-                        element.parentElement?.parentElement?.getAttribute("aria-label");
-        
-                    if (!ariaLabel) {
-                        return;
-                    }
-        
-                    const match = ariaLabel.match(/Region[^:]*:\s*([^,]+)/i);
-        
-                    if (!match) {
-                        return;
-                    }
-        
-                    navigateToRegion(match[1].trim());
-                });
-        
-                return true;
-            }
-        
-            if (!bindRegionChart()) {
-                const regionObserver = new MutationObserver(() => {
-                    if (bindRegionChart()) {
-                        regionObserver.disconnect();
-                    }
-                });
-        
-                regionObserver.observe(document.body, {
-                    childList: true,
-                    subtree: true
-                });
-            }
-            </script>
-            """,
-            unsafe_allow_javascript=True
-        )
-        
         st.markdown(
             """
             <div id="region-glossary-anchor"></div>
@@ -1237,35 +1076,6 @@ if st.session_state["explored_position"] is not None:
                 "Middle": "The middle region refers to the central portion of the CFTR protein sequence used in this analysis. It contains multiple functionally important structural regions, including portions of the transmembrane and nucleotide-binding regions.",
                 "C-terminal": "The C-terminal region is the end of the CFTR protein sequence. It contains the final portion of CFTR and includes sequence elements that can contribute to protein interactions, localization, and regulation."
             }
-        
-            for term, definition in region_definitions.items():
-                term_id = (
-                    "region-definition-"
-                    + term.lower()
-                    .replace(" ", "-")
-                    .replace("/", "-")
-                    .replace("(", "")
-                    .replace(")", "")
-                )
-        
-                st.markdown(
-                    f"""
-                    <div id="{term_id}" style="scroll-margin-top: 100px;">
-                        <strong>{term}</strong>
-                        <p>{definition}</p>
-                    </div>
-                    """,
-                    unsafe_allow_html=True
-                )
-        
-                st.html(
-                    f"""
-                    <script>
-                    navigateToRegion("{selected_region}");
-                    </script>
-                    """,
-                    unsafe_allow_javascript=True
-                )
         
             st.markdown(
                 "This chart shows how the recorded CFTR variants are distributed across the N-terminal, Middle, and C-terminal regions used in this analysis. Comparing these regions helps identify whether variants are concentrated in particular portions of the protein sequence."
@@ -1426,72 +1236,6 @@ if st.session_state["explored_position"] is not None:
                         );
                     }, 200);
                 }
-            
-                function bindConsequenceChart() {
-                    const chart = document.querySelector(
-                        '[class*="st-key-consequence_browser_chart"]'
-                    );
-                
-                    if (!chart) {
-                        return false;
-                    }
-                
-                    const svg = chart.querySelector("svg");
-                
-                    if (!svg) {
-                        return false;
-                    }
-                
-                    if (svg.dataset.consequenceBound === "true") {
-                        return true;
-                    }
-                
-                    svg.dataset.consequenceBound = "true";
-                
-                    svg.addEventListener("click", (event) => {
-                        const element = event.target;
-                
-                        if (!element) {
-                            return;
-                        }
-                
-                        const ariaLabel =
-                            element.getAttribute("aria-label") ||
-                            element.parentElement?.getAttribute("aria-label") ||
-                            element.parentElement?.parentElement?.getAttribute("aria-label");
-                
-                        if (!ariaLabel) {
-                            return;
-                        }
-                
-                        const match = ariaLabel.match(/Consequence[^:]*:\\s*([^,]+)/i);
-                
-                        if (!match) {
-                            return;
-                        }
-                
-                        navigateToConsequence(match[1].trim());
-                    });
-                
-                    return true;
-                }
-            
-                if (!bindConsequenceChart()) {
-                    const consequenceObserver = new MutationObserver(() => {
-                        if (bindConsequenceChart()) {
-                            consequenceObserver.disconnect();
-                        }
-                    });
-            
-                    consequenceObserver.observe(document.body, {
-                        childList: true,
-                        subtree: true
-                    });
-                }
-                </script>
-                """,
-                unsafe_allow_javascript=True
-            )
         
             st.markdown(
                 """
@@ -1500,38 +1244,6 @@ if st.session_state["explored_position"] is not None:
                 unsafe_allow_html=True
             )
         
-            with st.expander(
-                "Don't Understand Unfamiliar Terms? Click Me! (Explanations Are Simplifed For General-Understanding)"
-            ):
-                for term, definition in CONSEQUENCE_DEFINITIONS.items():
-                    term_id = (
-                        "consequence-definition-"
-                        + term.lower()
-                        .replace(" ", "-")
-                        .replace("/", "-")
-                        .replace("(", "")
-                        .replace(")", "")
-                    )
-        
-                    st.markdown(
-                        f"""
-                        <div id="{term_id}" style="scroll-margin-top: 100px;">
-                            <strong>{term.title()}</strong>
-                            <p>{definition}</p>
-                        </div>
-                        """,
-                        unsafe_allow_html=True
-                    )
-            
-                    st.html(
-                        f"""
-                        <script>
-                        navigateToConsequence("{selected_consequence}");
-                        </script>
-                        """,
-                        unsafe_allow_javascript=True
-                    )
-
                 st.markdown(
                     "This chart shows the distribution of recorded variant consequences in the CFTR dataset. Looking at these categories helps show which types of genetic changes are most frequently represented in the dataset."
                 )
