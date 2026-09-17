@@ -967,10 +967,11 @@ if st.session_state["explored_position"] is not None:
                 "Click a consequence in the chart to find its definition in the glossary below."
             )
             
-            st.altair_chart(
+            consequence_event = st.altair_chart(
                 consequence_chart,
                 width="stretch",
-                key="consequence_browser_chart"
+                key="consequence_browser_chart",
+                on_select="rerun"
             )
             
             st.html(
