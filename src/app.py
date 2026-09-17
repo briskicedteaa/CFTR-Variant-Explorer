@@ -1054,7 +1054,7 @@ if st.session_state["explored_position"] is not None:
                             return;
                         }
                 
-                        const match = ariaLabel.match(/Consequence[^:]*:\s*([^,]+)/i);
+                        const match = ariaLabel.match(/Consequence[^:]*:\\s*([^,]+)/i);
                 
                         if (!match) {
                             return;
