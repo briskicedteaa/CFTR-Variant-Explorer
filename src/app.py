@@ -228,7 +228,7 @@ left, center, right = st.columns([1, 3, 1])
 with center:
     st.image(
         str(GIF_PATH),
-        use_container_width=True
+        width="stretch"
     )
 
 st.markdown(
@@ -276,7 +276,7 @@ left, center, right = st.columns([1, 3, 1])
 with center:
     st.image(
         str(N_PATH),
-        use_container_width=True
+        width="stretch"
     )
 
 st.markdown(
@@ -302,7 +302,7 @@ left, center, right = st.columns([1, 3, 1])
 with center:
     st.image(
         str(N_PATH),
-        use_container_width=True
+        width="stretch"
     )
 
 st.markdown(
@@ -385,7 +385,7 @@ if st.session_state["explored_position"] is not None:
         with center:
             st.image(
                 str(N_PATH),
-                use_container_width=True
+                width="stretch"
             )
         
         st.markdown(
@@ -484,7 +484,7 @@ if st.session_state["explored_position"] is not None:
         with center:
             st.image(
                 str(LOL_PATH),
-            use_container_width=True
+                width="stretch"
             )
         
         consequence_counts = variants_df["Consequence"].fillna("Missing").value_counts()
@@ -526,7 +526,7 @@ if st.session_state["explored_position"] is not None:
             with center:
                 st.image(
                     str(THE_PATH),
-                    use_container_width=True
+                    width="stretch"
                 )
                 
             st.markdown(
@@ -578,7 +578,7 @@ if st.session_state["explored_position"] is not None:
             with center:
                 st.image(
                     str(N_PATH),
-                use_container_width=True
+                width="stretch"
                 )
 
             variants = variants_df[
@@ -660,7 +660,7 @@ if st.session_state["explored_position"] is not None:
             with center:
                 st.image(
                     str(N_PATH),
-                    use_container_width=True
+                    width="stretch"
             )
 
                 col1, col2, col3 = st.columns(3)
@@ -713,7 +713,7 @@ if st.session_state["explored_position"] is not None:
             with center:
                 st.image(
                     str(N_PATH),
-                    use_container_width=True
+                    width="stretch"
                 )
             
             col1, col2 = st.columns(2)
@@ -739,7 +739,7 @@ if st.session_state["explored_position"] is not None:
             with center:
                 st.image(
                     str(N_PATH),
-                    use_container_width=True
+                    width="stretch"
                 )
                     
         st.markdown(
@@ -802,7 +802,7 @@ if st.session_state["explored_position"] is not None:
 
         st.altair_chart(
             domain_chart,
-            use_container_width=True
+            width="stretch"
         )
         
         with st.expander("Don't Understand Unfamiliar Terms? Click Me! (Explanations Are Simplifed For General-Understanding)"):
@@ -827,7 +827,7 @@ if st.session_state["explored_position"] is not None:
         with center:
             st.image(
                 str(B_PATH),
-                use_container_width=True
+                width="stretch"
             )
     
         st.markdown(
@@ -884,7 +884,7 @@ if st.session_state["explored_position"] is not None:
     
         st.altair_chart(
             region_chart,
-            use_container_width=True
+            width="stretch"
         )
         
         with st.expander("Don't Understand Unfamiliar Terms? Click Me! (Explanations Are Simplifed For General-Understanding)"):
@@ -906,7 +906,7 @@ if st.session_state["explored_position"] is not None:
         with center:
             st.image(
                 str(B_PATH),
-                use_container_width=True
+                width="stretch"
             )
     
         st.markdown(
@@ -1133,7 +1133,7 @@ if st.session_state.get("explored_position") in valid_positions:
     with center:
         st.image(
             str(N_PATH),
-            use_container_width=True
+            width="stretch"
         )
     
     st.markdown("""
@@ -1156,7 +1156,7 @@ by themselves establish the biological or clinical effect of an individual varia
     with center:
         st.image(
             str(DON_PATH),
-            use_container_width=True
+            width="stretch"
         )
 
     st.markdown("""
@@ -1213,7 +1213,7 @@ variant's biological or clinical effect.
     with center:
         st.image(
             str(DON_PATH),
-            use_container_width=True
+            width="stretch"
         )
 
     st.markdown("""
@@ -1259,7 +1259,7 @@ considering consequence type alone.
     with center:
         st.image(
             str(DON_PATH),
-            use_container_width=True
+            width="stretch"
         )
 
     st.markdown("""
