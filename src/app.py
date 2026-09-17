@@ -115,6 +115,7 @@ h1, h2, h3 {
     max-width: 100%;
     text-align: center;
 }
+
 .position-1481-dropdown summary {
     cursor: pointer;
     list-style: none;
@@ -124,6 +125,22 @@ h1, h2, h3 {
     color: inherit;
     text-decoration: underline dotted;
     text-underline-offset: 3px;
+}
+
+.position-1481-dropdown summary::before {
+    content: "▶";
+    display: inline-block;
+    margin-right: 0.5rem;
+    font-size: 0.7em;
+    transition: transform 0.15s ease;
+}
+
+.position-1481-dropdown[open] summary::before {
+    transform: rotate(90deg);
+}
+
+.position-1481-dropdown summary::-webkit-details-marker {
+    display: none;
 }
 
 .position-1481-dropdown summary::-webkit-details-marker {
@@ -863,7 +880,6 @@ if st.session_state["explored_position"] is not None:
         
                 if (details && !details.open) {
                     details.open = true;
-                    details.dispatchEvent(new Event("toggle"));
                 }
         
                 setTimeout(() => {
@@ -1136,7 +1152,6 @@ if st.session_state["explored_position"] is not None:
         
                 if (details && !details.open) {
                     details.open = true;
-                    details.dispatchEvent(new Event("toggle"));
                 }
         
                 setTimeout(() => {
@@ -1408,7 +1423,6 @@ if st.session_state["explored_position"] is not None:
             
                     if (details && !details.open) {
                         details.open = true;
-                        details.dispatchEvent(new Event("toggle"));
                     }
             
                     setTimeout(() => {
