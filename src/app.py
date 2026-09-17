@@ -887,6 +887,77 @@ if st.session_state["explored_position"] is not None:
             use_container_width=True
         )
         
+        st.caption(
+            "Click a consequence in the chart to find its definition in the glossary below."
+        )
+        
+        st.altair_chart(
+            consequence_chart,
+            width="stretch"
+        )
+        
+        st.html(
+            """
+            <script>
+            const observer = new MutationObserver(() => {
+        
+                const chart = document.querySelector('[data-testid="stVegaLiteChart"]');
+        
+                if (!chart) {
+                    return;
+                }
+        
+                const marks = chart.querySelectorAll('.mark-rect');
+        
+                marks.forEach(mark => {
+        
+                    if (mark.dataset.consequenceBound) {
+                        return;
+                    }
+        
+                    mark.dataset.consequenceBound = "true";
+        
+                    mark.addEventListener("click", () => {
+        
+                        const consequence = mark.getAttribute("aria-label");
+        
+                        if (!consequence) {
+                            return;
+                        }
+        
+                        const targetId =
+                            "consequence-definition-" +
+                            consequence
+                                .toLowerCase()
+                                .replace(/ /g, "-")
+                                .replace(/\//g, "-")
+                                .replace(/[()]/g, "");
+        
+                        navigate_to_consequence(targetId);
+                    });
+                });
+            });
+        
+            observer.observe(document.body, {
+                childList: true,
+                subtree: true
+            });
+            </script>
+            """,
+            unsafe_allow_javascript=True
+        )
+        
+        st.markdown(
+            """
+            <div id="consequence-glossary-anchor"></div>
+            """,
+            unsafe_allow_html=True
+        )
+        
+        with st.expander(
+            "Don't Understand Unfamiliar Terms? Click Me! (Explanations Are Simplifed For General-Understanding)"
+        ):
+        
         with st.expander("Don't Understand Unfamiliar Terms? Click Me! (Explanations Are Simplifed For General-Understanding)"):
             st.markdown("""
             **N-terminal:** The beginning of the protein sequence.
@@ -976,12 +1047,6 @@ if st.session_state["explored_position"] is not None:
                 .reset_index(name="Count")
             )
         
-            consequence_selection = alt.selection_point(
-                name="consequence_selection",
-                fields=["Consequence"],
-                on="click"
-            )
-        
             consequence_chart = (
                 alt.Chart(consequence_chart_data)
                 .mark_bar(
@@ -1009,32 +1074,11 @@ if st.session_state["explored_position"] is not None:
                         )
                     ]
                 )
-                .add_params(consequence_selection)
             )
             
-            st.caption(
-                "Click a consequence in the chart to find its definition in the glossary below."
-            )
+        
             
-            consequence_event = st.altair_chart(
-                consequence_chart,
-                width="stretch",
-                key=f"consequence_chart_{explored_position}",
-                on_select="rerun",
-                selection_mode=["consequence_selection"]
-            )
             
-            selection_data = consequence_event.selection.get(
-                "consequence_selection",
-                []
-            )
-            
-            selected_consequence = None
-            
-            if selection_data:
-                selected_consequence = str(
-                    selection_data[0]["Consequence"]
-                ).lower()
         
             st.markdown(
                 """
@@ -1069,19 +1113,6 @@ if st.session_state["explored_position"] is not None:
                 st.markdown(
                     "This chart shows the distribution of recorded variant consequences in the CFTR dataset. Looking at these categories helps show which types of genetic changes are most frequently represented in the dataset."
                 )
-        
-            if selected_consequence:
-
-                target_id = (
-                    "consequence-definition-"
-                    + selected_consequence
-                    .replace(" ", "-")
-                    .replace("/", "-")
-                    .replace("(", "")
-                    .replace(")", "")
-                )
-            
-                navigate_to_consequence(target_id)
             
 if st.session_state.get("explored_position") in valid_positions:
     
