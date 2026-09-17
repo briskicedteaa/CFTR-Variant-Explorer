@@ -770,6 +770,11 @@ if st.session_state["explored_position"] is not None:
             columns=["Domain", "Conservation"]
         )
 
+        domain_selection = alt.selection_point(
+            name="domain_selection",
+            fields=["Domain"],
+        )
+        
         domain_chart = (
             alt.Chart(domain_chart_data)
             .mark_bar(
@@ -778,47 +783,140 @@ if st.session_state["explored_position"] is not None:
                 cornerRadiusTopRight=6
             )
             .encode(
-                x=alt.X(
-                    "Domain:N",
-                    title=None
-                ),
-                y=alt.Y(
-                    "Conservation:Q",
-                    title="Average conservation"
-                ),
+                x=alt.X("Domain:N", title=None),
+                y=alt.Y("Conservation:Q", title="Average conservation"),
                 tooltip=[
-                    alt.Tooltip(
-                        "Domain:N",
-                        title="Domain"
-                    ),
-                    alt.Tooltip(
-                        "Conservation:Q",
-                        title="Conservation",
-                        format=".3f"
-                    )
+                    alt.Tooltip("Domain:N", title="Domain"),
+                    alt.Tooltip("Conservation:Q", title="Conservation", format=".3f")
                 ]
             )
+            .add_params(domain_selection)
         )
-
-        st.altair_chart(
+        
+        domain_event = st.altair_chart(
             domain_chart,
-            width="stretch"
+            width="stretch",
+            key="domain_browser_chart",
+            on_select="rerun"
         )
+        
+        selected_domain = None
+        
+        selection = domain_event.selection.get(
+            "domain_selection",
+            []
+        )
+        
+        if selection:
+            selected_domain = selection[0]["Domain"]
+        
+            if "last_domain_event" not in st.session_state:
+                st.session_state.last_domain_event = None
+        
+            current_domain_event = (
+                explored_position,
+                selected_domain
+            )
+        
+            if current_domain_event == st.session_state.last_domain_event:
+                selected_domain = None
+            else:
+                st.session_state.last_domain_event = current_domain_event
         
         with st.expander("Don't Understand Unfamiliar Terms? Click Me! (Explanations Are Simplifed For General-Understanding)"):
-            st.markdown("""
-            **NBD1 and NBD2:** Nucleotide-binding domains. These are two parts of CFTR that interact with ATP, a molecule that provides energy for many processes in cells. ATP helps CFTR control when its channel is open or closed.
+            st.markdown(
+                """
+                <div id="domain-definition-nbd1" style="scroll-margin-top: 100px;">
+                    <strong>NBD1</strong>
+                    <p>Nucleotide-binding domain 1. This is one of the two major regions of CFTR involved in binding and using ATP.</p>
+                </div>
         
-            **R domain:** The regulatory domain. This part helps control the activity of CFTR, including whether the channel can open.
+                <div id="domain-definition-nbd2" style="scroll-margin-top: 100px;">
+                    <strong>NBD2</strong>
+                    <p>Nucleotide-binding domain 2. This is the second major ATP-binding region of CFTR.</p>
+                </div>
         
-            **TMD1 and TMD2:** Transmembrane domains. These are parts of CFTR that are located within the cell membrane, the thin outer barrier of a cell. Together, they form the channel that allows chloride ions to move across the membrane.
+                <div id="domain-definition-r-domain" style="scroll-margin-top: 100px;">
+                    <strong>R domain</strong>
+                    <p>Regulatory domain. This region helps control whether CFTR can open and allow ions to pass through.</p>
+                </div>
         
-            **Other:** Positions that are outside the five major CFTR domains included in this analysis.
+                <div id="domain-definition-tmd1" style="scroll-margin-top: 100px;">
+                    <strong>TMD1</strong>
+                    <p>Transmembrane domain 1. This region crosses the cell membrane and helps form the pathway through which ions can move.</p>
+                </div>
         
-            **Average conservation:** The average conservation score of all the amino-acid positions within a domain. A higher score means that these positions tend to remain more similar across related proteins, suggesting that they may be important for the protein's structure or function.
+                <div id="domain-definition-tmd2" style="scroll-margin-top: 100px;">
+                    <strong>TMD2</strong>
+                    <p>Transmembrane domain 2. This is the second membrane-spanning region of CFTR.</p>
+                </div>
         
-            This chart shows a **global view of CFTR conservation** rather than the conservation of the specific position entered above. Conservation is calculated for individual amino-acid positions by comparing related CFTR proteins. The scores are then grouped by domain and averaged, allowing us to compare how strongly different parts of CFTR have been preserved over evolutionary time.
-            """)
+                <div id="domain-definition-other" style="scroll-margin-top: 100px;">
+                    <strong>Other</strong>
+                    <p>Positions that do not fall within the main CFTR domain ranges used in this project.</p>
+                </div>
+        
+                <div id="domain-definition-average-conservation" style="scroll-margin-top: 100px;">
+                    <strong>Average conservation</strong>
+                    <p>The average level of evolutionary conservation among the amino-acid positions in a domain.</p>
+                </div>
+        
+                <p>This chart shows a global view of conservation across the major CFTR domains.</p>
+                """,
+                unsafe_allow_html=True
+            )
+            
+            st.html(
+                f"""
+                <script>
+                function navigateToDomain(domain) {{
+                    const targetId =
+                        "domain-definition-" +
+                        domain
+                            .toLowerCase()
+                            .replace(/ /g, "-");
+            
+                    const target = document.getElementById(targetId);
+            
+                    if (!target) {{
+                        return;
+                    }}
+            
+                    const details = target.closest("details");
+            
+                    if (details && !details.open) {{
+                        details.open = true;
+                    }}
+            
+                    setTimeout(() => {{
+                        target.scrollIntoView({{
+                            behavior: "smooth",
+                            block: "center"
+                        }});
+            
+                        target.animate(
+                            [
+                                {{ backgroundColor: "rgba(255,196,231,0)" }},
+                                {{ backgroundColor: "rgba(255,196,231,0.55)" }},
+                                {{ backgroundColor: "rgba(255,196,231,0)" }}
+                            ],
+                            {{
+                                duration: 1800,
+                                easing: "ease-in-out"
+                            }}
+                        );
+                    }}, 200);
+                }}
+            
+                if ({selected_domain is not None}) {{
+                    navigateToDomain("{selected_domain if selected_domain else ''}");
+                }}
+                </script>
+                """,
+                unsafe_allow_javascript=True
+            )
+            
+            
 
         B_PATH = Path(__file__).resolve().parent.parent / "images" / "B07F52FD-0104-4A8D-BD55-7B8E1BA7E386.gif"
     
