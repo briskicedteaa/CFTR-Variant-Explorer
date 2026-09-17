@@ -1230,16 +1230,6 @@ if st.session_state["explored_position"] is not None:
             unsafe_allow_html=True
         )
         
-        B_PATH = Path(__file__).resolve().parent.parent / "images" / "B07F52FD-0104-4A8D-BD55-7B8E1BA7E386.gif"
-    
-        left, center, right = st.columns([1, 4, 1])
-
-        with center:
-            st.image(
-                str(B_PATH),
-                width="stretch"
-            )
-        
         with st.expander(
             "Don't Understand Unfamiliar Terms? Click Me! (Explanations Are Simplifed For General-Understanding)"
         ):
@@ -1288,6 +1278,16 @@ if st.session_state["explored_position"] is not None:
             """,
             unsafe_allow_html=True
         )
+        
+        B_PATH = Path(__file__).resolve().parent.parent / "images" / "B07F52FD-0104-4A8D-BD55-7B8E1BA7E386.gif"
+    
+        left, center, right = st.columns([1, 4, 1])
+
+        with center:
+            st.image(
+                str(B_PATH),
+                width="stretch"
+            )
         
         st.markdown(
             """
