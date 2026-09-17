@@ -903,6 +903,16 @@ if st.session_state["explored_position"] is not None:
                 "Other": "Positions that do not fall within the major CFTR domain ranges used in this project. This category includes regions outside the defined TMD1, NBD1, R domain, TMD2, and NBD2 ranges.",
                 "Average conservation": "The average evolutionary conservation of the amino-acid positions within a domain. It summarizes how consistently those positions are preserved among the CFTR-related sequences used to calculate conservation in this project."
             }
+            
+            if selected_consequence:
+                st.html(
+                    f"""
+                    <script>
+                    navigateToConsequence("{selected_consequence}");
+                    </script>
+                    """,
+                    unsafe_allow_javascript=True
+                )
         
             st.markdown(
                 "This chart shows a global view of conservation across the major CFTR domains. Comparing these values helps show which regions of CFTR are more strongly conserved across the sequences used in the analysis."
@@ -1076,6 +1086,16 @@ if st.session_state["explored_position"] is not None:
                 "Middle": "The middle region refers to the central portion of the CFTR protein sequence used in this analysis. It contains multiple functionally important structural regions, including portions of the transmembrane and nucleotide-binding regions.",
                 "C-terminal": "The C-terminal region is the end of the CFTR protein sequence. It contains the final portion of CFTR and includes sequence elements that can contribute to protein interactions, localization, and regulation."
             }
+            
+            if selected_consequence:
+                st.html(
+                    f"""
+                    <script>
+                    navigateToConsequence("{selected_consequence}");
+                    </script>
+                    """,
+                    unsafe_allow_javascript=True
+                )
         
             st.markdown(
                 "This chart shows how the recorded CFTR variants are distributed across the N-terminal, Middle, and C-terminal regions used in this analysis. Comparing these regions helps identify whether variants are concentrated in particular portions of the protein sequence."
