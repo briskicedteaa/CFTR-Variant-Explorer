@@ -977,7 +977,7 @@ if st.session_state["explored_position"] is not None:
                 consequence_chart,
                 width="stretch",
                 key="consequence_browser_chart",
-                on_select="rerun"
+                on_select="callable"
             )
             
             st.html(
