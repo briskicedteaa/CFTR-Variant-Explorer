@@ -966,69 +966,69 @@ if st.session_state["explored_position"] is not None:
             st.caption(
                 "Click a consequence in the chart to find its definition in the glossary below."
             )
-        
+            
             st.altair_chart(
                 consequence_chart,
-                width="stretch"
+                width="stretch",
+                key="consequence_browser_chart"
             )
-        
+            
             st.html(
                 """
                 <script>
-                const consequenceObserver = new MutationObserver(() => {
-        
-                    const charts = document.querySelectorAll('[data-testid="stVegaLiteChart"]');
-                    const chart = charts[charts.length - 1];
-        
+                function bindConsequenceChart() {
+                    const chart = document.querySelector(".st-key-consequence_browser_chart");
+            
                     if (!chart) {
-                        return;
+                        return false;
                     }
-        
-                    const marks = chart.querySelectorAll('.mark-rect');
-        
+            
+                    const marks = chart.querySelectorAll(".mark-rect");
+            
+                    if (!marks.length) {
+                        return false;
+                    }
+            
                     marks.forEach(mark => {
-        
-                        if (mark.dataset.consequenceBound) {
+                        if (mark.dataset.consequenceBound === "true") {
                             return;
                         }
-        
+            
                         mark.dataset.consequenceBound = "true";
-        
+            
                         mark.addEventListener("click", () => {
-        
                             const consequence = mark.getAttribute("aria-label");
-        
+            
                             if (!consequence) {
                                 return;
                             }
-        
+            
                             const targetId =
                                 "consequence-definition-" +
                                 consequence
                                     .toLowerCase()
                                     .replace(/ /g, "-")
-                                    .replace(/\//g, "-")
+                                    .replace(/\\//g, "-")
                                     .replace(/[()]/g, "");
-        
+            
                             const target = document.getElementById(targetId);
-        
+            
                             if (!target) {
                                 return;
                             }
-        
+            
                             const details = target.closest("details");
-        
+            
                             if (details && !details.open) {
                                 details.open = true;
                             }
-        
+            
                             setTimeout(() => {
-        
                                 target.scrollIntoView({
                                     behavior: "smooth",
                                     block: "center"
                                 });
-        
+            
                                 target.animate(
                                     [
                                         { backgroundColor: "rgba(255,196,231,0)" },
@@ -1040,16 +1040,25 @@ if st.session_state["explored_position"] is not None:
                                         easing: "ease-in-out"
                                     }
                                 );
-        
                             }, 200);
                         });
                     });
-                });
-        
-                consequenceObserver.observe(document.body, {
-                    childList: true,
-                    subtree: true
-                });
+            
+                    return true;
+                }
+            
+                if (!bindConsequenceChart()) {
+                    const consequenceObserver = new MutationObserver(() => {
+                        if (bindConsequenceChart()) {
+                            consequenceObserver.disconnect();
+                        }
+                    });
+            
+                    consequenceObserver.observe(document.body, {
+                        childList: true,
+                        subtree: true
+                    });
+                }
                 </script>
                 """,
                 unsafe_allow_javascript=True
