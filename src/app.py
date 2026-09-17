@@ -807,7 +807,7 @@ if st.session_state["explored_position"] is not None:
         )
         
         st.caption(
-            "Click a domain in the chart to find its definition in the glossary below."
+            "Click a domain's bar in the chart to find its definition in the glossary below."
         )
         
         domain_event = st.altair_chart(
@@ -1079,7 +1079,7 @@ if st.session_state["explored_position"] is not None:
         )
         
         st.caption(
-            "Click a protein region in the chart to find its definition in the glossary below."
+            "Click a protein region's bar in the chart to find its definition in the glossary below."
         )
         
         region_event = st.altair_chart(
@@ -1350,7 +1350,7 @@ if st.session_state["explored_position"] is not None:
             )
         
             st.caption(
-                "Click a consequence in the chart to find its definition in the glossary below."
+                "Click a consequences bar in the chart to find its definition in the glossary below."
             )
             
             consequence_event = st.altair_chart(
