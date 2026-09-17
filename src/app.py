@@ -167,34 +167,6 @@ h1, h2, h3 {
 .position-1481-table td:last-child {
     width: 75%;
 }
-div[data-testid="stExpander"] [data-testid="stIconMaterial"] {
-    display: none !important;
-}
-
-div[data-testid="stExpander"] details summary {
-    list-style: none !important;
-}
-
-div[data-testid="stExpander"] details summary::-webkit-details-marker {
-    display: none !important;
-}
-
-div[data-testid="stExpander"] details summary::before {
-    content: "";
-    display: inline-block;
-    width: 0.5rem;
-    height: 0.5rem;
-    border-right: 2px solid currentColor;
-    border-bottom: 2px solid currentColor;
-    transform: rotate(-45deg);
-    transition: transform 0.15s ease;
-    margin-right: 0.65rem;
-    margin-bottom: 0.1rem;
-}
-
-div[data-testid="stExpander"] details[open] summary::before {
-    transform: rotate(45deg);
-}
 </style>
 """, unsafe_allow_html=True)
 
