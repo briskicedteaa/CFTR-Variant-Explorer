@@ -983,6 +983,16 @@ if st.session_state["explored_position"] is not None:
                 on_select=handle_consequence_selection
             )
             
+            selected_consequence = None
+
+            selection = consequence_event.selection.get(
+                "consequence_selection",
+                []
+            )
+            
+            if selection:
+                selected_consequence = selection[0]["Consequence"]
+            
             st.html(
                 """
                 <script>
