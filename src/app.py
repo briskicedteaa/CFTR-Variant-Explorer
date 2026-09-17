@@ -976,6 +976,47 @@ if st.session_state["explored_position"] is not None:
             st.html(
                 """
                 <script>
+                function navigateToConsequence(consequence) {
+                    const targetId =
+                        "consequence-definition-" +
+                        consequence
+                            .toLowerCase()
+                            .replace(/ /g, "-")
+                            .replace(/\\//g, "-")
+                            .replace(/[()]/g, "");
+            
+                    const target = document.getElementById(targetId);
+            
+                    if (!target) {
+                        return;
+                    }
+            
+                    const details = target.closest("details");
+            
+                    if (details && !details.open) {
+                        details.open = true;
+                    }
+            
+                    setTimeout(() => {
+                        target.scrollIntoView({
+                            behavior: "smooth",
+                            block: "center"
+                        });
+            
+                        target.animate(
+                            [
+                                { backgroundColor: "rgba(255,196,231,0)" },
+                                { backgroundColor: "rgba(255,196,231,0.55)" },
+                                { backgroundColor: "rgba(255,196,231,0)" }
+                            ],
+                            {
+                                duration: 1800,
+                                easing: "ease-in-out"
+                            }
+                        );
+                    }, 200);
+                }
+            
                 function bindConsequenceChart() {
                     const chart = document.querySelector(".st-key-consequence_browser_chart");
             
@@ -983,65 +1024,38 @@ if st.session_state["explored_position"] is not None:
                         return false;
                     }
             
-                    const marks = chart.querySelectorAll(".mark-rect");
+                    const svg = chart.querySelector("svg");
             
-                    if (!marks.length) {
+                    if (!svg) {
                         return false;
                     }
             
-                    marks.forEach(mark => {
-                        if (mark.dataset.consequenceBound === "true") {
+                    if (svg.dataset.consequenceBound === "true") {
+                        return true;
+                    }
+            
+                    svg.dataset.consequenceBound = "true";
+            
+                    svg.addEventListener("click", (event) => {
+                        const mark = event.target.closest("rect");
+            
+                        if (!mark || !svg.contains(mark)) {
                             return;
                         }
             
-                        mark.dataset.consequenceBound = "true";
+                        const ariaLabel = mark.getAttribute("aria-label");
             
-                        mark.addEventListener("click", () => {
-                            const consequence = mark.getAttribute("aria-label");
+                        if (!ariaLabel) {
+                            return;
+                        }
             
-                            if (!consequence) {
-                                return;
-                            }
+                        const match = ariaLabel.match(/Consequence[^:]*:\\s*([^,]+)/i);
             
-                            const targetId =
-                                "consequence-definition-" +
-                                consequence
-                                    .toLowerCase()
-                                    .replace(/ /g, "-")
-                                    .replace(/\\//g, "-")
-                                    .replace(/[()]/g, "");
+                        if (!match) {
+                            return;
+                        }
             
-                            const target = document.getElementById(targetId);
-            
-                            if (!target) {
-                                return;
-                            }
-            
-                            const details = target.closest("details");
-            
-                            if (details && !details.open) {
-                                details.open = true;
-                            }
-            
-                            setTimeout(() => {
-                                target.scrollIntoView({
-                                    behavior: "smooth",
-                                    block: "center"
-                                });
-            
-                                target.animate(
-                                    [
-                                        { backgroundColor: "rgba(255,196,231,0)" },
-                                        { backgroundColor: "rgba(255,196,231,0.55)" },
-                                        { backgroundColor: "rgba(255,196,231,0)" }
-                                    ],
-                                    {
-                                        duration: 1800,
-                                        easing: "ease-in-out"
-                                    }
-                                );
-                            }, 200);
-                        });
+                        navigateToConsequence(match[1].trim());
                     });
             
                     return true;
