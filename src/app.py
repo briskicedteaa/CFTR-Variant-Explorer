@@ -936,7 +936,8 @@ if st.session_state["explored_position"] is not None:
         
             consequence_selection = alt.selection_point(
                 name="consequence_selection",
-                fields=["Consequence"]
+                fields=["Consequence"],
+                clear="mouseup"
             )
             
             consequence_chart = (
