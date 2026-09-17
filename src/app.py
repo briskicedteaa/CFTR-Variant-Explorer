@@ -976,7 +976,7 @@ if st.session_state["explored_position"] is not None:
         
         with st.popover(
             "Don't Understand Unfamiliar Terms? Click Me! (Explanations Are Simplifed For General-Understanding)",
-            width="large"
+            width="stretch"
         ):
             domain_definitions = {
                 "NBD1": "Nucleotide-binding domain 1. NBD1 is one of the two major ATP-binding domains of CFTR. It binds ATP and participates in the ATP-dependent conformational changes that regulate channel gating. Changes in this region can affect protein folding, stability, trafficking, or channel activity.",
