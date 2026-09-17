@@ -346,11 +346,8 @@ position_input = st.text_input(
     placeholder="Example: 125"
 )
 
-with st.popover(
-    "View positions with recorded variants",
-    width="stretch"
-):
-    st.write(sorted(valid_positions))
+with st.expander("View positions with recorded variants"):
+            st.write(sorted(valid_positions))
 
 if st.button("Explore position"):
 
@@ -407,10 +404,7 @@ if st.session_state["explored_position"] is not None:
             unsafe_allow_html=True
         )
     
-        with st.popover(
-            "What Random Forest Is Predicting",
-            width="stretch"
-        ):
+        with st.expander("What Random Forest Is Predicting"):
             st.write(
                 "The machine-learning model predicts the likely consequence of the "
                 "selected CFTR variant based on its amino-acid position and substitution. "
@@ -974,9 +968,8 @@ if st.session_state["explored_position"] is not None:
             unsafe_allow_html=True
         )
         
-        with st.popover(
-            "Don't Understand Unfamiliar Terms? Click Me! (Explanations Are Simplifed For General-Understanding)",
-            width="stretch"
+        with st.expander(
+            "Don't Understand Unfamiliar Terms? Click Me! (Explanations Are Simplifed For General-Understanding)"
         ):
             domain_definitions = {
                 "NBD1": "Nucleotide-binding domain 1. NBD1 is one of the two major ATP-binding domains of CFTR. It binds ATP and participates in the ATP-dependent conformational changes that regulate channel gating. Changes in this region can affect protein folding, stability, trafficking, or channel activity.",
