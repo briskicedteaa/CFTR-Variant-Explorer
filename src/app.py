@@ -1145,16 +1145,6 @@ if st.session_state["explored_position"] is not None:
                         """,
                         unsafe_allow_html=True
                     )
-                    
-            if selected_consequence_event:
-                previous_event = st.session_state.get(
-                    "last_consequence_event"
-                )
-            
-                if selected_consequence_event != previous_event:
-                    st.session_state["last_consequence_event"] = (
-                        selected_consequence_event
-                    )
             
                     st.html(
                         f"""
