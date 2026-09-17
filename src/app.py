@@ -1018,7 +1018,9 @@ if st.session_state["explored_position"] is not None:
                 }
             
                 function bindConsequenceChart() {
-                    const chart = document.querySelector(".st-key-consequence_browser_chart");
+                    document.querySelector(
+                        '[class*="st-key-consequence_browser_chart"]'
+                    );
                 
                     if (!chart) {
                         return false;
