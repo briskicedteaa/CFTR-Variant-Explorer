@@ -1279,6 +1279,20 @@ if st.session_state["explored_position"] is not None:
             unsafe_allow_html=True
         )
         
+        st.markdown(
+            """
+            <h3 class='glossary-heading' style='text-align: center;'>
+                <details class="position-1481-dropdown">
+                    <summary>Variant Consequences</summary>
+                    <div class="glossary-definition">
+                        The distribution of recorded CFTR variants by the type of change they produce in the protein.
+                    </div>
+                </details>
+            </h3>
+            """,
+            unsafe_allow_html=True
+        )
+        
         consequence_summary = get_consequence_summary(
             explored_position
         )
