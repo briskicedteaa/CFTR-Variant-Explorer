@@ -577,7 +577,7 @@ if st.session_state["explored_position"] is not None:
             with center:
                 st.image(
                     str(N_PATH),
-                width="stretch"
+                    width="stretch"
                 )
 
             variants = variants_df[
@@ -861,7 +861,7 @@ if st.session_state["explored_position"] is not None:
                 const details = target.closest("details");
         
                 if (details && !details.open) {
-                    details.open = true;
+                    details.querySelector("summary").click();
                 }
         
                 setTimeout(() => {
