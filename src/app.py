@@ -1134,7 +1134,17 @@ if st.session_state["explored_position"] is not None:
                         """,
                         unsafe_allow_html=True
                     )
-        
+                    
+            if selected_consequence:
+                st.html(
+                    f"""
+                    <script>
+                    navigateToConsequence("{selected_consequence}");
+                    </script>
+                    """,
+                    unsafe_allow_javascript=True
+                )
+
                 st.markdown(
                     "This chart shows the distribution of recorded variant consequences in the CFTR dataset. Looking at these categories helps show which types of genetic changes are most frequently represented in the dataset."
                 )
