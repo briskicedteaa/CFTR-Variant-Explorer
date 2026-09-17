@@ -834,6 +834,12 @@ if st.session_state["explored_position"] is not None:
             else:
                 st.session_state.last_domain = selected_domain
         
+        if selected_domain:
+            selected_domain_event = (
+                explored_position,
+                selected_domain
+            )
+        
         st.html(
             """
             <script>
@@ -877,6 +883,68 @@ if st.session_state["explored_position"] is not None:
                     );
                 }, 200);
             }
+        
+            function bindDomainChart() {
+                const chart = document.querySelector(
+                    '[class*="st-key-domain_browser_chart"]'
+                );
+        
+                if (!chart) {
+                    return false;
+                }
+        
+                const svg = chart.querySelector("svg");
+        
+                if (!svg) {
+                    return false;
+                }
+        
+                if (svg.dataset.domainBound === "true") {
+                    return true;
+                }
+        
+                svg.dataset.domainBound = "true";
+        
+                svg.addEventListener("click", (event) => {
+                    const element = event.target;
+        
+                    if (!element) {
+                        return;
+                    }
+        
+                    const ariaLabel =
+                        element.getAttribute("aria-label") ||
+                        element.parentElement?.getAttribute("aria-label") ||
+                        element.parentElement?.parentElement?.getAttribute("aria-label");
+        
+                    if (!ariaLabel) {
+                        return;
+                    }
+        
+                    const match = ariaLabel.match(/Domain[^:]*:\s*([^,]+)/i);
+        
+                    if (!match) {
+                        return;
+                    }
+        
+                    navigateToDomain(match[1].trim());
+                });
+        
+                return true;
+            }
+        
+            if (!bindDomainChart()) {
+                const domainObserver = new MutationObserver(() => {
+                    if (bindDomainChart()) {
+                        domainObserver.disconnect();
+                    }
+                });
+        
+                domainObserver.observe(document.body, {
+                    childList: true,
+                    subtree: true
+                });
+            }
             </script>
             """,
             unsafe_allow_javascript=True
@@ -901,8 +969,27 @@ if st.session_state["explored_position"] is not None:
                 "Other": "Positions that do not fall within the major CFTR domain ranges used in this project. This category includes regions outside the defined TMD1, NBD1, R domain, TMD2, and NBD2 ranges.",
                 "Average conservation": "The average evolutionary conservation of the amino-acid positions within a domain. It summarizes how consistently those positions are preserved among the CFTR-related sequences used to calculate conservation in this project."
             }
-            
-            if selected_domain:
+        
+            for term, definition in domain_definitions.items():
+                term_id = (
+                    "domain-definition-"
+                    + term.lower()
+                    .replace(" ", "-")
+                    .replace("/", "-")
+                    .replace("(", "")
+                    .replace(")", "")
+                )
+        
+                st.markdown(
+                    f"""
+                    <div id="{term_id}" style="scroll-margin-top: 100px;">
+                        <strong>{term}</strong>
+                        <p>{definition}</p>
+                    </div>
+                    """,
+                    unsafe_allow_html=True
+                )
+        
                 st.html(
                     f"""
                     <script>
@@ -1019,6 +1106,12 @@ if st.session_state["explored_position"] is not None:
             else:
                 st.session_state.last_region = selected_region
         
+        if selected_region:
+            selected_region_event = (
+                explored_position,
+                selected_region
+            )
+        
         st.html(
             """
             <script>
@@ -1062,6 +1155,68 @@ if st.session_state["explored_position"] is not None:
                     );
                 }, 200);
             }
+        
+            function bindRegionChart() {
+                const chart = document.querySelector(
+                    '[class*="st-key-region_browser_chart"]'
+                );
+        
+                if (!chart) {
+                    return false;
+                }
+        
+                const svg = chart.querySelector("svg");
+        
+                if (!svg) {
+                    return false;
+                }
+        
+                if (svg.dataset.regionBound === "true") {
+                    return true;
+                }
+        
+                svg.dataset.regionBound = "true";
+        
+                svg.addEventListener("click", (event) => {
+                    const element = event.target;
+        
+                    if (!element) {
+                        return;
+                    }
+        
+                    const ariaLabel =
+                        element.getAttribute("aria-label") ||
+                        element.parentElement?.getAttribute("aria-label") ||
+                        element.parentElement?.parentElement?.getAttribute("aria-label");
+        
+                    if (!ariaLabel) {
+                        return;
+                    }
+        
+                    const match = ariaLabel.match(/Region[^:]*:\s*([^,]+)/i);
+        
+                    if (!match) {
+                        return;
+                    }
+        
+                    navigateToRegion(match[1].trim());
+                });
+        
+                return true;
+            }
+        
+            if (!bindRegionChart()) {
+                const regionObserver = new MutationObserver(() => {
+                    if (bindRegionChart()) {
+                        regionObserver.disconnect();
+                    }
+                });
+        
+                regionObserver.observe(document.body, {
+                    childList: true,
+                    subtree: true
+                });
+            }
             </script>
             """,
             unsafe_allow_javascript=True
@@ -1082,8 +1237,27 @@ if st.session_state["explored_position"] is not None:
                 "Middle": "The middle region refers to the central portion of the CFTR protein sequence used in this analysis. It contains multiple functionally important structural regions, including portions of the transmembrane and nucleotide-binding regions.",
                 "C-terminal": "The C-terminal region is the end of the CFTR protein sequence. It contains the final portion of CFTR and includes sequence elements that can contribute to protein interactions, localization, and regulation."
             }
-            
-            if selected_region:
+        
+            for term, definition in region_definitions.items():
+                term_id = (
+                    "region-definition-"
+                    + term.lower()
+                    .replace(" ", "-")
+                    .replace("/", "-")
+                    .replace("(", "")
+                    .replace(")", "")
+                )
+        
+                st.markdown(
+                    f"""
+                    <div id="{term_id}" style="scroll-margin-top: 100px;">
+                        <strong>{term}</strong>
+                        <p>{definition}</p>
+                    </div>
+                    """,
+                    unsafe_allow_html=True
+                )
+        
                 st.html(
                     f"""
                     <script>
@@ -1143,7 +1317,7 @@ if st.session_state["explored_position"] is not None:
                 name="consequence_selection",
                 fields=["Consequence"],
             )
-        
+            
             consequence_chart = (
                 alt.Chart(consequence_chart_data)
                 .mark_bar(
@@ -1175,34 +1349,40 @@ if st.session_state["explored_position"] is not None:
             )
         
             st.caption(
-                "Click a consequence bar in the chart to find its definition in the glossary below."
+                "Click a consequences bar in the chart to find its definition in the glossary below."
             )
-        
+            
             consequence_event = st.altair_chart(
                 consequence_chart,
                 width="stretch",
                 key="consequence_browser_chart",
                 on_select="rerun"
             )
-        
+            
             selected_consequence = None
-        
+
             selection = consequence_event.selection.get(
                 "consequence_selection",
                 []
             )
-        
+            
             if selection:
                 selected_consequence = selection[0]["Consequence"]
-        
+            
                 if "last_consequence" not in st.session_state:
                     st.session_state.last_consequence = None
-        
+            
                 if selected_consequence == st.session_state.last_consequence:
                     selected_consequence = None
                 else:
                     st.session_state.last_consequence = selected_consequence
-        
+            
+            if selected_consequence:
+                selected_consequence_event = (
+                    explored_position,
+                    selected_consequence
+                )
+            
             st.html(
                 """
                 <script>
@@ -1212,27 +1392,27 @@ if st.session_state["explored_position"] is not None:
                         consequence
                             .toLowerCase()
                             .replace(/ /g, "-")
-                            .replace(/\//g, "-")
+                            .replace(/\\//g, "-")
                             .replace(/[()]/g, "");
-        
+            
                     const target = document.getElementById(targetId);
-        
+            
                     if (!target) {
                         return;
                     }
-        
+            
                     const details = target.closest("details");
-        
+            
                     if (details && !details.open) {
                         details.open = true;
                     }
-        
+            
                     setTimeout(() => {
                         target.scrollIntoView({
                             behavior: "smooth",
                             block: "center"
                         });
-        
+            
                         target.animate(
                             [
                                 { backgroundColor: "rgba(255,196,231,0)" },
@@ -1245,6 +1425,68 @@ if st.session_state["explored_position"] is not None:
                             }
                         );
                     }, 200);
+                }
+            
+                function bindConsequenceChart() {
+                    const chart = document.querySelector(
+                        '[class*="st-key-consequence_browser_chart"]'
+                    );
+                
+                    if (!chart) {
+                        return false;
+                    }
+                
+                    const svg = chart.querySelector("svg");
+                
+                    if (!svg) {
+                        return false;
+                    }
+                
+                    if (svg.dataset.consequenceBound === "true") {
+                        return true;
+                    }
+                
+                    svg.dataset.consequenceBound = "true";
+                
+                    svg.addEventListener("click", (event) => {
+                        const element = event.target;
+                
+                        if (!element) {
+                            return;
+                        }
+                
+                        const ariaLabel =
+                            element.getAttribute("aria-label") ||
+                            element.parentElement?.getAttribute("aria-label") ||
+                            element.parentElement?.parentElement?.getAttribute("aria-label");
+                
+                        if (!ariaLabel) {
+                            return;
+                        }
+                
+                        const match = ariaLabel.match(/Consequence[^:]*:\\s*([^,]+)/i);
+                
+                        if (!match) {
+                            return;
+                        }
+                
+                        navigateToConsequence(match[1].trim());
+                    });
+                
+                    return true;
+                }
+            
+                if (!bindConsequenceChart()) {
+                    const consequenceObserver = new MutationObserver(() => {
+                        if (bindConsequenceChart()) {
+                            consequenceObserver.disconnect();
+                        }
+                    });
+            
+                    consequenceObserver.observe(document.body, {
+                        childList: true,
+                        subtree: true
+                    });
                 }
                 </script>
                 """,
@@ -1262,9 +1504,9 @@ if st.session_state["explored_position"] is not None:
                 "Don't Understand Unfamiliar Terms? Click Me! (Explanations Are Simplifed For General-Understanding)"
             ):
                 for term, definition in CONSEQUENCE_DEFINITIONS.items():
-                    definition_id = (
-                        "consequence-definition-" +
-                        term.lower()
+                    term_id = (
+                        "consequence-definition-"
+                        + term.lower()
                         .replace(" ", "-")
                         .replace("/", "-")
                         .replace("(", "")
@@ -1273,29 +1515,33 @@ if st.session_state["explored_position"] is not None:
         
                     st.markdown(
                         f"""
-                        <div id="{definition_id}" class="consequence-definition">
+                        <div id="{term_id}" style="scroll-margin-top: 100px;">
                             <strong>{term.title()}</strong>
                             <p>{definition}</p>
                         </div>
                         """,
                         unsafe_allow_html=True
                     )
-        
+            
+                    st.html(
+                        f"""
+                        <script>
+                        navigateToConsequence("{selected_consequence}");
+                        </script>
+                        """,
+                        unsafe_allow_javascript=True
+                    )
+
                 st.markdown(
                     "This chart shows the distribution of recorded variant consequences in the CFTR dataset. Looking at these categories helps show which types of genetic changes are most frequently represented in the dataset."
                 )
-                
-                    
-            if selected_consequence:
-                st.html(
-                    f"""
-                    <script>
-                    navigateToConsequence("{selected_consequence}");
-                    </script>
-                    """,
-                    unsafe_allow_javascript=True
-                )
         
+            st.markdown(
+                """
+                <div id="consequence-glossary-anchor"></div>
+                """,
+                unsafe_allow_html=True
+            )
             
 if st.session_state.get("explored_position") in valid_positions:
     
