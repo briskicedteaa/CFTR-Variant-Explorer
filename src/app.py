@@ -817,12 +817,31 @@ if st.session_state["explored_position"] is not None:
             on_select="rerun"
         )
         
+        st.write("selection:", domain_event.selection)
+        
         selected_domain = None
         
         selection = domain_event.selection.get(
             "domain_selection",
             []
         )
+        
+        if selection:
+            selected_domain = selection[0]["Domain"]
+        
+            if "last_domain" not in st.session_state:
+                st.session_state.last_domain = None
+        
+            if selected_domain == st.session_state.last_domain:
+                selected_domain = None
+            else:
+                st.session_state.last_domain = selected_domain
+        
+        if selected_domain:
+            selected_domain_event = (
+                explored_position,
+                selected_domain
+            )
         
         st.html(
             """
@@ -833,7 +852,7 @@ if st.session_state["explored_position"] is not None:
                     domain
                         .toLowerCase()
                         .replace(/ /g, "-")
-                        .replace(/\\//g, "-")
+                        .replace(/\//g, "-")
                         .replace(/[()]/g, "");
         
                 const target = document.getElementById(targetId);
@@ -942,15 +961,16 @@ if st.session_state["explored_position"] is not None:
         )
         
         with st.expander(
-            "Don't Understand Unfamiliar Terms? Click Me! (Explanations Are Simplified For General Understanding)"
+            "Don't Understand Unfamiliar Terms? Click Me! (Explanations Are Simplifed For General-Understanding)"
         ):
             domain_definitions = {
-                "NBD1": "Nucleotide-binding domain 1. NBD1 is one of the two major ATP-binding domains of CFTR. It binds ATP and participates in interactions that regulate CFTR channel gating. Changes in this region can affect protein folding, stability, trafficking, or channel activity.",
-                "NBD2": "Nucleotide-binding domain 2. NBD2 is the second major ATP-binding domain of CFTR and works together with NBD1 during ATP-dependent channel gating. Interactions between the two nucleotide-binding domains help control the opening and closing of the channel.",
-                "R domain": "Regulatory domain. The R domain is a distinctive region of CFTR that contains multiple phosphorylation sites. Phosphorylation of this region is an important part of CFTR activation and helps regulate whether the channel can open.",
-                "TMD1": "Transmembrane domain 1. TMD1 contains multiple membrane-spanning segments that contribute to the structure of the CFTR ion-conducting pathway. Together with TMD2, it forms the membrane-spanning portion of the channel through which ions can pass.",
-                "TMD2": "Transmembrane domain 2. TMD2 contains the second group of membrane-spanning segments and works with TMD1 to form the CFTR ion-conducting pathway. Structural changes in these regions can affect channel function.",
-                "Other": "Positions classified as Other fall outside the major CFTR domain boundaries used in this project. These positions may include terminal regions, linker regions, or other portions of the protein that were not assigned to one of the primary domain categories."
+                "NBD1": "Nucleotide-binding domain 1. NBD1 is one of the two major ATP-binding domains of CFTR. It binds ATP and participates in the ATP-dependent conformational changes that regulate channel gating. Changes in this region can affect protein folding, stability, trafficking, or channel activity.",
+                "NBD2": "Nucleotide-binding domain 2. NBD2 is the second major ATP-binding domain of CFTR and works together with NBD1 during the ATP-dependent gating cycle. Structural or functional changes in NBD2 can interfere with normal CFTR activity.",
+                "R domain": "Regulatory domain. The R domain contains multiple regulatory phosphorylation sites and helps control CFTR channel activity. Phosphorylation of this region is an important step in regulating whether the channel can enter an activated state.",
+                "TMD1": "Transmembrane domain 1. TMD1 contains multiple membrane-spanning segments that contribute to the structure of the CFTR ion-conducting pathway. Together with TMD2, it forms the membrane-spanning portion of the channel through which chloride and bicarbonate ions can move.",
+                "TMD2": "Transmembrane domain 2. TMD2 is the second group of membrane-spanning segments in CFTR. It works together with TMD1 to form the ion-conducting pathway and contributes to the structure and selectivity of the channel.",
+                "Other": "Positions that do not fall within the major CFTR domain ranges used in this project. This category includes regions outside the defined TMD1, NBD1, R domain, TMD2, and NBD2 ranges.",
+                "Average conservation": "The average evolutionary conservation of the amino-acid positions within a domain. It summarizes how consistently those positions are preserved among the CFTR-related sequences used to calculate conservation in this project."
             }
         
             for term, definition in domain_definitions.items():
@@ -973,9 +993,25 @@ if st.session_state["explored_position"] is not None:
                     unsafe_allow_html=True
                 )
         
+                st.html(
+                    f"""
+                    <script>
+                    navigateToDomain("{selected_domain}");
+                    </script>
+                    """,
+                    unsafe_allow_javascript=True
+                )
+        
             st.markdown(
-                "This chart shows the average evolutionary conservation of amino-acid positions within each major CFTR domain. Higher conservation indicates that the amino-acid sequence is more consistently preserved among the homologous sequences used in this analysis."
+                "This chart shows a global view of conservation across the major CFTR domains. Comparing these values helps show which regions of CFTR are more strongly conserved across the sequences used in the analysis."
             )
+        
+        st.markdown(
+            """
+            <div id="domain-glossary-anchor"></div>
+            """,
+            unsafe_allow_html=True
+        )
 
         B_PATH = Path(__file__).resolve().parent.parent / "images" / "B07F52FD-0104-4A8D-BD55-7B8E1BA7E386.gif"
     
