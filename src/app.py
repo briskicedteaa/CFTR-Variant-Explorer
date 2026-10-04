@@ -384,15 +384,24 @@ with st.expander("View positions with recorded variants"):
 
 if st.button("Explore position"):
     if position_input.strip() == "":
+        st.session_state["explored_position"] = None
+        st.session_state["result_sections"] = set()
+        st.session_state["scroll_to_chooser"] = False
         st.error("Please enter a CFTR position.")
     else:
         try:
             position = int(position_input)
 
             if position <= 0:
+                st.session_state["explored_position"] = None
+                st.session_state["result_sections"] = set()
+                st.session_state["scroll_to_chooser"] = False
                 st.error("Position must be a positive integer.")
 
             elif position not in valid_positions:
+                st.session_state["explored_position"] = None
+                st.session_state["result_sections"] = set()
+                st.session_state["scroll_to_chooser"] = False
                 st.error("That position is not present in the dataset.")
 
             else:
@@ -402,6 +411,9 @@ if st.button("Explore position"):
                 st.rerun()
 
         except ValueError:
+            st.session_state["explored_position"] = None
+            st.session_state["result_sections"] = set()
+            st.session_state["scroll_to_chooser"] = False
             st.error("Please enter a valid integer position.")
 
 
