@@ -260,15 +260,18 @@ def divider():
         unsafe_allow_html=True
     )
 
+def hide_section(section):
+    st.session_state.result_sections.discard(section)
+
 
 def hide_button(section):
-    if st.button(
+    st.button(
         "Hide section",
         key=f"hide_{section}",
-        type="secondary"
-    ):
-        st.session_state.result_sections.discard(section)
-
+        type="secondary",
+        on_click=hide_section,
+        args=(section,)
+    )
 
 GIF_PATH = Path(__file__).resolve().parent.parent / "images" / "8D83949E-9C79-479B-BD57-BA4F6ED95A0A.gif"
 
