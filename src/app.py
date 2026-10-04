@@ -382,7 +382,7 @@ position_input = st.text_input(
 with st.expander("View positions with recorded variants"):
     st.write(sorted(valid_positions))
 
-if st.button("Explore position", type="primary"):
+if st.button("Explore position"):
     if position_input.strip() == "":
         st.error("Please enter a CFTR position.")
     else:
@@ -478,17 +478,13 @@ if st.session_state["explored_position"] is not None:
                         st.rerun()
 
         if "position_metrics" in st.session_state.result_sections:
-
             divider()
-
             st.markdown(
                 "<h3 style='text-align: center;'>Position Metrics</h3>",
                 unsafe_allow_html=True
             )
-
-            if position_info:
-                st.markdown(position_info)
-
+            if position_info is not None and not position_info.empty:
+                st.dataframe(position_info, use_container_width=True)
             hide_button("position_metrics")
 
         if "machine_learning" in st.session_state.result_sections:
