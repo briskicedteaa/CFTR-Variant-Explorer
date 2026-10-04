@@ -377,30 +377,23 @@ position_input = st.text_input(
 with st.expander("View positions with recorded variants"):
     st.write(sorted(valid_positions))
 
-if st.button("Explore position"):
-    st.session_state["explored_position"] = None
-    st.session_state["result_sections"] = set()
-
-    if not position_input.strip().isdigit():
-        st.error("Please enter a valid amino-acid position.")
-
+if st.button("Explore position", type="primary"):
+    if position_input.strip() == "":
+        st.error("Please enter a CFTR position.")
     else:
-        position = int(position_input)
-
-        if position < 1 or position > 1481:
-            st.error(
-                "Please enter a CFTR amino-acid position between 1 and 1481. Only positions with recorded variants in the dataset can be explored! :)"
-            )
-
-        elif position not in valid_positions:
-            st.error(
-                "That position was not found in the CFTR dataset."
-            )
-
-        else:
-            st.session_state["explored_position"] = position
-            st.session_state["result_sections"] = set()
-            st.rerun()
+        try:
+            position = int(position_input)
+            if position <= 0:
+                st.error("Position must be a positive integer.")
+            elif position not in valid_positions:
+                st.error("That position is not present in the dataset.")
+            else:
+                st.session_state["explored_position"] = position
+                st.session_state["result_sections"] = set()
+                st.session_state["scroll_to_chooser"] = False
+                st.rerun()
+        except ValueError:
+            st.error("Please enter a valid integer position.")
 
 
 if st.session_state["explored_position"] is not None:
