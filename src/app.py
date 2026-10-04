@@ -260,6 +260,7 @@ def divider():
         unsafe_allow_html=True
     )
 
+
 def hide_section(section):
     st.session_state.result_sections.discard(section)
 
@@ -272,6 +273,7 @@ def hide_button(section):
         on_click=hide_section,
         args=(section,)
     )
+
 
 GIF_PATH = Path(__file__).resolve().parent.parent / "images" / "8D83949E-9C79-479B-BD57-BA4F6ED95A0A.gif"
 
@@ -420,135 +422,46 @@ if st.session_state["explored_position"] is not None:
     else:
         position_info, variants = get_position_summary(explored_position)
 
-        st.markdown(
-            "<h1 style='text-align: center;'>Results</h1>",
-            unsafe_allow_html=True
-        )
+        section_names = {
+            "machine_learning": "Machine Learning Prediction"
+        }
 
-        if explored_position == 1481:
+        if explored_position != 1481:
+            section_names["model_performance"] = "Model Performance"
 
-            THE_PATH = Path(__file__).resolve().parent.parent / "images" / "0E11DECF-757B-4E64-ADBA-713D560B56A9.gif"
+        section_names.update({
+            "domain": "CFTR Domain Conservation",
+            "region": "Variant Distribution by Protein Region",
+            "consequence": "Variant Consequences",
+            "interpretation": "Interpretation"
+        })
 
-            left, center, right = st.columns([0.5, 4, 0.5])
+        available_sections = [
+            section
+            for section in section_names
+            if section not in st.session_state.result_sections
+        ]
 
-            with center:
-                st.image(
-                    str(THE_PATH),
-                    width="stretch"
-                )
+        if available_sections:
+            divider()
 
             st.markdown(
-                """
-                <h3 style='text-align: center;'>
-                    CFTR Position 1481
-                </h3>
-                """,
+                "<div class='section-choice'>What Would You Like To Explore?</div>",
                 unsafe_allow_html=True
             )
 
-            st.markdown(
-                """
-                <details class="position-1481-dropdown">
-                    <summary>Special Case: Position 1481! (Click For Information About Position 1481)</summary>
-                    <div class="position-1481-content">
-                        <table class="position-1481-table">
-                            <tr>
-                                <th>Topic</th>
-                                <th>Explanation</th>
-                            </tr>
-                            <tr>
-                                <td>Why does position 1481 appear?</td>
-                                <td>CFTR contains 1,480 amino acids. Position 1481 appears in this dataset because stop-loss variants alter the normal stop signal, allowing translation to continue beyond the usual protein endpoint.</td>
-                            </tr>
-                            <tr>
-                                <td>Why is the domain "Other"?</td>
-                                <td>Position 1481 is outside the canonical CFTR protein sequence, so it does not fall within any of the major CFTR domains defined in this analysis.</td>
-                            </tr>
-                            <tr>
-                                <td>Why is conservation "N/A"?</td>
-                                <td>Position 1481 is not a canonical amino-acid position in human CFTR, so it cannot be assigned a conservation score using the same position-based analysis as positions 1–1480.</td>
-                            </tr>
-                            <tr>
-                                <td>Why are there no predictions?</td>
-                                <td>Stop-loss variants were excluded from the machine-learning model because only a very small number were present in the dataset, which was insufficient to support reliable model training for that consequence class.</td>
-                            </tr>
-                        </table>
-                    </div>
-                </details>
-                """,
-                unsafe_allow_html=True
-            )
+            choice_columns = st.columns(2)
 
-            variants = variants_df[
-                variants_df["Position"] == 1481
-            ].copy()
+            for index, section in enumerate(available_sections):
+                with choice_columns[index % 2]:
+                    if st.button(
+                        section_names[section],
+                        key=f"open_{section}",
+                        use_container_width=True
+                    ):
+                        st.session_state.result_sections.add(section)
+                        st.rerun()
 
-        else:
-            st.markdown(
-                f"""
-                <h3 style='text-align: center;'>
-                    CFTR Position {explored_position}
-                </h3>
-                """,
-                unsafe_allow_html=True
-            )
-
-        if explored_position == 1481:
-
-            stop_loss_count = int(
-                (variants_df["Position"] == 1481).sum()
-            )
-
-            col1, col2, col3 = st.columns(3)
-
-            with col1:
-                glossary_metric(
-                    "Domain",
-                    "Other",
-                    "Position 1481 is the stop-loss site immediately after the canonical 1,480-amino-acid CFTR sequence."
-                )
-
-            with col2:
-                glossary_metric(
-                    "Conservation",
-                    "N/A",
-                    "Conservation is not available because position 1481 is not an amino-acid position in canonical human CFTR."
-                )
-
-            with col3:
-                glossary_metric(
-                    "Variant count",
-                    stop_loss_count,
-                    "The number of recorded CFTR variants associated with position 1481 in the dataset."
-                )
-
-        else:
-
-            info = position_info.iloc[0]
-
-            col1, col2, col3 = st.columns(3)
-
-            with col1:
-                glossary_metric(
-                    "Domain",
-                    info["CFTR_Domain"],
-                    "A specific region of a protein that has a particular structure or function."
-                )
-
-            with col2:
-                glossary_metric(
-                    "Conservation",
-                    f"{info['Conservation']:.3f}",
-                    "A measure of how strongly this amino-acid position has been preserved across related proteins."
-                )
-
-            with col3:
-                glossary_metric(
-                    "Variant count",
-                    int(info["Variant_Count"]),
-                    "The number of recorded CFTR variants associated with this amino-acid position in the dataset."
-                )
-                
         if "machine_learning" in st.session_state.result_sections:
 
             divider()
@@ -722,273 +635,273 @@ if st.session_state["explored_position"] is not None:
                 hide_button("model_performance")
 
         if "domain" in st.session_state.result_sections:
-        
-                    divider()
-        
+
+            divider()
+
+            st.markdown(
+                """
+                <h3 class='glossary-heading' style='text-align: center;'>
+                    <details class="position-1481-dropdown">
+                        <summary>CFTR Domain Conservation</summary>
+                        <div class="glossary-definition">
+                            The average evolutionary conservation of amino-acid positions within each major CFTR domain.
+                        </div>
+                    </details>
+                </h3>
+                """,
+                unsafe_allow_html=True
+            )
+
+            domain_conservation = {
+                "NBD1": 0.820016,
+                "NBD2": 0.790831,
+                "Other": 0.692784,
+                "R domain": 0.640287,
+                "TMD1": 0.767632,
+                "TMD2": 0.729488,
+            }
+
+            domain_chart_data = pd.DataFrame(
+                list(domain_conservation.items()),
+                columns=["Domain", "Conservation"]
+            )
+
+            domain_selection = alt.selection_point(
+                name="domain_selection",
+                fields=["Domain"],
+            )
+
+            domain_chart = (
+                alt.Chart(domain_chart_data)
+                .mark_bar(
+                    color="#ffc4e7",
+                    cornerRadiusTopLeft=6,
+                    cornerRadiusTopRight=6
+                )
+                .encode(
+                    x=alt.X(
+                        "Domain:N",
+                        title=None
+                    ),
+                    y=alt.Y(
+                        "Conservation:Q",
+                        title="Average conservation"
+                    ),
+                    tooltip=[
+                        alt.Tooltip(
+                            "Domain:N",
+                            title="Domain"
+                        ),
+                        alt.Tooltip(
+                            "Conservation:Q",
+                            title="Conservation",
+                            format=".3f"
+                        )
+                    ]
+                )
+                .add_params(domain_selection)
+            )
+
+            st.caption(
+                "Click a domain's bar in the chart to find its definition in the glossary below."
+            )
+
+            domain_event = st.altair_chart(
+                domain_chart,
+                width="stretch",
+                key="domain_browser_chart",
+                on_select="rerun"
+            )
+
+            selected_domain = None
+
+            selection = domain_event.selection.get(
+                "domain_selection",
+                []
+            )
+
+            if selection:
+                selected_domain = selection[0]["Domain"]
+
+                if "last_domain" not in st.session_state:
+                    st.session_state.last_domain = None
+
+                if selected_domain == st.session_state.last_domain:
+                    selected_domain = None
+                else:
+                    st.session_state.last_domain = selected_domain
+
+            if selected_domain:
+                selected_domain_event = (
+                    explored_position,
+                    selected_domain
+                )
+
+            st.html(
+                """
+                <script>
+                function navigateToDomain(domain) {
+                    const targetId =
+                        "domain-definition-" +
+                        domain
+                            .toLowerCase()
+                            .replace(/ /g, "-")
+                            .replace(/\//g, "-")
+                            .replace(/[()]/g, "");
+
+                    const target = document.getElementById(targetId);
+
+                    if (!target) {
+                        return;
+                    }
+
+                    const details = target.closest("details");
+
+                    details.open = true;
+                    details.dispatchEvent(new Event("toggle"));
+
+                    setTimeout(() => {
+                        target.scrollIntoView({
+                            behavior: "smooth",
+                            block: "center"
+                        });
+
+                        target.animate(
+                            [
+                                { backgroundColor: "rgba(255,196,231,0)" },
+                                { backgroundColor: "rgba(255,196,231,0.55)" },
+                                { backgroundColor: "rgba(255,196,231,0)" }
+                            ],
+                            {
+                                duration: 1800,
+                                easing: "ease-in-out"
+                            }
+                        );
+                    }, 200);
+                }
+
+                function bindDomainChart() {
+                    const chart = document.querySelector(
+                        '[class*="st-key-domain_browser_chart"]'
+                    );
+
+                    if (!chart) {
+                        return false;
+                    }
+
+                    const svg = chart.querySelector("svg");
+
+                    if (!svg) {
+                        return false;
+                    }
+
+                    if (svg.dataset.domainBound === "true") {
+                        return true;
+                    }
+
+                    svg.dataset.domainBound = "true";
+
+                    svg.addEventListener("click", (event) => {
+                        const element = event.target;
+
+                        if (!element) {
+                            return;
+                        }
+
+                        const ariaLabel =
+                            element.getAttribute("aria-label") ||
+                            element.parentElement?.getAttribute("aria-label") ||
+                            element.parentElement?.parentElement?.getAttribute("aria-label");
+
+                        if (!ariaLabel) {
+                            return;
+                        }
+
+                        const match = ariaLabel.match(/Domain[^:]*:\s*([^,]+)/i);
+
+                        if (!match) {
+                            return;
+                        }
+
+                        navigateToDomain(match[1].trim());
+                    });
+
+                    return true;
+                }
+
+                if (!bindDomainChart()) {
+                    const domainObserver = new MutationObserver(() => {
+                        if (bindDomainChart()) {
+                            domainObserver.disconnect();
+                        }
+                    });
+
+                    domainObserver.observe(document.body, {
+                        childList: true,
+                        subtree: true
+                    });
+                }
+                </script>
+                """,
+                unsafe_allow_javascript=True
+            )
+
+            st.markdown(
+                """
+                <div id="domain-glossary-anchor"></div>
+                """,
+                unsafe_allow_html=True
+            )
+
+            with st.expander(
+                "Don't Understand Unfamiliar Terms? Click Me! (Explanations Are Simplifed For General-Understanding)"
+            ):
+
+                domain_definitions = {
+                    "NBD1": "Nucleotide-binding domain 1. NBD1 is one of the two major ATP-binding domains of CFTR. It binds ATP and participates in the ATP-dependent conformational changes that regulate channel gating. Changes in this region can affect protein folding, stability, trafficking, or channel activity.",
+                    "NBD2": "Nucleotide-binding domain 2. NBD2 is the second major ATP-binding domain of CFTR and works together with NBD1 during the ATP-dependent gating cycle. Structural or functional changes in NBD2 can interfere with normal CFTR activity.",
+                    "R domain": "Regulatory domain. The R domain contains multiple regulatory phosphorylation sites and helps control CFTR channel activity. Phosphorylation of this region is an important step in regulating whether the channel can enter an activated state.",
+                    "TMD1": "Transmembrane domain 1. TMD1 contains multiple membrane-spanning segments that contribute to the structure of the CFTR ion-conducting pathway. Together with TMD2, it forms the membrane-spanning portion of the channel through which chloride and bicarbonate ions can move.",
+                    "TMD2": "Transmembrane domain 2. TMD2 is the second group of membrane-spanning segments in CFTR. It works together with TMD1 to form the ion-conducting pathway and contributes to the structure and selectivity of the channel.",
+                    "Other": "Positions that do not fall within the major CFTR domain ranges used in this project. This category includes regions outside the defined TMD1, NBD1, R domain, TMD2, and NBD2 ranges.",
+                    "Average conservation": "The average evolutionary conservation of the amino-acid positions within a domain. It summarizes how consistently those positions are preserved among the CFTR-related sequences used to calculate conservation in this project."
+                }
+
+                for term, definition in domain_definitions.items():
+
+                    term_id = (
+                        "domain-definition-"
+                        + term.lower()
+                        .replace(" ", "-")
+                        .replace("/", "-")
+                        .replace("(", "")
+                        .replace(")", "")
+                    )
+
                     st.markdown(
-                        """
-                        <h3 class='glossary-heading' style='text-align: center;'>
-                            <details class="position-1481-dropdown">
-                                <summary>CFTR Domain Conservation</summary>
-                                <div class="glossary-definition">
-                                    The average evolutionary conservation of amino-acid positions within each major CFTR domain.
-                                </div>
-                            </details>
-                        </h3>
+                        f"""
+                        <div id="{term_id}" style="scroll-margin-top: 100px;">
+                            <strong>{term}</strong>
+                            <p>{definition}</p>
+                        </div>
                         """,
                         unsafe_allow_html=True
                     )
 
-                    domain_conservation = {
-                        "NBD1": 0.820016,
-                        "NBD2": 0.790831,
-                        "Other": 0.692784,
-                        "R domain": 0.640287,
-                        "TMD1": 0.767632,
-                        "TMD2": 0.729488,
-                    }
-        
-                    domain_chart_data = pd.DataFrame(
-                        list(domain_conservation.items()),
-                        columns=["Domain", "Conservation"]
-                    )
-        
-                    domain_selection = alt.selection_point(
-                        name="domain_selection",
-                        fields=["Domain"],
-                    )
-        
-                    domain_chart = (
-                        alt.Chart(domain_chart_data)
-                        .mark_bar(
-                            color="#ffc4e7",
-                            cornerRadiusTopLeft=6,
-                            cornerRadiusTopRight=6
-                        )
-                        .encode(
-                            x=alt.X(
-                                "Domain:N",
-                                title=None
-                            ),
-                            y=alt.Y(
-                                "Conservation:Q",
-                                title="Average conservation"
-                            ),
-                            tooltip=[
-                                alt.Tooltip(
-                                    "Domain:N",
-                                    title="Domain"
-                                ),
-                                alt.Tooltip(
-                                    "Conservation:Q",
-                                    title="Conservation",
-                                    format=".3f"
-                                )
-                            ]
-                        )
-                        .add_params(domain_selection)
-                    )
-        
-                    st.caption(
-                        "Click a domain's bar in the chart to find its definition in the glossary below."
-                    )
-        
-                    domain_event = st.altair_chart(
-                        domain_chart,
-                        width="stretch",
-                        key="domain_browser_chart",
-                        on_select="rerun"
-                    )
-        
-                    selected_domain = None
-        
-                    selection = domain_event.selection.get(
-                        "domain_selection",
-                        []
-                    )
-        
-                    if selection:
-                        selected_domain = selection[0]["Domain"]
-        
-                        if "last_domain" not in st.session_state:
-                            st.session_state.last_domain = None
-        
-                        if selected_domain == st.session_state.last_domain:
-                            selected_domain = None
-                        else:
-                            st.session_state.last_domain = selected_domain
-        
-                    if selected_domain:
-                        selected_domain_event = (
-                            explored_position,
-                            selected_domain
-                        )
-        
                     st.html(
-                        """
+                        f"""
                         <script>
-                        function navigateToDomain(domain) {
-                            const targetId =
-                                "domain-definition-" +
-                                domain
-                                    .toLowerCase()
-                                    .replace(/ /g, "-")
-                                    .replace(/\//g, "-")
-                                    .replace(/[()]/g, "");
-        
-                            const target = document.getElementById(targetId);
-        
-                            if (!target) {
-                                return;
-                            }
-        
-                            const details = target.closest("details");
-        
-                            details.open = true;
-                            details.dispatchEvent(new Event("toggle"));
-        
-                            setTimeout(() => {
-                                target.scrollIntoView({
-                                    behavior: "smooth",
-                                    block: "center"
-                                });
-        
-                                target.animate(
-                                    [
-                                        { backgroundColor: "rgba(255,196,231,0)" },
-                                        { backgroundColor: "rgba(255,196,231,0.55)" },
-                                        { backgroundColor: "rgba(255,196,231,0)" }
-                                    ],
-                                    {
-                                        duration: 1800,
-                                        easing: "ease-in-out"
-                                    }
-                                );
-                            }, 200);
-                        }
-        
-                        function bindDomainChart() {
-                            const chart = document.querySelector(
-                                '[class*="st-key-domain_browser_chart"]'
-                            );
-        
-                            if (!chart) {
-                                return false;
-                            }
-        
-                            const svg = chart.querySelector("svg");
-        
-                            if (!svg) {
-                                return false;
-                            }
-        
-                            if (svg.dataset.domainBound === "true") {
-                                return true;
-                            }
-        
-                            svg.dataset.domainBound = "true";
-        
-                            svg.addEventListener("click", (event) => {
-                                const element = event.target;
-        
-                                if (!element) {
-                                    return;
-                                }
-        
-                                const ariaLabel =
-                                    element.getAttribute("aria-label") ||
-                                    element.parentElement?.getAttribute("aria-label") ||
-                                    element.parentElement?.parentElement?.getAttribute("aria-label");
-        
-                                if (!ariaLabel) {
-                                    return;
-                                }
-        
-                                const match = ariaLabel.match(/Domain[^:]*:\s*([^,]+)/i);
-        
-                                if (!match) {
-                                    return;
-                                }
-        
-                                navigateToDomain(match[1].trim());
-                            });
-        
-                            return true;
-                        }
-        
-                        if (!bindDomainChart()) {
-                            const domainObserver = new MutationObserver(() => {
-                                if (bindDomainChart()) {
-                                    domainObserver.disconnect();
-                                }
-                            });
-        
-                            domainObserver.observe(document.body, {
-                                childList: true,
-                                subtree: true
-                            });
-                        }
+                        navigateToDomain("{selected_domain}");
                         </script>
                         """,
                         unsafe_allow_javascript=True
                     )
-        
-                    st.markdown(
-                        """
-                        <div id="domain-glossary-anchor"></div>
-                        """,
-                        unsafe_allow_html=True
-                    )
-        
-                    with st.expander(
-                        "Don't Understand Unfamiliar Terms? Click Me! (Explanations Are Simplifed For General-Understanding)"
-                    ):
-        
-                        domain_definitions = {
-                            "NBD1": "Nucleotide-binding domain 1. NBD1 is one of the two major ATP-binding domains of CFTR. It binds ATP and participates in the ATP-dependent conformational changes that regulate channel gating. Changes in this region can affect protein folding, stability, trafficking, or channel activity.",
-                            "NBD2": "Nucleotide-binding domain 2. NBD2 is the second major ATP-binding domain of CFTR and works together with NBD1 during the ATP-dependent gating cycle. Structural or functional changes in NBD2 can interfere with normal CFTR activity.",
-                            "R domain": "Regulatory domain. The R domain contains multiple regulatory phosphorylation sites and helps control CFTR channel activity. Phosphorylation of this region is an important step in regulating whether the channel can enter an activated state.",
-                            "TMD1": "Transmembrane domain 1. TMD1 contains multiple membrane-spanning segments that contribute to the structure of the CFTR ion-conducting pathway. Together with TMD2, it forms the membrane-spanning portion of the channel through which chloride and bicarbonate ions can move.",
-                            "TMD2": "Transmembrane domain 2. TMD2 is the second group of membrane-spanning segments in CFTR. It works together with TMD1 to form the ion-conducting pathway and contributes to the structure and selectivity of the channel.",
-                            "Other": "Positions that do not fall within the major CFTR domain ranges used in this project. This category includes regions outside the defined TMD1, NBD1, R domain, TMD2, and NBD2 ranges.",
-                            "Average conservation": "The average evolutionary conservation of the amino-acid positions within a domain. It summarizes how consistently those positions are preserved among the CFTR-related sequences used to calculate conservation in this project."
-                        }
-        
-                        for term, definition in domain_definitions.items():
-        
-                            term_id = (
-                                "domain-definition-"
-                                + term.lower()
-                                .replace(" ", "-")
-                                .replace("/", "-")
-                                .replace("(", "")
-                                .replace(")", "")
-                            )
-        
-                            st.markdown(
-                                f"""
-                                <div id="{term_id}" style="scroll-margin-top: 100px;">
-                                    <strong>{term}</strong>
-                                    <p>{definition}</p>
-                                </div>
-                                """,
-                                unsafe_allow_html=True
-                            )
-        
-                            st.html(
-                                f"""
-                                <script>
-                                navigateToDomain("{selected_domain}");
-                                </script>
-                                """,
-                                unsafe_allow_javascript=True
-                            )
-        
-                        st.markdown(
-                            "This chart shows a global view of conservation across the major CFTR domains. Comparing these values helps show which regions of CFTR are more strongly conserved across the sequences used in the analysis."
-                        )
-        
-                    hide_button("domain")
+
+                st.markdown(
+                    "This chart shows a global view of conservation across the major CFTR domains. Comparing these values helps show which regions of CFTR are more strongly conserved across the sequences used in the analysis."
+                )
+
+            hide_button("domain")
 
         if "region" in st.session_state.result_sections:
 
@@ -1559,7 +1472,7 @@ if st.session_state["explored_position"] is not None:
         if "interpretation" in st.session_state.result_sections:
 
             if st.session_state.get("explored_position") in valid_positions:
-                
+
                 st.markdown(
                     """
                     <hr style="
@@ -1570,34 +1483,34 @@ if st.session_state["explored_position"] is not None:
                     """,
                     unsafe_allow_html=True
                 )
-                
+
                 st.markdown("""
             <div class="info-bubble">
             <h3>What The Data Suggests (Overall)</h3>
-            
+
             <p>
-            CFTR domains differ in their average conservation, with NBD1 being the most conserved domain in this dataset and the R domain having the lowest average conservation. 
-            Variant distribution also differs across the N-terminal, Middle, and C-terminal regions, and multiple consequence types can occur at the same amino-acid position. 
-            The machine-learning component predicts the likely consequence of a selected amino-acid substitution based on patterns learned from the CFTR variant dataset, 
-            allowing the prediction to be compared with the recorded consequence. These results identify patterns and computational predictions within the dataset but do not 
+            CFTR domains differ in their average conservation, with NBD1 being the most conserved domain in this dataset and the R domain having the lowest average conservation.
+            Variant distribution also differs across the N-terminal, Middle, and C-terminal regions, and multiple consequence types can occur at the same amino-acid position.
+            The machine-learning component predicts the likely consequence of a selected amino-acid substitution based on patterns learned from the CFTR variant dataset,
+            allowing the prediction to be compared with the recorded consequence. These results identify patterns and computational predictions within the dataset but do not
             by themselves establish the biological or clinical effect of an individual variant.
             </div>
             """, unsafe_allow_html=True)
-            
+
                 DON_PATH = Path(__file__).resolve().parent.parent / "images" / "77C31030-2369-452B-B746-B1636E691D0B.gif"
-            
+
                 left, center, right = st.columns([1, 2, 1])
-            
+
                 with center:
                     st.image(
                         str(DON_PATH),
                         width="stretch"
                     )
-            
+
                 st.markdown("""
             <div class="info-bubble">
             <h3>Why This Matters</h3>
-            
+
             <p>
             CFTR helps regulate chloride and bicarbonate transport across epithelial tissues,
             making it important for the normal function of several organs. Changes in CFTR
@@ -1608,7 +1521,7 @@ if st.session_state["explored_position"] is not None:
             produces can provide important information about its potential functional
             significance.
             </p>
-            
+
             <p>
             This project examines CFTR variants from multiple perspectives by investigating
             where variants occur across the protein, what consequence types are associated
@@ -1618,7 +1531,7 @@ if st.session_state["explored_position"] is not None:
             interactive way to investigate patterns between sequence variation and
             characteristics of the affected protein regions.
             </p>
-            
+
             <p>
             The project also incorporates machine learning to analyze individual
             amino-acid substitutions. The model was trained using CFTR variant data and
@@ -1627,7 +1540,7 @@ if st.session_state["explored_position"] is not None:
             also viewing the model's confidence, demonstrating how patterns within existing
             biological data can be used for computational variant classification.
             </p>
-            
+
             <p>
             Together, these analyses connect sequence-level variation, protein-region
             characteristics, conservation, variant consequences, and machine-learning
@@ -1640,21 +1553,21 @@ if st.session_state["explored_position"] is not None:
             </p>
             </div>
             """, unsafe_allow_html=True)
-            
+
                 DON_PATH = Path(__file__).resolve().parent.parent / "images" / "77C31030-2369-452B-B746-B1636E691D0B.gif"
-            
+
                 left, center, right = st.columns([1, 2, 1])
-            
+
                 with center:
                     st.image(
                         str(DON_PATH),
                         width="stretch"
                     )
-            
+
                 st.markdown("""
             <div class="info-bubble">
             <h3>Understanding Variant Consequences</h3>
-            
+
             <p>
             CFTR plays an important role in regulating the movement of chloride and
             bicarbonate ions across epithelial tissues. Variants that reduce or disrupt
@@ -1663,7 +1576,7 @@ if st.session_state["explored_position"] is not None:
             depending on the amount of CFTR function that remains and the specific
             biological properties of the variant.
             </p>
-            
+
             <p>
             In the lungs, substantially impaired CFTR function can contribute to changes
             in airway surface liquid and mucus clearance, which can increase the risk of
@@ -1673,7 +1586,7 @@ if st.session_state["explored_position"] is not None:
             nutrient absorption. The severity and combination of these effects can vary
             between individuals and between different CFTR variants.
             </p>
-            
+
             <p>
             These clinical effects are not determined by variant consequence type alone.
             Different variants can affect CFTR through different molecular mechanisms and
@@ -1686,21 +1599,21 @@ if st.session_state["explored_position"] is not None:
             </p>
             </div>
             """, unsafe_allow_html=True)
-            
+
                 DON_PATH = Path(__file__).resolve().parent.parent / "images" / "77C31030-2369-452B-B746-B1636E691D0B.gif"
-            
+
                 left, center, right = st.columns([1, 2, 1])
-            
+
                 with center:
                     st.image(
                         str(DON_PATH),
                         width="stretch"
                     )
-            
+
                 st.markdown("""
             <div class="info-bubble">
             <h3>From Variant to Clinical Effect</h3>
-            
+
             <p>
             When a CFTR variant substantially reduces CFTR function, the effects can
             extend beyond the protein itself. CFTR helps regulate chloride and bicarbonate
@@ -1708,7 +1621,7 @@ if st.session_state["explored_position"] is not None:
             movement of ions and water, contributing to abnormal secretions in several
             organs.
             </p>
-            
+
             <p>
             In the lungs, impaired CFTR function can contribute to thick, difficult-to-clear
             mucus, airway inflammation, recurrent respiratory infections, and progressive
@@ -1716,53 +1629,15 @@ if st.session_state["explored_position"] is not None:
             the pancreas and intestines, contributing to problems with digestion and
             nutrient absorption.
             </p>
-            
+
             <p>
             These clinical effects are not determined by consequence type alone.
             Different variants can leave different amounts of CFTR function, so variants
             with the same general consequence category can have different biological
             and clinical effects.
             </p>
-            
+
             </div>
             """, unsafe_allow_html=True)
 
             hide_button("interpretation")
-            
-        else:
-            position_info, variants = get_position_summary(explored_position)
-            
-        section_names = {
-            "machine_learning": "Machine Learning Prediction",
-            "model_performance": "Model Performance",
-            "domain": "CFTR Domain Conservation",
-            "region": "Variant Distribution by Protein Region",
-            "consequence": "Variant Consequences",
-            "interpretation": "Interpretation"
-        }
-
-        available_sections = [
-            section
-            for section in section_names
-            if section not in st.session_state.result_sections
-        ]
-
-        if available_sections:
-            divider()
-
-            st.markdown(
-                "<div class='section-choice'>What Would You Like To Explore?</div>",
-                unsafe_allow_html=True
-            )
-
-            choice_columns = st.columns(2)
-
-            for index, section in enumerate(available_sections):
-                with choice_columns[index % 2]:
-                    if st.button(
-                        section_names[section],
-                        key=f"open_{section}",
-                        use_container_width=True
-                    ):
-                        st.session_state.result_sections.add(section)
-                        st.rerun()
