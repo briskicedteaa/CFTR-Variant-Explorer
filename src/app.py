@@ -668,16 +668,16 @@ if st.session_state["explored_position"] is not None:
         
         if explored_position != 1481:
             
-            st.markdown(
-                """
-                <hr style="
-                    border: none;
-                    border-top: 3px solid #c85a91;
-                    margin: 32px 0;
-                ">
-                """,
-                unsafe_allow_html=True
-            )
+        st.markdown(
+            """
+            <hr style="
+                border: none;
+                border-top: 3px solid #c85a91;
+                margin: 32px 0;
+            ">
+            """,
+            unsafe_allow_html=True
+        )
 
                 col1, col2, col3 = st.columns(3)
 
