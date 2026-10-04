@@ -1232,7 +1232,7 @@ if st.session_state["explored_position"] is not None:
                 unsafe_allow_html=True
             )
             
-            st.divider()
+            divider()
 
             st.markdown(
                 """
