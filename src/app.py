@@ -695,7 +695,7 @@ if st.session_state["explored_position"] is not None:
                 divider()
                 
                 st.markdown(
-                    "<h3 style='text-align: center;'>Model Accuracy</h3>",
+                    "<h3 style='text-align: center;'>Model Performance</h3>",
                     unsafe_allow_html=True
                 )
 
