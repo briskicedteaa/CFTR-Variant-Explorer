@@ -427,56 +427,6 @@ if st.session_state["explored_position"] is not None:
             explored_position
         )
 
-        st.markdown(
-            "<div id='result-section-chooser'></div>",
-            unsafe_allow_html=True
-        )
-
-        section_names = {
-            "position_metrics": "Position Metrics",
-            "machine_learning": "Machine Learning Prediction"
-        }
-
-        if explored_position != 1481:
-            section_names["model_performance"] = "Model Performance"
-
-        section_names.update({
-            "domain": "CFTR Domain Conservation",
-            "region": "Variant Distribution by Protein Region",
-            "consequence": "Variant Consequences",
-            "interpretation": "Interpretation"
-        })
-
-        available_sections = [
-            section
-            for section in section_names
-            if section not in st.session_state.result_sections
-        ]
-
-        if available_sections:
-
-            divider()
-
-            st.markdown(
-                "<div class='section-choice'>What Would You Like To Explore?</div>",
-                unsafe_allow_html=True
-            )
-
-            choice_columns = st.columns(2)
-
-            for index, section in enumerate(available_sections):
-
-                with choice_columns[index % 2]:
-
-                    if st.button(
-                        section_names[section],
-                        key=f"open_{section}",
-                        use_container_width=True
-                    ):
-                        st.session_state.result_sections.add(section)
-                        st.session_state["scroll_to_chooser"] = True
-                        st.rerun()
-
         if "position_metrics" in st.session_state.result_sections:
             divider()
             st.markdown(
@@ -1666,6 +1616,56 @@ if st.session_state["explored_position"] is not None:
             """, unsafe_allow_html=True)
 
             hide_button("interpretation")
+            
+        st.markdown(
+            "<div id='result-section-chooser'></div>",
+            unsafe_allow_html=True
+        )
+
+        section_names = {
+            "position_metrics": "Position Metrics",
+            "machine_learning": "Machine Learning Prediction"
+        }
+
+        if explored_position != 1481:
+            section_names["model_performance"] = "Model Performance"
+
+        section_names.update({
+            "domain": "CFTR Domain Conservation",
+            "region": "Variant Distribution by Protein Region",
+            "consequence": "Variant Consequences",
+            "interpretation": "Interpretation"
+        })
+
+        available_sections = [
+            section
+            for section in section_names
+            if section not in st.session_state.result_sections
+        ]
+
+        if available_sections:
+
+            divider()
+
+            st.markdown(
+                "<div class='section-choice'>What Would You Like To Explore?</div>",
+                unsafe_allow_html=True
+            )
+
+            choice_columns = st.columns(2)
+
+            for index, section in enumerate(available_sections):
+
+                with choice_columns[index % 2]:
+
+                    if st.button(
+                        section_names[section],
+                        key=f"open_{section}",
+                        use_container_width=True
+                    ):
+                        st.session_state.result_sections.add(section)
+                        st.session_state["scroll_to_chooser"] = True
+                        st.rerun()
 
         if st.session_state["scroll_to_chooser"]:
 
