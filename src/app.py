@@ -557,8 +557,6 @@ if st.session_state["explored_position"] is not None:
                 "<h3 style='text-align: center;'>Machine Learning Prediction</h3>",
                 unsafe_allow_html=True
             )
-            
-            divider()
 
             st.markdown(
                 """
