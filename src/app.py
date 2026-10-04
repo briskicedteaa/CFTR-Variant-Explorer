@@ -1740,7 +1740,7 @@ if st.session_state["explored_position"] is not None:
             divider()
 
             st.markdown(
-                "<div class='section-choice'>What Would You Like To Explore Next?</div>",
+                "<div class='section-choice'>What Would You Like To Explore?</div>",
                 unsafe_allow_html=True
             )
 
