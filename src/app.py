@@ -679,46 +679,46 @@ if st.session_state["explored_position"] is not None:
                 unsafe_allow_html=True
             )
 
-                col1, col2, col3 = st.columns(3)
+            col1, col2, col3 = st.columns(3)
 
-                with col1:
-                    glossary_metric(
-                        "Predicted consequence",
-                        result["prediction"].title(),
-                        "The consequence predicted by the machine-learning model for the selected variant."
-                    )
-                
-                with col2:
-                    glossary_metric(
-                        "Recorded consequence",
-                        selected_variant["Consequence"].title(),
-                        "The consequence recorded for this variant in the dataset."
-                    )
-                
-                with col3:
-                    glossary_metric(
-                        "Model confidence",
-                        f"{result['confidence']:.2%}" if result["confidence"] is not None else "N/A",
-                        "The confidence score indicates how strongly the model favors its prediction. Because the model was trained on existing CFTR variant data, its predictions should be interpreted as computational estimates rather than definitive evidence of biological or clinical effect."
-                    )
-                    
-                recorded_consequence = selected_variant["Consequence"]
-
-                recorded_model_consequence = (
-                    "Other"
-                    if recorded_consequence in ["initiator codon variant", "-"]
-                    else recorded_consequence
+            with col1:
+                glossary_metric(
+                    "Predicted consequence",
+                    result["prediction"].title(),
+                    "The consequence predicted by the machine-learning model for the selected variant."
+                )
+            
+            with col2:
+                glossary_metric(
+                    "Recorded consequence",
+                    selected_variant["Consequence"].title(),
+                    "The consequence recorded for this variant in the dataset."
+                )
+            
+            with col3:
+                glossary_metric(
+                    "Model confidence",
+                    f"{result['confidence']:.2%}" if result["confidence"] is not None else "N/A",
+                    "The confidence score indicates how strongly the model favors its prediction. Because the model was trained on existing CFTR variant data, its predictions should be interpreted as computational estimates rather than definitive evidence of biological or clinical effect."
                 )
                 
-                if result["prediction"] == recorded_model_consequence:
-                    st.success(
-                        "The model prediction matches the recorded consequence."
-                    )
-                
-                else:
-                    st.warning(
-                        "The model prediction differs from the recorded consequence."
-                    )
+            recorded_consequence = selected_variant["Consequence"]
+
+            recorded_model_consequence = (
+                "Other"
+                if recorded_consequence in ["initiator codon variant", "-"]
+                else recorded_consequence
+            )
+            
+            if result["prediction"] == recorded_model_consequence:
+                st.success(
+                    "The model prediction matches the recorded consequence."
+                )
+            
+            else:
+                st.warning(
+                    "The model prediction differs from the recorded consequence."
+                )
                 
         if explored_position != 1481:
             
