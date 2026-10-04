@@ -412,135 +412,19 @@ if st.session_state["explored_position"] is not None:
 
     else:
         position_info, variants = get_position_summary(explored_position)
-
-        st.markdown(
-            "<h1 style='text-align: center;'>Results</h1>",
-            unsafe_allow_html=True
-        )
-
-        if explored_position == 1481:
-
-            THE_PATH = Path(__file__).resolve().parent.parent / "images" / "0E11DECF-757B-4E64-ADBA-713D560B56A9.gif"
-
-            left, center, right = st.columns([0.5, 4, 0.5])
-
-            with center:
-                st.image(
-                    str(THE_PATH),
-                    width="stretch"
-                )
-
+        
+        if "position_metrics" in st.session_state.result_sections:
+            divider()
+        
             st.markdown(
-                """
-                <h3 style='text-align: center;'>
-                    CFTR Position 1481
-                </h3>
-                """,
+                "<div class='section-title'>Position Metrics</div>",
                 unsafe_allow_html=True
             )
-
-            st.markdown(
-                """
-                <details class="position-1481-dropdown">
-                    <summary>Special Case: Position 1481! (Click For Information About Position 1481)</summary>
-                    <div class="position-1481-content">
-                        <table class="position-1481-table">
-                            <tr>
-                                <th>Topic</th>
-                                <th>Explanation</th>
-                            </tr>
-                            <tr>
-                                <td>Why does position 1481 appear?</td>
-                                <td>CFTR contains 1,480 amino acids. Position 1481 appears in this dataset because stop-loss variants alter the normal stop signal, allowing translation to continue beyond the usual protein endpoint.</td>
-                            </tr>
-                            <tr>
-                                <td>Why is the domain "Other"?</td>
-                                <td>Position 1481 is outside the canonical CFTR protein sequence, so it does not fall within any of the major CFTR domains defined in this analysis.</td>
-                            </tr>
-                            <tr>
-                                <td>Why is conservation "N/A"?</td>
-                                <td>Position 1481 is not a canonical amino-acid position in human CFTR, so it cannot be assigned a conservation score using the same position-based analysis as positions 1–1480.</td>
-                            </tr>
-                            <tr>
-                                <td>Why are there no predictions?</td>
-                                <td>Stop-loss variants were excluded from the machine-learning model because only a very small number were present in the dataset, which was insufficient to support reliable model training for that consequence class.</td>
-                            </tr>
-                        </table>
-                    </div>
-                </details>
-                """,
-                unsafe_allow_html=True
-            )
-
-            variants = variants_df[
-                variants_df["Position"] == 1481
-            ].copy()
-
-        else:
-            st.markdown(
-                f"""
-                <h3 style='text-align: center;'>
-                    CFTR Position {explored_position}
-                </h3>
-                """,
-                unsafe_allow_html=True
-            )
-
-        if explored_position == 1481:
-
-            stop_loss_count = int(
-                (variants_df["Position"] == 1481).sum()
-            )
-
-            col1, col2, col3 = st.columns(3)
-
-            with col1:
-                glossary_metric(
-                    "Domain",
-                    "Other",
-                    "Position 1481 is the stop-loss site immediately after the canonical 1,480-amino-acid CFTR sequence."
-                )
-
-            with col2:
-                glossary_metric(
-                    "Conservation",
-                    "N/A",
-                    "Conservation is not available because position 1481 is not an amino-acid position in canonical human CFTR."
-                )
-
-            with col3:
-                glossary_metric(
-                    "Variant count",
-                    stop_loss_count,
-                    "The number of recorded CFTR variants associated with position 1481 in the dataset."
-                )
-
-        else:
-
-            info = position_info.iloc[0]
-
-            col1, col2, col3 = st.columns(3)
-
-            with col1:
-                glossary_metric(
-                    "Domain",
-                    info["CFTR_Domain"],
-                    "A specific region of a protein that has a particular structure or function."
-                )
-
-            with col2:
-                glossary_metric(
-                    "Conservation",
-                    f"{info['Conservation']:.3f}",
-                    "A measure of how strongly this amino-acid position has been preserved across related proteins."
-                )
-
-            with col3:
-                glossary_metric(
-                    "Variant count",
-                    int(info["Variant_Count"]),
-                    "The number of recorded CFTR variants associated with this amino-acid position in the dataset."
-                )
+        
+            if position_info:
+                st.markdown(position_info)
+        
+            hide_button("position_metrics")
                 
         if "machine_learning" in st.session_state.result_sections:
 
@@ -1756,14 +1640,20 @@ if st.session_state["explored_position"] is not None:
         )
             
         section_names = {
-            "machine_learning": "Machine Learning Prediction",
-            "model_performance": "Model Performance",
+            "position_metrics": "Position Metrics",
+            "machine_learning": "Machine Learning Prediction"
+        }
+        
+        if explored_position != 1481:
+            section_names["model_performance"] = "Model Performance"
+        
+        section_names.update({
             "domain": "CFTR Domain Conservation",
             "region": "Variant Distribution by Protein Region",
             "consequence": "Variant Consequences",
             "interpretation": "Interpretation"
-        }
-
+        })
+        
         available_sections = [
             section
             for section in section_names
