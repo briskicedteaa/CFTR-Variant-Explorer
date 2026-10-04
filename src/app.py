@@ -177,6 +177,11 @@ h1, h2, h3 {
 .position-1481-table td:last-child {
     width: 75%;
 }
+
+.stDivider {
+    border-top: 3px solid #c85a91;
+    margin: 28px 0;
+}
 </style>
 """, unsafe_allow_html=True)
 
