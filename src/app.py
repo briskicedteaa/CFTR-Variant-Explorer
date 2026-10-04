@@ -584,7 +584,7 @@ if st.session_state["explored_position"] is not None:
 
             N_PATH = Path(__file__).resolve().parent.parent / "images" / "bcb43178-c776-4fed-b8ee-5b9f36f8bfa7_removalai_preview.png"
 
-            left, center, right = st.columns([1, 2, 1])
+            left, center, right = st.columns([1, 3, 1])
 
             with center:
                 st.image(
@@ -666,7 +666,7 @@ if st.session_state["explored_position"] is not None:
             
             N_PATH = Path(__file__).resolve().parent.parent / "images" / "bcb43178-c776-4fed-b8ee-5b9f36f8bfa7_removalai_preview.png"
 
-            left, center, right = st.columns([1, 2, 1])
+            left, center, right = st.columns([1, 3, 1])
             
             with center:
                 st.image(
@@ -719,7 +719,7 @@ if st.session_state["explored_position"] is not None:
             
             N_PATH = Path(__file__).resolve().parent.parent / "images" / "bcb43178-c776-4fed-b8ee-5b9f36f8bfa7_removalai_preview.png"
     
-            left, center, right = st.columns([1, 2, 1])
+            left, center, right = st.columns([1, 3, 1])
             
             with center:
                 st.image(
@@ -745,7 +745,7 @@ if st.session_state["explored_position"] is not None:
                 
             N_PATH = Path(__file__).resolve().parent.parent / "images" / "bcb43178-c776-4fed-b8ee-5b9f36f8bfa7_removalai_preview.png"
 
-            left, center, right = st.columns([1, 2, 1])
+            left, center, right = st.columns([1, 3, 1])
 
             with center:
                 st.image(
