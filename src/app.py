@@ -690,34 +690,38 @@ if st.session_state["explored_position"] is not None:
                     "No variants at this position are eligible for the machine-learning prediction."
                 )
 
-        if explored_position != 1481:
-
-            divider()
-            
-            st.markdown(
-                "<h3 style='text-align: center;'>Model Performance</h3>",
-                unsafe_allow_html=True
-            )
-
-            col1, col2 = st.columns(2)
-
-            with col1:
-                glossary_metric(
-                    "Model accuracy",
-                    f"{model_metrics['accuracy']:.1%}",
-                    "Model accuracy is the proportion of test variants that the model classified correctly."
-                )
-
-            with col2:
-                glossary_metric(
-                    "Macro F1",
-                    f"{model_metrics['macro_f1']:.1%}",
-                    "Macro F1 measures how well the model performs across all consequence classes by calculating the F1 score for each class and giving every class equal weight. This is especially useful for imbalanced datasets like this one, where some consequence types are much rarer than others."
-                )
-
             hide_button("machine_learning")
-    
-        if "domain" in st.session_state.result_sections:
+
+        if "model_performance" in st.session_state.result_sections:
+
+            if explored_position != 1481:
+
+                divider()
+
+                st.markdown(
+                    "<h3 style='text-align: center;'>Model Performance</h3>",
+                    unsafe_allow_html=True
+                )
+
+                col1, col2 = st.columns(2)
+
+                with col1:
+                    glossary_metric(
+                        "Model accuracy",
+                        f"{model_metrics['accuracy']:.1%}",
+                        "Model accuracy is the proportion of test variants that the model classified correctly."
+                    )
+
+                with col2:
+                    glossary_metric(
+                        "Macro F1",
+                        f"{model_metrics['macro_f1']:.1%}",
+                        "Macro F1 measures how well the model performs across all consequence classes by calculating the F1 score for each class and giving every class equal weight. This is especially useful for imbalanced datasets like this one, where some consequence types are much rarer than others."
+                    )
+
+                hide_button("model_performance")
+
+if "domain" in st.session_state.result_sections:
 
             divider()
 
