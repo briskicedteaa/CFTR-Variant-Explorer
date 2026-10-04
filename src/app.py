@@ -429,14 +429,55 @@ if st.session_state["explored_position"] is not None:
 
         if "position_metrics" in st.session_state.result_sections:
             divider()
+        
             st.markdown(
                 "<h3 style='text-align: center;'>Position Metrics</h3>",
                 unsafe_allow_html=True
             )
+        
+            position_row = None
+        
             if position_info is not None and not position_info.empty:
-                st.dataframe(position_info, use_container_width=True)
+                position_row = position_info.iloc[0]
+        
+            if position_row is not None:
+                position_value = explored_position
+        
+                conservation_value = position_row.get(
+                    "Conservation",
+                    "N/A"
+                )
+        
+                domain_value = position_row.get(
+                    "Domain",
+                    "N/A"
+                )
+        
+                col1, col2, col3 = st.columns(3)
+        
+                with col1:
+                    glossary_metric(
+                        "Position",
+                        position_value,
+                        "The amino-acid position in the CFTR protein where the recorded variant occurs."
+                    )
+        
+                with col2:
+                    glossary_metric(
+                        "Conservation",
+                        conservation_value,
+                        "A conservation score describing how strongly the amino-acid position is preserved across the sequences used in this project."
+                    )
+        
+                with col3:
+                    glossary_metric(
+                        "Domain",
+                        domain_value,
+                        "The major CFTR protein domain containing this amino-acid position."
+                    )
+        
             hide_button("position_metrics")
-
+        
         if "machine_learning" in st.session_state.result_sections:
 
             divider()
