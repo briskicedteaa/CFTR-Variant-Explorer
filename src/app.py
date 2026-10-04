@@ -693,6 +693,11 @@ if st.session_state["explored_position"] is not None:
             if explored_position != 1481:
 
                 divider()
+                
+                st.markdown(
+                    "<h3 style='text-align: center;'>Model Accuracy</h3>",
+                    unsafe_allow_html=True
+                )
 
                 col1, col2 = st.columns(2)
 
