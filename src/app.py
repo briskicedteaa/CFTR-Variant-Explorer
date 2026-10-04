@@ -443,9 +443,9 @@ if st.session_state["explored_position"] is not None:
             if position_row is not None:
                 position_value = explored_position
         
-                conservation_value = position_row.get(
-                    "Conservation",
-                    "N/A"
+                conservation_value = round(
+                    position_row.get("Conservation", 0),
+                    2
                 )
         
                 domain_value = position_row.get(
@@ -464,9 +464,9 @@ if st.session_state["explored_position"] is not None:
         
                 with col2:
                     glossary_metric(
-                        "Conservation",
+                        "Conservation (Rounded To Two Decimal Places)",
                         conservation_value,
-                        "A conservation score describing how strongly the amino-acid position is preserved across the sequences used in this project."
+                        "A conservation score describing how strongly the amino-acid position is preserved across the sequences present in the dataset."
                     )
         
                 with col3:
