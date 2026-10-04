@@ -721,274 +721,274 @@ if st.session_state["explored_position"] is not None:
 
                 hide_button("model_performance")
 
-if "domain" in st.session_state.result_sections:
-
-            divider()
-
-            st.markdown(
-                """
-                <h3 class='glossary-heading' style='text-align: center;'>
-                    <details class="position-1481-dropdown">
-                        <summary>CFTR Domain Conservation</summary>
-                        <div class="glossary-definition">
-                            The average evolutionary conservation of amino-acid positions within each major CFTR domain.
-                        </div>
-                    </details>
-                </h3>
-                """,
-                unsafe_allow_html=True
-            )
-
-            domain_conservation = {
-                "NBD1": 0.820016,
-                "NBD2": 0.790831,
-                "Other": 0.692784,
-                "R domain": 0.640287,
-                "TMD1": 0.767632,
-                "TMD2": 0.729488,
-            }
-
-            domain_chart_data = pd.DataFrame(
-                list(domain_conservation.items()),
-                columns=["Domain", "Conservation"]
-            )
-
-            domain_selection = alt.selection_point(
-                name="domain_selection",
-                fields=["Domain"],
-            )
-
-            domain_chart = (
-                alt.Chart(domain_chart_data)
-                .mark_bar(
-                    color="#ffc4e7",
-                    cornerRadiusTopLeft=6,
-                    cornerRadiusTopRight=6
-                )
-                .encode(
-                    x=alt.X(
-                        "Domain:N",
-                        title=None
-                    ),
-                    y=alt.Y(
-                        "Conservation:Q",
-                        title="Average conservation"
-                    ),
-                    tooltip=[
-                        alt.Tooltip(
-                            "Domain:N",
-                            title="Domain"
-                        ),
-                        alt.Tooltip(
-                            "Conservation:Q",
-                            title="Conservation",
-                            format=".3f"
-                        )
-                    ]
-                )
-                .add_params(domain_selection)
-            )
-
-            st.caption(
-                "Click a domain's bar in the chart to find its definition in the glossary below."
-            )
-
-            domain_event = st.altair_chart(
-                domain_chart,
-                width="stretch",
-                key="domain_browser_chart",
-                on_select="rerun"
-            )
-
-            selected_domain = None
-
-            selection = domain_event.selection.get(
-                "domain_selection",
-                []
-            )
-
-            if selection:
-                selected_domain = selection[0]["Domain"]
-
-                if "last_domain" not in st.session_state:
-                    st.session_state.last_domain = None
-
-                if selected_domain == st.session_state.last_domain:
-                    selected_domain = None
-                else:
-                    st.session_state.last_domain = selected_domain
-
-            if selected_domain:
-                selected_domain_event = (
-                    explored_position,
-                    selected_domain
-                )
-
-            st.html(
-                """
-                <script>
-                function navigateToDomain(domain) {
-                    const targetId =
-                        "domain-definition-" +
-                        domain
-                            .toLowerCase()
-                            .replace(/ /g, "-")
-                            .replace(/\//g, "-")
-                            .replace(/[()]/g, "");
-
-                    const target = document.getElementById(targetId);
-
-                    if (!target) {
-                        return;
-                    }
-
-                    const details = target.closest("details");
-
-                    details.open = true;
-                    details.dispatchEvent(new Event("toggle"));
-
-                    setTimeout(() => {
-                        target.scrollIntoView({
-                            behavior: "smooth",
-                            block: "center"
-                        });
-
-                        target.animate(
-                            [
-                                { backgroundColor: "rgba(255,196,231,0)" },
-                                { backgroundColor: "rgba(255,196,231,0.55)" },
-                                { backgroundColor: "rgba(255,196,231,0)" }
-                            ],
-                            {
-                                duration: 1800,
-                                easing: "ease-in-out"
-                            }
-                        );
-                    }, 200);
-                }
-
-                function bindDomainChart() {
-                    const chart = document.querySelector(
-                        '[class*="st-key-domain_browser_chart"]'
-                    );
-
-                    if (!chart) {
-                        return false;
-                    }
-
-                    const svg = chart.querySelector("svg");
-
-                    if (!svg) {
-                        return false;
-                    }
-
-                    if (svg.dataset.domainBound === "true") {
-                        return true;
-                    }
-
-                    svg.dataset.domainBound = "true";
-
-                    svg.addEventListener("click", (event) => {
-                        const element = event.target;
-
-                        if (!element) {
-                            return;
-                        }
-
-                        const ariaLabel =
-                            element.getAttribute("aria-label") ||
-                            element.parentElement?.getAttribute("aria-label") ||
-                            element.parentElement?.parentElement?.getAttribute("aria-label");
-
-                        if (!ariaLabel) {
-                            return;
-                        }
-
-                        const match = ariaLabel.match(/Domain[^:]*:\s*([^,]+)/i);
-
-                        if (!match) {
-                            return;
-                        }
-
-                        navigateToDomain(match[1].trim());
-                    });
-
-                    return true;
-                }
-
-                if (!bindDomainChart()) {
-                    const domainObserver = new MutationObserver(() => {
-                        if (bindDomainChart()) {
-                            domainObserver.disconnect();
-                        }
-                    });
-
-                    domainObserver.observe(document.body, {
-                        childList: true,
-                        subtree: true
-                    });
-                }
-                </script>
-                """,
-                unsafe_allow_javascript=True
-            )
-
-            st.markdown(
-                """
-                <div id="domain-glossary-anchor"></div>
-                """,
-                unsafe_allow_html=True
-            )
-
-            with st.expander(
-                "Don't Understand Unfamiliar Terms? Click Me! (Explanations Are Simplifed For General-Understanding)"
-            ):
-
-                domain_definitions = {
-                    "NBD1": "Nucleotide-binding domain 1. NBD1 is one of the two major ATP-binding domains of CFTR. It binds ATP and participates in the ATP-dependent conformational changes that regulate channel gating. Changes in this region can affect protein folding, stability, trafficking, or channel activity.",
-                    "NBD2": "Nucleotide-binding domain 2. NBD2 is the second major ATP-binding domain of CFTR and works together with NBD1 during the ATP-dependent gating cycle. Structural or functional changes in NBD2 can interfere with normal CFTR activity.",
-                    "R domain": "Regulatory domain. The R domain contains multiple regulatory phosphorylation sites and helps control CFTR channel activity. Phosphorylation of this region is an important step in regulating whether the channel can enter an activated state.",
-                    "TMD1": "Transmembrane domain 1. TMD1 contains multiple membrane-spanning segments that contribute to the structure of the CFTR ion-conducting pathway. Together with TMD2, it forms the membrane-spanning portion of the channel through which chloride and bicarbonate ions can move.",
-                    "TMD2": "Transmembrane domain 2. TMD2 is the second group of membrane-spanning segments in CFTR. It works together with TMD1 to form the ion-conducting pathway and contributes to the structure and selectivity of the channel.",
-                    "Other": "Positions that do not fall within the major CFTR domain ranges used in this project. This category includes regions outside the defined TMD1, NBD1, R domain, TMD2, and NBD2 ranges.",
-                    "Average conservation": "The average evolutionary conservation of the amino-acid positions within a domain. It summarizes how consistently those positions are preserved among the CFTR-related sequences used to calculate conservation in this project."
-                }
-
-                for term, definition in domain_definitions.items():
-
-                    term_id = (
-                        "domain-definition-"
-                        + term.lower()
-                        .replace(" ", "-")
-                        .replace("/", "-")
-                        .replace("(", "")
-                        .replace(")", "")
-                    )
-
+        if "domain" in st.session_state.result_sections:
+        
+                    divider()
+        
                     st.markdown(
-                        f"""
-                        <div id="{term_id}" style="scroll-margin-top: 100px;">
-                            <strong>{term}</strong>
-                            <p>{definition}</p>
-                        </div>
+                        """
+                        <h3 class='glossary-heading' style='text-align: center;'>
+                            <details class="position-1481-dropdown">
+                                <summary>CFTR Domain Conservation</summary>
+                                <div class="glossary-definition">
+                                    The average evolutionary conservation of amino-acid positions within each major CFTR domain.
+                                </div>
+                            </details>
+                        </h3>
                         """,
                         unsafe_allow_html=True
                     )
 
+                    domain_conservation = {
+                        "NBD1": 0.820016,
+                        "NBD2": 0.790831,
+                        "Other": 0.692784,
+                        "R domain": 0.640287,
+                        "TMD1": 0.767632,
+                        "TMD2": 0.729488,
+                    }
+        
+                    domain_chart_data = pd.DataFrame(
+                        list(domain_conservation.items()),
+                        columns=["Domain", "Conservation"]
+                    )
+        
+                    domain_selection = alt.selection_point(
+                        name="domain_selection",
+                        fields=["Domain"],
+                    )
+        
+                    domain_chart = (
+                        alt.Chart(domain_chart_data)
+                        .mark_bar(
+                            color="#ffc4e7",
+                            cornerRadiusTopLeft=6,
+                            cornerRadiusTopRight=6
+                        )
+                        .encode(
+                            x=alt.X(
+                                "Domain:N",
+                                title=None
+                            ),
+                            y=alt.Y(
+                                "Conservation:Q",
+                                title="Average conservation"
+                            ),
+                            tooltip=[
+                                alt.Tooltip(
+                                    "Domain:N",
+                                    title="Domain"
+                                ),
+                                alt.Tooltip(
+                                    "Conservation:Q",
+                                    title="Conservation",
+                                    format=".3f"
+                                )
+                            ]
+                        )
+                        .add_params(domain_selection)
+                    )
+        
+                    st.caption(
+                        "Click a domain's bar in the chart to find its definition in the glossary below."
+                    )
+        
+                    domain_event = st.altair_chart(
+                        domain_chart,
+                        width="stretch",
+                        key="domain_browser_chart",
+                        on_select="rerun"
+                    )
+        
+                    selected_domain = None
+        
+                    selection = domain_event.selection.get(
+                        "domain_selection",
+                        []
+                    )
+        
+                    if selection:
+                        selected_domain = selection[0]["Domain"]
+        
+                        if "last_domain" not in st.session_state:
+                            st.session_state.last_domain = None
+        
+                        if selected_domain == st.session_state.last_domain:
+                            selected_domain = None
+                        else:
+                            st.session_state.last_domain = selected_domain
+        
+                    if selected_domain:
+                        selected_domain_event = (
+                            explored_position,
+                            selected_domain
+                        )
+        
                     st.html(
-                        f"""
+                        """
                         <script>
-                        navigateToDomain("{selected_domain}");
+                        function navigateToDomain(domain) {
+                            const targetId =
+                                "domain-definition-" +
+                                domain
+                                    .toLowerCase()
+                                    .replace(/ /g, "-")
+                                    .replace(/\//g, "-")
+                                    .replace(/[()]/g, "");
+        
+                            const target = document.getElementById(targetId);
+        
+                            if (!target) {
+                                return;
+                            }
+        
+                            const details = target.closest("details");
+        
+                            details.open = true;
+                            details.dispatchEvent(new Event("toggle"));
+        
+                            setTimeout(() => {
+                                target.scrollIntoView({
+                                    behavior: "smooth",
+                                    block: "center"
+                                });
+        
+                                target.animate(
+                                    [
+                                        { backgroundColor: "rgba(255,196,231,0)" },
+                                        { backgroundColor: "rgba(255,196,231,0.55)" },
+                                        { backgroundColor: "rgba(255,196,231,0)" }
+                                    ],
+                                    {
+                                        duration: 1800,
+                                        easing: "ease-in-out"
+                                    }
+                                );
+                            }, 200);
+                        }
+        
+                        function bindDomainChart() {
+                            const chart = document.querySelector(
+                                '[class*="st-key-domain_browser_chart"]'
+                            );
+        
+                            if (!chart) {
+                                return false;
+                            }
+        
+                            const svg = chart.querySelector("svg");
+        
+                            if (!svg) {
+                                return false;
+                            }
+        
+                            if (svg.dataset.domainBound === "true") {
+                                return true;
+                            }
+        
+                            svg.dataset.domainBound = "true";
+        
+                            svg.addEventListener("click", (event) => {
+                                const element = event.target;
+        
+                                if (!element) {
+                                    return;
+                                }
+        
+                                const ariaLabel =
+                                    element.getAttribute("aria-label") ||
+                                    element.parentElement?.getAttribute("aria-label") ||
+                                    element.parentElement?.parentElement?.getAttribute("aria-label");
+        
+                                if (!ariaLabel) {
+                                    return;
+                                }
+        
+                                const match = ariaLabel.match(/Domain[^:]*:\s*([^,]+)/i);
+        
+                                if (!match) {
+                                    return;
+                                }
+        
+                                navigateToDomain(match[1].trim());
+                            });
+        
+                            return true;
+                        }
+        
+                        if (!bindDomainChart()) {
+                            const domainObserver = new MutationObserver(() => {
+                                if (bindDomainChart()) {
+                                    domainObserver.disconnect();
+                                }
+                            });
+        
+                            domainObserver.observe(document.body, {
+                                childList: true,
+                                subtree: true
+                            });
+                        }
                         </script>
                         """,
                         unsafe_allow_javascript=True
                     )
-
-                st.markdown(
-                    "This chart shows a global view of conservation across the major CFTR domains. Comparing these values helps show which regions of CFTR are more strongly conserved across the sequences used in the analysis."
-                )
-
-            hide_button("domain")
+        
+                    st.markdown(
+                        """
+                        <div id="domain-glossary-anchor"></div>
+                        """,
+                        unsafe_allow_html=True
+                    )
+        
+                    with st.expander(
+                        "Don't Understand Unfamiliar Terms? Click Me! (Explanations Are Simplifed For General-Understanding)"
+                    ):
+        
+                        domain_definitions = {
+                            "NBD1": "Nucleotide-binding domain 1. NBD1 is one of the two major ATP-binding domains of CFTR. It binds ATP and participates in the ATP-dependent conformational changes that regulate channel gating. Changes in this region can affect protein folding, stability, trafficking, or channel activity.",
+                            "NBD2": "Nucleotide-binding domain 2. NBD2 is the second major ATP-binding domain of CFTR and works together with NBD1 during the ATP-dependent gating cycle. Structural or functional changes in NBD2 can interfere with normal CFTR activity.",
+                            "R domain": "Regulatory domain. The R domain contains multiple regulatory phosphorylation sites and helps control CFTR channel activity. Phosphorylation of this region is an important step in regulating whether the channel can enter an activated state.",
+                            "TMD1": "Transmembrane domain 1. TMD1 contains multiple membrane-spanning segments that contribute to the structure of the CFTR ion-conducting pathway. Together with TMD2, it forms the membrane-spanning portion of the channel through which chloride and bicarbonate ions can move.",
+                            "TMD2": "Transmembrane domain 2. TMD2 is the second group of membrane-spanning segments in CFTR. It works together with TMD1 to form the ion-conducting pathway and contributes to the structure and selectivity of the channel.",
+                            "Other": "Positions that do not fall within the major CFTR domain ranges used in this project. This category includes regions outside the defined TMD1, NBD1, R domain, TMD2, and NBD2 ranges.",
+                            "Average conservation": "The average evolutionary conservation of the amino-acid positions within a domain. It summarizes how consistently those positions are preserved among the CFTR-related sequences used to calculate conservation in this project."
+                        }
+        
+                        for term, definition in domain_definitions.items():
+        
+                            term_id = (
+                                "domain-definition-"
+                                + term.lower()
+                                .replace(" ", "-")
+                                .replace("/", "-")
+                                .replace("(", "")
+                                .replace(")", "")
+                            )
+        
+                            st.markdown(
+                                f"""
+                                <div id="{term_id}" style="scroll-margin-top: 100px;">
+                                    <strong>{term}</strong>
+                                    <p>{definition}</p>
+                                </div>
+                                """,
+                                unsafe_allow_html=True
+                            )
+        
+                            st.html(
+                                f"""
+                                <script>
+                                navigateToDomain("{selected_domain}");
+                                </script>
+                                """,
+                                unsafe_allow_javascript=True
+                            )
+        
+                        st.markdown(
+                            "This chart shows a global view of conservation across the major CFTR domains. Comparing these values helps show which regions of CFTR are more strongly conserved across the sequences used in the analysis."
+                        )
+        
+                    hide_button("domain")
 
         if "region" in st.session_state.result_sections:
 
