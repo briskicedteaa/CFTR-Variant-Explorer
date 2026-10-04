@@ -1551,170 +1551,174 @@ if st.session_state["explored_position"] is not None:
 
         if "interpretation" in st.session_state.result_sections:
 
-            divider()
-
-            st.markdown(
-                """
-                <div class="info-bubble">
-                    <h3>What The Data Suggests (Overall)</h3>
-                    <p>
-                    CFTR domains differ in their average conservation, with NBD1 being the most conserved domain in this dataset and the R domain having the lowest average conservation.
-                    Variant distribution also differs across the N-terminal, Middle, and C-terminal regions, and multiple consequence types can occur at the same amino-acid position.
-                    The machine-learning component predicts the likely consequence of a selected amino-acid substitution based on patterns learned from the CFTR variant dataset,
-                    allowing the prediction to be compared with the recorded consequence. These results identify patterns and computational predictions within the dataset but do not
-                    by themselves establish the biological or clinical effect of an individual variant.
-                    </p>
-                </div>
-                """,
-                unsafe_allow_html=True
-            )
-
-            DON_PATH = Path(__file__).resolve().parent.parent / "images" / "77C31030-2369-452B-B746-B1636E691D0B.gif"
-
-            left, center, right = st.columns([1, 2, 1])
-
-            with center:
-                st.image(
-                    str(DON_PATH),
-                    width="stretch"
+            if st.session_state.get("explored_position") in valid_positions:
+                
+                st.markdown(
+                    """
+                    <hr style="
+                        border: none;
+                        border-top: 3px solid #c85a91;
+                        margin: 32px 0;
+                    ">
+                    """,
+                    unsafe_allow_html=True
                 )
-
-            st.markdown(
-                """
-                <div class="info-bubble">
-                    <h3>Why This Matters</h3>
-
-                    <p>
-                    CFTR helps regulate chloride and bicarbonate transport across epithelial tissues,
-                    making it important for the normal function of several organs. Changes in CFTR
-                    can affect how the protein folds, reaches the cell surface, or functions as an
-                    ion channel, contributing to the effects associated with cystic fibrosis and
-                    other CFTR-related conditions. Because different variants can affect CFTR in
-                    different ways, identifying where a variant occurs and what type of change it
-                    produces can provide important information about its potential functional
-                    significance.
-                    </p>
-
-                    <p>
-                    This project examines CFTR variants from multiple perspectives by investigating
-                    where variants occur across the protein, what consequence types are associated
-                    with those positions, which protein regions contain greater numbers of variants,
-                    and how conserved different CFTR domains are. By comparing variant locations
-                    with regional and domain-level characteristics, the Explorer provides an
-                    interactive way to investigate patterns between sequence variation and
-                    characteristics of the affected protein regions.
-                    </p>
-
-                    <p>
-                    The project also incorporates machine learning to analyze individual
-                    amino-acid substitutions. The model was trained using CFTR variant data and
-                    predicts the likely consequence of a selected substitution. Users can compare
-                    the model's prediction with the recorded consequence of that variant while
-                    also viewing the model's confidence, demonstrating how patterns within existing
-                    biological data can be used for computational variant classification.
-                    </p>
-
-                    <p>
-                    Together, these analyses connect sequence-level variation, protein-region
-                    characteristics, conservation, variant consequences, and machine-learning
-                    prediction in one interactive tool. The goal is to identify patterns that may
-                    help explain why variants occurring in different parts of CFTR can have
-                    different functional consequences. Importantly, these patterns and
-                    machine-learning predictions represent computational analyses of the available
-                    dataset and should not be interpreted as definitive evidence of an individual
-                    variant's biological or clinical effect.
-                    </p>
-                </div>
-                """,
-                unsafe_allow_html=True
-            )
-
-            left, center, right = st.columns([1, 2, 1])
-
-            with center:
-                st.image(
-                    str(DON_PATH),
-                    width="stretch"
-                )
-
-            st.markdown(
-                """
-                <div class="info-bubble">
-                    <h3>Understanding Variant Consequences</h3>
-
-                    <p>
-                    CFTR plays an important role in regulating the movement of chloride and
-                    bicarbonate ions across epithelial tissues. Variants that reduce or disrupt
-                    CFTR function can alter this transport and affect the movement of water and
-                    ions across tissues. The resulting effects can involve multiple organs,
-                    depending on the amount of CFTR function that remains and the specific
-                    biological properties of the variant.
-                    </p>
-
-                    <p>
-                    In the lungs, substantially impaired CFTR function can contribute to changes
-                    in airway surface liquid and mucus clearance, which can increase the risk of
-                    airway obstruction, inflammation, and recurrent respiratory infections. In
-                    the digestive system, CFTR dysfunction can affect the pancreas and
-                    gastrointestinal tract and may contribute to difficulties with digestion and
-                    nutrient absorption. The severity and combination of these effects can vary
-                    between individuals and between different CFTR variants.
-                    </p>
-
-                    <p>
-                    These clinical effects are not determined by variant consequence type alone.
-                    Different variants can affect CFTR through different molecular mechanisms and
-                    can leave different amounts of residual protein function. As a result,
-                    variants with the same general consequence category can have different
-                    biological effects and may be associated with different clinical outcomes.
-                    This is why examining variant location, consequence, conservation, and
-                    protein-region characteristics together can provide more context than
-                    considering consequence type alone.
-                    </p>
-                </div>
-                """,
-                unsafe_allow_html=True
-            )
-
-            left, center, right = st.columns([1, 2, 1])
-
-            with center:
-                st.image(
-                    str(DON_PATH),
-                    width="stretch"
-                )
-
-            st.markdown(
-                """
-                <div class="info-bubble">
-                    <h3>From Variant to Clinical Effect</h3>
-
-                    <p>
-                    When a CFTR variant substantially reduces CFTR function, the effects can
-                    extend beyond the protein itself. CFTR helps regulate chloride and bicarbonate
-                    transport across epithelial tissues. Reduced CFTR activity can disrupt the
-                    movement of ions and water, contributing to abnormal secretions in several
-                    organs.
-                    </p>
-
-                    <p>
-                    In the lungs, impaired CFTR function can contribute to thick, difficult-to-clear
-                    mucus, airway inflammation, recurrent respiratory infections, and progressive
-                    loss of lung function. In the digestive system, CFTR dysfunction can affect
-                    the pancreas and intestines, contributing to problems with digestion and
-                    nutrient absorption.
-                    </p>
-
-                    <p>
-                    These clinical effects are not determined by consequence type alone.
-                    Different variants can leave different amounts of CFTR function, so variants
-                    with the same general consequence category can have different biological
-                    and clinical effects.
-                    </p>
-                </div>
-                """,
-                unsafe_allow_html=True
-            )
+                
+                st.markdown("""
+            <div class="info-bubble">
+            <h3>What The Data Suggests (Overall)</h3>
+            
+            <p>
+            CFTR domains differ in their average conservation, with NBD1 being the most conserved domain in this dataset and the R domain having the lowest average conservation. 
+            Variant distribution also differs across the N-terminal, Middle, and C-terminal regions, and multiple consequence types can occur at the same amino-acid position. 
+            The machine-learning component predicts the likely consequence of a selected amino-acid substitution based on patterns learned from the CFTR variant dataset, 
+            allowing the prediction to be compared with the recorded consequence. These results identify patterns and computational predictions within the dataset but do not 
+            by themselves establish the biological or clinical effect of an individual variant.
+            </div>
+            """, unsafe_allow_html=True)
+            
+                DON_PATH = Path(__file__).resolve().parent.parent / "images" / "77C31030-2369-452B-B746-B1636E691D0B.gif"
+            
+                left, center, right = st.columns([1, 2, 1])
+            
+                with center:
+                    st.image(
+                        str(DON_PATH),
+                        width="stretch"
+                    )
+            
+                st.markdown("""
+            <div class="info-bubble">
+            <h3>Why This Matters</h3>
+            
+            <p>
+            CFTR helps regulate chloride and bicarbonate transport across epithelial tissues,
+            making it important for the normal function of several organs. Changes in CFTR
+            can affect how the protein folds, reaches the cell surface, or functions as an
+            ion channel, contributing to the effects associated with cystic fibrosis and
+            other CFTR-related conditions. Because different variants can affect CFTR in
+            different ways, identifying where a variant occurs and what type of change it
+            produces can provide important information about its potential functional
+            significance.
+            </p>
+            
+            <p>
+            This project examines CFTR variants from multiple perspectives by investigating
+            where variants occur across the protein, what consequence types are associated
+            with those positions, which protein regions contain greater numbers of variants,
+            and how conserved different CFTR domains are. By comparing variant locations
+            with regional and domain-level characteristics, the Explorer provides an
+            interactive way to investigate patterns between sequence variation and
+            characteristics of the affected protein regions.
+            </p>
+            
+            <p>
+            The project also incorporates machine learning to analyze individual
+            amino-acid substitutions. The model was trained using CFTR variant data and
+            predicts the likely consequence of a selected substitution. Users can compare
+            the model's prediction with the recorded consequence of that variant while
+            also viewing the model's confidence, demonstrating how patterns within existing
+            biological data can be used for computational variant classification.
+            </p>
+            
+            <p>
+            Together, these analyses connect sequence-level variation, protein-region
+            characteristics, conservation, variant consequences, and machine-learning
+            prediction in one interactive tool. The goal is to identify patterns that may
+            help explain why variants occurring in different parts of CFTR can have
+            different functional consequences. Importantly, these patterns and
+            machine-learning predictions represent computational analyses of the available
+            dataset and should not be interpreted as definitive evidence of an individual
+            variant's biological or clinical effect.
+            </p>
+            </div>
+            """, unsafe_allow_html=True)
+            
+                DON_PATH = Path(__file__).resolve().parent.parent / "images" / "77C31030-2369-452B-B746-B1636E691D0B.gif"
+            
+                left, center, right = st.columns([1, 2, 1])
+            
+                with center:
+                    st.image(
+                        str(DON_PATH),
+                        width="stretch"
+                    )
+            
+                st.markdown("""
+            <div class="info-bubble">
+            <h3>Understanding Variant Consequences</h3>
+            
+            <p>
+            CFTR plays an important role in regulating the movement of chloride and
+            bicarbonate ions across epithelial tissues. Variants that reduce or disrupt
+            CFTR function can alter this transport and affect the movement of water and
+            ions across tissues. The resulting effects can involve multiple organs,
+            depending on the amount of CFTR function that remains and the specific
+            biological properties of the variant.
+            </p>
+            
+            <p>
+            In the lungs, substantially impaired CFTR function can contribute to changes
+            in airway surface liquid and mucus clearance, which can increase the risk of
+            airway obstruction, inflammation, and recurrent respiratory infections. In
+            the digestive system, CFTR dysfunction can affect the pancreas and
+            gastrointestinal tract and may contribute to difficulties with digestion and
+            nutrient absorption. The severity and combination of these effects can vary
+            between individuals and between different CFTR variants.
+            </p>
+            
+            <p>
+            These clinical effects are not determined by variant consequence type alone.
+            Different variants can affect CFTR through different molecular mechanisms and
+            can leave different amounts of residual protein function. As a result,
+            variants with the same general consequence category can have different
+            biological effects and may be associated with different clinical outcomes.
+            This is why examining variant location, consequence, conservation, and
+            protein-region characteristics together can provide more context than
+            considering consequence type alone.
+            </p>
+            </div>
+            """, unsafe_allow_html=True)
+            
+                DON_PATH = Path(__file__).resolve().parent.parent / "images" / "77C31030-2369-452B-B746-B1636E691D0B.gif"
+            
+                left, center, right = st.columns([1, 2, 1])
+            
+                with center:
+                    st.image(
+                        str(DON_PATH),
+                        width="stretch"
+                    )
+            
+                st.markdown("""
+            <div class="info-bubble">
+            <h3>From Variant to Clinical Effect</h3>
+            
+            <p>
+            When a CFTR variant substantially reduces CFTR function, the effects can
+            extend beyond the protein itself. CFTR helps regulate chloride and bicarbonate
+            transport across epithelial tissues. Reduced CFTR activity can disrupt the
+            movement of ions and water, contributing to abnormal secretions in several
+            organs.
+            </p>
+            
+            <p>
+            In the lungs, impaired CFTR function can contribute to thick, difficult-to-clear
+            mucus, airway inflammation, recurrent respiratory infections, and progressive
+            loss of lung function. In the digestive system, CFTR dysfunction can affect
+            the pancreas and intestines, contributing to problems with digestion and
+            nutrient absorption.
+            </p>
+            
+            <p>
+            These clinical effects are not determined by consequence type alone.
+            Different variants can leave different amounts of CFTR function, so variants
+            with the same general consequence category can have different biological
+            and clinical effects.
+            </p>
+            
+            </div>
+            """, unsafe_allow_html=True)
 
             hide_button("interpretation")
             
