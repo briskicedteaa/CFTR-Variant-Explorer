@@ -399,10 +399,7 @@ if st.button("Explore position"):
 
         else:
             st.session_state["explored_position"] = position
-
-            if position != 1481:
-                st.session_state["result_sections"].add("machine_learning")
-
+            st.session_state["result_sections"] = set()
             st.rerun()
 
 
@@ -1731,6 +1728,9 @@ if st.session_state["explored_position"] is not None:
             """, unsafe_allow_html=True)
 
             hide_button("interpretation")
+            
+        else:
+            position_info, variants = get_position_summary(explored_position)
             
         section_names = {
             "machine_learning": "Machine Learning Prediction",
