@@ -307,15 +307,16 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-N_PATH = Path(__file__).resolve().parent.parent / "images" / "bcb43178-c776-4fed-b8ee-5b9f36f8bfa7_removalai_preview.png"
-
-left, center, right = st.columns([1, 3, 1])
-
-with center:
-    st.image(
-        str(N_PATH),
-        width="stretch"
-    )
+st.markdown(
+    """
+    <hr style="
+        border: none;
+        border-top: 3px solid #c85a91;
+        margin: 32px 0;
+    ">
+    """,
+    unsafe_allow_html=True
+)
 
 st.markdown(
     """
@@ -390,15 +391,16 @@ if st.session_state["explored_position"] is not None:
     else:
         position_info, variants = get_position_summary(explored_position)
         
-        N_PATH = Path(__file__).resolve().parent.parent / "images" / "bcb43178-c776-4fed-b8ee-5b9f36f8bfa7_removalai_preview.png"
-
-        left, center, right = st.columns([1, 3, 1])
-        
-        with center:
-            st.image(
-                str(N_PATH),
-                width="stretch"
-            )
+        st.markdown(
+            """
+            <hr style="
+                border: none;
+                border-top: 3px solid #c85a91;
+                margin: 32px 0;
+            ">
+            """,
+            unsafe_allow_html=True
+        )
         
         st.markdown(
             "<h3 style='text-align: center;'>Machine Learning Prediction</h3>",
@@ -583,15 +585,16 @@ if st.session_state["explored_position"] is not None:
                 unsafe_allow_html=True
             )
 
-            N_PATH = Path(__file__).resolve().parent.parent / "images" / "bcb43178-c776-4fed-b8ee-5b9f36f8bfa7_removalai_preview.png"
-
-            left, center, right = st.columns([1, 3, 1])
-
-            with center:
-                st.image(
-                    str(N_PATH),
-                    width="stretch"
-                )
+            st.markdown(
+                """
+                <hr style="
+                    border: none;
+                    border-top: 3px solid #c85a91;
+                    margin: 32px 0;
+                ">
+                """,
+                unsafe_allow_html=True
+            )
 
             variants = variants_df[
                 variants_df["Position"] == 1481
@@ -665,14 +668,15 @@ if st.session_state["explored_position"] is not None:
         
         if explored_position != 1481:
             
-            N_PATH = Path(__file__).resolve().parent.parent / "images" / "bcb43178-c776-4fed-b8ee-5b9f36f8bfa7_removalai_preview.png"
-
-            left, center, right = st.columns([1, 3, 1])
-            
-            with center:
-                st.image(
-                    str(N_PATH),
-                    width="stretch"
+            st.markdown(
+                """
+                <hr style="
+                    border: none;
+                    border-top: 3px solid #c85a91;
+                    margin: 32px 0;
+                ">
+                """,
+                unsafe_allow_html=True
             )
 
                 col1, col2, col3 = st.columns(3)
@@ -718,15 +722,16 @@ if st.session_state["explored_position"] is not None:
                 
         if explored_position != 1481:
             
-            N_PATH = Path(__file__).resolve().parent.parent / "images" / "bcb43178-c776-4fed-b8ee-5b9f36f8bfa7_removalai_preview.png"
-    
-            left, center, right = st.columns([1, 3, 1])
-            
-            with center:
-                st.image(
-                    str(N_PATH),
-                    width="stretch"
-                )
+            st.markdown(
+                """
+                <hr style="
+                    border: none;
+                    border-top: 3px solid #c85a91;
+                    margin: 32px 0;
+                ">
+                """,
+                unsafe_allow_html=True
+            )
             
             col1, col2 = st.columns(2)
         
@@ -744,15 +749,16 @@ if st.session_state["explored_position"] is not None:
                     "Macro F1 measures how well the model performs across all consequence classes by calculating the F1 score for each class and giving every class equal weight. This is especially useful for imbalanced datasets like this one, where some consequence types are much rarer than others."
                 )
                 
-            N_PATH = Path(__file__).resolve().parent.parent / "images" / "bcb43178-c776-4fed-b8ee-5b9f36f8bfa7_removalai_preview.png"
-
-            left, center, right = st.columns([1, 3, 1])
-
-            with center:
-                st.image(
-                    str(N_PATH),
-                    width="stretch"
-                )
+            st.markdown(
+                """
+                <hr style="
+                    border: none;
+                    border-top: 3px solid #c85a91;
+                    margin: 32px 0;
+                ">
+                """,
+                unsafe_allow_html=True
+            )
                     
         st.markdown(
             """
@@ -1557,15 +1563,16 @@ if st.session_state["explored_position"] is not None:
             
 if st.session_state.get("explored_position") in valid_positions:
     
-    N_PATH = Path(__file__).resolve().parent.parent / "images" / "bcb43178-c776-4fed-b8ee-5b9f36f8bfa7_removalai_preview.png"
-
-    left, center, right = st.columns([1, 3, 1])
-
-    with center:
-        st.image(
-            str(N_PATH),
-            width="stretch"
-        )
+    st.markdown(
+        """
+        <hr style="
+            border: none;
+            border-top: 3px solid #c85a91;
+            margin: 32px 0;
+        ">
+        """,
+        unsafe_allow_html=True
+    )
     
     st.markdown("""
 <div class="info-bubble">
