@@ -177,11 +177,6 @@ h1, h2, h3 {
 .position-1481-table td:last-child {
     width: 75%;
 }
-
-.stDivider {
-    border-top: 3px solid #c85a91;
-    margin: 28px 0;
-}
 </style>
 """, unsafe_allow_html=True)
 
@@ -285,7 +280,16 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-st.divider()
+st.markdown(
+    """
+    <hr style="
+        border: none;
+        border-top: 3px solid #c85a91;
+        margin: 32px 0;
+    ">
+    """,
+    unsafe_allow_html=True
+)
 
 st.markdown(
     """
