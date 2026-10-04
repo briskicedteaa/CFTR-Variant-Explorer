@@ -557,6 +557,41 @@ if st.session_state["explored_position"] is not None:
                 "<h3 style='text-align: center;'>Machine Learning Prediction</h3>",
                 unsafe_allow_html=True
             )
+            
+            divider()
+
+            st.markdown(
+                """
+                <details class="position-1481-dropdown">
+                    <summary>Why Some Variant Consequences Are Not Predicted (Click For Information)</summary>
+                    <div class="position-1481-content">
+                        <table class="position-1481-table">
+                            <tr>
+                                <th>Consequence</th>
+                                <th>Why It Is Not Predicted</th>
+                            </tr>
+                            <tr>
+                                <td>Stop lost</td>
+                                <td>Only 3 examples were available, which was too few to support reliable model learning.</td>
+                            </tr>
+                            <tr>
+                                <td>Insertion</td>
+                                <td>Only 11 examples were available, making this consequence class too small for reliable learning.</td>
+                            </tr>
+                            <tr>
+                                <td>Initiator codon variant</td>
+                                <td>Only 1 example was available, which was insufficient for reliable model learning.</td>
+                            </tr>
+                            <tr>
+                                <td>Unspecified (<code>-</code>)</td>
+                                <td>13 examples had no specified consequence annotation, so they were excluded from the defined consequence classes used for training.</td>
+                            </tr>
+                        </table>
+                    </div>
+                </details>
+                """,
+                unsafe_allow_html=True
+            )
 
             with st.expander("What Random Forest Is Predicting"):
                 st.write(
@@ -676,41 +711,6 @@ if st.session_state["explored_position"] is not None:
                         f"{model_metrics['macro_f1']:.1%}",
                         "Macro F1 measures how well the model performs across all consequence classes by calculating the F1 score for each class and giving every class equal weight. This is especially useful for imbalanced datasets like this one, where some consequence types are much rarer than others."
                     )
-
-                divider()
-
-                st.markdown(
-                    """
-                    <details class="position-1481-dropdown">
-                        <summary>Why Some Variant Consequences Are Not Predicted (Click For Information)</summary>
-                        <div class="position-1481-content">
-                            <table class="position-1481-table">
-                                <tr>
-                                    <th>Consequence</th>
-                                    <th>Why It Is Not Predicted</th>
-                                </tr>
-                                <tr>
-                                    <td>Stop lost</td>
-                                    <td>Only 3 examples were available, which was too few to support reliable model learning.</td>
-                                </tr>
-                                <tr>
-                                    <td>Insertion</td>
-                                    <td>Only 11 examples were available, making this consequence class too small for reliable learning.</td>
-                                </tr>
-                                <tr>
-                                    <td>Initiator codon variant</td>
-                                    <td>Only 1 example was available, which was insufficient for reliable model learning.</td>
-                                </tr>
-                                <tr>
-                                    <td>Unspecified (<code>-</code>)</td>
-                                    <td>13 examples had no specified consequence annotation, so they were excluded from the defined consequence classes used for training.</td>
-                                </tr>
-                            </table>
-                        </div>
-                    </details>
-                    """,
-                    unsafe_allow_html=True
-                )
 
             hide_button("machine_learning")
     
