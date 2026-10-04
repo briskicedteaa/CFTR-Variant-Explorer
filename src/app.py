@@ -268,7 +268,6 @@ def hide_button(section):
         type="secondary"
     ):
         st.session_state.result_sections.discard(section)
-        st.rerun()
 
 
 GIF_PATH = Path(__file__).resolve().parent.parent / "images" / "8D83949E-9C79-479B-BD57-BA4F6ED95A0A.gif"
