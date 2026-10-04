@@ -1733,9 +1733,6 @@ if st.session_state["explored_position"] is not None:
             if section not in st.session_state.result_sections
         ]
 
-        st.write(st.session_state.result_sections)
-        st.write(available_sections)
-
         if available_sections:
             divider()
 
