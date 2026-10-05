@@ -1331,9 +1331,9 @@ if st.session_state["explored_position"] is not None:
                     )
 
                 st.html(
-                    """
+                    f"""
                     <script>
-                    function navigateToConsequence(consequence) {
+                    function navigateToConsequence(consequence) {{
                         const targetId =
                             "consequence-definition-" +
                             consequence
@@ -1341,105 +1341,49 @@ if st.session_state["explored_position"] is not None:
                                 .replace(/ /g, "-")
                                 .replace(/\//g, "-")
                                 .replace(/[()]/g, "");
-
+                
                         const target = document.getElementById(targetId);
-
-                        if (!target) {
+                
+                        if (!target) {{
                             return;
-                        }
-
+                        }}
+                
                         const details = target.closest("details");
-
-                        if (details && !details.open) {
+                
+                        if (details && !details.open) {{
                             details.open = true;
-                        }
-
-                        setTimeout(() => {
-                            target.scrollIntoView({
+                        }}
+                
+                        setTimeout(() => {{
+                            target.scrollIntoView({{
                                 behavior: "smooth",
                                 block: "center"
-                            });
-
+                            }});
+                
                             target.animate(
                                 [
-                                    { backgroundColor: "rgba(255,196,231,0)" },
-                                    { backgroundColor: "rgba(255,196,231,0.55)" },
-                                    { backgroundColor: "rgba(255,196,231,0)" }
+                                    {{ backgroundColor: "rgba(255,196,231,0)" }},
+                                    {{ backgroundColor: "rgba(255,196,231,0.55)" }},
+                                    {{ backgroundColor: "rgba(255,196,231,0)" }}
                                 ],
-                                {
+                                {{
                                     duration: 1800,
                                     easing: "ease-in-out"
-                                }
+                                }}
                             );
-                        }, 200);
-                    }
-
-                    function bindConsequenceChart() {
-                        const chart = document.querySelector(
-                            '[class*="st-key-consequence_browser_chart"]'
-                        );
-
-                        if (!chart) {
-                            return false;
-                        }
-
-                        const svg = chart.querySelector("svg");
-
-                        if (!svg) {
-                            return false;
-                        }
-
-                        if (svg.dataset.consequenceBound === "true") {
-                            return true;
-                        }
-
-                        svg.dataset.consequenceBound = "true";
-
-                        svg.addEventListener("click", (event) => {
-                            const element = event.target;
-
-                            if (!element) {
-                                return;
-                            }
-
-                            const ariaLabel =
-                                element.getAttribute("aria-label") ||
-                                element.parentElement?.getAttribute("aria-label") ||
-                                element.parentElement?.parentElement?.getAttribute("aria-label");
-
-                            if (!ariaLabel) {
-                                return;
-                            }
-
-                            const match = ariaLabel.match(/Consequence[^:]*:\s*([^,]+)/i);
-
-                            if (!match) {
-                                return;
-                            }
-
-                            navigateToConsequence(match[1].trim());
-                        });
-
-                        return true;
-                    }
-
-                    if (!bindConsequenceChart()) {
-                        const consequenceObserver = new MutationObserver(() => {
-                            if (bindConsequenceChart()) {
-                                consequenceObserver.disconnect();
-                            }
-                        });
-
-                        consequenceObserver.observe(document.body, {
-                            childList: true,
-                            subtree: true
-                        });
-                    }
+                        }}, 200);
+                    }}
+                
+                    const selectedConsequence = {repr(selected_consequence)};
+                
+                    if (selectedConsequence) {{
+                        navigateToConsequence(selectedConsequence);
+                    }}
                     </script>
                     """,
                     unsafe_allow_javascript=True
                 )
-
+            
                 st.markdown(
                     """
                     <div id="consequence-glossary-anchor"></div>
