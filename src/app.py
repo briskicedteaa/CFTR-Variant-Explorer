@@ -1676,6 +1676,8 @@ if st.session_state["explored_position"] is not None:
         
         if explored_position != 1481:
             section_names["model_performance"] = "Model Performance"
+
+        if explored_position != 1481:
             section_names["machine_learning"] = "Machine Learning Prediction"
         
         section_names.update({
