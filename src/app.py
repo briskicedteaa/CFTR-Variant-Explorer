@@ -1673,13 +1673,10 @@ if st.session_state["explored_position"] is not None:
             section_names["model_performance"] = "Model Performance"
         
         section_names["position_metrics"] = "Position Metrics"
-        
-        section_names.update({
-            "domain": "CFTR Domain Conservation",
-            "consequence": "Variant Consequences",
-            "region": "Variant Distribution by Protein Region",
-            "interpretation": "Interpretation"
-        })
+        section_names["domain"] = "CFTR Domain Conservation"
+        section_names["consequence"] = "Variant Consequences"
+        section_names["region"] = "Variant Distribution by Protein Region"
+        section_names["interpretation"] = "Interpretation"
 
         available_sections = [
             section
