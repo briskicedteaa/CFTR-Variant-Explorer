@@ -1670,10 +1670,8 @@ if st.session_state["explored_position"] is not None:
             unsafe_allow_html=True
         )
         
-        section_names = {
-            "machine_learning": "Machine Learning Prediction"
-        }
-        
+        section_names = {}
+
         if explored_position != 1481:
             section_names["machine_learning"] = "Machine Learning Prediction"
             section_names["model_performance"] = "Model Performance"
