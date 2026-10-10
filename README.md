@@ -2,7 +2,7 @@
 
 **Demo Note:** Streamlit Community Cloud automatically puts apps to sleep after 12 hours of inactivity. If the CFTR Variant Explorer has been inactive and is temporarily asleep when you open it, this is normal Streamlit behavior and does not indicate a problem with the application. Simply click “Yes, get this app back up!” when prompted, and the application should load normally after it wakes.
 
-# CFTR Variant Explorer
+# [CFTR Variant Explorer](https://cftr-variant-explorer.streamlit.app)
 
 **UnivaBio Hackathon 2026**
 
