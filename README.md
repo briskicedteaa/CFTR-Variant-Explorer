@@ -1,44 +1,54 @@
-#### **PLEASE READ** 
-**Demo Note: Streamlit Community Cloud automatically puts apps to sleep after 12 hours of inactivity.** If the CFTR Variant Explorer has been inactive and is temporarily asleep when you open it, this is normal Streamlit behavior and does not indicate a problem with the application. Simply **click “Yes, get this app back up!”** when prompted, and the application should load normally after it wakes.
+### **PLEASE READ**
 
+**Demo Note:** Streamlit Community Cloud automatically puts apps to sleep after 12 hours of inactivity. If the CFTR Variant Explorer has been inactive and is temporarily asleep when you open it, this is normal Streamlit behavior and does not indicate a problem with the application. Simply click “Yes, get this app back up!” when prompted, and the application should load normally after it wakes.
 
 # CFTR Variant Explorer
 
-## UnivaBio Hackathon 2026
+**UnivaBio Hackathon 2026**
 
-An interactive bioinformatics tool for exploring genetic variants across the CFTR protein and examining their locations, consequences, evolutionary conservation, protein-region characteristics, and predicted variant consequences using machine learning.
+An interactive bioinformatics tool for exploring genetic variants across the CFTR protein, examining evolutionary conservation and protein regions, and predicting the consequences of eligible amino-acid substitutions using machine learning.
 
-### Project Overview
+# Project Overview
 
-I developed the [CFTR Variant Explorer](https://cftr-variant-explorer.streamlit.app) to investigate where genetic variants occur across the CFTR protein, what types of variants occur at those positions, and what characteristics of the affected protein regions might help explain differences in their potential functional effects.
+I developed the CFTR Variant Explorer to investigate where genetic variants occur across the CFTR protein, what types of variants occur at those positions, and what characteristics of the affected protein regions might help explain differences in their potential functional effects.
 
-The project combines computational bioinformatics analysis with machine learning and an interactive Streamlit application. Users can enter a human CFTR amino-acid position and explore the variants recorded at that position, associated protein characteristics, broader patterns across CFTR, and machine-learning predictions for eligible amino-acid substitutions.
+The project combines computational bioinformatics analysis with machine learning and an interactive Streamlit application. Users can enter a human CFTR amino-acid position and explore its recorded variants, conservation score, and assigned protein domain. They can also examine variant consequences, compare conservation across major CFTR domains, view variant distributions across protein regions, and explore machine-learning predictions for eligible substitutions.
 
-### Research Question
+# Research Question
 
 Where do CFTR variants occur across the protein, what types of variants occur at those positions, and what characteristics of the affected protein regions might help explain their different effects on CFTR function?
 
-### Why CFTR?
+# Why CFTR?
 
 I chose CFTR because it is a well-studied protein with extensive publicly available biological and genetic data. This made it a practical protein for investigating relationships between variant location, variant consequence, evolutionary conservation, and protein-region characteristics.
 
-CFTR is also clinically important because substantial disruption of CFTR function is associated with cystic fibrosis. This provided a meaningful biological context for investigating how variants are distributed throughout the protein and how different characteristics of CFTR regions may relate to variant consequences.
+CFTR is also clinically important because substantial disruption of its function is associated with cystic fibrosis. This provided a meaningful biological context for investigating how variants are distributed throughout the protein and how different characteristics of CFTR regions may relate to variant consequences.
 
-### What the CFTR Variant Explorer Does
+# What the CFTR Variant Explorer Does
 
-Users can enter a human CFTR amino-acid position and explore information associated with that position, including the CFTR protein domain, evolutionary conservation, number of recorded variants, variants recorded at the position, and variant consequences.
+Users can enter a human CFTR amino-acid position and select which analyses they want to explore. The application uses a section chooser rather than displaying every result at once.
 
-The application also provides broader visualizations of conservation and variant distribution across CFTR. These visualizations allow individual positions to be examined within the larger context of the protein.
+The Position Metrics section displays the selected position, its conservation score, and its assigned protein domain. Clicking a metric name reveals its definition. Conservation scores are rounded to two decimal places for display.
 
-For eligible amino-acid substitutions, the application also provides a machine-learning prediction of the likely variant consequence. The prediction section allows users to select a recorded substitution, view the model’s predicted consequence, compare it with the recorded consequence in the dataset, and view the model’s confidence.
+The Machine Learning Prediction section allows users to select an eligible recorded amino-acid substitution and view its predicted consequence, recorded consequence, and model confidence. The prediction applies to the selected substitution rather than every variant at that position. The application also explains why certain consequence categories are not supported by the prediction model.
 
-### Data and Methodology
+The Model Performance section displays the model’s accuracy and macro F1 score. These metrics provide an overview of its performance, although they do not guarantee that an individual prediction is correct.
+
+The CFTR Domain Conservation section compares average conservation across five major CFTR domains and the “Other” category. The Variant Consequences section displays a position-specific consequence chart alongside a table summarizing consequence counts across the dataset. Its glossary provides explanations of the consequence categories. The Variant Distribution by Protein Region section shows how recorded variants are distributed across the N-terminal, Middle, and C-terminal regions used in the analysis.
+
+Finally, the Interpretation section discusses the broader biological context of the analyses, including CFTR function, variant consequences, and why different variants may have different effects.
+
+Some sections are unavailable for position 1481 because it falls outside the standard machine-learning prediction workflow.
+
+# Data and Methodology
 
 I used publicly available CFTR sequence and variant data, including the human CFTR reference sequence (UniProt accession P13569).
 
-The analysis included processing and characterizing recorded CFTR variants, examining variant positions and consequences, collecting CFTR protein sequences from different organisms, filtering the sequences to retain appropriate CFTR homologs, performing multiple sequence alignment using Clustal Omega, calculating evolutionary conservation across alignment positions, mapping alignment positions back to human CFTR amino-acid positions, comparing conservation with variant distribution, assigning human CFTR positions to major protein domains using UniProt annotations, comparing variant consequences and conservation across CFTR domains, engineering sequence- and mutation-level features for machine learning, training a Random Forest classifier to predict variant consequence categories, and incorporating the resulting analyses into the interactive CFTR Variant Explorer.
+The analysis included processing and characterizing recorded CFTR variants, examining variant positions and consequences, collecting CFTR protein sequences from different organisms, filtering the sequences to retain appropriate CFTR homologs, performing multiple sequence alignment using Clustal Omega, calculating evolutionary conservation across alignment positions, and mapping alignment positions back to human CFTR amino-acid positions.
 
-### Evolutionary Analysis
+I also compared conservation with variant distribution, assigned human CFTR positions to major protein domains using UniProt annotations, and developed sequence-based and amino-acid property features for machine learning. The resulting analyses and trained model were incorporated into the interactive Streamlit application.
+
+# Evolutionary Analysis
 
 To investigate evolutionary conservation, I compared CFTR protein sequences from different organisms using multiple sequence alignment.
 
@@ -46,7 +56,7 @@ Conservation scores were calculated from the aligned sequences and mapped back t
 
 This allowed evolutionary information to be incorporated into both the broader conservation analysis and the machine-learning feature set.
 
-### Domain Analysis
+# Domain Analysis
 
 Human CFTR positions were assigned to five major protein regions based on the curated UniProt annotation for CFTR_HUMAN (P13569).
 
@@ -62,7 +72,9 @@ NBD2: residues 1210–1443
 
 Positions outside these annotated regions were classified as “Other.”
 
-### Machine Learning Analysis
+The application compares average conservation across these regions using the conservation values included in the app. These comparisons provide a broader view of conservation across CFTR rather than a conservation calculation specific to the position being explored.
+
+# Machine Learning Analysis
 
 I developed a machine-learning component to predict the likely consequence of eligible CFTR amino-acid substitutions.
 
@@ -70,15 +82,17 @@ The model uses a combination of variant-level, evolutionary, and amino-acid prop
 
 Categorical amino-acid features were converted into numerical indicator variables using one-hot encoding. Missing and non-finite numerical values were handled through preprocessing so that the resulting feature matrix could be used by the classifier.
 
-Variant consequence labels were also prepared for model training. The small number of initiator codon variants and records represented by “-” were grouped into an “Other” category. Stop-loss variants were excluded from the machine-learning training dataset because only a very small number were available, which was insufficient to support reliable model training for that consequence class.
+Variant consequence labels were also prepared for model training. The small number of initiator codon variants and records represented by “-” were grouped into an “Other” category. Stop-loss variants were excluded from the machine-learning training dataset because there were too few examples to support reliable model training for that consequence class. Insertion variants were also excluded from the application’s prediction options because the available examples were insufficient for reliable learning.
 
-A Random Forest classifier was then trained using 300 decision trees with balanced class weighting and a fixed random state for reproducibility.
+A Random Forest classifier was trained using 300 decision trees with balanced class weighting and a fixed random state for reproducibility.
 
-The trained model predicts the consequence category of a selected amino-acid substitution and provides the highest predicted class probability as a confidence value. In the interactive application, the predicted consequence is displayed alongside the recorded consequence so that the prediction can be compared with the observed annotation.
+The application offers predictions for the supported consequence categories: missense, frameshift, stop gained, and in-frame deletion. When a user selects an eligible recorded substitution, the application displays the predicted consequence alongside its recorded consequence and the highest predicted class probability as a confidence value.
 
-The machine-learning component is intended as an exploratory computational analysis. Model predictions and confidence values should not be interpreted as clinical diagnoses or definitive determinations of variant pathogenicity.
+The model’s accuracy and macro F1 score are displayed separately in the Model Performance section. These metrics describe overall model performance and should not be confused with the confidence value for an individual prediction.
 
-### Variant Feature Engineering
+The machine-learning component is intended for exploratory computational analysis. Its predictions and confidence values should not be interpreted as clinical diagnoses or definitive determinations of variant pathogenicity.
+
+# Variant Feature Engineering
 
 Two main groups of features were developed for the machine-learning analysis.
 
@@ -88,25 +102,28 @@ The second group consists of amino-acid property changes between the wild-type a
 
 Together, these features allow the model to consider both the evolutionary context of a position and the biochemical characteristics of the amino-acid substitution.
 
-### Model Prediction
+# Model Prediction
 
 After training, the Random Forest model and its final feature-column structure were saved for use by the Streamlit application.
 
-When a user selects an eligible variant in the Explorer, the application reconstructs the same feature set used during training, applies the same preprocessing structure, and passes the resulting features to the trained model.
+When a user selects an eligible variant in the Explorer, the application reconstructs the corresponding feature set and passes it to the trained model. The application then displays the predicted consequence, the recorded consequence from the dataset, and the model confidence.
 
-The application then displays the predicted consequence, the recorded consequence from the dataset, and the model confidence. This provides an interactive way to examine how the computational model classifies individual substitutions and where its predictions agree or differ from the recorded annotations.
+This provides an interactive way to examine how the computational model classifies individual substitutions and where its predictions agree or differ from the recorded annotations.
 
-### Handling Position 1481
+# Handling Position 1481
 
-The canonical human CFTR protein contains 1,480 amino acids, but the variant dataset includes two recorded variants at position 1481. Both are classified as stop-loss variants, meaning they alter the normal signal that marks the end of the protein-coding sequence.
+The canonical human CFTR protein contains 1,480 amino acids, but the variant dataset includes a recorded variant at position 1481. This variant is classified as a stop-loss variant, which affects the normal signal marking the end of the protein-coding sequence.
 
-Because position 1481 falls outside the canonical 1,480-amino-acid CFTR sequence, it cannot be assigned a standard evolutionary conservation score or mapped to one of the major CFTR protein domains used in this analysis. Rather than estimating or creating information that is not supported by the data, the application handles position 1481 as a special case. It displays the recorded variant information, classifies the position as Other, and reports conservation as N/A.
+Because position 1481 falls outside the canonical 1,480-amino-acid CFTR sequence, it cannot be assigned a standard evolutionary conservation score or mapped to one of the major CFTR protein domains used in this analysis.
 
-### Technology
+Rather than estimating or creating information that is not supported by the data, the application handles this position as a special case. It displays the available recorded variant information, classifies the position as “Other,” and reports conservation as N/A. The Machine Learning Prediction and Model Performance sections are not offered for this position.
+
+# Technology
 
 This project uses Python, Pandas, NumPy, Biopython, scikit-learn, joblib, Matplotlib, Altair, Streamlit, EMBL’s Clustal Omega, Google Colab, and UniProt data.
 
-### Repository Structure
+# Repository Structure
+
 ```text
 CFTR-Variant-Explorer/
 │
@@ -119,31 +136,27 @@ CFTR-Variant-Explorer/
 └── requirements.txt
 ```
 
-### Running the Application
+Running the Application
 
-Clone the repository and install the required dependencies:
+Install the required dependencies:
 
-``` bash
 pip install -r requirements.txt
-```
 
-Then run the Streamlit application:
+Then run the Streamlit application from the directory containing app.py:
 
 streamlit run app.py
 
-### Limitations
+# Limitations
 
 This project is intended for exploratory bioinformatics analysis and does not diagnose disease, predict individual patient outcomes, or determine whether a specific variant is clinically harmful.
 
 The presence, frequency, or consequence category of a variant does not by itself establish its clinical significance. Evolutionary conservation and other characteristics examined in this project describe patterns within the analyzed datasets and should not be interpreted as proof of causation.
 
-The machine-learning model is also limited by the size, composition, and quality of the available variant dataset. Some consequence categories contain relatively few examples and therefore may not provide enough observations for reliable model training. Stop-loss variants were excluded from model training because of their small sample size.
+The machine-learning model is limited by the size, composition, and quality of the available variant dataset. Some consequence categories contain relatively few examples, which limits how reliably they can be modeled. Stop-loss and insertion variants are not offered for prediction because of their limited representation in the training data. The model also does not attempt to predict every possible CFTR variant consequence.
 
-The model is designed for eligible standard amino-acid substitutions and does not attempt to predict every possible CFTR variant consequence. Predictions should therefore be interpreted as computational classifications within the context of the training dataset rather than definitive biological or clinical conclusions.
+The evolutionary analysis depends on the sequences included in the multiple sequence alignment and the methods used to calculate conservation. The domain conservation comparison uses the values included in the application, while the position metrics display conservation associated with the selected position when available.
 
-The evolutionary analysis is dependent on the sequences included in the multiple sequence alignment and the methods used to calculate conservation.
-
-### Sources
+# Sources
 
 **Protein and Domain Information**
 
