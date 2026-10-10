@@ -140,7 +140,9 @@ Running the Application
 
 Install the required dependencies:
 
+``` bash
 pip install -r requirements.txt
+```
 
 Then run the Streamlit application from the directory containing app.py:
 
