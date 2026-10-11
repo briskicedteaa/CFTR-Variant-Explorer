@@ -284,8 +284,15 @@ with center:
 
 divider()
 
+
 st.markdown(
-    "<h3 style='text-align: center;'>Research Question</h3>",
+    """
+    <div class="info-bubble">
+        <p style='text-align: center; font-family: Fredoka, sans-serif; font-size: 1.5rem; font-weight: 500;'>
+            Research Question
+        </p>
+    </div>
+    """,
     unsafe_allow_html=True
 )
 
