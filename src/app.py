@@ -316,12 +316,12 @@ st.markdown(
     """
     <div class="info-bubble">
         <p style='text-align: center; font-family: Fredoka, sans-serif; font-size: 1.2rem; font-weight: 500;'>
-            CFTR variants are genetic changes that can affect the structure, processing, or
-            function of the CFTR protein. Their effects are not always the same, even when
-            variants occur within the same general region or share a similar consequence
-            type. Understanding these differences is important for investigating how
-            changes in the CFTR sequence may relate to protein function and potential
-            clinical significance.
+            <b>CFTR variants are genetic changes that can affect the structure, processing, or</b>
+            <b>function of the CFTR protein. Their effects are not always the same, even when</b>
+            <b>variants occur within the same general region or share a similar consequence</b>
+            <b>type. Understanding these differences is important for investigating how</b>
+            <b>changes in the CFTR sequence may relate to protein function and potential</b>
+            <b>clinical significance.</b>
         </p>
     </div>
     """,
@@ -334,12 +334,12 @@ st.markdown(
     """
     <div class="info-bubble">
         <p style='text-align: center; font-family: Fredoka, sans-serif; font-size: 1.2rem; font-weight: 500;'>
-            The purpose of this project is to investigate patterns across CFTR variants by
-            examining where variants occur in the protein, what types of consequences they
-            have, how variants are distributed across protein regions, and how conserved
-            the affected domains are. The Explorer brings these analyses together in an
-            interactive interface so users can examine individual positions while also
-            viewing broader patterns across the CFTR protein.
+            <b>The purpose of this project is to investigate patterns across CFTR variants by</b>
+            <b>examining where variants occur in the protein, what types of consequences they</b>
+            <b>have, how variants are distributed across protein regions, and how conserved</b>
+            <b>the affected domains are. The Explorer brings these analyses together in an</b>
+            <b>interactive interface so users can examine individual positions while also</b>
+            <b>viewing broader patterns across the CFTR protein.</b>
         </p>
     </div>
     """,
@@ -352,13 +352,13 @@ st.markdown(
     """
     <div class="info-bubble">
         <p style='text-align: center; font-family: Fredoka, sans-serif; font-size: 1.2rem; font-weight: 500;'>
-            The project also uses machine learning to predict the likely consequence of
-            selected amino-acid substitutions. By comparing the model's predictions with
-            recorded variant consequences and displaying its confidence, the Explorer
-            demonstrates how computational methods can be applied to biological variant
-            data. Together, these analyses provide a data-driven approach for exploring
-            relationships between CFTR sequence variation, protein characteristics, and
-            variant consequences.
+            <b>The project also uses machine learning to predict the likely consequence of</b>
+            <b>selected amino-acid substitutions. By comparing the model's predictions with</b>
+            <b>recorded variant consequences and displaying its confidence, the Explorer</b>
+            <b>demonstrates how computational methods can be applied to biological variant</b>
+            <b>data. Together, these analyses provide a data-driven approach for exploring</b>
+            <b>relationships between CFTR sequence variation, protein characteristics, and</b>
+            <b>variant consequences.</b>
         </p>
     </div>
     """,
