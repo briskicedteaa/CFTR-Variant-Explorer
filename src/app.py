@@ -401,15 +401,8 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-
-st.markdown("""
-<style>
-[data-testid="stExpander"] summary p {
-    font-size: 10px !important;
-    text-align: center !important;
-}
-</style>
-""", unsafe_allow_html=True)
+with st.expander("View positions with recorded variants"):
+    st.write(sorted(valid_positions))
 
 if st.button("Explore position"):
     if position_input.strip() == "":
