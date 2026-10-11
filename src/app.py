@@ -298,12 +298,12 @@ st.markdown(
 
 st.markdown(
     "<p style='font-family: Fredoka, sans-serif; font-size: 1.2rem; font-weight: 500;'>"
-    "Where do CFTR variants occur across the protein, "
-    "what types of variants "
-    "occur at those positions, "
-    "and what characteristics of the affected protein "
-    "regions might help explain their different "
-    "effects on CFTR function?"
+    "<b>Where do CFTR variants occur across the protein,</b>"
+    "<b>what types of variants</b>"
+    "<b>occur at those positions,</b>"
+    "<b>and what characteristics of the affected protein</b>"
+    "<b>regions might help explain their different</b>"
+    "<b>effects on CFTR function?</b>"
     "</p>",
     unsafe_allow_html=True
 )
