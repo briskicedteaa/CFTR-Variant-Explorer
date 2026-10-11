@@ -1286,7 +1286,7 @@ if st.session_state["explored_position"] is not None:
             st.markdown(
                 f"""
                 <details class="position-1481-dropdown">
-                    <summary style="font-size: 30px; text-align: center;">
+                    <summary style="font-size: 25px; text-align: center;">
                         Variant Consequence Counts (Click For Summary)
                     </summary>
                     <div class="position-1481-content">
