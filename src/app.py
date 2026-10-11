@@ -1731,12 +1731,3 @@ if st.session_state["explored_position"] is not None:
             )
 
             st.session_state["scroll_to_chooser"] = False
-            
-
-BLAH_PATH = Path(__file__).resolve().parent.parent / "images" / "9B606013-2222-4788-82B1-0E9256D8C7F0.gif"
-
-st.image(
-    str(BLAH_PATH),
-    width="stretch"
-)
-
