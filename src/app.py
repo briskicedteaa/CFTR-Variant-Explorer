@@ -299,7 +299,7 @@ st.markdown(
             <b>and what characteristics of the affected protein</b>
             <b>regions might help explain their different</b>
             <b>effects on CFTR function?</b>
-        </p>,
+        </p>
     </div>
     """,
     unsafe_allow_html=True
