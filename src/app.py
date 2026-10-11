@@ -190,6 +190,12 @@ h1, h2, h3 {
     font-size: 1.25rem;
     font-weight: 500;
 }
+    
+div[data-testid="stAlert"] {
+    background-color: rgba(255, 182, 193, 0.12);
+    border: 1px solid rgba(255, 182, 193, 0.30);
+    color: #FFD6E0;
+}
 </style>
 """, unsafe_allow_html=True)
 
