@@ -272,7 +272,7 @@ def hide_button(section):
     )
 
 
-GIF_PATH = Path(__file__).resolve().parent.parent / "images" / "8D83949E-9C79-479B-BD57-BA4F6ED95A0A.gif"
+GIF_PATH = Path(__file__).resolve().parent.parent / "images" / "0294CE37-9D97-47E5-A14A-82D1E165CE92.gif"
 
 left, center, right = st.columns([1, 3, 1])
 
