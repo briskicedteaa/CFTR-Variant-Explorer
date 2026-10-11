@@ -214,7 +214,7 @@ st.markdown(
 
 st.markdown(
     "<p style='text-align: center; font-family: Fredoka, sans-serif; font-size: 1.2rem; font-weight: 500;'>"
-    "<strong>WARNING:</strong> The Explorer will display results only for "
+    "<strong>DISCLAIMER:</strong> The Explorer will display results only for "
     "amino acid positions with recorded variants in this dataset. "
     "View positions with recorded variants then click “Explore Position” to search."
     "</p>",
@@ -376,11 +376,17 @@ if "scroll_to_chooser" not in st.session_state:
 
 position_input = st.text_input(
     "Enter a CFTR amino-acid position",
-    placeholder="Example: 125"
+    placeholder="Example: 1"
 )
 
 with st.expander("View positions with recorded variants"):
     st.write(sorted(valid_positions))
+    
+st.info(
+    "The Explorer will display results only for"
+    "amino acid positions with recorded variants in this dataset."
+    "View positions with recorded variants then click “Explore Position” to search."
+)
 
 if st.button("Explore position"):
     if position_input.strip() == "":
