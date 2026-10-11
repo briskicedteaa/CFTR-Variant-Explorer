@@ -1223,6 +1223,8 @@ if st.session_state["explored_position"] is not None:
                     f"<td>{count}</td>"
                     "</tr>"
                 )
+                
+            divider()
 
             st.markdown(
                 f"""
@@ -1241,8 +1243,6 @@ if st.session_state["explored_position"] is not None:
                 """,
                 unsafe_allow_html=True
             )
-            
-            divider()
             
             B_PATH = Path(__file__).resolve().parent.parent / "images" / "B07F52FD-0104-4A8D-BD55-7B8E1BA7E386.gif"
 
