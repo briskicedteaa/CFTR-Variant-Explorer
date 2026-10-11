@@ -212,15 +212,19 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-st.markdown(
-    "<p style='text-align: center; font-family: Fredoka, sans-serif; font-size: 1.2rem; font-weight: 500;'>"
-    "<strong>DISCLAIMER:</strong> The Explorer will display results only for "
-    "amino acid positions with recorded variants in this dataset. "
-    "View positions with recorded variants then click “Explore Position” to search."
-    "</p>",
-    unsafe_allow_html=True
-)
+def divider():
+    st.markdown(
+        """
+        <hr style="
+            border: none;
+            border-top: 3px solid #c85a91;
+            margin: 32px 0;
+        ">
+        """,
+        unsafe_allow_html=True
+    )
 
+divider()
 
 def glossary_metric(label, value, definition):
     st.markdown(
@@ -246,20 +250,6 @@ CONSEQUENCE_DEFINITIONS = {
     "initiator codon variant": "A variant that changes the genetic signal that tells the cell where to begin making the CFTR protein. A change to this signal can interfere with the production of the protein.",
     "-": "A dash means that no amino acid is present at that position in the sequence."
 }
-
-
-def divider():
-    st.markdown(
-        """
-        <hr style="
-            border: none;
-            border-top: 3px solid #c85a91;
-            margin: 32px 0;
-        ">
-        """,
-        unsafe_allow_html=True
-    )
-
 
 def hide_section(section):
     st.session_state.result_sections.discard(section)
