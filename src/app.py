@@ -207,7 +207,7 @@ position_df, variants_df = load_data()
 valid_positions = set(variants_df["Position"].dropna().astype(int))
 
 st.markdown(
-    "<h1 style='text-align: center; font-size: 4.5rem;'>"
+    "<h1 style='text-align: center; font-size: 3.5rem;'>"
     "CFTR Variant Explorer"
     "</h1>",
     unsafe_allow_html=True
