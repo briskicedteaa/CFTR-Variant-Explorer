@@ -379,9 +379,17 @@ if "result_sections" not in st.session_state:
 if "scroll_to_chooser" not in st.session_state:
     st.session_state["scroll_to_chooser"] = False
 
+
+
+st.markdown(
+    "<h3 style='text-align: center; font-size: 20px;'>Enter a CFTR amino-acid position</h3>",
+    unsafe_allow_html=True
+)
+
 position_input = st.text_input(
     "Enter a CFTR amino-acid position",
-    placeholder="Example: 1"
+    placeholder="Example: 1",
+    label_visibility="collapsed"
 )
 
 st.markdown(
