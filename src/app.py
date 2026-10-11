@@ -308,7 +308,7 @@ st.markdown(
 divider()
 
 st.markdown(
-    "<h3 style='text-align: center;'>Purpose</h3>",
+    "<h3 style='text-align: center; font-size: 30px;'>Purpose</h3>",
     unsafe_allow_html=True
 )
 
@@ -366,7 +366,7 @@ st.markdown(
 )
 
 st.markdown(
-    "<h3 style='text-align: center;'>Variant Explorer</h3>",
+    "<h3 style='text-align: center; font-size: 30px;'>Variant Explorer</h3>",
     unsafe_allow_html=True
 )
 
