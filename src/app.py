@@ -285,7 +285,7 @@ with center:
 divider()
 
 st.markdown(
-    "<h3 style='text-align: center;'>Research Question</h3>",
+    "<h3 style='text-align: center: 'font-size: 18px;'>Research Question</h3>",
     unsafe_allow_html=True
 )
 
