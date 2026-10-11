@@ -288,8 +288,8 @@ divider()
 st.markdown(
     """
     <div class="info-bubble">
-        <p style='text-align: center; font-family: Fredoka, sans-serif; font-size: 1.5rem; font-weight: 500;'>
-            Research Question
+        <p style='text-align: center; font-family: Fredoka, sans-serif; font-size: 2rem; font-weight: 500;'>
+            <b>Research Question</b>
         </p>
     </div>
     """,
