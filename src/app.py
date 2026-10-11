@@ -207,14 +207,14 @@ position_df, variants_df = load_data()
 valid_positions = set(variants_df["Position"].dropna().astype(int))
 
 st.markdown(
-    "<h1 style='text-align: center; font-size: 5rem;'>"
+    "<h1 style='text-align: center; font-size: 4.5rem;'>"
     "CFTR Variant Explorer"
     "</h1>",
     unsafe_allow_html=True
 )
 
 st.markdown(
-    "<p style='text-align: center; font-family: Fredoka, sans-serif; font-size: 1.2rem; font-weight: 500;'>"
+    "<p style='text-align: center; font-family: Fredoka, sans-serif; font-size: 2rem; font-weight: 500;'>"
     "Explore CFTR variant locations, consequences, conservation, "
     "and protein-region characteristics."
     "</p>",
