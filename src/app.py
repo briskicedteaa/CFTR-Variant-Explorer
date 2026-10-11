@@ -191,10 +191,15 @@ h1, h2, h3 {
     font-weight: 500;
 }
     
-div[data-testid="stAlert"] {
-    background-color: rgba(255, 182, 193, 0.12);
-    border: 1px solid rgba(255, 182, 193, 0.30);
-    color: #FFD6E0;
+div[data-testid="stAlert"],
+div[data-testid="stAlert"] > div {
+    background-color: rgba(255, 182, 193, 0.18) !important;
+    background-image: none !important;
+    border-color: rgba(255, 182, 193, 0.35) !important;
+}
+
+div[data-testid="stAlert"] p {
+    color: #FFD6E0 !important;
 }
 </style>
 """, unsafe_allow_html=True)
