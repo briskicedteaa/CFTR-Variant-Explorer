@@ -191,15 +191,18 @@ h1, h2, h3 {
     font-weight: 500;
 }
     
-div[data-testid="stAlert"],
-div[data-testid="stAlert"] > div {
-    background-color: rgba(255, 182, 193, 0.18) !important;
-    background-image: none !important;
-    border-color: rgba(255, 182, 193, 0.35) !important;
+div[data-testid="stAlert"][data-baseweb="notification"]:has(svg) {
+    background-color: rgba(244, 166, 193, 0.15) !important;
+    border-color: rgba(244, 166, 193, 0.35) !important;
 }
 
-div[data-testid="stAlert"] p {
-    color: #e368ae !important;
+div[data-testid="stAlert"]:has(svg[data-testid="stAlertIcon"]) {
+    background-color: unset;
+}
+
+div[data-testid="stAlert"]:not(:has(svg[data-testid="stAlertIcon"])) {
+    background-color: rgba(244, 166, 193, 0.15) !important;
+    border-color: rgba(244, 166, 193, 0.35) !important;
 }
 </style>
 """, unsafe_allow_html=True)
