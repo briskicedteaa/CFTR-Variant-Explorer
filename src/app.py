@@ -199,7 +199,7 @@ div[data-testid="stAlert"] > div {
 }
 
 div[data-testid="stAlert"] p {
-    color: #FFD6E0 !important;
+    color: #ffb3de !important;
 }
 </style>
 """, unsafe_allow_html=True)
