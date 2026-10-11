@@ -284,27 +284,24 @@ with center:
 
 divider()
 
-
 st.markdown(
-    """
-    <div class="info-bubble">
-        <p style='text-align: center; font-family: Fredoka, sans-serif; font-size: 2rem; font-weight: 500;'>
-            <b>Research Question</b>
-        </p>
-    </div>
-    """,
+    "<h3 style='text-align: center;'>Research Question</h3>",
     unsafe_allow_html=True
 )
 
 st.markdown(
-    "<p style='font-family: Fredoka, sans-serif; font-size: 1.2rem; font-weight: 500;'>"
-    "<b>Where do CFTR variants occur across the protein,</b>"
-    "<b>what types of variants</b>"
-    "<b>occur at those positions,</b>"
-    "<b>and what characteristics of the affected protein</b>"
-    "<b>regions might help explain their different</b>"
-    "<b>effects on CFTR function?</b>"
-    "</p>",
+    """
+    <div class="info-bubble">
+        <p style='text-align: center; font-family: Fredoka, sans-serif; font-size: 1.2rem; font-weight: 500;'>
+            "<b>Where do CFTR variants occur across the protein,</b>"
+            "<b>what types of variants</b>"
+            "<b>occur at those positions,</b>"
+            "<b>and what characteristics of the affected protein</b>"
+            "<b>regions might help explain their different</b>"
+            "<b>effects on CFTR function?</b>"
+        "</p>",
+    </div>
+    """,
     unsafe_allow_html=True
 )
 
