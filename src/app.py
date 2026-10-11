@@ -379,12 +379,12 @@ position_input = st.text_input(
     placeholder="Example: 1"
 )
 
-with st.expander("View positions with recorded variants"):
-    st.write(sorted(valid_positions))
-    
 st.info(
     "The Explorer will display results only for amino acid positions with recorded variants in this dataset. View positions with recorded variants then click “Explore Position” to search."
 )
+
+with st.expander("View positions with recorded variants"):
+    st.write(sorted(valid_positions))
 
 if st.button("Explore position"):
     if position_input.strip() == "":
