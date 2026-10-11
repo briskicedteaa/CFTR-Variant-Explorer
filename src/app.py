@@ -1258,23 +1258,6 @@ if st.session_state["explored_position"] is not None:
                 
             divider()
 
-            st.markdown(
-                f"""
-                <details class="position-1481-dropdown">
-                    <summary>Variant Consequence Counts (Click For Summary)</summary>
-                    <div class="position-1481-content">
-                        <table class="position-1481-table">
-                            <tr>
-                                <th>Consequence</th>
-                                <th>Count</th>
-                            </tr>
-                            {rows}
-                        </table>
-                    </div>
-                </details>
-                """,
-                unsafe_allow_html=True
-            )
             
             B_PATH = Path(__file__).resolve().parent.parent / "images" / "B07F52FD-0104-4A8D-BD55-7B8E1BA7E386.gif"
 
@@ -1296,6 +1279,26 @@ if st.session_state["explored_position"] is not None:
                         </div>
                     </details>
                 </h3>
+                """,
+                unsafe_allow_html=True
+            )
+            
+            st.markdown(
+                f"""
+                <details class="position-1481-dropdown">
+                    <summary style="font-size: 20px; text-align: center;">
+                        Variant Consequence Counts (Click For Summary)
+                    </summary>
+                    <div class="position-1481-content">
+                        <table class="position-1481-table">
+                            <tr>
+                                <th>Consequence</th>
+                                <th>Count</th>
+                            </tr>
+                            {rows}
+                        </table>
+                    </div>
+                </details>
                 """,
                 unsafe_allow_html=True
             )
