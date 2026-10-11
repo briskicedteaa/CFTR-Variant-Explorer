@@ -700,7 +700,7 @@ if st.session_state["explored_position"] is not None:
             
             B_PATH = Path(__file__).resolve().parent.parent / "images" / "B07F52FD-0104-4A8D-BD55-7B8E1BA7E386.gif"
 
-            left, center, right = st.columns([1, 4, 1])
+            left, center, right = st.columns([1, 3, 1])
 
             with center:
                 st.image(
@@ -979,7 +979,7 @@ if st.session_state["explored_position"] is not None:
 
             B_PATH = Path(__file__).resolve().parent.parent / "images" / "B07F52FD-0104-4A8D-BD55-7B8E1BA7E386.gif"
 
-            left, center, right = st.columns([1, 4, 1])
+            left, center, right = st.columns([1, 3, 1])
 
             with center:
                 st.image(
@@ -1261,7 +1261,7 @@ if st.session_state["explored_position"] is not None:
             
             B_PATH = Path(__file__).resolve().parent.parent / "images" / "B07F52FD-0104-4A8D-BD55-7B8E1BA7E386.gif"
 
-            left, center, right = st.columns([1, 4, 1])
+            left, center, right = st.columns([1, 3, 1])
 
             with center:
                 st.image(
