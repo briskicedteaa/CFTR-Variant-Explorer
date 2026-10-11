@@ -411,11 +411,6 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-
-with st.expander("View positions with recorded variants"):
-    st.write(sorted(valid_positions))
-
-
 if st.button("Explore position"):
     if position_input.strip() == "":
         st.session_state["explored_position"] = None
