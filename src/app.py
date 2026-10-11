@@ -190,19 +190,14 @@ h1, h2, h3 {
     font-size: 1.25rem;
     font-weight: 500;
 }
-    
-div[data-testid="stAlert"][data-baseweb="notification"]:has(svg) {
-    background-color: rgba(244, 166, 193, 0.15) !important;
-    border-color: rgba(244, 166, 193, 0.35) !important;
-}
 
-div[data-testid="stAlert"]:has(svg[data-testid="stAlertIcon"]) {
-    background-color: unset;
-}
-
-div[data-testid="stAlert"]:not(:has(svg[data-testid="stAlertIcon"])) {
-    background-color: rgba(244, 166, 193, 0.15) !important;
-    border-color: rgba(244, 166, 193, 0.35) !important;
+.streamlit-info-pink {
+    background-color: rgba(255, 182, 193, 0.18);
+    border: 1px solid rgba(255, 182, 193, 0.5);
+    border-radius: 0.5rem;
+    padding: 0.75rem 1rem;
+    color: #e368ae;
+    margin-bottom: 1rem;
 }
 </style>
 """, unsafe_allow_html=True)
@@ -385,8 +380,13 @@ position_input = st.text_input(
     placeholder="Example: 1"
 )
 
-st.info(
-    "The Explorer will display results only for amino acid positions with recorded variants in this dataset. View positions with recorded variants then click “Explore Position” to search."
+st.markdown(
+    """
+    <div class="streamlit-info-pink">
+        The Explorer will display results only for amino acid positions with recorded variants in this dataset. View positions with recorded variants then click “Explore Position” to search.
+    </div>
+    """,
+    unsafe_allow_html=True
 )
 
 with st.expander("View positions with recorded variants"):
@@ -632,13 +632,23 @@ if st.session_state["explored_position"] is not None:
                         )
 
                 else:
-                    st.info(
-                        "Select a variant above to view the model prediction."
+                    st.markdown(
+                        """
+                        <div class="streamlit-info-pink">
+                            Select a variant above to view the model prediction.
+                        </div>
+                        """,
+                        unsafe_allow_html=True
                     )
 
             else:
-                st.info(
-                    "No variants at this position are eligible for the machine-learning prediction."
+                st.markdown(
+                    """
+                    <div class="streamlit-info-pink">
+                        No variants at this position are eligible for the machine-learning prediction.
+                    </div>
+                    """,
+                    unsafe_allow_html=True
                 )
 
             hide_button("machine_learning")
